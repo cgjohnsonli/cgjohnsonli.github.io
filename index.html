@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cgjohnsonli.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cgjohnsonli.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="浅译万象">
@@ -60,6 +60,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -81,6 +84,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
 
 
 
@@ -108,6 +115,8 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CeLi"
+      src="/images/icons/avator.png">
   <p class="site-author-name" itemprop="name">CeLi</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -115,9 +124,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
@@ -145,7 +158,7 @@
     <link itemprop="mainEntityOfPage" href="https://cgjohnsonli.github.io/2023/09/14/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/icons/avator.png">
       <meta itemprop="name" content="CeLi">
     </span>
 
@@ -160,7 +173,10 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/09/14/hello-world/" class="post-title-link" itemprop="url">欢迎来到浅译万象</a>
+          
+              <span class="post-sticky-flag" title="置顶">
+                <i class="fa fa-thumbtack"></i>
+              </span><a href="/2023/09/14/hello-world/" class="post-title-link" itemprop="url">欢迎来到浅译万象</a>
         </h2>
 
         <div class="post-meta-container">
@@ -170,9 +186,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2023-09-14 12:15:35 / 修改时间：14:28:38" itemprop="dateCreated datePublished" datetime="2023-09-14T12:15:35+08:00">2023-09-14</time>
+      <time title="创建时间：2023-09-14 12:15:35" itemprop="dateCreated datePublished" datetime="2023-09-14T12:15:35+08:00">2023-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-19 16:14:59" itemprop="dateModified" datetime="2023-09-19T16:14:59+08:00">2023-09-19</time>
     </span>
 
   
@@ -185,15 +207,95 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>浅译万象品牌成立于2017年，汇聚了海内外诸多知名艺术家、学者、程序员，希望以现代技术发掘、转译文明中所蕴含的文化精神，以多样化的形式使之得到更广泛地传播并创造价值。</p>
-<h2 id="愿景"><a href="#愿景" class="headerlink" title="愿景"></a>愿景</h2><h3 id="用科技演绎文化"><a href="#用科技演绎文化" class="headerlink" title="用科技演绎文化"></a>用科技演绎文化</h3><p>浅译万象的愿景是成为连接世界各地人们的文化桥梁，通过科技的奇迹，将人类文明的万般精彩传递给每一个人。我们希望成为文化创新的引领者，探索无限可能性。我们梦想着一个世界，其中每个人都能够欣赏、理解并参与到文明的传承中，不论他们是何种族，身处何地。</p>
-<h2 id="万象"><a href="#万象" class="headerlink" title="万象"></a>万象</h2><h3 id="译自然"><a href="#译自然" class="headerlink" title="译自然"></a>译自然</h3><p>我们通过深入研究自然界的形态和结构，将这些自然之美转译到建筑、室内设计和艺术装置中。我们将自然的灵感与设计的创新相结合，创造出独特而和谐的环境和艺术品，让人们在其中感受到大自然的奇妙之美。</p>
-<h3 id="译文明"><a href="#译文明" class="headerlink" title="译文明"></a>译文明</h3><p>我们试图将历史上的文化宝藏融入现代生活的艺术。我们运用人工智能、代码生成等现代技术，将传统中国文化的精髓注入到现代化的设计领域。从传统纹样到经典食谱，我们以创新的方式展现古老文明的魅力，使传统文化焕发出新的生命力。</p>
-<h3 id="译未来"><a href="#译未来" class="headerlink" title="译未来"></a>译未来</h3><p>我们通过深度的历史研究和技术分析，展望人类未来的文明发展和可能的生活方式。我们探索历史的足迹，同时利用最新的科学和技术，预测未来的趋势和可能性。通过这一过程，我们帮助社会更好地准备迎接未来的挑战和机遇，探索新的可能性。</p>
-<h2 id="团队"><a href="#团队" class="headerlink" title="团队"></a>团队</h2><p>浅译万象中的团队并无传统意义上的分工，均称“译者”</p>
-<h3 id="李策"><a href="#李策" class="headerlink" title="李策"></a>李策</h3><p>东南大学建筑学学士，宾夕法尼亚大学建筑学硕士，基于时间的交互式媒体证书，毕业后在海外曾任宾夕法尼亚大学设计学院兼职讲师，balmond事务所特聘研究员，曾受邀参加清华大学、天津大学、合肥工业大学、宾夕法尼亚大学设计课程评图嘉宾，回国后曾任一造科技研发工程师，科大讯飞建筑科技事业部业务部总经理，武汉大学兼职讲师，独立数字设计师。参与项目包括四川安仁水西东会议中心超大规模3D打印装饰墙，东京星巴克烘焙工坊总店teavana3D打印吧台，南京园博园2号口胶合木吊顶数字建造等，合作艺术作品《数字传统》获2019-2020全球AI文创大赛（中国区）决赛创意组第三名，指导作品《借物》参展2021首届4C建筑与设计创意展。亦有交互与数字建造领域论文收录于CAADRIA 2021， CAADRIA 2022.</p>
-<h3 id="郭喆"><a href="#郭喆" class="headerlink" title="郭喆"></a>郭喆</h3><p>郭喆，天津大学资源与环境工程博士候选人、同济大学建筑学硕士、合肥工业大学建筑与艺术学院建筑系助理实验师、数字建构实验室CAAL负责人。Architectural digitalFUTURES国际数字设计学术平台组委会委员，负责CAAL实验室研究方向包括基于交互的数字化复杂生形、行为性能化空间设计、基于风格化的形式生成等研究，发表国内外数字设计方向论文30余篇，参与多项智能建造领域的研发项目课题，主持设计作品多次在国内外展出。</p>
+          <p>浅译万象品牌成立于2017年，汇聚了海内外诸多知名艺术家、学者、程序员，希望以现代技术发掘、转译文明中所蕴含的文化精神，以多样化的形式使之得到更广泛地传播并创造价值。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/09/14/hello-world/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cgjohnsonli.github.io/2023/09/19/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icons/avator.png">
+      <meta itemprop="name" content="CeLi">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="浅译万象">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 浅译万象">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+              <span class="post-sticky-flag" title="置顶">
+                <i class="fa fa-thumbtack"></i>
+              </span><a href="/2023/09/19/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">团队介绍</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-09-19 13:20:48 / 修改时间：16:10:57" itemprop="dateCreated datePublished" datetime="2023-09-19T13:20:48+08:00">2023-09-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>浅译万象中的团队并无传统意义上的分工，均称“译者”</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/09/19/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -226,19 +328,13 @@
     </span>
     <span class="author" itemprop="copyrightHolder">CeLi</span>
   </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
@@ -251,7 +347,7 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
 
