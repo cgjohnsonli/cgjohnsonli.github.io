@@ -1,366 +1,198 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cgjohnsonli.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"width":300},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-
-    <meta property="og:type" content="website">
-<meta property="og:title" content="浅译万象">
-<meta property="og:url" content="https://cgjohnsonli.github.io/index.html">
-<meta property="og:site_name" content="浅译万象">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="CeLi">
-<meta property="article:tag" content="算法,自然">
-<meta name="twitter:card" content="summary">
-
-
-<link rel="canonical" href="https://cgjohnsonli.github.io/">
-
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>浅译万象</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《创意设计》AI辅助设计-教学参考资料</title>
+    <style>
+        :root {
+            --primary-color: #82318E; /* 清华紫 */
+            --secondary-color: #B399B4;
+            --accent-color: #5E0F6A;
+            --bg-color: #F9F4FA;
+            --text-color: #333333;
+        }
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .subtitle {
+            font-size: 1.4rem;
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+        .notice {
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        .introduction {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .content-outline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .outline-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.8rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .outline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        .outline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .outline-item h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">浅译万象</h1>
-      <i class="logo-line"></i>
-    </a>
-      <p class="site-subtitle" itemprop="description">以科技演绎文化</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
-  </ul>
-</nav>
-
-
-
-
-</header>
-        
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
+<body>
+    <header>
+        <div class="container">
+            <h1>《创意设计》AI辅助设计</h1>
+            <p class="subtitle">教学参考资料</p>
         </div>
-        <!--/noindex-->
+    </header>
 
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="CeLi"
-      src="/images/icons/avator.png">
-  <p class="site-author-name" itemprop="name">CeLi</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">2</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">标签</span>
-      </div>
-  </nav>
-</div>
-
-        </div>
-      </div>
+    <div class="notice">
+        <strong>注意：</strong> 本网站所有内容仅限于《创意课程》内部使用
     </div>
 
-    
-  </aside>
+    <main class="container">
+        <section class="introduction">
+            <h2>引言</h2>
+            <p>AI技术正在revolutionize创意设计领域，为设计师们提供了前所未有的工具和可能性。本课程旨在帮助学生深入理解AI辅助设计的核心概念，掌握主流工具的使用方法，并培养在AI时代进行创新设计的能力。</p>
+            <ul>
+                <li>理解AI在创意设计中的角色和潜力</li>
+                <li>掌握主流AI设计工具的使用方法</li>
+                <li>学会整合AI工具到设计工作流程中</li>
+                <li>培养负责任和有效地使用AI的意识</li>
+            </ul>
+        </section>
 
-
-    </div>
-
-    <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cgjohnsonli.github.io/2023/09/14/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/icons/avator.png">
-      <meta itemprop="name" content="CeLi">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="浅译万象">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 浅译万象">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-              <span class="post-sticky-flag" title="置顶">
-                <i class="fa fa-thumbtack"></i>
-              </span><a href="/2023/09/14/hello-world/" class="post-title-link" itemprop="url">欢迎来到浅译万象</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-09-14 12:15:35" itemprop="dateCreated datePublished" datetime="2023-09-14T12:15:35+08:00">2023-09-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-19 16:21:59" itemprop="dateModified" datetime="2023-09-19T16:21:59+08:00">2023-09-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>浅译万象品牌成立于2017年，汇聚了海内外诸多知名艺术家、学者、程序员，希望以现代技术发掘、转译文明中所蕴含的文化精神，以多样化的形式使之得到更广泛地传播并创造价值。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/09/14/hello-world/">
-                阅读全文 &raquo;
-              </a>
+        <div class="content-outline">
+            <div class="outline-item">
+                <h2>1. AI辅助设计概述</h2>
+                <ul>
+                    <li>定义与核心概念</li>
+                    <li>行业变革与未来趋势</li>
+                    <li>优势与挑战</li>
+                    <li>对设计师角色的影响</li>
+                </ul>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cgjohnsonli.github.io/2023/09/19/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/icons/avator.png">
-      <meta itemprop="name" content="CeLi">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="浅译万象">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 浅译万象">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-              <span class="post-sticky-flag" title="置顶">
-                <i class="fa fa-thumbtack"></i>
-              </span><a href="/2023/09/19/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">团队介绍</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2023-09-19 13:20:48 / 修改时间：16:10:57" itemprop="dateCreated datePublished" datetime="2023-09-19T13:20:48+08:00">2023-09-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>浅译万象中的团队并无传统意义上的分工，均称“译者”</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/09/19/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/">
-                阅读全文 &raquo;
-              </a>
+            <div class="outline-item">
+                <h2>2. AI辅助设计工作流</h2>
+                <ul>
+                    <li>案例展示：《琉璃忆》展览设计</li>
+                    <li>整合策略与流程设计</li>
+                    <li>人机协作最佳实践</li>
+                    <li>效率提升技巧</li>
+                </ul>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
+            <div class="outline-item">
+                <h2>3. 文本生成工具</h2>
+                <ul>
+                    <li>案例展示：展览叙事设计</li>
+                    <li>GPT系列工具介绍</li>
+                    <li>Prompt工程技巧</li>
+                    <li>文案优化与编辑</li>
+                </ul>
+            </div>
+            <div class="outline-item">
+                <h2>4. 图像生成工具</h2>
+                <ul>
+                    <li>案例展示：展览视觉设计</li>
+                    <li>Midjourney深度解析</li>
+                    <li>DALL-E与Stable Diffusion比较</li>
+                    <li>图像优化与后期处理</li>
+                </ul>
+            </div>
+            <div class="outline-item">
+                <h2>5. 音视频生成工具</h2>
+                <ul>
+                    <li>案例展示：展览多媒体内容</li>
+                    <li>AI音频创作与编辑(Suno)</li>
+                    <li>AI音效设计与处理</li>
+                    <li>AI视频生成技术(Runway)</li>
+                    <li>AI视频编辑与特效</li>
+                </ul>
+            </div>
+            <div class="outline-item">
+                <h2>6. 其他参考资源</h2>
+                <ul>
+                    <li>AI创作的伦理考量</li>
+                    <li>版权与原创性讨论</li>
+                    <li>学习资源推荐</li>
+                    <li>社区与工具推荐</li>
+                </ul>
+            </div>
+        </div>
+    </main>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+    <footer>
+        <div class="container">
+            <p>© 2024 《创意设计》课程组. 保留所有权利。</p>
+        </div>
     </footer>
-  </article>
-</div>
-
-
-
-
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2023</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">CeLi</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
-
-    </div>
-  </footer>
-
-  
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
 </body>
 </html>
