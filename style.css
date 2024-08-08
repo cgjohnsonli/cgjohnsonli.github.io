@@ -5,6 +5,7 @@
     --bg-color: #F9F4FA;
     --text-color: #333333;
 }
+
 body {
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
@@ -13,11 +14,13 @@ body {
     margin: 0;
     padding: 0;
 }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
+
 header {
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     color: white;
@@ -26,17 +29,20 @@ header {
     margin-bottom: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 h1 {
     margin: 0;
     font-size: 2.8rem;
     letter-spacing: 2px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 .subtitle {
     font-size: 1.4rem;
     margin-top: 0.5rem;
     font-weight: 300;
 }
+
 .notice {
     background-color: var(--accent-color);
     color: white;
@@ -45,6 +51,7 @@ h1 {
     margin-bottom: 2rem;
     font-style: italic;
 }
+
 .introduction, .content-section {
     background-color: white;
     border-radius: 10px;
@@ -52,11 +59,13 @@ h1 {
     margin-bottom: 2rem;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
+
 .content-outline {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
+
 .outline-item {
     background-color: white;
     border-radius: 10px;
@@ -66,6 +75,7 @@ h1 {
     position: relative;
     overflow: hidden;
 }
+
 .outline-item::before {
     content: '';
     position: absolute;
@@ -75,15 +85,18 @@ h1 {
     height: 4px;
     background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
 }
+
 .outline-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
+
 .outline-item h2 {
     color: var(--primary-color);
     margin-top: 0;
     font-size: 1.6rem;
 }
+
 footer {
     background-color: var(--primary-color);
     color: white;
@@ -91,16 +104,69 @@ footer {
     padding: 1.5rem 0;
     margin-top: 3rem;
 }
+
 ul {
     padding-left: 20px;
 }
+
 li {
     margin-bottom: 8px;
 }
+
 a {
     color: var(--primary-color);
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: underline;
+}
+
+/* 新增样式 */
+h3 {
+    color: var(--primary-color);
+    margin-top: 2rem;
+}
+
+h4 {
+    color: var(--accent-color);
+    margin-top: 1.5rem;
+}
+
+.example, .case-study {
+    background-color: var(--bg-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.prompt {
+    background-color: white;
+    border-left: 4px solid var(--primary-color);
+    padding: 10px;
+    margin-top: 10px;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--secondary-color);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+}
+
+ol {
+    padding-left: 20px;
 }
