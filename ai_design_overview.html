@@ -17,7 +17,9 @@
     </header>
 
     <main class="container">
-        <div style="display: flex;">
+        <div style="display: flex;">    
+            <!-- 侧边栏切换按钮 -->
+            <button id="toggle-sidebar" class="toggle-button">☰ 目录</button>
             <!-- 侧边栏 -->
             <aside class="sidebar">
                 <h3>目录</h3>
@@ -372,6 +374,15 @@
             <p><a href="index.html">返回首页</a></p>
         </div>
     </footer>
+
+    <script>
+        const toggleButton = document.getElementById('toggle-sidebar');
+        const sidebar = document.querySelector('.sidebar');
+
+        toggleButton.addEventListener('click', function() {
+            sidebar.classList.toggle('sidebar-hidden');
+        });
+    </script>
 </body>
 
 </html>

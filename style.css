@@ -173,7 +173,7 @@ ol {
 
 /* 侧边栏样式 */
 .sidebar {
-    width: 1000px;
+    width: 320px; /* 可根据需要调整 */
     position: sticky;
     top: 20px;
     align-self: flex-start;
@@ -183,38 +183,22 @@ ol {
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     margin-right: 20px;
+    transition: transform 0.3s ease; /* 动画效果 */
 }
 
-.sidebar h3 {
-    margin-top: 0;
-    color: var(--primary-color);
+.sidebar-hidden {
+    transform: translateX(-100%); /* 隐藏侧边栏 */
 }
 
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar li {
-    margin-bottom: 10px;
-}
-
-.sidebar a {
-    text-decoration: none;
-    color: var(--text-color);
-}
-
-.sidebar a:hover {
-    color: var(--accent-color);
-}
-
-.sidebar ul ul {
-    padding-left: 15px;
-    margin-top: 5px;
-}
-
-.sidebar ul ul li {
-    margin-bottom: 5px;
+.toggle-button {
+    display: none; /* 默认隐藏按钮 */
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 
 /* 网格布局样式 */
@@ -246,4 +230,49 @@ ol {
 .grid > div:hover, .gridsmall > div:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 网格项目标题样式 */
+.grid h5, .gridsmall h5, 
+.grid strong, .gridsmall strong {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+/* 网格项目图片样式 */
+.grid img, .gridsmall img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* 网格项目段落样式 */
+.grid p, .gridsmall p {
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .grid, .gridsmall {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+        transform: translateX(-100%); /* 初始隐藏侧边栏 */
+    }
+
+    .toggle-button {
+        display: block; /* 在移动设备上显示按钮 */
+    }
+
+    main.container {
+        flex-direction: column;
+    }
 }
