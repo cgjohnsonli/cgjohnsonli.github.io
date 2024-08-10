@@ -171,34 +171,54 @@ ol {
     padding-left: 20px;
 }
 
+/* 内容包裹样式 */
+.content-wrapper {
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
 /* 侧边栏样式 */
 .sidebar {
-    width: 600px; /* 可根据需要调整 */
-    position: sticky;
+    width: 100%; /* 桌面端侧边栏宽度 */
+    position: sticky; /* 保持侧边栏在视口顶部固定 */
     top: 20px;
-    align-self: flex-start;
     background-color: white;
     padding: 20px;
     border-left: 1px solid var(--secondary-color);
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    margin-right: 20px;
-    transition: transform 0.3s ease; /* 动画效果 */
+    margin-right: 20px; /* 添加右侧边距，避免正文靠得太近 */
+    height: calc(100vh - 40px); /* 保持侧边栏在页面中可见 */
+    overflow-y: auto; /* 当内容超过侧边栏高度时启用滚动 */
 }
 
-.sidebar-hidden {
-    transform: translateX(-100%); /* 隐藏侧边栏 */
+.main-content {
+    flex-grow: 1; /* 占据剩余空间 */
+    padding: 20px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
 }
 
 .toggle-button {
-    display: none; /* 默认隐藏按钮 */
+    display: none;
     background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
-    margin-bottom: 20px;
     border-radius: 5px;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
 }
 
 /* 网格布局样式 */
@@ -262,17 +282,24 @@ ol {
     }
 
     .sidebar {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 20px;
-        transform: translateX(-100%); /* 初始隐藏侧边栏 */
+        width: 80%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transform: translateX(-100%);
+        background-color: rgba(255, 255, 255, 0.9); /* 背景透明 */
+    }
+
+    .sidebar.sidebar-visible {
+        transform: translateX(0);
     }
 
     .toggle-button {
-        display: block; /* 在移动设备上显示按钮 */
+        display: block;
     }
 
-    main.container {
-        flex-direction: column;
+    .toggle-button.sidebar-open {
+        left: calc(80% - 20px); /* 当侧边栏可见时，按钮显示在侧边栏右侧 */
     }
 }

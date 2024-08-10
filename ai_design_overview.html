@@ -16,24 +16,16 @@
         </div>
     </header>
 
-    <main class="container">
-        <div style="display: flex;">    
-            <!-- 侧边栏切换按钮 -->
-            <button id="toggle-sidebar" class="toggle-button">☰ 目录</button>
-            <!-- 侧边栏 -->
+    <main class="container content-wrapper">
+
+        <!-- 侧边栏切换按钮 -->
+        <button id="toggle-sidebar" class="toggle-button">☰ 目录</button>
+        <!-- 侧边栏 -->
             <aside class="sidebar">
                 <h3>目录</h3>
                 <ul>
                     <li><a href="#introduction">1. 引言</a></li>
-                    <li><a href="#definition">2. AI辅助设计的定义与核心概念</a>
-                        <ul>
-                            <li><a href="#deep-learning">2.1 深度学习</a></li>
-                            <li><a href="#nlp">2.2 自然语言处理（NLP）</a></li>
-                            <li><a href="#generative-ai">2.3 生成式AI</a></li>
-                            <li><a href="#computer-vision">2.4 计算机视觉</a></li>
-                            <li><a href="#human-ai-collaboration">2.5 人机协作</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#definition">2. AI辅助设计的定义与核心概念</a></li>
                     <li><a href="#trends">3. 行业变革与发展趋势</a></li>
                     <li><a href="#aigc-advancements">4. AIGC技术的最新进展</a></li>
                     <li><a href="#advantages-challenges">5. 优势与挑战</a></li>
@@ -42,7 +34,7 @@
                     <li><a href="#conclusion">8. 结论</a></li>
                 </ul>
             </aside>
-            <div style="flex-grow: 1; padding-left: 20px;">
+            <div class="main-content">
                 <section id="introduction" class="content-section">
                     <h2>1. 引言</h2>
                     <p>人工智能（AI）技术在设计领域的应用正经历快速发展，对创意产业产生深远影响。特别是AI生成内容（AIGC）技术的突破，为设计领域带来了革命性的变化。Ramesh等人(2022)提出的DALL-E
@@ -256,7 +248,7 @@
                     <p>随着技术的不断发展，设计教育和实践需要与时俱进，培养能够在AI时代蓬勃发展的新一代设计师。这不仅需要掌握新的技术技能，还需要加强跨学科学习、伦理思考和持续学习能力。未来的研究应该继续探索AI与人类创造力的协同效应，AIGC在不同设计领域的应用效果，以及如何构建更加负责任和可持续的AI辅助设计生态系统。
                     </p>
                 </section>
-            </div>
+
         </div>
     </main>
 
@@ -306,7 +298,8 @@
                     href="https://dl.acm.org/doi/10.5555/2343576.2343643">https://dl.acm.org/doi/10.5555/2343576.2343643</a>
             </li>
             <li>Carter, S., & Nielsen, M. (2017). Using Artificial Intelligence to Augment Human Intelligence. Distill.
-                <a href="https://distill.pub/2017/aia/">https://distill.pub/2017/aia/</a></li>
+                <a href="https://distill.pub/2017/aia/">https://distill.pub/2017/aia/</a>
+            </li>
             <li>OpenAI. (2023). GPT-4 Technical Report. <a
                     href="https://arxiv.org/abs/2303.08774">https://arxiv.org/abs/2303.08774</a></li>
             <li>OpenAI. (2023). DALL-E 3. <a href="https://openai.com/dall-e-3">https://openai.com/dall-e-3</a></li>
@@ -334,7 +327,8 @@
             <li>NVIDIA. (2022). GET3D: A Generative Model of High Quality 3D Textured Shapes Learned from Images. <a
                     href="https://nv-tlabs.github.io/GET3D/">https://nv-tlabs.github.io/GET3D/</a></li>
             <li>Poole, B., Jain, A., Barron, J. T., & Mildenhall, B. (2022). DreamFusion: Text-to-3D using 2D Diffusion.
-                <a href="https://arxiv.org/abs/2209.14988">https://arxiv.org/abs/2209.14988</a></li>
+                <a href="https://arxiv.org/abs/2209.14988">https://arxiv.org/abs/2209.14988</a>
+            </li>
             <li>Wang, X., Yu, K., Wu, S., Gu, J., Liu, Y., Dong, C., ... & Tang, X. (2019). ESRGAN: Enhanced
                 Super-Resolution Generative Adversarial Networks. Proceedings of the European Conference on Computer
                 Vision (ECCV), 63-79. <a href="https://arxiv.org/abs/1809.00219">https://arxiv.org/abs/1809.00219</a>
@@ -357,9 +351,11 @@
                 of Brilliant Technologies. W. W. Norton & Company. <a
                     href="https://wwnorton.com/books/The-Second-Machine-Age/">Publisher's Website</a></li>
             <li>Rigby, D. K., Sutherland, J., & Noble, A. (2018). Agile at scale. Harvard Business Review, 96(3), 88-96.
-                <a href="https://hbr.org/2018/05/agile-at-scale">https://hbr.org/2018/05/agile-at-scale</a></li>
+                <a href="https://hbr.org/2018/05/agile-at-scale">https://hbr.org/2018/05/agile-at-scale</a>
+            </li>
             <li>Willingham, D. T. (2007). Critical thinking: Why is it so hard to teach? American Educator, 31(2), 8-19.
-                <a href="https://www.aft.org/sites/default/files/periodicals/Crit_Thinking.pdf">PDF Link</a></li>
+                <a href="https://www.aft.org/sites/default/files/periodicals/Crit_Thinking.pdf">PDF Link</a>
+            </li>
             <li>Morley, J., Floridi, L., Kinsey, L., & Elhalal, A. (2021). From What to How: An Initial Review of
                 Publicly Available AI Ethics Tools, Methods and Research to Translate Principles into Practices. Science
                 and Engineering Ethics, 26, 2141–2168. <a
@@ -375,14 +371,7 @@
         </div>
     </footer>
 
-    <script>
-        const toggleButton = document.getElementById('toggle-sidebar');
-        const sidebar = document.querySelector('.sidebar');
-
-        toggleButton.addEventListener('click', function() {
-            sidebar.classList.toggle('sidebar-hidden');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

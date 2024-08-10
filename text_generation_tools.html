@@ -16,102 +16,149 @@
         </div>
     </header>
 
-    <main class="container">
-        <section id="working-with-llms" class="content-section">
-            <h2>1. 如何使用大型语言模型</h2>
-            <p>在这一部分，我们将翻译和介绍OpenAI提供的<a
-                    href="https://github.com/openai/openai-cookbook/blob/main/articles/how_to_work_with_large_language_models.md">《How
-                    to work with large language models》</a>文档，帮助读者理解如何有效地与大型语言模型进行交互。尽管现在已经有大量的类似产品出现，但作为最早的产品，openai的文档仍是最有价值的入门阅读材料之一，有该文档的理解作为基础，也有助于了解其他对话时模型的特点和使用方法</p>
-
-            <h3>1.1 文档翻译</h3>
-
-            <h4>大型语言模型如何工作</h4>
-            <p><a href="https://openai.com/research/better-language-models">大型语言模型</a>是将文本映射到文本的函数。给定一个输入文本字符串，大型语言模型预测接下来应该出现的文本。
-            </p>
-            <p>大型语言模型的神奇之处在于，通过在海量文本上训练以最小化这种预测误差，模型最终学习到了对这些预测有用的概念。例如，它们学会了：</p>
-            <ul>
-                <li>如何拼写</li>
-                <li>语法如何工作</li>
-                <li>如何释义</li>
-                <li>如何回答问题</li>
-                <li>如何进行对话</li>
-                <li>如何用多种语言写作</li>
-                <li>如何编程</li>
-                <li>等等</li>
-            </ul>
-            <p>它们通过"阅读"大量现有文本来实现这一点，学习单词如何在其他单词的上下文中出现，并使用所学知识来预测响应用户请求时最可能出现的下一个单词，以及之后的每个后续单词。</p>
-            <p>GPT-3和GPT-4为<a href="https://openai.com/customer-stories">许多软件产品</a>提供支持，包括生产力应用、教育应用、游戏等。</p>
-
-            <h4>如何控制大型语言模型</h4>
-            <p>在所有输入大型语言模型的内容中，最具影响力的是文本提示。</p>
-            <p>可以通过以下几种方式提示大型语言模型产生输出：</p>
-            <ul>
-                <li><strong>指令</strong>：告诉模型你想要什么</li>
-                <li><strong>补全</strong>：引导模型完成你想要的内容的开头</li>
-                <li><strong>场景</strong>：给模型一个情境来发挥</li>
-                <li><strong>示范</strong>：向模型展示你想要的内容，可以是：
+    <main class="content-wrapper container">
+        <button id="toggle-sidebar" class="toggle-button">☰ 目录</button>
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#working-with-llms">如何使用大型语言模型</a></li>
                     <ul>
-                        <li>提示中的几个例子</li>
-                        <li>在微调训练数据集中的数百或数千个例子</li>
+                        <li><a href="#document-translation">文档翻译</a></li>
+                        <ul>
+                            <li><a href="#how-llms-work">大型语言模型如何工作</a></li>
+                            <li><a href="#controlling-llms">如何控制大型语言模型</a></li>
+                            <li><a href="#examples">提示示例</a></li>
+                        </ul>
+                        <li><a href="#key-concepts">关键概念介绍</a></li>
+                        <li><a href="#application-examples">实例应用</a></li>
                     </ul>
-                </li>
-            </ul>
-            <p>下面将展示每种方式的例子。</p>
+                    <li><a href="#prompt-engineering">提示工程</a></li>
+                    <ul>
+                        <li><a href="#six-strategies">六种获得更好结果的策略</a></li>
+                        <ul>
+                            <li><a href="#write-clear-instructions">编写清晰的指令</a></li>
+                            <li><a href="#provide-reference-text">提供参考文本</a></li>
+                            <li><a href="#break-complex-tasks">将复杂任务拆分为简单子任务</a></li>
+                            <li><a href="#allow-time-to-think">给模型时间"思考"</a></li>
+                            <li><a href="#use-external-tools">使用外部工具</a></li>
+                            <li><a href="#systematically-test-changes">系统性测试变更</a></li>
+                        </ul>
+                    </ul>
+                    <li><a href="#additional-resources">补充资料</a></li>
+                    <ul>
+                        <li><a href="#good-documentation">优秀文档的标准</a></li>
+                        <ul>
+                            <li><a href="#make-docs-easy-to-navigate">让文档易于浏览</a></li>
+                            <li><a href="#write-well">写得好</a></li>
+                            <li><a href="#broadly-useful">广泛有用</a></li>
+                            <li><a href="#apply-principles-flexibly">灵活应用原则</a></li>
+                        </ul>
+                        <li><a href="#other-resources">其他资源网站</a></li>
+                    </ul>
+                </ul>
+            </nav>
+        </aside>
 
-            <div class="example">
-                <h4>指令提示示例</h4>
-                <p>在提示的顶部（或底部，或两处）写下你的指令，模型将尽最大努力遵循指令然后停止。指令可以很详细，所以不要害怕写一段明确详述你想要的输出的段落，只需注意模型能处理的<a
-                        href="https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them">token</a>数量。
+        <div class="main-content">
+            <section id="working-with-llms" class="content-section">
+                <h2>1. 如何使用大型语言模型</h2>
+                <p>在这一部分，我们将翻译和介绍OpenAI提供的<a
+                        href="https://github.com/openai/openai-cookbook/blob/main/articles/how_to_work_with_large_language_models.md">《How
+                        to work with large language
+                        models》</a>文档，帮助读者理解如何有效地与大型语言模型进行交互。尽管现在已经有大量的类似产品出现，但作为最早的产品，openai的文档仍是最有价值的入门阅读材料之一，有该文档的理解作为基础，也有助于了解其他对话时模型的特点和使用方法
                 </p>
-                <div class="prompt">
-                    <h5>提示：</h5>
-                    <pre><code>Extract the name of the author from the quotation below.
+
+                <h3>1.1 文档翻译</h3>
+
+                <h4>大型语言模型如何工作</h4>
+                <p><a
+                        href="https://openai.com/research/better-language-models">大型语言模型</a>是将文本映射到文本的函数。给定一个输入文本字符串，大型语言模型预测接下来应该出现的文本。
+                </p>
+                <p>大型语言模型的神奇之处在于，通过在海量文本上训练以最小化这种预测误差，模型最终学习到了对这些预测有用的概念。例如，它们学会了：</p>
+                <ul>
+                    <li>如何拼写</li>
+                    <li>语法如何工作</li>
+                    <li>如何释义</li>
+                    <li>如何回答问题</li>
+                    <li>如何进行对话</li>
+                    <li>如何用多种语言写作</li>
+                    <li>如何编程</li>
+                    <li>等等</li>
+                </ul>
+                <p>它们通过"阅读"大量现有文本来实现这一点，学习单词如何在其他单词的上下文中出现，并使用所学知识来预测响应用户请求时最可能出现的下一个单词，以及之后的每个后续单词。</p>
+                <p>GPT-3和GPT-4为<a href="https://openai.com/customer-stories">许多软件产品</a>提供支持，包括生产力应用、教育应用、游戏等。</p>
+
+                <h4>如何控制大型语言模型</h4>
+                <p>在所有输入大型语言模型的内容中，最具影响力的是文本提示。</p>
+                <p>可以通过以下几种方式提示大型语言模型产生输出：</p>
+                <ul>
+                    <li><strong>指令</strong>：告诉模型你想要什么</li>
+                    <li><strong>补全</strong>：引导模型完成你想要的内容的开头</li>
+                    <li><strong>场景</strong>：给模型一个情境来发挥</li>
+                    <li><strong>示范</strong>：向模型展示你想要的内容，可以是：
+                        <ul>
+                            <li>提示中的几个例子</li>
+                            <li>在微调训练数据集中的数百或数千个例子</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>下面将展示每种方式的例子。</p>
+
+                <div class="example">
+                    <h4>指令提示示例</h4>
+                    <p>在提示的顶部（或底部，或两处）写下你的指令，模型将尽最大努力遵循指令然后停止。指令可以很详细，所以不要害怕写一段明确详述你想要的输出的段落，只需注意模型能处理的<a
+                            href="https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them">token</a>数量。
+                    </p>
+                    <div class="prompt">
+                        <h5>提示：</h5>
+                        <pre><code>Extract the name of the author from the quotation below.
     
     "Some humans theorize that intelligent species go extinct before they can expand into outer space. If they're correct, then the hush of the night sky is the silence of the graveyard."
     
     ― Ted Chiang, Exhalation</code></pre>
+                    </div>
+                    <p>输出：</p>
+                    <pre><code>Ted Chiang</code></pre>
                 </div>
-                <p>输出：</p>
-                <pre><code>Ted Chiang</code></pre>
-            </div>
 
-            <div class="example">
-                <h4>补全提示示例</h4>
-                <p>补全式提示利用了大型语言模型试图写出它认为最有可能出现的下一个文本的特性。为了引导模型，试着开始一个模式或句子，这个模式或句子将由你想看到的输出来完成。相对于直接指令，这种引导大型语言模型的模式可能需要更多的注意和实验。此外，模型不一定知道在哪里停止，所以你经常需要停止序列或后处理来切断超出所需输出的生成文本。
-                </p>
-                <div class="prompt">
-                    <h5>提示：</h5>
-                    <pre><code>"Some humans theorize that intelligent species go extinct before they can expand into outer space. If they're correct, then the hush of the night sky is the silence of the graveyard."
+                <div class="example">
+                    <h4>补全提示示例</h4>
+                    <p>补全式提示利用了大型语言模型试图写出它认为最有可能出现的下一个文本的特性。为了引导模型，试着开始一个模式或句子，这个模式或句子将由你想看到的输出来完成。相对于直接指令，这种引导大型语言模型的模式可能需要更多的注意和实验。此外，模型不一定知道在哪里停止，所以你经常需要停止序列或后处理来切断超出所需输出的生成文本。
+                    </p>
+                    <div class="prompt">
+                        <h5>提示：</h5>
+                        <pre><code>"Some humans theorize that intelligent species go extinct before they can expand into outer space. If they're correct, then the hush of the night sky is the silence of the graveyard."
     
     ― Ted Chiang, Exhalation
     
     The author of this quote is</code></pre>
+                    </div>
+                    <p>输出：</p>
+                    <pre><code>Ted Chiang</code></pre>
                 </div>
-                <p>输出：</p>
-                <pre><code>Ted Chiang</code></pre>
-            </div>
 
-            <div class="example">
-                <h4>场景提示示例</h4>
-                <p>给模型一个要遵循的场景或要扮演的角色对于复杂查询或寻求富有想象力的回答时很有帮助。当使用假设性提示时，你设置一个情境、问题或故事，然后要求模型像该场景中的角色或该主题的专家一样回应。</p>
-                <div class="prompt">
-                    <h5>提示：</h5>
-                    <pre><code>Your role is to extract the name of the author from any given text
+                <div class="example">
+                    <h4>场景提示示例</h4>
+                    <p>给模型一个要遵循的场景或要扮演的角色对于复杂查询或寻求富有想象力的回答时很有帮助。当使用假设性提示时，你设置一个情境、问题或故事，然后要求模型像该场景中的角色或该主题的专家一样回应。</p>
+                    <div class="prompt">
+                        <h5>提示：</h5>
+                        <pre><code>Your role is to extract the name of the author from any given text
     
     "Some humans theorize that intelligent species go extinct before they can expand into outer space. If they're correct, then the hush of the night sky is the silence of the graveyard."
     
     ― Ted Chiang, Exhalation</code></pre>
+                    </div>
+                    <p>输出：</p>
+                    <pre><code>Ted Chiang</code></pre>
                 </div>
-                <p>输出：</p>
-                <pre><code>Ted Chiang</code></pre>
-            </div>
 
-            <div class="example">
-                <h4>示范提示示例（少样本学习）</h4>
-                <p>类似于补全式提示，示范可以向模型展示你想要它做什么。这种方法有时被称为少样本学习，因为模型从提示中提供的几个例子中学习。</p>
-                <div class="prompt">
-                    <h5>提示：</h5>
-                    <pre><code>Quote:
+                <div class="example">
+                    <h4>示范提示示例（少样本学习）</h4>
+                    <p>类似于补全式提示，示范可以向模型展示你想要它做什么。这种方法有时被称为少样本学习，因为模型从提示中提供的几个例子中学习。</p>
+                    <div class="prompt">
+                        <h5>提示：</h5>
+                        <pre><code>Quote:
     
     "When the reasoning mind is forced to confront the impossible again and again, it has no choice but to adapt."
     
@@ -126,94 +173,95 @@
     ― Ted Chiang, Exhalation
     
     Author:</code></pre>
+                    </div>
+                    <p>输出：</p>
+                    <pre><code>Ted Chiang</code></pre>
                 </div>
-                <p>输出：</p>
-                <pre><code>Ted Chiang</code></pre>
-            </div>
 
-            <div class="example">
-                <h4>微调提示示例</h4>
-                <p>有了足够的训练例子，你可以<a
-                        href="https://platform.openai.com/docs/guides/fine-tuning">微调</a>一个自定义模型。在这种情况下，指令变得不必要，因为模型可以从提供的训练数据中学习任务。然而，包含分隔符序列（例如，<code>-></code>或<code>###</code>或任何不常出现在你的输入中的字符串）来告诉模型提示何时结束、输出应该开始可能会有帮助。没有分隔符序列，模型可能会继续阐述输入文本，而不是开始你想看到的答案。
-                </p>
-                <div class="prompt">
-                    <h5>提示：</h5>
-                    <pre><code>"Some humans theorize that intelligent species go extinct before they can expand into outer space. If they're correct, then the hush of the night sky is the silence of the graveyard."
+                <div class="example">
+                    <h4>微调提示示例</h4>
+                    <p>有了足够的训练例子，你可以<a
+                            href="https://platform.openai.com/docs/guides/fine-tuning">微调</a>一个自定义模型。在这种情况下，指令变得不必要，因为模型可以从提供的训练数据中学习任务。然而，包含分隔符序列（例如，<code>-></code>或<code>###</code>或任何不常出现在你的输入中的字符串）来告诉模型提示何时结束、输出应该开始可能会有帮助。没有分隔符序列，模型可能会继续阐述输入文本，而不是开始你想看到的答案。
+                    </p>
+                    <div class="prompt">
+                        <h5>提示：</h5>
+                        <pre><code>"Some humans theorize that intelligent species go extinct before they can expand into outer space. If they're correct, then the hush of the night sky is the silence of the graveyard."
     
     ― Ted Chiang, Exhalation
     
     ###</code></pre>
+                    </div>
+                    <p>输出：</p>
+                    <pre><code>Ted Chiang</code></pre>
                 </div>
-                <p>输出：</p>
-                <pre><code>Ted Chiang</code></pre>
-            </div>
 
-            <h4>代码能力</h4>
-            <p>大型语言模型不仅擅长处理文本 - 它们在处理代码方面也很出色。OpenAI的<a
-                    href="https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo">GPT-4</a>模型就是一个很好的例子。</p>
-            <p>GPT-4为<a href="https://openai.com/customer-stories">许多创新产品</a>提供支持，包括：</p>
-            <ul>
-                <li><a href="https://github.com/features/copilot/">GitHub Copilot</a>（在Visual Studio和其他IDE中自动补全代码）</li>
-                <li><a href="https://replit.com/">Replit</a>（可以补全、解释、编辑和生成代码）</li>
-                <li><a href="https://cursor.sh/">Cursor</a>（在为与AI结对编程设计的编辑器中更快地构建软件）</li>
-            </ul>
-            <p>GPT-4比之前的模型（如<code>gpt-3.5-turbo-instruct</code>）更先进。但是，要充分利用GPT-4进行编码任务，仍然重要的是给出清晰和具体的指令。因此，设计好的提示可能需要更多的注意。
-            </p>
+                <h4>代码能力</h4>
+                <p>大型语言模型不仅擅长处理文本 - 它们在处理代码方面也很出色。OpenAI的<a
+                        href="https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo">GPT-4</a>模型就是一个很好的例子。</p>
+                <p>GPT-4为<a href="https://openai.com/customer-stories">许多创新产品</a>提供支持，包括：</p>
+                <ul>
+                    <li><a href="https://github.com/features/copilot/">GitHub Copilot</a>（在Visual Studio和其他IDE中自动补全代码）
+                    </li>
+                    <li><a href="https://replit.com/">Replit</a>（可以补全、解释、编辑和生成代码）</li>
+                    <li><a href="https://cursor.sh/">Cursor</a>（在为与AI结对编程设计的编辑器中更快地构建软件）</li>
+                </ul>
+                <p>GPT-4比之前的模型（如<code>gpt-3.5-turbo-instruct</code>）更先进。但是，要充分利用GPT-4进行编码任务，仍然重要的是给出清晰和具体的指令。因此，设计好的提示可能需要更多的注意。
+                </p>
 
-            <h4>更多提示建议</h4>
-            <p>要获取更多提示示例，请访问<a href="https://platform.openai.com/examples">OpenAI Examples</a>。</p>
-            <p>通常，输入提示是改善模型输出的最佳杠杆。你可以尝试以下技巧：</p>
-            <ul>
-                <li><strong>更具体</strong>：例如，如果你希望输出是逗号分隔的列表，就要求它返回逗号分隔的列表。如果你希望它在不知道答案时说"我不知道"，就告诉它"如果你不知道答案，就说'我不知道'"。你的指令越具体，模型就能越好地响应。
-                </li>
-                <li><strong>提供上下文</strong>：帮助模型理解你的请求的大局。这可以是背景信息、你想要的示例/演示，或解释你的任务的目的。</li>
-                <li><strong>要求模型像专家一样回答</strong>：明确要求模型产生高质量的输出或像专家写的那样的输出，可以诱导模型给出它认为专家会写的更高质量的答案。像"详细解释"或"逐步描述"这样的短语可能会很有效。
-                </li>
-                <li><strong>提示模型写下解释其推理的一系列步骤</strong>：如果理解答案背后的"为什么"很重要，提示模型包含其推理过程。这可以通过简单地在每个答案前添加一行"<a
-                        href="https://arxiv.org/abs/2205.11916">让我们一步步思考</a>"来实现。</li>
-            </ul>
+                <h4>更多提示建议</h4>
+                <p>要获取更多提示示例，请访问<a href="https://platform.openai.com/examples">OpenAI Examples</a>。</p>
+                <p>通常，输入提示是改善模型输出的最佳杠杆。你可以尝试以下技巧：</p>
+                <ul>
+                    <li><strong>更具体</strong>：例如，如果你希望输出是逗号分隔的列表，就要求它返回逗号分隔的列表。如果你希望它在不知道答案时说"我不知道"，就告诉它"如果你不知道答案，就说'我不知道'"。你的指令越具体，模型就能越好地响应。
+                    </li>
+                    <li><strong>提供上下文</strong>：帮助模型理解你的请求的大局。这可以是背景信息、你想要的示例/演示，或解释你的任务的目的。</li>
+                    <li><strong>要求模型像专家一样回答</strong>：明确要求模型产生高质量的输出或像专家写的那样的输出，可以诱导模型给出它认为专家会写的更高质量的答案。像"详细解释"或"逐步描述"这样的短语可能会很有效。
+                    </li>
+                    <li><strong>提示模型写下解释其推理的一系列步骤</strong>：如果理解答案背后的"为什么"很重要，提示模型包含其推理过程。这可以通过简单地在每个答案前添加一行"<a
+                            href="https://arxiv.org/abs/2205.11916">让我们一步步思考</a>"来实现。</li>
+                </ul>
 
-            <h3>1.2 关键概念介绍</h3>
-            <ol>
-                <li><strong>大型语言模型的工作原理</strong>：这些模型通过预测下一个最可能出现的单词来生成文本。它们在大量文本数据上训练，学习语言的各个方面，包括语法、上下文和概念。</li>
-                <li><strong>提示类型</strong>：
-                    <ul>
-                        <li>指令提示：直接告诉模型你想要什么</li>
-                        <li>补全提示：让模型完成你开始的内容</li>
-                        <li>场景提示：给模型一个情境来回答</li>
-                        <li>示范提示：通过例子展示你想要的输出</li>
-                    </ul>
-                </li>
-                <li><strong>微调</strong>：通过在特定任务上训练模型，可以创建自定义模型，更好地适应特定需求。</li>
-                <li><strong>代码能力</strong>：现代语言模型不仅能处理自然语言，还能理解和生成代码。</li>
-                <li><strong>提示工程</strong>：设计有效的提示是获得良好结果的关键。这包括提供明确的指令、必要的上下文，以及引导模型像专家一样思考。</li>
-            </ol>
+                <h3>1.2 关键概念介绍</h3>
+                <ol>
+                    <li><strong>大型语言模型的工作原理</strong>：这些模型通过预测下一个最可能出现的单词来生成文本。它们在大量文本数据上训练，学习语言的各个方面，包括语法、上下文和概念。</li>
+                    <li><strong>提示类型</strong>：
+                        <ul>
+                            <li>指令提示：直接告诉模型你想要什么</li>
+                            <li>补全提示：让模型完成你开始的内容</li>
+                            <li>场景提示：给模型一个情境来回答</li>
+                            <li>示范提示：通过例子展示你想要的输出</li>
+                        </ul>
+                    </li>
+                    <li><strong>微调</strong>：通过在特定任务上训练模型，可以创建自定义模型，更好地适应特定需求。</li>
+                    <li><strong>代码能力</strong>：现代语言模型不仅能处理自然语言，还能理解和生成代码。</li>
+                    <li><strong>提示工程</strong>：设计有效的提示是获得良好结果的关键。这包括提供明确的指令、必要的上下文，以及引导模型像专家一样思考。</li>
+                </ol>
 
-            <h3>1.3 实例应用</h3>
-            <p>让我们通过一个设计相关的例子来展示如何应用这些概念：</p>
-            <p><strong>任务</strong>：为一个新的环保产品设计品牌标识</p>
+                <h3>1.3 实例应用</h3>
+                <p>让我们通过一个设计相关的例子来展示如何应用这些概念：</p>
+                <p><strong>任务</strong>：为一个新的环保产品设计品牌标识</p>
 
-            <div class="case-study">
-                <h4>1. 使用指令提示</h4>
-                <div class="prompt">
-                    <h5>提示：</h5>
-                    <pre><code>为一个名为"GreenLife"的环保家居产品品牌创建一个logo设计概念。这个品牌专注于可持续生活方式产品。logo应该简洁、现代，并传达环保理念。请提供详细的设计描述，包括颜色、形状和Typography的建议。</code></pre>
+                <div class="case-study">
+                    <h4>1. 使用指令提示</h4>
+                    <div class="prompt">
+                        <h5>提示：</h5>
+                        <pre><code>为一个名为"GreenLife"的环保家居产品品牌创建一个logo设计概念。这个品牌专注于可持续生活方式产品。logo应该简洁、现代，并传达环保理念。请提供详细的设计描述，包括颜色、形状和Typography的建议。</code></pre>
+                    </div>
                 </div>
-            </div>
 
-            <div class="case-study">
-                <h4>2. 使用场景提示</h4>
-                <div class="prompt">
-                    <h5>提示：</h5>
-                    <pre><code>你是一位经验丰富的品牌设计师，专门为环保企业创作logo。一家名为"GreenLife"的新兴环保家居产品公司找到你，希望你为他们设计一个logo。他们的目标客户是关注可持续生活的年轻专业人士。请描述你会为他们设计的logo概念，解释你的设计选择如何反映了品牌价值和目标受众。</code></pre>
+                <div class="case-study">
+                    <h4>2. 使用场景提示</h4>
+                    <div class="prompt">
+                        <h5>提示：</h5>
+                        <pre><code>你是一位经验丰富的品牌设计师，专门为环保企业创作logo。一家名为"GreenLife"的新兴环保家居产品公司找到你，希望你为他们设计一个logo。他们的目标客户是关注可持续生活的年轻专业人士。请描述你会为他们设计的logo概念，解释你的设计选择如何反映了品牌价值和目标受众。</code></pre>
+                    </div>
                 </div>
-            </div>
 
-            <div class="case-study">
-                <h4>3. 使用示范提示（少样本学习）</h4>
-                <div class="prompt">
-                    <h5>提示：</h5>
-                    <pre><code>品牌：Ocean Clean
+                <div class="case-study">
+                    <h4>3. 使用示范提示（少样本学习）</h4>
+                    <div class="prompt">
+                        <h5>提示：</h5>
+                        <pre><code>品牌：Ocean Clean
 描述：专注于海洋污染清理的非营利组织
 Logo概念：简化的海浪图形与回收符号结合，使用深蓝色和浅绿色。Typography采用圆润的无衬线字体，传达友好和可亲近的感觉。
 
@@ -224,224 +272,224 @@ Logo概念：stylized树叶与电路板图案结合，使用绿色和灰色。Ty
 品牌：GreenLife
 描述：可持续生活方式的家居产品品牌
 Logo概念：</code></pre>
+                    </div>
                 </div>
-            </div>
 
-            <p>通过这些例子，设计师可以获得不同角度的创意灵感，从而开始他们的设计过程。重要的是要记住，AI生成的内容应该作为起点或灵感来源，而不是最终设计。设计师的专业知识、创造力和对客户需求的理解仍然是设计过程中不可或缺的元素。
-            </p>
-        </section>
+                <p>通过这些例子，设计师可以获得不同角度的创意灵感，从而开始他们的设计过程。重要的是要记住，AI生成的内容应该作为起点或灵感来源，而不是最终设计。设计师的专业知识、创造力和对客户需求的理解仍然是设计过程中不可或缺的元素。
+                </p>
+            </section>
 
-        <section id="prompt-engineering" class="content-section">
-            <h2>2. 提示工程</h2>
+            <section id="prompt-engineering" class="content-section">
+                <h2>2. 提示工程</h2>
 
-            <p>提示工程是一种优化AI模型输出的技术，通过精心设计输入提示来获得更好的结果。本节将介绍六种提高输出质量的策略，并提供相应的策略和示例。</p>
+                <p>提示工程是一种优化AI模型输出的技术，通过精心设计输入提示来获得更好的结果。本节将介绍六种提高输出质量的策略，并提供相应的策略和示例。</p>
 
-            <h3>2.1 六种获得更好结果的策略</h3>
+                <h3>2.1 六种获得更好结果的策略</h3>
 
-            <ol>
-                <li><strong>编写清晰的指令</strong></li>
-                <li><strong>提供参考文本</strong></li>
-                <li><strong>将复杂任务拆分为简单子任务</strong></li>
-                <li><strong>给模型时间"思考"</strong></li>
-                <li><strong>使用外部工具</strong></li>
-                <li><strong>系统性测试变更</strong></li>
-            </ol>
+                <ol>
+                    <li><strong>编写清晰的指令</strong></li>
+                    <li><strong>提供参考文本</strong></li>
+                    <li><strong>将复杂任务拆分为简单子任务</strong></li>
+                    <li><strong>给模型时间"思考"</strong></li>
+                    <li><strong>使用外部工具</strong></li>
+                    <li><strong>系统性测试变更</strong></li>
+                </ol>
 
-            <h3>2.2 编写清晰的指令</h3>
+                <h3>2.2 编写清晰的指令</h3>
 
-            <p>大语言模型无法读懂您的心思。如果输出太长，请要求简短回复；如果输出太简单，请要求专家级别的写作；如果您不喜欢格式，请展示您想要的格式。模型越少需要猜测您的需求，您就越有可能得到想要的结果。</p>
+                <p>大语言模型无法读懂您的心思。如果输出太长，请要求简短回复；如果输出太简单，请要求专家级别的写作；如果您不喜欢格式，请展示您想要的格式。模型越少需要猜测您的需求，您就越有可能得到想要的结果。</p>
 
-            <h4>策略：</h4>
-            <ul>
-                <li>在查询中包含细节以获得更相关的答案</li>
-                <li>要求模型采用特定角色</li>
-                <li>使用分隔符清晰地标示输入的不同部分</li>
-                <li>指定完成任务所需的步骤</li>
-                <li>提供示例</li>
-                <li>指定所需的输出长度</li>
-            </ul>
+                <h4>策略：</h4>
+                <ul>
+                    <li>在查询中包含细节以获得更相关的答案</li>
+                    <li>要求模型采用特定角色</li>
+                    <li>使用分隔符清晰地标示输入的不同部分</li>
+                    <li>指定完成任务所需的步骤</li>
+                    <li>提供示例</li>
+                    <li>指定所需的输出长度</li>
+                </ul>
 
-            <h4>2.2.1 在查询中包含细节以获得更相关的答案</h4>
-            <p>为了获得高度相关的回答，请确保请求中提供任何重要的细节或背景。否则，您就是让模型猜测您的意思。</p>
+                <h4>2.2.1 在查询中包含细节以获得更相关的答案</h4>
+                <p>为了获得高度相关的回答，请确保请求中提供任何重要的细节或背景。否则，您就是让模型猜测您的意思。</p>
 
-            <div class="example">
-                <h5>较差的提示：</h5>
-                <pre><code>如何在Excel中添加数字？</code></pre>
+                <div class="example">
+                    <h5>较差的提示：</h5>
+                    <pre><code>如何在Excel中添加数字？</code></pre>
 
-                <h5>更好的提示：</h5>
-                <pre><code>如何在Excel中添加一行美元金额？我想为整个表格的行自动执行此操作，并让所有总计都出现在右侧名为"总计"的列中。</code></pre>
-            </div>
+                    <h5>更好的提示：</h5>
+                    <pre><code>如何在Excel中添加一行美元金额？我想为整个表格的行自动执行此操作，并让所有总计都出现在右侧名为"总计"的列中。</code></pre>
+                </div>
 
-            <div class="example">
-                <h5>较差的提示：</h5>
-                <pre><code>谁是总统？</code></pre>
+                <div class="example">
+                    <h5>较差的提示：</h5>
+                    <pre><code>谁是总统？</code></pre>
 
-                <h5>更好的提示：</h5>
-                <pre><code>2021年墨西哥的总统是谁，选举多久举行一次？</code></pre>
-            </div>
+                    <h5>更好的提示：</h5>
+                    <pre><code>2021年墨西哥的总统是谁，选举多久举行一次？</code></pre>
+                </div>
 
-            <div class="example">
-                <h5>较差的提示：</h5>
-                <pre><code>编写代码计算斐波那契数列。</code></pre>
+                <div class="example">
+                    <h5>较差的提示：</h5>
+                    <pre><code>编写代码计算斐波那契数列。</code></pre>
 
-                <h5>更好的提示：</h5>
-                <pre><code>编写一个TypeScript函数来高效计算斐波那契数列。为代码添加大量注释，解释每个部分的作用以及为什么这样编写。</code></pre>
-            </div>
+                    <h5>更好的提示：</h5>
+                    <pre><code>编写一个TypeScript函数来高效计算斐波那契数列。为代码添加大量注释，解释每个部分的作用以及为什么这样编写。</code></pre>
+                </div>
 
-            <div class="example">
-                <h5>较差的提示：</h5>
-                <pre><code>总结会议记录。</code></pre>
+                <div class="example">
+                    <h5>较差的提示：</h5>
+                    <pre><code>总结会议记录。</code></pre>
 
-                <h5>更好的提示：</h5>
-                <pre><code>用一段话总结会议记录。然后用Markdown列表形式列出发言者及其各自的要点。最后，列出发言者提出的后续步骤或行动项（如果有的话）。</code></pre>
-            </div>
+                    <h5>更好的提示：</h5>
+                    <pre><code>用一段话总结会议记录。然后用Markdown列表形式列出发言者及其各自的要点。最后，列出发言者提出的后续步骤或行动项（如果有的话）。</code></pre>
+                </div>
 
-            <h4>2.2.2 要求模型采用特定角色</h4>
-            <p>系统消息可以用来指定模型在回复中使用的角色。</p>
+                <h4>2.2.2 要求模型采用特定角色</h4>
+                <p>系统消息可以用来指定模型在回复中使用的角色。</p>
 
-            <div class="example">
-                <h5>系统消息示例：</h5>
-                <pre><code>当我请求帮助写作时，你将回复一个文档，其中每段至少包含一个笑话或俏皮的评论。</code></pre>
+                <div class="example">
+                    <h5>系统消息示例：</h5>
+                    <pre><code>当我请求帮助写作时，你将回复一个文档，其中每段至少包含一个笑话或俏皮的评论。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>给我的钢螺栓供应商写一封感谢信，感谢他们及时并短期内完成了交付。这使我们能够完成一个重要订单。</code></pre>
-            </div>
+                    <h5>用户消息：</h5>
+                    <pre><code>给我的钢螺栓供应商写一封感谢信，感谢他们及时并短期内完成了交付。这使我们能够完成一个重要订单。</code></pre>
+                </div>
 
-            <h4>2.2.3 使用分隔符清晰地标示输入的不同部分</h4>
-            <p>像三重引号、XML标签、章节标题等分隔符可以帮助划分需要不同处理的文本部分。</p>
+                <h4>2.2.3 使用分隔符清晰地标示输入的不同部分</h4>
+                <p>像三重引号、XML标签、章节标题等分隔符可以帮助划分需要不同处理的文本部分。</p>
 
-            <div class="example">
-                <h5>用户消息示例：</h5>
-                <pre><code>用俳句总结由三重引号分隔的文本。"""在此插入文本"""</code></pre>
-            </div>
+                <div class="example">
+                    <h5>用户消息示例：</h5>
+                    <pre><code>用俳句总结由三重引号分隔的文本。"""在此插入文本"""</code></pre>
+                </div>
 
-            <div class="example">
-                <h5>系统消息示例：</h5>
-                <pre><code>您将获得一对关于同一主题的文章（用XML标签分隔）。首先总结每篇文章的论点。然后指出哪一篇文章的论证更好，并解释原因。</code></pre>
+                <div class="example">
+                    <h5>系统消息示例：</h5>
+                    <pre><code>您将获得一对关于同一主题的文章（用XML标签分隔）。首先总结每篇文章的论点。然后指出哪一篇文章的论证更好，并解释原因。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>&lt;article&gt;在此插入第一篇文章&lt;/article&gt;
+                    <h5>用户消息：</h5>
+                    <pre><code>&lt;article&gt;在此插入第一篇文章&lt;/article&gt;
         &lt;article&gt;在此插入第二篇文章&lt;/article&gt;</code></pre>
-            </div>
+                </div>
 
-            <div class="example">
-                <h5>系统消息示例：</h5>
-                <pre><code>您将获得一篇论文摘要和一个建议的标题。论文标题应该让读者对论文主题有一个好的了解，但也应该引人注目。如果标题不符合这些标准，请提出5个替代方案。</code></pre>
+                <div class="example">
+                    <h5>系统消息示例：</h5>
+                    <pre><code>您将获得一篇论文摘要和一个建议的标题。论文标题应该让读者对论文主题有一个好的了解，但也应该引人注目。如果标题不符合这些标准，请提出5个替代方案。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>摘要：在此插入摘要
+                    <h5>用户消息：</h5>
+                    <pre><code>摘要：在此插入摘要
         标题：在此插入标题</code></pre>
-            </div>
+                </div>
 
-            <p>对于像这样的简单任务，使用分隔符可能不会对输出质量产生影响。但是，任务越复杂，消除任务细节的歧义就越重要。不要让模型费力理解您到底在要求它们做什么。</p>
+                <p>对于像这样的简单任务，使用分隔符可能不会对输出质量产生影响。但是，任务越复杂，消除任务细节的歧义就越重要。不要让模型费力理解您到底在要求它们做什么。</p>
 
-            <h4>2.2.4 指定完成任务所需的步骤</h4>
-            <p>有些任务最好指定为一系列步骤。明确写出这些步骤可以使模型更容易遵循它们。</p>
+                <h4>2.2.4 指定完成任务所需的步骤</h4>
+                <p>有些任务最好指定为一系列步骤。明确写出这些步骤可以使模型更容易遵循它们。</p>
 
-            <div class="example">
-                <h5>系统消息示例：</h5>
-                <pre><code>使用以下逐步说明来响应用户输入。
+                <div class="example">
+                    <h5>系统消息示例：</h5>
+                    <pre><code>使用以下逐步说明来响应用户输入。
         步骤1 - 用户将为您提供三重引号中的文本。用一句话总结这段文本，并在前面加上"摘要："前缀。
         步骤2 - 将步骤1中的摘要翻译成西班牙语，并在前面加上"翻译："前缀。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>"""在此插入文本"""</code></pre>
-            </div>
+                    <h5>用户消息：</h5>
+                    <pre><code>"""在此插入文本"""</code></pre>
+                </div>
 
-            <h4>2.2.5 提供示例</h4>
-            <p>提供适用于所有示例的一般说明通常比通过示例演示任务的所有排列更有效，但在某些情况下提供示例可能更容易。例如，如果您想让模型以特定方式回答用户查询，这种方式很难明确描述。这被称为"少样本"提示。</p>
+                <h4>2.2.5 提供示例</h4>
+                <p>提供适用于所有示例的一般说明通常比通过示例演示任务的所有排列更有效，但在某些情况下提供示例可能更容易。例如，如果您想让模型以特定方式回答用户查询，这种方式很难明确描述。这被称为"少样本"提示。</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>以一致的风格回答。</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>以一致的风格回答。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>教我关于耐心。</code></pre>
+                    <h5>用户消息：</h5>
+                    <pre><code>教我关于耐心。</code></pre>
 
-                <h5>助手：</h5>
-                <pre><code>雕刻最深谷的河流源于一个微小的泉眼；最宏大的交响乐始于一个单音；最复杂的挂毯始于一根孤独的线。</code></pre>
+                    <h5>助手：</h5>
+                    <pre><code>雕刻最深谷的河流源于一个微小的泉眼；最宏大的交响乐始于一个单音；最复杂的挂毯始于一根孤独的线。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>教我关于海洋。</code></pre>
-            </div>
+                    <h5>用户消息：</h5>
+                    <pre><code>教我关于海洋。</code></pre>
+                </div>
 
-            <h4>2.2.6 指定所需的输出长度</h4>
-            <p>您可以要求模型生成特定目标长度的输出。可以用单词数、句子数、段落数、要点数等来指定目标输出长度。但请注意，指示模型生成特定数量的单词并不能精确工作。模型可以更可靠地生成特定数量的段落或要点。</p>
+                <h4>2.2.6 指定所需的输出长度</h4>
+                <p>您可以要求模型生成特定目标长度的输出。可以用单词数、句子数、段落数、要点数等来指定目标输出长度。但请注意，指示模型生成特定数量的单词并不能精确工作。模型可以更可靠地生成特定数量的段落或要点。</p>
 
-            <div class="example">
-                <h5>用户消息示例：</h5>
-                <pre><code>用大约50个字总结由三重引号分隔的文本。"""在此插入文本"""</code></pre>
-            </div>
+                <div class="example">
+                    <h5>用户消息示例：</h5>
+                    <pre><code>用大约50个字总结由三重引号分隔的文本。"""在此插入文本"""</code></pre>
+                </div>
 
-            <div class="example">
-                <h5>用户消息示例：</h5>
-                <pre><code>用2段话总结由三重引号分隔的文本。"""在此插入文本"""</code></pre>
-            </div>
+                <div class="example">
+                    <h5>用户消息示例：</h5>
+                    <pre><code>用2段话总结由三重引号分隔的文本。"""在此插入文本"""</code></pre>
+                </div>
 
-            <div class="example">
-                <h5>用户消息示例：</h5>
-                <pre><code>用3个要点总结由三重引号分隔的文本。"""在此插入文本"""</code></pre>
-            </div>
+                <div class="example">
+                    <h5>用户消息示例：</h5>
+                    <pre><code>用3个要点总结由三重引号分隔的文本。"""在此插入文本"""</code></pre>
+                </div>
 
-            <h3>2.3 提供参考文本</h3>
+                <h3>2.3 提供参考文本</h3>
 
-            <p>语言模型可能会自信地编造虚假答案，特别是在被问及深奥话题或引用和URL时。就像笔记可以帮助学生在考试中表现更好一样，为这些模型提供参考文本可以帮助它们在回答时减少编造。</p>
+                <p>语言模型可能会自信地编造虚假答案，特别是在被问及深奥话题或引用和URL时。就像笔记可以帮助学生在考试中表现更好一样，为这些模型提供参考文本可以帮助它们在回答时减少编造。</p>
 
-            <h4>策略：</h4>
-            <ul>
-                <li>指示模型使用参考文本回答</li>
-                <li>指示模型使用参考文本中的引用回答</li>
-            </ul>
+                <h4>策略：</h4>
+                <ul>
+                    <li>指示模型使用参考文本回答</li>
+                    <li>指示模型使用参考文本中的引用回答</li>
+                </ul>
 
-            <h4>2.3.1 指示模型使用参考文本回答</h4>
-            <p>如果我们能为模型提供与当前查询相关的可信信息，那么我们可以指示模型使用提供的信息来构建其答案。</p>
+                <h4>2.3.1 指示模型使用参考文本回答</h4>
+                <p>如果我们能为模型提供与当前查询相关的可信信息，那么我们可以指示模型使用提供的信息来构建其答案。</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>使用由三重引号分隔的提供的文章来回答问题。如果在文章中找不到答案，请写"我找不到答案。"</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>使用由三重引号分隔的提供的文章来回答问题。如果在文章中找不到答案，请写"我找不到答案。"</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>&lt;插入文章，每篇由三重引号分隔&gt;
+                    <h5>用户消息：</h5>
+                    <pre><code>&lt;插入文章，每篇由三重引号分隔&gt;
 问题：&lt;在此插入问题&gt;</code></pre>
-            </div>
+                </div>
 
-            <p>鉴于所有模型都有有限的上下文窗口，我们需要一些方法来动态查找与所问问题相关的信息。<a
-                    href="https://platform.openai.com/docs/guides/embeddings/what-are-embeddings">嵌入</a>可用于实现高效的知识检索。有关如何实现此功能的更多详细信息，请参见"使用基于嵌入的搜索实现高效知识检索"策略。
-            </p>
+                <p>鉴于所有模型都有有限的上下文窗口，我们需要一些方法来动态查找与所问问题相关的信息。<a
+                        href="https://platform.openai.com/docs/guides/embeddings/what-are-embeddings">嵌入</a>可用于实现高效的知识检索。有关如何实现此功能的更多详细信息，请参见"使用基于嵌入的搜索实现高效知识检索"策略。
+                </p>
 
-            <h4>2.3.2 指示模型使用参考文本中的引用回答</h4>
-            <p>如果输入已经补充了相关知识，那么要求模型通过引用提供的文档中的段落来为其答案添加引用就很简单了。请注意，输出中的引用然后可以通过在提供的文档中进行字符串匹配来以编程方式验证。</p>
+                <h4>2.3.2 指示模型使用参考文本中的引用回答</h4>
+                <p>如果输入已经补充了相关知识，那么要求模型通过引用提供的文档中的段落来为其答案添加引用就很简单了。请注意，输出中的引用然后可以通过在提供的文档中进行字符串匹配来以编程方式验证。</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>您将获得一个由三重引号分隔的文档和一个问题。您的任务是仅使用提供的文档回答问题，并引用用于回答问题的文档段落。如果文档不包含回答此问题所需的信息，则只需写："信息不足。"如果提供了问题的答案，则必须附有引用。使用以下格式引用相关段落（{"citation": ...}）。</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>您将获得一个由三重引号分隔的文档和一个问题。您的任务是仅使用提供的文档回答问题，并引用用于回答问题的文档段落。如果文档不包含回答此问题所需的信息，则只需写："信息不足。"如果提供了问题的答案，则必须附有引用。使用以下格式引用相关段落（{"citation": ...}）。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>"""&lt;在此插入文档&gt;"""
+                    <h5>用户消息：</h5>
+                    <pre><code>"""&lt;在此插入文档&gt;"""
 问题：&lt;在此插入问题&gt;</code></pre>
-            </div>
+                </div>
 
-            <h3>2.4 将复杂任务拆分为简单子任务</h3>
+                <h3>2.4 将复杂任务拆分为简单子任务</h3>
 
-            <p>正如在软件工程中将复杂系统分解为一组模块化组件是良好实践一样，对提交给语言模型的任务也是如此。复杂任务往往比简单任务有更高的错误率。此外，复杂任务通常可以重新定义为一系列简单任务的工作流程，其中早期任务的输出用于构建后续任务的输入。
-            </p>
+                <p>正如在软件工程中将复杂系统分解为一组模块化组件是良好实践一样，对提交给语言模型的任务也是如此。复杂任务往往比简单任务有更高的错误率。此外，复杂任务通常可以重新定义为一系列简单任务的工作流程，其中早期任务的输出用于构建后续任务的输入。
+                </p>
 
-            <h4>策略：</h4>
-            <ul>
-                <li>使用意图分类来识别用户查询最相关的指令</li>
-                <li>对于需要很长对话的对话应用程序，总结或过滤先前的对话</li>
-                <li>分段总结长文档，并递归构建完整摘要</li>
-            </ul>
+                <h4>策略：</h4>
+                <ul>
+                    <li>使用意图分类来识别用户查询最相关的指令</li>
+                    <li>对于需要很长对话的对话应用程序，总结或过滤先前的对话</li>
+                    <li>分段总结长文档，并递归构建完整摘要</li>
+                </ul>
 
-            <h4>2.4.1 使用意图分类来识别用户查询最相关的指令</h4>
-            <p>对于需要大量独立指令集来处理不同情况的任务，首先对查询类型进行分类，然后使用该分类来确定需要哪些指令可能会有帮助。这可以通过定义固定类别并硬编码与处理给定类别任务相关的指令来实现。这个过程也可以递归应用，将任务分解为一系列阶段。这种方法的优点是每个查询只包含执行任务下一阶段所需的那些指令，与使用单个查询执行整个任务相比，这可能会导致更低的错误率。这也可能导致更低的成本，因为更大的提示成本更高（<a
-                    href="https://openai.com/pricing">参见定价信息</a>）。</p>
+                <h4>2.4.1 使用意图分类来识别用户查询最相关的指令</h4>
+                <p>对于需要大量独立指令集来处理不同情况的任务，首先对查询类型进行分类，然后使用该分类来确定需要哪些指令可能会有帮助。这可以通过定义固定类别并硬编码与处理给定类别任务相关的指令来实现。这个过程也可以递归应用，将任务分解为一系列阶段。这种方法的优点是每个查询只包含执行任务下一阶段所需的那些指令，与使用单个查询执行整个任务相比，这可能会导致更低的错误率。这也可能导致更低的成本，因为更大的提示成本更高（<a
+                        href="https://openai.com/pricing">参见定价信息</a>）。</p>
 
-            <p>例如，假设对于客户服务应用程序，查询可以有效地分类如下：</p>
+                <p>例如，假设对于客户服务应用程序，查询可以有效地分类如下：</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>您将获得客户服务查询。将每个查询分类为主要类别和次要类别。以json格式提供输出，键为：primary和secondary。
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>您将获得客户服务查询。将每个查询分类为主要类别和次要类别。以json格式提供输出，键为：primary和secondary。
 主要类别：计费、技术支持、账户管理或一般咨询。
 计费次要类别：
 - 取消订阅或升级
@@ -463,15 +511,15 @@ Logo概念：</code></pre>
 - 反馈
 - 与人工对话</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>我需要让我的互联网恢复工作。</code></pre>
-            </div>
+                    <h5>用户消息：</h5>
+                    <pre><code>我需要让我的互联网恢复工作。</code></pre>
+                </div>
 
-            <p>根据客户查询的分类，可以向模型提供一组更具体的指令来处理下一步。例如，假设客户需要"故障排除"方面的帮助。</p>
+                <p>根据客户查询的分类，可以向模型提供一组更具体的指令来处理下一步。例如，假设客户需要"故障排除"方面的帮助。</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>您将收到需要在技术支持环境中进行故障排除的客户服务查询。通过以下方式帮助用户：
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>您将收到需要在技术支持环境中进行故障排除的客户服务查询。通过以下方式帮助用户：
 - 要求他们检查所有连接到/从路由器的电缆是否已连接。请注意，电缆随着时间的推移很容易松动。
 - 如果所有电缆都已连接且问题仍然存在，询问他们使用的是哪种路由器型号
 - 现在您将建议他们如何重启设备：
@@ -480,48 +528,48 @@ Logo概念：</code></pre>
 - 如果客户重启设备并等待5分钟后问题仍然存在，通过输出{"IT support requested"}将他们连接到IT支持。
 - 如果用户开始询问与此主题无关的问题，则确认他们是否希望结束当前关于故障排除的聊天，并根据以下方案对其请求进行分类：&lt;在此插入上面的主要/次要分类方案&gt;</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>我需要让我的互联网恢复工作。</code></pre>
-            </div>
+                    <h5>用户消息：</h5>
+                    <pre><code>我需要让我的互联网恢复工作。</code></pre>
+                </div>
 
-            <p>请注意，模型被指示发出特殊字符串以指示对话状态的变化。这使我们能够将系统转变为状态机，其中状态决定注入哪些指令。通过跟踪状态、在该状态下相关的指令，以及可选地从该状态允许的状态转换，我们可以为用户体验设置护栏，这在使用不那么结构化的方法时很难实现。
-            </p>
+                <p>请注意，模型被指示发出特殊字符串以指示对话状态的变化。这使我们能够将系统转变为状态机，其中状态决定注入哪些指令。通过跟踪状态、在该状态下相关的指令，以及可选地从该状态允许的状态转换，我们可以为用户体验设置护栏，这在使用不那么结构化的方法时很难实现。
+                </p>
 
-            <h4>2.4.2 对于需要很长对话的对话应用程序，总结或过滤先前的对话</h4>
-            <p>由于模型具有固定的上下文长度，因此在上下文窗口中包含整个对话的用户和助手之间的对话无法无限期地继续。</p>
+                <h4>2.4.2 对于需要很长对话的对话应用程序，总结或过滤先前的对话</h4>
+                <p>由于模型具有固定的上下文长度，因此在上下文窗口中包含整个对话的用户和助手之间的对话无法无限期地继续。</p>
 
-            <p>有各种解决方法来解决这个问题，其中之一是总结对话中的先前轮次。一旦输入大小达到预定的阈值长度，这可能会触发一个查询，总结部分对话，并且先前对话的摘要可以包含在系统消息中。或者，可以在整个对话过程中异步地在后台总结先前的对话。
-            </p>
+                <p>有各种解决方法来解决这个问题，其中之一是总结对话中的先前轮次。一旦输入大小达到预定的阈值长度，这可能会触发一个查询，总结部分对话，并且先前对话的摘要可以包含在系统消息中。或者，可以在整个对话过程中异步地在后台总结先前的对话。
+                </p>
 
-            <p>另一种解决方案是动态选择与当前查询最相关的先前对话部分。请参见"使用基于嵌入的搜索实现高效知识检索"策略。</p>
+                <p>另一种解决方案是动态选择与当前查询最相关的先前对话部分。请参见"使用基于嵌入的搜索实现高效知识检索"策略。</p>
 
-            <h4>2.4.3 分段总结长文档，并递归构建完整摘要</h4>
-            <p>由于模型具有固定的上下文长度，它们无法在单个查询中用于总结比上下文长度减去生成的摘要长度更长的文本。</p>
+                <h4>2.4.3 分段总结长文档，并递归构建完整摘要</h4>
+                <p>由于模型具有固定的上下文长度，它们无法在单个查询中用于总结比上下文长度减去生成的摘要长度更长的文本。</p>
 
-            <p>要总结像书籍这样的非常长的文档，我们可以使用一系列查询来总结文档的每个部分。可以连接和总结部分摘要，产生摘要的摘要。这个过程可以递归进行，直到整个文档被总结。如果需要使用关于早期部分的信息来理解后面的部分，那么一个进一步的技巧可能会有用，即在总结任何给定点的内容时包含书中该点之前文本的运行摘要。OpenAI使用GPT-3的变体研究了这种程序对总结书籍的有效性（<a
-                    href="https://openai.com/research/summarizing-books">研究链接</a>）。</p>
+                <p>要总结像书籍这样的非常长的文档，我们可以使用一系列查询来总结文档的每个部分。可以连接和总结部分摘要，产生摘要的摘要。这个过程可以递归进行，直到整个文档被总结。如果需要使用关于早期部分的信息来理解后面的部分，那么一个进一步的技巧可能会有用，即在总结任何给定点的内容时包含书中该点之前文本的运行摘要。OpenAI使用GPT-3的变体研究了这种程序对总结书籍的有效性（<a
+                        href="https://openai.com/research/summarizing-books">研究链接</a>）。</p>
 
-            <h3>2.5 给模型时间"思考"</h3>
+                <h3>2.5 给模型时间"思考"</h3>
 
-            <p>如果被要求将17乘以28，你可能不会立即知道答案，但仍然可以花时间计算出来。同样，当模型试图立即回答而不是花时间推导答案时，它们会犯更多的推理错误。在给出答案之前要求"思维链"可以帮助模型更可靠地推理出正确答案。
-            </p>
+                <p>如果被要求将17乘以28，你可能不会立即知道答案，但仍然可以花时间计算出来。同样，当模型试图立即回答而不是花时间推导答案时，它们会犯更多的推理错误。在给出答案之前要求"思维链"可以帮助模型更可靠地推理出正确答案。
+                </p>
 
-            <h4>策略：</h4>
-            <ul>
-                <li>指示模型在匆忙下结论之前制定自己的解决方案</li>
-                <li>使用内心独白或一系列查询来隐藏模型的推理过程</li>
-                <li>询问模型是否在之前的传递中遗漏了什么</li>
-            </ul>
+                <h4>策略：</h4>
+                <ul>
+                    <li>指示模型在匆忙下结论之前制定自己的解决方案</li>
+                    <li>使用内心独白或一系列查询来隐藏模型的推理过程</li>
+                    <li>询问模型是否在之前的传递中遗漏了什么</li>
+                </ul>
 
-            <h4>2.5.1 指示模型在匆忙下结论之前制定自己的解决方案</h4>
-            <p>有时，当我们明确指示模型在得出结论之前从基本原理推理时，我们会得到更好的结果。假设我们想要模型评估学生对数学问题的解决方案。最明显的方法是简单地询问模型学生的解决方案是否正确。</p>
+                <h4>2.5.1 指示模型在匆忙下结论之前制定自己的解决方案</h4>
+                <p>有时，当我们明确指示模型在得出结论之前从基本原理推理时，我们会得到更好的结果。假设我们想要模型评估学生对数学问题的解决方案。最明显的方法是简单地询问模型学生的解决方案是否正确。</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>确定学生的解决方案是否正确。</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>确定学生的解决方案是否正确。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>问题陈述：我正在建造一个太阳能发电装置，需要帮助计算财务情况。
+                    <h5>用户消息：</h5>
+                    <pre><code>问题陈述：我正在建造一个太阳能发电装置，需要帮助计算财务情况。
 - 土地成本为100美元/平方英尺
 - 我可以以250美元/平方英尺的价格购买太阳能电池板
 - 我协商了一份维护合同，每年将花费我10万美元的固定费用，外加10美元/平方英尺
@@ -534,18 +582,18 @@ Logo概念：</code></pre>
 3. 维护成本：100,000 + 100x
 总成本：100x + 250x + 100,000 + 100x = 450x + 100,000</code></pre>
 
-                <h5>助手：</h5>
-                <pre><code>学生的解决方案是正确的。</code></pre>
-            </div>
+                    <h5>助手：</h5>
+                    <pre><code>学生的解决方案是正确的。</code></pre>
+                </div>
 
-            <p>但是学生的解决方案实际上是不正确的！我们可以通过提示模型首先生成自己的解决方案来成功地注意到这一点。</p>
+                <p>但是学生的解决方案实际上是不正确的！我们可以通过提示模型首先生成自己的解决方案来成功地注意到这一点。</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>首先计算出你自己对问题的解决方案。然后将你的解决方案与学生的解决方案进行比较，并评估学生的解决方案是否正确。在你自己解决问题之前，不要决定学生的解决方案是否正确。</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>首先计算出你自己对问题的解决方案。然后将你的解决方案与学生的解决方案进行比较，并评估学生的解决方案是否正确。在你自己解决问题之前，不要决定学生的解决方案是否正确。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>问题陈述：我正在建造一个太阳能发电装置，需要帮助计算财务情况。
+                    <h5>用户消息：</h5>
+                    <pre><code>问题陈述：我正在建造一个太阳能发电装置，需要帮助计算财务情况。
 - 土地成本为100美元/平方英尺
 - 我可以以250美元/平方英尺的价格购买太阳能电池板
 - 我协商了一份维护合同，每年将花费我10万美元的固定费用，外加10美元/平方英尺
@@ -558,8 +606,8 @@ Logo概念：</code></pre>
 3. 维护成本：100,000 + 100x
 总成本：100x + 250x + 100,000 + 100x = 450x + 100,000</code></pre>
 
-                <h5>助手：</h5>
-                <pre><code>让我首先计算出自己的解决方案：
+                    <h5>助手：</h5>
+                    <pre><code>让我首先计算出自己的解决方案：
 
 设x为装置的大小（平方英尺）。
 1. 土地成本：100x
@@ -570,185 +618,186 @@ Logo概念：</code></pre>
 现在，让我将我的解决方案与学生的解决方案进行比较：
 
 学生的解决方案是不正确的。他们在维护成本计算中出错了，使用了100x而不是10x。第一年运营的正确总成本是360x + 100,000。</code></pre>
-            </div>
+                </div>
 
-            <h4>2.5.2 使用内心独白或一系列查询来隐藏模型的推理过程</h4>
-            <p>前面的策略表明，有时让模型在回答特定问题之前详细推理问题很重要。对于某些应用程序，模型用来得出最终答案的推理过程可能不适合与用户分享。例如，在辅导应用程序中，我们可能希望鼓励学生自己找出答案，但模型对学生解决方案的推理过程可能会向学生透露答案。
-            </p>
+                <h4>2.5.2 使用内心独白或一系列查询来隐藏模型的推理过程</h4>
+                <p>前面的策略表明，有时让模型在回答特定问题之前详细推理问题很重要。对于某些应用程序，模型用来得出最终答案的推理过程可能不适合与用户分享。例如，在辅导应用程序中，我们可能希望鼓励学生自己找出答案，但模型对学生解决方案的推理过程可能会向学生透露答案。
+                </p>
 
-            <p>内心独白是一种可以用来缓解这个问题的策略。内心独白的想法是指示模型将输出中不适合向用户显示的部分放入易于解析的结构化格式中。然后在向用户呈现输出之前，对输出进行解析，只有部分输出被显示。</p>
+                <p>内心独白是一种可以用来缓解这个问题的策略。内心独白的想法是指示模型将输出中不适合向用户显示的部分放入易于解析的结构化格式中。然后在向用户呈现输出之前，对输出进行解析，只有部分输出被显示。</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>按照以下步骤回答用户查询。
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>按照以下步骤回答用户查询。
 第1步 - 首先计算出你自己对问题的解决方案。不要依赖学生的解决方案，因为它可能是不正确的。将此步骤的所有工作都放在三重引号（"""）内。
 第2步 - 将你的解决方案与学生的解决方案进行比较，并评估学生的解决方案是否正确。将此步骤的所有工作都放在三重引号（"""）内。
 第3步 - 如果学生犯了错误，确定你可以给学生什么提示而不泄露答案。将此步骤的所有工作都放在三重引号（"""）内。
 第4步 - 如果学生犯了错误，向学生提供上一步的提示（在三重引号之外）。不要写"第4步 - ..."，而是写"提示："。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>问题陈述：&lt;插入问题陈述&gt;
+                    <h5>用户消息：</h5>
+                    <pre><code>问题陈述：&lt;插入问题陈述&gt;
 学生解决方案：&lt;插入学生解决方案&gt;</code></pre>
-            </div>
+                </div>
 
-            <p>或者，这可以通过一系列查询来实现，其中除最后一个查询外的所有查询的输出都对最终用户隐藏。</p>
+                <p>或者，这可以通过一系列查询来实现，其中除最后一个查询外的所有查询的输出都对最终用户隐藏。</p>
 
-            <p>首先，我们可以让模型自己解决问题。由于这个初始查询不需要学生的解决方案，所以可以省略它。这提供了额外的优势，即模型的解决方案不会受到学生尝试解决方案的影响。</p>
+                <p>首先，我们可以让模型自己解决问题。由于这个初始查询不需要学生的解决方案，所以可以省略它。这提供了额外的优势，即模型的解决方案不会受到学生尝试解决方案的影响。</p>
 
-            <div class="example">
-                <h5>用户消息：</h5>
-                <pre><code>&lt;插入问题陈述&gt;</code></pre>
-            </div>
+                <div class="example">
+                    <h5>用户消息：</h5>
+                    <pre><code>&lt;插入问题陈述&gt;</code></pre>
+                </div>
 
-            <p>接下来，我们可以让模型使用所有可用信息来评估学生解决方案的正确性。</p>
+                <p>接下来，我们可以让模型使用所有可用信息来评估学生解决方案的正确性。</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>将你的解决方案与学生的解决方案进行比较，并评估学生的解决方案是否正确。</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>将你的解决方案与学生的解决方案进行比较，并评估学生的解决方案是否正确。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>问题陈述："""&lt;插入问题陈述&gt;"""
+                    <h5>用户消息：</h5>
+                    <pre><code>问题陈述："""&lt;插入问题陈述&gt;"""
 你的解决方案："""&lt;插入模型生成的解决方案&gt;"""
 学生的解决方案："""&lt;插入学生的解决方案&gt;"""</code></pre>
-            </div>
+                </div>
 
-            <p>最后，我们可以让模型使用自己的分析以有帮助的导师的身份构建回复。</p>
+                <p>最后，我们可以让模型使用自己的分析以有帮助的导师的身份构建回复。</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>你是一名数学导师。如果学生犯了错误，以不透露答案的方式向学生提供提示。如果学生没有犯错误，只需给他们一个鼓励的评论。</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>你是一名数学导师。如果学生犯了错误，以不透露答案的方式向学生提供提示。如果学生没有犯错误，只需给他们一个鼓励的评论。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>问题陈述："""&lt;插入问题陈述&gt;"""
+                    <h5>用户消息：</h5>
+                    <pre><code>问题陈述："""&lt;插入问题陈述&gt;"""
 你的解决方案："""&lt;插入模型生成的解决方案&gt;"""
 学生的解决方案："""&lt;插入学生的解决方案&gt;"""
 分析："""&lt;插入模型从上一步生成的分析&gt;"""</code></pre>
-            </div>
+                </div>
 
-            <h4>2.5.3 询问模型是否在之前的传递中遗漏了什么</h4>
-            <p>假设我们正在使用模型列出与特定问题相关的源文档摘录。在列出每个摘录后，模型需要确定是否应该开始写另一个或是否应该停止。如果源文档很大，模型通常会过早停止，未能列出所有相关摘录。在这种情况下，通常可以通过提示模型进行后续查询来找到它在之前传递中遗漏的任何摘录，从而获得更好的性能。
-            </p>
+                <h4>2.5.3 询问模型是否在之前的传递中遗漏了什么</h4>
+                <p>假设我们正在使用模型列出与特定问题相关的源文档摘录。在列出每个摘录后，模型需要确定是否应该开始写另一个或是否应该停止。如果源文档很大，模型通常会过早停止，未能列出所有相关摘录。在这种情况下，通常可以通过提示模型进行后续查询来找到它在之前传递中遗漏的任何摘录，从而获得更好的性能。
+                </p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>你将获得一个由三重引号分隔的文档。你的任务是选择与以下问题相关的摘录："人工智能历史上发生了哪些重大范式转变。"确保摘录包含解释它们所需的所有相关上下文 - 换句话说，不要提取缺少重要上下文的小片段。以JSON格式提供输出，如下所示：[{"excerpt": "..."},  ... {"excerpt": "..."}]</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>你将获得一个由三重引号分隔的文档。你的任务是选择与以下问题相关的摘录："人工智能历史上发生了哪些重大范式转变。"确保摘录包含解释它们所需的所有相关上下文 - 换句话说，不要提取缺少重要上下文的小片段。以JSON格式提供输出，如下所示：[{"excerpt": "..."},  ... {"excerpt": "..."}]</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>"""&lt;在此插入文档&gt;"""</code></pre>
+                    <h5>用户消息：</h5>
+                    <pre><code>"""&lt;在此插入文档&gt;"""</code></pre>
 
-                <h5>助手：</h5>
-                <pre><code>[{"excerpt": "模型在这里写一个摘录"}, ... {"excerpt": "模型在这里写另一个摘录"}]</code></pre>
+                    <h5>助手：</h5>
+                    <pre><code>[{"excerpt": "模型在这里写一个摘录"}, ... {"excerpt": "模型在这里写另一个摘录"}]</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>还有更多相关摘录吗？注意不要重复摘录。同时确保摘录包含解释它们所需的所有相关上下文 - 换句话说，不要提取缺少重要上下文的小片段。</code></pre>
-            </div>
-            <h3>2.6 使用外部工具</h3>
+                    <h5>用户消息：</h5>
+                    <pre><code>还有更多相关摘录吗？注意不要重复摘录。同时确保摘录包含解释它们所需的所有相关上下文 - 换句话说，不要提取缺少重要上下文的小片段。</code></pre>
+                </div>
+                <h3>2.6 使用外部工具</h3>
 
-            <p>通过向模型提供其他工具的输出来弥补模型的弱点。例如，文本检索系统（有时称为RAG或检索增强生成）可以告诉模型相关文档的信息。像OpenAI的Code
-                Interpreter这样的代码执行引擎可以帮助模型进行数学计算和运行代码。如果一项任务可以通过工具而不是语言模型更可靠或高效地完成，那么将其卸载以获得两者的最佳效果。</p>
+                <p>通过向模型提供其他工具的输出来弥补模型的弱点。例如，文本检索系统（有时称为RAG或检索增强生成）可以告诉模型相关文档的信息。像OpenAI的Code
+                    Interpreter这样的代码执行引擎可以帮助模型进行数学计算和运行代码。如果一项任务可以通过工具而不是语言模型更可靠或高效地完成，那么将其卸载以获得两者的最佳效果。</p>
 
-            <h4>策略：</h4>
-            <ul>
-                <li>使用基于嵌入的搜索来实现高效的知识检索</li>
-                <li>使用代码执行来执行更准确的计算或调用外部API</li>
-                <li>为模型提供访问特定函数的权限</li>
-            </ul>
+                <h4>策略：</h4>
+                <ul>
+                    <li>使用基于嵌入的搜索来实现高效的知识检索</li>
+                    <li>使用代码执行来执行更准确的计算或调用外部API</li>
+                    <li>为模型提供访问特定函数的权限</li>
+                </ul>
 
-            <h4>2.6.1 使用基于嵌入的搜索来实现高效的知识检索</h4>
-            <p>如果作为输入的一部分提供，模型可以利用外部信息源。这可以帮助模型生成更加明智和最新的响应。例如，如果用户询问有关特定电影的问题，可能会有用的是将有关电影的高质量信息（例如演员、导演等）添加到模型的输入中。嵌入可用于实现高效的知识检索，以便在运行时动态地将相关信息添加到模型输入中。
-            </p>
+                <h4>2.6.1 使用基于嵌入的搜索来实现高效的知识检索</h4>
+                <p>如果作为输入的一部分提供，模型可以利用外部信息源。这可以帮助模型生成更加明智和最新的响应。例如，如果用户询问有关特定电影的问题，可能会有用的是将有关电影的高质量信息（例如演员、导演等）添加到模型的输入中。嵌入可用于实现高效的知识检索，以便在运行时动态地将相关信息添加到模型输入中。
+                </p>
 
-            <p>文本嵌入是一个可以测量文本字符串之间相关性的向量。相似或相关的字符串会比不相关的字符串更接近。这一事实，加上快速向量搜索算法的存在，意味着嵌入可以用于实现高效的知识检索。特别是，可以将文本语料库分割成块，每个块都可以嵌入并存储。然后可以对给定的查询进行嵌入，并执行向量搜索以找到与查询最相关的语料库中嵌入的文本块（即在嵌入空间中最接近的块）。
-            </p>
+                <p>文本嵌入是一个可以测量文本字符串之间相关性的向量。相似或相关的字符串会比不相关的字符串更接近。这一事实，加上快速向量搜索算法的存在，意味着嵌入可以用于实现高效的知识检索。特别是，可以将文本语料库分割成块，每个块都可以嵌入并存储。然后可以对给定的查询进行嵌入，并执行向量搜索以找到与查询最相关的语料库中嵌入的文本块（即在嵌入空间中最接近的块）。
+                </p>
 
-            <p>示例实现可以在<a href="https://cookbook.openai.com/examples/vector_databases/readme">OpenAI
-                    Cookbook</a>中找到。请参见"指示模型使用检索到的知识回答查询"策略，了解如何使用知识检索来最小化模型编造不正确事实的可能性的示例。</p>
+                <p>示例实现可以在<a href="https://cookbook.openai.com/examples/vector_databases/readme">OpenAI
+                        Cookbook</a>中找到。请参见"指示模型使用检索到的知识回答查询"策略，了解如何使用知识检索来最小化模型编造不正确事实的可能性的示例。</p>
 
-            <h4>2.6.2 使用代码执行来执行更准确的计算或调用外部API</h4>
-            <p>语言模型不能被信赖独立执行算术或长计算。在需要这些的情况下，可以指示模型编写和运行代码，而不是自己进行计算。特别是，可以指示模型将要运行的代码放入指定格式，如三重反引号。在生成输出后，可以提取代码并运行。最后，如果需要，可以将代码执行引擎（即Python解释器）的输出作为下一个查询的输入提供给模型。
-            </p>
+                <h4>2.6.2 使用代码执行来执行更准确的计算或调用外部API</h4>
+                <p>语言模型不能被信赖独立执行算术或长计算。在需要这些的情况下，可以指示模型编写和运行代码，而不是自己进行计算。特别是，可以指示模型将要运行的代码放入指定格式，如三重反引号。在生成输出后，可以提取代码并运行。最后，如果需要，可以将代码执行引擎（即Python解释器）的输出作为下一个查询的输入提供给模型。
+                </p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>你可以通过将代码封装在三重反引号中来编写和执行Python代码，例如 ```代码放在这里```。使用这个来执行计算。</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>你可以通过将代码封装在三重反引号中来编写和执行Python代码，例如 ```代码放在这里```。使用这个来执行计算。</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>找出以下多项式的所有实数根：3*x**5 - 5*x**4 - 3*x**3 - 7*x - 10。</code></pre>
-            </div>
+                    <h5>用户消息：</h5>
+                    <pre><code>找出以下多项式的所有实数根：3*x**5 - 5*x**4 - 3*x**3 - 7*x - 10。</code></pre>
+                </div>
 
-            <p>代码执行的另一个很好的用例是调用外部API。如果指示模型正确使用API，它可以编写使用该API的代码。可以通过提供文档和/或显示如何使用API的代码示例来指示模型如何使用API。</p>
+                <p>代码执行的另一个很好的用例是调用外部API。如果指示模型正确使用API，它可以编写使用该API的代码。可以通过提供文档和/或显示如何使用API的代码示例来指示模型如何使用API。</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>你可以通过将代码封装在三重反引号中来编写和执行Python代码。另外请注意，你有权访问以下模块来帮助用户向他们的朋友发送消息：
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>你可以通过将代码封装在三重反引号中来编写和执行Python代码。另外请注意，你有权访问以下模块来帮助用户向他们的朋友发送消息：
 ```python
 import message
 message.write(to="John", message="嘿，下班后想一起出去吗？")
 ```</code></pre>
-            </div>
+                </div>
 
-            <p><strong>警告：执行模型生成的代码本质上并不安全，任何寻求这样做的应用程序都应采取预防措施。特别是，需要一个沙盒代码执行环境来限制不受信任的代码可能造成的危害。</strong></p>
+                <p><strong>警告：执行模型生成的代码本质上并不安全，任何寻求这样做的应用程序都应采取预防措施。特别是，需要一个沙盒代码执行环境来限制不受信任的代码可能造成的危害。</strong></p>
 
-            <h4>2.6.3 为模型提供访问特定函数的权限</h4>
-            <p>Chat Completions
-                API允许在请求中传递函数描述列表。这使得模型能够根据提供的模式生成函数参数。生成的函数参数由API以JSON格式返回，可用于执行函数调用。然后可以在下一个请求中将函数调用提供的输出反馈给模型以完成循环。这是使用OpenAI模型调用外部函数的推荐方式。要了解更多信息，请参阅我们介绍性文本生成指南中的<a
-                    href="https://platform.openai.com/docs/guides/function-calling">函数调用部分</a>和OpenAI Cookbook中的更多<a
-                    href="https://cookbook.openai.com/examples/how_to_call_functions_with_chat_models">函数调用示例</a>。</p>
+                <h4>2.6.3 为模型提供访问特定函数的权限</h4>
+                <p>Chat Completions
+                    API允许在请求中传递函数描述列表。这使得模型能够根据提供的模式生成函数参数。生成的函数参数由API以JSON格式返回，可用于执行函数调用。然后可以在下一个请求中将函数调用提供的输出反馈给模型以完成循环。这是使用OpenAI模型调用外部函数的推荐方式。要了解更多信息，请参阅我们介绍性文本生成指南中的<a
+                        href="https://platform.openai.com/docs/guides/function-calling">函数调用部分</a>和OpenAI Cookbook中的更多<a
+                        href="https://cookbook.openai.com/examples/how_to_call_functions_with_chat_models">函数调用示例</a>。
+                </p>
 
-            <h3>2.7 系统性测试变更</h3>
+                <h3>2.7 系统性测试变更</h3>
 
-            <p>有时很难判断一个变更——例如，新指令或新设计——是否使您的系统变得更好或更糟。查看几个例子可能会暗示哪个更好，但在小样本量的情况下，很难区分真正的改进还是随机运气。也许变更帮助了某些输入的性能，但损害了其他输入的性能。
-            </p>
+                <p>有时很难判断一个变更——例如，新指令或新设计——是否使您的系统变得更好或更糟。查看几个例子可能会暗示哪个更好，但在小样本量的情况下，很难区分真正的改进还是随机运气。也许变更帮助了某些输入的性能，但损害了其他输入的性能。
+                </p>
 
-            <p>评估程序（或"evals"）对于优化系统设计很有用。好的评估应该：</p>
-            <ul>
-                <li>代表真实世界的使用（或至少是多样化的）</li>
-                <li>包含许多测试用例以获得更大的统计能力（见下表指南）</li>
-                <li>易于自动化或重复</li>
-            </ul>
+                <p>评估程序（或"evals"）对于优化系统设计很有用。好的评估应该：</p>
+                <ul>
+                    <li>代表真实世界的使用（或至少是多样化的）</li>
+                    <li>包含许多测试用例以获得更大的统计能力（见下表指南）</li>
+                    <li>易于自动化或重复</li>
+                </ul>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>要检测的差异</th>
-                        <th>95%置信度所需的样本量</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>30%</td>
-                        <td>~10</td>
-                    </tr>
-                    <tr>
-                        <td>10%</td>
-                        <td>~100</td>
-                    </tr>
-                    <tr>
-                        <td>3%</td>
-                        <td>~1,000</td>
-                    </tr>
-                    <tr>
-                        <td>1%</td>
-                        <td>~10,000</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>要检测的差异</th>
+                            <th>95%置信度所需的样本量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>30%</td>
+                            <td>~10</td>
+                        </tr>
+                        <tr>
+                            <td>10%</td>
+                            <td>~100</td>
+                        </tr>
+                        <tr>
+                            <td>3%</td>
+                            <td>~1,000</td>
+                        </tr>
+                        <tr>
+                            <td>1%</td>
+                            <td>~10,000</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <p>输出的评估可以由计算机、人类或两者的混合来完成。计算机可以自动化具有客观标准的评估（例如，具有单一正确答案的问题），以及一些主观或模糊的标准，其中模型输出由其他模型查询来评估。<a
-                    href="https://github.com/openai/evals">OpenAI Evals</a>是一个开源软件框架，提供了创建自动评估的工具。</p>
+                <p>输出的评估可以由计算机、人类或两者的混合来完成。计算机可以自动化具有客观标准的评估（例如，具有单一正确答案的问题），以及一些主观或模糊的标准，其中模型输出由其他模型查询来评估。<a
+                        href="https://github.com/openai/evals">OpenAI Evals</a>是一个开源软件框架，提供了创建自动评估的工具。</p>
 
-            <p>基于模型的评估在存在一系列可能的输出都被认为同样高质量的情况下可能很有用（例如，对于有长答案的问题）。什么可以通过基于模型的评估来实际评估，以及什么需要人类来评估之间的界限是模糊的，并且随着模型变得更加capable而不断变化。我们鼓励实验，以找出基于模型的评估对您的用例有多好。
-            </p>
+                <p>基于模型的评估在存在一系列可能的输出都被认为同样高质量的情况下可能很有用（例如，对于有长答案的问题）。什么可以通过基于模型的评估来实际评估，以及什么需要人类来评估之间的界限是模糊的，并且随着模型变得更加capable而不断变化。我们鼓励实验，以找出基于模型的评估对您的用例有多好。
+                </p>
 
-            <h4>策略：参考黄金标准答案评估模型输出</h4>
+                <h4>策略：参考黄金标准答案评估模型输出</h4>
 
-            <p>假设已知问题的正确答案应该引用一组特定的已知事实。那么我们可以使用模型查询来计算答案中包含了多少必需的事实。</p>
+                <p>假设已知问题的正确答案应该引用一组特定的已知事实。那么我们可以使用模型查询来计算答案中包含了多少必需的事实。</p>
 
-            <p>例如，使用以下系统消息：</p>
+                <p>例如，使用以下系统消息：</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>你将获得由三重引号分隔的文本，这是一个问题的答案。检查以下信息点是否直接包含在答案中：
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>你将获得由三重引号分隔的文本，这是一个问题的答案。检查以下信息点是否直接包含在答案中：
 - 尼尔·阿姆斯特朗是第一个在月球上行走的人。
 - 尼尔·阿姆斯特朗第一次在月球上行走的日期是1969年7月21日。
 对于每个点，执行以下步骤：
@@ -757,190 +806,198 @@ message.write(to="John", message="嘿，下班后想一起出去吗？")
 3 - 考虑不了解该主题的人阅读引用是否能直接推断出这一点。在做出决定之前解释为什么或为什么不。
 4 - 如果3的答案是肯定的，写"是"，否则写"否"。
 最后，提供有多少个"是"答案的计数。以 {"count": <在此插入计数>} 的形式提供此计数。</code></pre>
-            </div>
+                </div>
 
-            <p>这里是一个两个点都满足的输入示例：</p>
+                <p>这里是一个两个点都满足的输入示例：</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>&lt;插入上面的系统消息&gt;</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>&lt;插入上面的系统消息&gt;</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>"""尼尔·阿姆斯特朗因为是第一个踏上月球表面的人而闻名。这一历史性事件发生在1969年7月21日，在阿波罗11号任务期间。"""</code></pre>
-            </div>
+                    <h5>用户消息：</h5>
+                    <pre><code>"""尼尔·阿姆斯特朗因为是第一个踏上月球表面的人而闻名。这一历史性事件发生在1969年7月21日，在阿波罗11号任务期间。"""</code></pre>
+                </div>
 
-            <p>这里是一个只满足一个点的输入示例：</p>
+                <p>这里是一个只满足一个点的输入示例：</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>&lt;插入上面的系统消息&gt;</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>&lt;插入上面的系统消息&gt;</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>"""当尼尔·阿姆斯特朗从登月舱上迈出一步时，他创造了历史，成为第一个在月球上行走的人。"""</code></pre>
-            </div>
+                    <h5>用户消息：</h5>
+                    <pre><code>"""当尼尔·阿姆斯特朗从登月舱上迈出一步时，他创造了历史，成为第一个在月球上行走的人。"""</code></pre>
+                </div>
 
-            <p>这里是一个都不满足的输入示例：</p>
+                <p>这里是一个都不满足的输入示例：</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>&lt;插入上面的系统消息&gt;</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>&lt;插入上面的系统消息&gt;</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>"""在'69年的夏天，一次伟大的航行，阿波罗11号，如传奇般的手。阿姆斯特朗迈出一步，历史展开，"一小步"，他说，为新世界。"""</code></pre>
-            </div>
+                    <h5>用户消息：</h5>
+                    <pre><code>"""在'69年的夏天，一次伟大的航行，阿波罗11号，如传奇般的手。阿姆斯特朗迈出一步，历史展开，"一小步"，他说，为新世界。"""</code></pre>
+                </div>
 
-            <p>这种类型的基于模型的评估有许多可能的变体。考虑以下变体，它跟踪候选答案和黄金标准答案之间的重叠类型，并跟踪候选答案是否与黄金标准答案的任何部分相矛盾。</p>
+                <p>这种类型的基于模型的评估有许多可能的变体。考虑以下变体，它跟踪候选答案和黄金标准答案之间的重叠类型，并跟踪候选答案是否与黄金标准答案的任何部分相矛盾。</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>使用以下步骤回应用户输入。在进行下一步之前，完整重述每一步。即"第1步：推理..."。
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>使用以下步骤回应用户输入。在进行下一步之前，完整重述每一步。即"第1步：推理..."。
 第1步：逐步推理提交的答案与专家答案相比的信息是否为：不相交、相等、子集、超集或重叠（即有一些交集但不是子集/超集）。
 第2步：逐步推理提交的答案是否与专家答案的任何方面相矛盾。
 第3步：输出一个JSON对象，结构如下：{"type_of_overlap": "不相交" 或 "相等" 或 "子集" 或 "超集" 或 "重叠", "contradiction": true 或 false}</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>问题："""尼尔·阿姆斯特朗最著名的事件是什么，它发生在什么日期？假设使用UTC时间。"""
+                    <h5>用户消息：</h5>
+                    <pre><code>问题："""尼尔·阿姆斯特朗最著名的事件是什么，它发生在什么日期？假设使用UTC时间。"""
 提交的答案："""他是不是在月球上走过或什么的？"""
 专家答案："""尼尔·阿姆斯特朗最著名的是成为第一个在月球上行走的人。这一历史性事件发生在1969年7月21日。"""</code></pre>
-            </div>
+                </div>
 
-            <p>这里是一个直接矛盾专家答案的答案示例：</p>
+                <p>这里是一个直接矛盾专家答案的答案示例：</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>&lt;插入上面的系统消息&gt;</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>&lt;插入上面的系统消息&gt;</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>问题："""尼尔·阿姆斯特朗最著名的事件是什么，它发生在什么日期？假设使用UTC时间。"""
+                    <h5>用户消息：</h5>
+                    <pre><code>问题："""尼尔·阿姆斯特朗最著名的事件是什么，它发生在什么日期？假设使用UTC时间。"""
 提交的答案："""1969年7月21日，尼尔·阿姆斯特朗成为第二个在月球上行走的人，紧随巴兹·奥尔德林之后。"""
 专家答案："""尼尔·阿姆斯特朗最著名的是成为第一个在月球上行走的人。这一历史性事件发生在1969年7月21日。"""</code></pre>
-            </div>
+                </div>
 
-            <p>这里是一个正确答案的示例，它还提供了比必要更多的细节：</p>
+                <p>这里是一个正确答案的示例，它还提供了比必要更多的细节：</p>
 
-            <div class="example">
-                <h5>系统消息：</h5>
-                <pre><code>&lt;插入上面的系统消息&gt;</code></pre>
+                <div class="example">
+                    <h5>系统消息：</h5>
+                    <pre><code>&lt;插入上面的系统消息&gt;</code></pre>
 
-                <h5>用户消息：</h5>
-                <pre><code>问题："""尼尔·阿姆斯特朗最著名的事件是什么，它发生在什么日期？假设使用UTC时间。"""
+                    <h5>用户消息：</h5>
+                    <pre><code>问题："""尼尔·阿姆斯特朗最著名的事件是什么，它发生在什么日期？假设使用UTC时间。"""
 提交的答案："""在1969年7月21日大约02:56 UTC，尼尔·阿姆斯特朗成为第一个踏上月球表面的人，标志着人类历史上的一个重大成就。"""
 专家答案："""尼尔·阿姆斯特朗最著名的是成为第一个在月球上行走的人。这一历史性事件发生在1969年7月21日。"""</code></pre>
-            </div>
-        </section>
+                </div>
+            </section>
 
-        <section id="additional-resources" class="content-section">
+            <section id="additional-resources" class="content-section">
 
 
-            <h2>3. 补充资料</h2>
-            <p>本节提供一些额外的资源和参考资料，帮助读者更全面地了解文本生成工具的应用。</p>
-            <h3>3.1 优秀文档的标准</h3>
+                <h2>3. 补充资料</h2>
+                <p>本节提供一些额外的资源和参考资料，帮助读者更全面地了解文本生成工具的应用。</p>
+                <h3>3.1 优秀文档的标准</h3>
 
-            <p>好的文档能够将有用的信息传递到他人的头脑中。以下是来自<a href="https://github.com/openai/openai-cookbook/blob/main/articles/what_makes_documentation_good.md">《What makes documentation good》</a>一文的详细指南，可以帮助我们编写更好的文档。</p>
+                <p>好的文档能够将有用的信息传递到他人的头脑中。以下是来自<a
+                        href="https://github.com/openai/openai-cookbook/blob/main/articles/what_makes_documentation_good.md">《What
+                        makes documentation good》</a>一文的详细指南，可以帮助我们编写更好的文档。</p>
 
-            <h4>3.1.1 让文档易于浏览</h4>
+                <h4>3.1.1 让文档易于浏览</h4>
 
-            <p>很少有读者会从头到尾线性阅读。他们会跳跃阅读，试图评估哪一部分能解决他们的问题。为了减少他们的搜索时间并提高成功率，让文档易于浏览很重要。</p>
+                <p>很少有读者会从头到尾线性阅读。他们会跳跃阅读，试图评估哪一部分能解决他们的问题。为了减少他们的搜索时间并提高成功率，让文档易于浏览很重要。</p>
 
-            <ul>
-                <li><strong>将内容分成带有标题的部分。</strong>章节标题就像路标，告诉读者是否需要集中注意力或继续前进。</li>
+                <ul>
+                    <li><strong>将内容分成带有标题的部分。</strong>章节标题就像路标，告诉读者是否需要集中注意力或继续前进。</li>
 
-                <li><strong>优先使用信息丰富的句子作为标题，而不是抽象名词。</strong>例如，如果使用"结果"这样的标题，读者需要进入后面的文本才能了解结果是什么。相比之下，如果使用"流式处理将首个标记的时间减少了50%"这样的标题，它立即给读者提供了信息，无需额外的跳转。
-                </li>
+                    <li><strong>优先使用信息丰富的句子作为标题，而不是抽象名词。</strong>例如，如果使用"结果"这样的标题，读者需要进入后面的文本才能了解结果是什么。相比之下，如果使用"流式处理将首个标记的时间减少了50%"这样的标题，它立即给读者提供了信息，无需额外的跳转。
+                    </li>
 
-                <li><strong>包含目录。</strong>目录帮助读者更快找到信息，类似于哈希映射比链表有更快的查找速度。目录还有第二个常被忽视的好处：它给读者提供了关于文档的线索，帮助他们理解是否值得阅读。
-                </li>
+                    <li><strong>包含目录。</strong>目录帮助读者更快找到信息，类似于哈希映射比链表有更快的查找速度。目录还有第二个常被忽视的好处：它给读者提供了关于文档的线索，帮助他们理解是否值得阅读。
+                    </li>
 
-                <li><strong>保持段落简短。</strong>较短的段落更容易浏览。如果你有一个重要观点，考虑将其放在单独的一句话段落中，以减少被忽视的可能性。长段落可能会掩埋信息。</li>
+                    <li><strong>保持段落简短。</strong>较短的段落更容易浏览。如果你有一个重要观点，考虑将其放在单独的一句话段落中，以减少被忽视的可能性。长段落可能会掩埋信息。</li>
 
-                <li><strong>用简短的主题句开始段落和章节，给出独立的预览。</strong>当人们浏览时，他们不成比例地关注一个部分的第一个词、第一行和第一句话。以不依赖于先前文本的方式写这些句子。例如，考虑第一句话"基于此，让我们现在讨论一种更快的方法。"对于没有读过前一段的人来说，这个句子是没有意义的。相反，以可以独立理解的方式写它：例如，"向量数据库可以加速嵌入搜索。"
-                </li>
+                    <li><strong>用简短的主题句开始段落和章节，给出独立的预览。</strong>当人们浏览时，他们不成比例地关注一个部分的第一个词、第一行和第一句话。以不依赖于先前文本的方式写这些句子。例如，考虑第一句话"基于此，让我们现在讨论一种更快的方法。"对于没有读过前一段的人来说，这个句子是没有意义的。相反，以可以独立理解的方式写它：例如，"向量数据库可以加速嵌入搜索。"
+                    </li>
 
-                <li><strong>将主题词放在主题句的开头。</strong>当读者只需要读一两个词就能知道段落内容时，他们浏览得最有效率。因此，在写主题句时，倾向于将主题放在句子的开头而不是结尾。例如，假设你在一篇关于嵌入搜索的长文章中间写一个关于向量数据库的段落。与其写"嵌入搜索可以通过向量数据库加速"，不如写"向量数据库加速嵌入搜索。"第二句话更适合浏览，因为它把段落主题放在了段落的开头。
-                </li>
+                    <li><strong>将主题词放在主题句的开头。</strong>当读者只需要读一两个词就能知道段落内容时，他们浏览得最有效率。因此，在写主题句时，倾向于将主题放在句子的开头而不是结尾。例如，假设你在一篇关于嵌入搜索的长文章中间写一个关于向量数据库的段落。与其写"嵌入搜索可以通过向量数据库加速"，不如写"向量数据库加速嵌入搜索。"第二句话更适合浏览，因为它把段落主题放在了段落的开头。
+                    </li>
 
-                <li><strong>将要点放在前面。</strong>将最重要的信息放在文档和章节的顶部。不要写一个苏格拉底式的大铺垫。不要在结果之前介绍你的程序。</li>
+                    <li><strong>将要点放在前面。</strong>将最重要的信息放在文档和章节的顶部。不要写一个苏格拉底式的大铺垫。不要在结果之前介绍你的程序。</li>
 
-                <li><strong>使用项目符号和表格。</strong>项目符号列表和表格使文档更容易浏览。经常使用它们。</li>
+                    <li><strong>使用项目符号和表格。</strong>项目符号列表和表格使文档更容易浏览。经常使用它们。</li>
 
-                <li><strong>加粗重要文本。</strong>不要害怕加粗重要文本以帮助读者找到它。</li>
-            </ul>
+                    <li><strong>加粗重要文本。</strong>不要害怕加粗重要文本以帮助读者找到它。</li>
+                </ul>
 
-            <h4>3.1.2 写得好</h4>
+                <h4>3.1.2 写得好</h4>
 
-            <p>写得糟糕的文本读起来很费劲。通过写得好来最小化读者的负担。</p>
+                <p>写得糟糕的文本读起来很费劲。通过写得好来最小化读者的负担。</p>
 
-            <ul>
-                <li><strong>保持句子简单。</strong>将长句分成两句。删除副词。删除不必要的词和短语。如果适用，使用祈使语气。按照写作书籍所说的去做。</li>
+                <ul>
+                    <li><strong>保持句子简单。</strong>将长句分成两句。删除副词。删除不必要的词和短语。如果适用，使用祈使语气。按照写作书籍所说的去做。</li>
 
-                <li><strong>写出可以明确解析的句子。</strong>例如，考虑句子"Title sections with
-                    sentences."当读者读到"Title"这个词时，他们的大脑还不知道"Title"是名词、动词还是形容词。需要一些脑力来跟踪解析句子的其余部分，如果他们的大脑错误预测了含义，可能会造成停顿。倾向于更容易解析的句子（例如，"Write
-                    section titles as sentences"），即使它们更长。同样，避免像"Bicycle clearance exercise
-                    notice"这样的名词短语，因为它们可能需要额外的努力来解析。</li>
+                    <li><strong>写出可以明确解析的句子。</strong>例如，考虑句子"Title sections with
+                        sentences."当读者读到"Title"这个词时，他们的大脑还不知道"Title"是名词、动词还是形容词。需要一些脑力来跟踪解析句子的其余部分，如果他们的大脑错误预测了含义，可能会造成停顿。倾向于更容易解析的句子（例如，"Write
+                        section titles as sentences"），即使它们更长。同样，避免像"Bicycle clearance exercise
+                        notice"这样的名词短语，因为它们可能需要额外的努力来解析。</li>
 
-                <li><strong>避免左分支句子。</strong>语言树显示了句子中词与词之间的关系。左分支树比右分支句子需要读者在记忆中保持更多的东西，类似于广度优先搜索与深度优先搜索。左分支句子的一个例子是"You
-                    need flour, eggs, milk, butter and a dash of salt to make pancakes."在这个句子中，你直到句子结束才知道"you
-                    need"连接到什么。一个更容易阅读的右分支版本是"To make pancakes, you need flour, eggs, milk, butter, and a dash of
-                    salt."注意那些读者必须长时间保持一个词的句子，看看是否可以重新表述它们。</li>
+                    <li><strong>避免左分支句子。</strong>语言树显示了句子中词与词之间的关系。左分支树比右分支句子需要读者在记忆中保持更多的东西，类似于广度优先搜索与深度优先搜索。左分支句子的一个例子是"You
+                        need flour, eggs, milk, butter and a dash of salt to make pancakes."在这个句子中，你直到句子结束才知道"you
+                        need"连接到什么。一个更容易阅读的右分支版本是"To make pancakes, you need flour, eggs, milk, butter, and a dash of
+                        salt."注意那些读者必须长时间保持一个词的句子，看看是否可以重新表述它们。</li>
 
-                <li><strong>避免指示代词（例如，"this"），特别是跨句子使用。</strong>例如，与其说"Building on our discussion of the previous topic,
-                    now let's discuss function calling"，不如说"Building on message formatting, now let's discuss function
-                    calling."第二句更容易理解，因为它不会给读者增加回忆前一个主题的负担。寻找机会完全删除指示代词：例如，"Now let's discuss function calling."</li>
+                    <li><strong>避免指示代词（例如，"this"），特别是跨句子使用。</strong>例如，与其说"Building on our discussion of the previous
+                        topic,
+                        now let's discuss function calling"，不如说"Building on message formatting, now let's discuss
+                        function
+                        calling."第二句更容易理解，因为它不会给读者增加回忆前一个主题的负担。寻找机会完全删除指示代词：例如，"Now let's discuss function calling."
+                    </li>
 
-                <li><strong>保持一致性。</strong>人类的大脑是惊人的模式匹配器。不一致会惹恼或分散读者的注意力。如果我们到处使用标题大小写，就使用标题大小写。如果我们到处使用终端逗号，就使用终端逗号。如果所有的Cookbook笔记本都使用下划线和句子大小写命名，就使用下划线和句子大小写。不要做任何会让读者觉得"嗯，这很奇怪"的事。帮助他们专注于内容，而不是其不一致性。
-                </li>
+                    <li><strong>保持一致性。</strong>人类的大脑是惊人的模式匹配器。不一致会惹恼或分散读者的注意力。如果我们到处使用标题大小写，就使用标题大小写。如果我们到处使用终端逗号，就使用终端逗号。如果所有的Cookbook笔记本都使用下划线和句子大小写命名，就使用下划线和句子大小写。不要做任何会让读者觉得"嗯，这很奇怪"的事。帮助他们专注于内容，而不是其不一致性。
+                    </li>
 
-                <li><strong>不要告诉读者他们在想什么或应该做什么。</strong>避免使用像"Now you probably want to understand how to call a
-                    function"或"Next, you'll need to learn to call a
-                    function"这样的句子。这两个例子都假设了读者的心理状态，可能会惹恼他们或损害我们的可信度。使用避免假设读者状态的短语。例如，"To call a function, ..."</li>
-            </ul>
+                    <li><strong>不要告诉读者他们在想什么或应该做什么。</strong>避免使用像"Now you probably want to understand how to call a
+                        function"或"Next, you'll need to learn to call a
+                        function"这样的句子。这两个例子都假设了读者的心理状态，可能会惹恼他们或损害我们的可信度。使用避免假设读者状态的短语。例如，"To call a function, ..."</li>
+                </ul>
 
-            <h4>3.1.3 广泛有用</h4>
+                <h4>3.1.3 广泛有用</h4>
 
-            <p>人们带着不同级别的知识、语言熟练程度和耐心来查阅文档。即使我们的目标是有经验的开发人员，我们也应该尝试编写对每个人都有帮助的文档。</p>
+                <p>人们带着不同级别的知识、语言熟练程度和耐心来查阅文档。即使我们的目标是有经验的开发人员，我们也应该尝试编写对每个人都有帮助的文档。</p>
 
-            <ul>
-                <li><strong>简单写作。</strong>比你认为需要的更简单地解释事情。许多读者可能不以英语为第一语言。许多读者可能对技术术语感到非常困惑，没有多余的脑力来解析英语句子。简单写作。（但不要过度简化。）
-                </li>
+                <ul>
+                    <li><strong>简单写作。</strong>比你认为需要的更简单地解释事情。许多读者可能不以英语为第一语言。许多读者可能对技术术语感到非常困惑，没有多余的脑力来解析英语句子。简单写作。（但不要过度简化。）
+                    </li>
 
-                <li><strong>避免缩写。</strong>把东西写出来。对专家来说成本很低，对初学者来说好处很大。不要用IF，写instruction
-                    following。不要用RAG，写retrieval-augmented generation（或我更喜欢的术语：搜索-询问程序）。</li>
+                    <li><strong>避免缩写。</strong>把东西写出来。对专家来说成本很低，对初学者来说好处很大。不要用IF，写instruction
+                        following。不要用RAG，写retrieval-augmented generation（或我更喜欢的术语：搜索-询问程序）。</li>
 
-                <li><strong>提供潜在问题的解决方案。</strong>即使95%的读者知道如何安装Python包或保存环境变量，主动解释它仍然是值得的。包含解释对专家来说并不昂贵——他们可以直接跳过。但是排除解释对初学者来说是昂贵的——他们可能会卡住甚至放弃我们。记住，即使是专业的JavaScript工程师或C++工程师可能也是Python的初学者。宁可解释得太多，也不要解释得太少。
-                </li>
+                    <li><strong>提供潜在问题的解决方案。</strong>即使95%的读者知道如何安装Python包或保存环境变量，主动解释它仍然是值得的。包含解释对专家来说并不昂贵——他们可以直接跳过。但是排除解释对初学者来说是昂贵的——他们可能会卡住甚至放弃我们。记住，即使是专业的JavaScript工程师或C++工程师可能也是Python的初学者。宁可解释得太多，也不要解释得太少。
+                    </li>
 
-                <li><strong>优先使用具体和准确的术语。</strong>行话是不好的。为该领域的新人优化文档，而不是为我们自己。例如，不要写"prompt"，而是写"input"。或者不要写"context
-                    limit"，而是写"max token limit"。后者更加不言自明，可能比基础模型时代发展出来的行话更好。</li>
+                    <li><strong>优先使用具体和准确的术语。</strong>行话是不好的。为该领域的新人优化文档，而不是为我们自己。例如，不要写"prompt"，而是写"input"。或者不要写"context
+                        limit"，而是写"max token limit"。后者更加不言自明，可能比基础模型时代发展出来的行话更好。</li>
 
-                <li><strong>保持代码示例通用和可导出。</strong>在代码演示中，尽量减少依赖。不要让用户安装额外的库。不要让他们必须在不同的页面或部分之间来回参考。尽量使示例简单和自包含。</li>
+                    <li><strong>保持代码示例通用和可导出。</strong>在代码演示中，尽量减少依赖。不要让用户安装额外的库。不要让他们必须在不同的页面或部分之间来回参考。尽量使示例简单和自包含。</li>
 
-                <li><strong>按价值优先考虑主题。</strong>涵盖常见问题的文档——例如，如何计算标记——比涵盖罕见问题的文档——例如，如何优化表情符号数据库——要有价值得多。相应地进行优先排序。</li>
+                    <li><strong>按价值优先考虑主题。</strong>涵盖常见问题的文档——例如，如何计算标记——比涵盖罕见问题的文档——例如，如何优化表情符号数据库——要有价值得多。相应地进行优先排序。
+                    </li>
 
-                <li><strong>不要教坏习惯。</strong>如果API密钥不应该存储在代码中，就永远不要分享在代码中存储API密钥的示例。</li>
+                    <li><strong>不要教坏习惯。</strong>如果API密钥不应该存储在代码中，就永远不要分享在代码中存储API密钥的示例。</li>
 
-                <li><strong>用广泛的开场白介绍主题。</strong>例如，如果解释如何编程一个好的推荐器，考虑先简要提及推荐在网络上的广泛应用，从YouTube视频到亚马逊商品再到维基百科。用广泛的开场白来介绍一个狭窄的主题可以帮助人们在跳入未知领域之前感到更安全。而且如果文本写得好，那些已经知道的人可能仍然会喜欢它。
-                </li>
-            </ul>
+                    <li><strong>用广泛的开场白介绍主题。</strong>例如，如果解释如何编程一个好的推荐器，考虑先简要提及推荐在网络上的广泛应用，从YouTube视频到亚马逊商品再到维基百科。用广泛的开场白来介绍一个狭窄的主题可以帮助人们在跳入未知领域之前感到更安全。而且如果文本写得好，那些已经知道的人可能仍然会喜欢它。
+                    </li>
+                </ul>
 
-            <h4>3.1.4 灵活应用原则</h4>
+                <h4>3.1.4 灵活应用原则</h4>
 
-            <p>当你有充分理由时，可以打破这些规则。最终，做你认为最好的事。文档是一种同理心的练习。把自己放在读者的位置上，做你认为最能帮助他们的事。</p>
+                <p>当你有充分理由时，可以打破这些规则。最终，做你认为最好的事。文档是一种同理心的练习。把自己放在读者的位置上，做你认为最能帮助他们的事。</p>
 
-            <div class="tip">
-                <p><strong>提示：</strong>记住，好的文档是为读者服务的。始终考虑你的目标受众，并相应地调整你的写作风格和内容。在编写过程中，不断问自己：这段内容对读者有帮助吗？它是否清晰易懂？是否能有效解决读者的问题？通过不断思考这些问题，你的文档质量将会持续提升。
-                </p>
-            </div>
-            <h3>3.2 其他资源网站</h3>
-            <p>要获得更多灵感，请访问<a href="https://cookbook.openai.com/">OpenAI Cookbook</a>，其中包含示例代码，并链接到第三方资源，例如：</p>
-            <ul>
-                <li><a href="https://cookbook.openai.com/related_resources#prompting-libraries--tools">提示工程库和工具</a></li>
-                <li><a href="https://cookbook.openai.com/related_resources#prompting-guides">提示工程指南</a></li>
-                <li><a href="https://cookbook.openai.com/related_resources#video-courses">视频课程</a></li>
-                <li><a
-                        href="https://cookbook.openai.com/related_resources#papers-on-advanced-prompting-to-improve-reasoning">关于提高推理能力的高级提示技术的论文</a>
-                </li>
-            </ul>
-        </section>
+                <div class="tip">
+                    <p><strong>提示：</strong>记住，好的文档是为读者服务的。始终考虑你的目标受众，并相应地调整你的写作风格和内容。在编写过程中，不断问自己：这段内容对读者有帮助吗？它是否清晰易懂？是否能有效解决读者的问题？通过不断思考这些问题，你的文档质量将会持续提升。
+                    </p>
+                </div>
+                <h3>3.2 其他资源网站</h3>
+                <p>要获得更多灵感，请访问<a href="https://cookbook.openai.com/">OpenAI Cookbook</a>，其中包含示例代码，并链接到第三方资源，例如：</p>
+                <ul>
+                    <li><a href="https://cookbook.openai.com/related_resources#prompting-libraries--tools">提示工程库和工具</a>
+                    </li>
+                    <li><a href="https://cookbook.openai.com/related_resources#prompting-guides">提示工程指南</a></li>
+                    <li><a href="https://cookbook.openai.com/related_resources#video-courses">视频课程</a></li>
+                    <li><a
+                            href="https://cookbook.openai.com/related_resources#papers-on-advanced-prompting-to-improve-reasoning">关于提高推理能力的高级提示技术的论文</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -949,6 +1006,8 @@ message.write(to="John", message="嘿，下班后想一起出去吗？")
             <p><a href="index.html">返回首页</a></p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
