@@ -27,12 +27,514 @@
                 <section id="commands" class="content-section">
                     <h2>1. 命令</h2>
                     <h3 id="command-list">1.1 命令列表</h3>
+                    <p>以下是Midjourney机器人支持的命令列表。这些命令可以在任何机器人频道、允许Midjourney机器人操作的私人Discord服务器上，或与Midjourney机器人的直接消息中使用。
+                    </p>
+
+                    <ul>
+                        <li><strong>/ask</strong>：获取问题的答案。</li>
+                        <li><strong>/blend</strong>：轻松混合两张图片。</li>
+                        <li><strong>/daily_theme</strong>：切换#daily-theme频道更新的通知提醒。</li>
+                        <li><strong>/describe</strong>：基于您上传的图片生成四个示例提示。</li>
+                        <li><strong>/fast</strong>：切换到快速模式。</li>
+                        <li><strong>/help</strong>：显示有关Midjourney机器人的基本信息和提示。</li>
+                        <li><strong>/imagine</strong>：使用提示生成图像。</li>
+                        <li><strong>/info</strong>：查看您的账户信息以及任何排队或运行中的作业。</li>
+                        <li><strong>/prefer option set</strong>：创建或管理自定义选项。</li>
+                        <li><strong>/prefer option list</strong>：查看您当前的自定义选项。</li>
+                        <li><strong>/prefer remix</strong>：切换重组模式。</li>
+                        <li><strong>/prefer suffix</strong>：指定要添加到每个提示末尾的后缀。</li>
+                        <li><strong>/public</strong>：（仅限Pro计划订阅者）切换到公共模式。</li>
+                        <li><strong>/relax</strong>：切换到放松模式。</li>
+                        <li><strong>/settings</strong>：查看和调整Midjourney机器人的设置。</li>
+                        <li><strong>/stealth</strong>：（仅限Pro计划订阅者）切换到隐身模式。</li>
+                        <li><strong>/shorten</strong>：提交长提示并获得如何使其更简洁的建议。</li>
+                        <li><strong>/show</strong>：使用图像的作业ID在Discord中重新生成作业。</li>
+                        <li><strong>/subscribe</strong>：生成用户账户页面的个人链接。</li>
+                        <li><strong>/tune</strong>：基于您的提示生成风格调谐器。风格调谐器允许您创建自己的Midjourney风格并自定义作业的外观。</li>
+                        <li><strong>/turbo</strong>：切换到涡轮模式。</li>
+                        <li><strong>/userid</strong>：获取您的Midjourney用户ID。</li>
+                    </ul>
+
+                    <p><strong>注意</strong>：一些命令（如/docs、/feedback、/faq、/invite、/list_tuners、/synonyms）仅在官方Midjourney
+                        Discord服务器中可用。</p>
+
+                    <h4>已弃用的命令</h4>
+                    <ul>
+                        <li>/private（已被'/stealth'替代）</li>
+                        <li>/pixels</li>
+                        <li>/idea</li>
+                    </ul>
                     <h3 id="blend">1.2 blend</h3>
+                    <p><code>/blend</code>命令允许您快速上传2-5张图片，然后分析每张图片的概念和美学特征，将它们融合成一张全新的图像。</p>
+
+                    <div class="infoBox">
+                        <ul>
+                            <li><code>/blend</code>的效果等同于在<code>/imagine</code>命令中使用多个<a
+                                    href="/image-prompts">图像提示</a>，但其界面针对移动设备进行了优化，使用更加便捷。</li>
+                            <li><code>/blend</code>最多支持5张图片。如果需要使用超过5张图片，请使用<a
+                                    href="/image-prompts">图像提示</a>配合<code>/imagine</code>命令。</li>
+                            <li><code>/blend</code>不支持文本提示。如果需要同时使用文本和图像提示，请使用<a
+                                    href="/image-prompts">图像提示</a>和文本配合<code>/imagine</code>命令。</li>
+                        </ul>
+                    </div>
+
+                    <h4><code>/blend</code>命令选项</h4>
+                    <p>输入<code>/blend</code>命令后，系统会提示您上传两张照片。您可以从硬盘拖放图片，或在移动设备上从照片库添加图片。如需添加更多图片，请选择<code>optional/options</code>字段，然后选择<code>image3</code>、<code>image4</code>或<code>image5</code>。请注意，<code>/blend</code>命令可能比其他命令启动时间更长，因为系统需要先上传您的图片，然后Midjourney机器人才能处理您的请求。
+                    </p>
+
+                    <p>融合后的图像默认使用<a
+                            href="/v1/docs/aspect-ratios">1:1的宽高比</a>，但您可以使用可选的<code>dimensions</code>字段选择正方形（1:1）、肖像（2:3）或风景（3:2）宽高比。
+                    </p>
+
+                    <p><a
+                            href="/v1/docs/settings-and-presets">自定义后缀</a>会被添加到<code>/blend</code>提示的末尾，就像其他<code>/imagine</code>提示一样。在<code>/blend</code>命令中指定的宽高比会覆盖自定义后缀中的宽高比设置。
+                    </p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Blend_Interface.png"
+                            alt="显示Midjourney /blend命令的Discord应用界面图像" data-lightbox="box"></p>
+
+                    <div class="infoBox">
+                        <div class="title">融合技巧</div>
+                        <div class="content">
+                            <p>为获得最佳效果，请上传与您期望的结果具有相同宽高比的图像。</p>
+                        </div>
+                    </div>
+
+                    <h4>如何使用<code>/blend</code></h4>
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Blend.gif"
+                            alt="展示如何使用Midjourney blend命令的动画gif" data-lightbox="box"></p>
                     <h3 id="describe">1.3 describe</h3>
-                    <h3 id="user-info">1.4 user info</h3>
-                    <h3 id="settings-presets">1.5 settings and presets in discord</h3>
-                    <h3 id="show-job">1.6 show job</h3>
-                    <h3 id="shorten">1.7 shorten</h3>
+                    <p><code>/describe</code>命令允许您上传一张图片，并基于该图片生成四个可能的提示。使用<code>/describe</code>命令来探索新的词汇和美学风格。</p>
+
+                    <div class="infoBox">
+                        <ul>
+                            <li>describe功能生成的提示建议具有启发性和暗示性。它不能用于精确重现上传的图像。</li>
+                            <li>describe在Discord和网站上的工作方式略有不同。在Discord中使用<code>/describe</code>命令会生成完整的提示，而网站则会提供词语和短语建议，帮助您构建自己的提示。
+                            </li>
+                            <li>对同一图像多次使用"describe"会提供不同的建议。</li>
+                        </ul>
+                    </div>
+
+                    <h4>在Discord中使用</h4>
+                    <h5>使用<code>/describe</code>命令</h5>
+                    <p>在Discord中任何可以使用Midjourney机器人的地方使用<code>/describe</code>命令。您可以通过输入图片的URL（选择<code>link</code>选项；在<a
+                            href="/v1/docs/image-prompts">这里</a>查找更多关于在Discord中使用图像URL的信息），或选择存储在您设备上的图片（使用<code>image</code>选项）来提供要描述的图片。
+                    </p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/describe-command.png"
+                            width="750" alt="Describe命令界面" data-lightbox="box"></p>
+
+                    <p>生成建议后，点击相应的数字按钮来使用该提示<code>/imagine</code>。您可以在提交之前编辑文本。</p>
+
+                    <p>您还可以使用🔄按钮对同一图像再次运行<code>/describe</code>命令，或使用<span
+                            class="discordbtn"><code>🎉 Imagine all</code></span>按钮一次性生成所有四个提示的图像（但您将没有机会先编辑它们）。</p>
+
+                    <h5>Discord中的<code>/describe</code>示例</h5>
+                    <p>如果您使用<code>/describe</code>命令描述下面的图像，Midjourney机器人将建议四个可能生成类似图像的提示：</p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/ref-image-cat.jpg"
+                            height="300" data-lightbox="box"></p>
+
+                    <div class="warningBox">
+                        <p>1️⃣ 在白色背景上用紫色圆珠笔绘制的波斯猫脸部素描，紫色毛发，未知艺术家风格。</p>
+                        <p>2️⃣ 紫色铅笔绘制的波斯猫，白色背景，John Beastman风格。</p>
+                        <p>3️⃣ 紫色铅笔绘制的可爱波斯猫，白色背景上的简单线条，具有精细细节和精美构图，超写实风格，锐利的边缘和清晰的焦点。</p>
+                        <p>4️⃣
+                            紫色铅笔绘制的异国短毛猫，简单的线条艺术和白色背景，精细线条和柔和色彩营造出柔和细腻的氛围，这幅特写肖像。素描风格将猫描绘得可爱而梦幻，通过详细的线条展现复杂细节，正面视角。水墨技法使用低饱和度的深黑色调创造艺术家风格。
+                        </p>
+                    </div>
+
+                    <div class="infoBox">
+                        <div class="title">旧版<code>/describe</code></div>
+                        <div class="content">
+                            <ul>
+                                <li>默认情况下，Discord中的<code>/describe</code>生成最适合版本6的提示。</li>
+                                <li>如果您在Discord中将默认Midjourney版本设置为5.0，<code>/describe</code>将生成更短的提示，这些提示更适合较旧的<a
+                                        href="/v1/docs/model-version-5">模型版本</a>。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4>在网站上使用</h4>
+                    <h5>从想象栏使用</h5>
+                    <p>点击想象栏中的<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                            height="16" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m4 16 4.586-4.586a2 2 0 0 1 2.828 0L16 16m-2-2 1.586-1.586a2 2 0 0 1 2.828 0L20 14m-6-6h.01M6 20h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z">
+                            </path>
+                        </svg>图标来访问网站上的图像参考选项。如果您想描述的图像没有出现，可以从此视图上传。上传后，将鼠标悬停在图像上以显示<svg
+                            xmlns="http://www.w3.org/2000/svg" height="16" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 9a1 1 0 0 0 0 2v3a1 1 0 0 0 1 1h1a1 1 0 1 0 0-2v-3a1 1 0 0 0-1-1H9z">
+                            </path>
+                        </svg>图标，然后点击它来生成建议。</p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-website-create-image-upload2.png"
+                            width="750" alt="网站上的图像上传界面" data-lightbox="box"></p>
+
+                    <p>与Discord中的<code>/describe</code>生成完整提示不同，网站会提供各种词语和短语供您使用。点击生成的短语会将其添加到您当前提示的末尾。点击<svg
+                            xmlns="http://www.w3.org/2000/svg" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2" class="group-active:-rotate-180 group-active:transition-all"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15">
+                            </path>
+                        </svg>重新生成按钮来生成新的描述，点击<svg xmlns="http://www.w3.org/2000/svg" height="16" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m11 17-5-5m0 0 5-5m-5 5h12"></path>
+                        </svg>返回按钮返回图像选择工具。</p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/web-describe-cat.png"
+                            width="750" alt="网站上的Describe功能界面" data-lightbox="box"></p>
+
+                    <h5>从工具标签页使用</h5>
+                    <p>点击侧边栏底部的<svg xmlns="http://www.w3.org/2000/svg" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2" class="text-splash" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19.428 15.428a2 2 0 0 0-1.022-.547l-2.387-.477a6 6 0 0 0-3.86.517l-.318.158a6 6 0 0 1-3.86.517L6.05 15.21a2 2 0 0 0-1.806.547M8 4h8l-1 1v5.172a2 2 0 0 0 .586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 0 0 9 10.172V5L8 4z">
+                            </path>
+                        </svg>工具菜单来访问<a href="//www.midjourney.com/describe">Describe</a>页面。该页面将自动填充您所有的<a
+                            href="/v1/docs/using-images">已上传图像</a>。</p>
+
+                    <p>您可以将图像从计算机拖放到页面上，以生成完整提示的建议，类似于在Discord中使用<code>/describe</code>的效果。</p>
+
+                    <p>将鼠标悬停在提示上，点击+copy按钮将其复制到剪贴板。</p>
+                    <h3 id="user-info">1.4 用户信息（User Info）</h3>
+                    <p>使用<code>/info</code>命令可以查看关于您当前排队和运行中的作业、订阅类型、续订日期等信息。</p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/discord-user-info-command.png"
+                            alt="使用/info命令后生成的用户信息弹窗图像" data-lightbox="box"></p>
+
+                    <h4 id="user-id">用户ID（User ID）</h4>
+                    <p>您的Midjourney用户ID</p>
+
+                    <h4 id="subscription">订阅（Subscription）</h4>
+                    <p>订阅部分显示<a href="/plans">您订阅的计划</a>以及下一次续订日期。</p>
+
+                    <h4 id="visibility-mode">可见性模式（Visibility Mode）</h4>
+                    <p>显示您当前是处于<a href="/stealth">公开模式还是隐身模式</a>。隐身模式仅适用于Pro计划订阅者。</p>
+
+                    <h4 id="fast-time-remaining">剩余快速时间（Fast Time Remaining）</h4>
+                    <p>显示您本月剩余的<a href="/fast-relax">快速GPU时间</a>。快速GPU时间每月重置，不会结转。</p>
+
+                    <h4 id="ranking-count">评分计数（Ranking Count）</h4>
+                    <p>显示您<a href="/v1/docs/free-hours">评分图像</a>的总数，以及最近30天内评分的图像数量。</p>
+
+                    <h4 id="lifetime-usage">终身使用情况（Lifetime Usage）</h4>
+                    <p>显示您的Midjourney终身统计数据。<strong>图像</strong>包括所有类型的生成（初始图像网格、放大、变体、重组等）。</p>
+
+                    <h4 id="fast-turbo-and-relaxed-usage">快速、涡轮和放松模式使用情况（Fast, Turbo and Relaxed Usage）</h4>
+                    <p>显示您<a href="/fast-relax">快速、涡轮和放松模式</a>的使用情况。</p>
+
+                    <h4 id="queued-fast-and-relaxed-jobs">排队的快速和放松作业（Queued Fast and Relaxed Jobs）</h4>
+                    <p>列出所有排队等待运行的<span class="popover__title" data-glossary="Job"
+                            data-glossaryid="4ca91c3e-a953-4ca4-a4c9-03fff744ef98">作业</span>。</p>
+
+                    <h4 id="running-jobs">运行中的作业（Running Jobs）</h4>
+                    <p>列出所有当前运行的<span class="popover__title" data-glossary="Job"
+                            data-glossaryid="4ca91c3e-a953-4ca4-a4c9-03fff744ef98">作业</span>。同时最多可以运行三个作业。</p>
+
+                    <h3 id="use-the-info-command">使用Info命令</h3>
+                    <p>在任何<span class="popover__title" data-glossary="Bot Channel"
+                            data-glossaryid="8a726e76-0f37-472c-a5a7-24e81899dfb2">机器人频道</span>或您的私信中输入<code>/info</code>。只有您能看到您的信息弹窗。
+                    </p>
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_infoCommand.gif"
+                            alt="展示如何使用Info命令的动画Gif" data-lightbox="box"></p>
+
+                    <div class="glossary-popover-contents">
+                        <div class="popover__content hidden 4ca91c3e-a953-4ca4-a4c9-03fff744ef98">
+                            <p><strong>作业（Job）</strong>是指使用Midjourney机器人的任何操作。<strong>作业</strong>包括使用<code>/imagine</code>创建初始图像网格、放大图像和创建图像变体。
+                            </p>
+                        </div>
+                        <div class="popover__content hidden 8a726e76-0f37-472c-a5a7-24e81899dfb2">
+                            <p><strong>机器人频道（Bot Channels）</strong>是允许Midjourney机器人处理斜杠命令的Discord频道。在官方Midjourney
+                                Discord服务器上，<strong>新手房间</strong>、<strong>主题频道</strong>、<strong>主题图像生成</strong>和<strong>通用图像生成</strong>类别中的所有频道都是机器人频道。
+                            </p>
+                        </div>
+                    </div>
+                    <h3 id="settings-and-presets">1.5 设置和预设（Settings and Presets in Discord）</h3>
+                    <p><code>/settings</code>命令提供了常用选项的切换按钮，如模型版本、风格值、质量值和放大器版本。设置中还包括<code>/stealth</code>和<code>/public</code>命令的切换。
+                    </p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-settings-ui.png"
+                            alt="Midjourney设置命令UI" data-lightbox="box"></p>
+
+                    <div class="warningBox">
+                        <p>在提示末尾添加的参数将覆盖使用<code>/settings</code>进行的选择。</p>
+                    </div>
+
+                    <h4 id="model-version-dropdown">模型版本下拉菜单</h4>
+                    <p>选择生成图像时使用的<a
+                            href="/models">Midjourney模型版本</a>。<strong>使用最新模型</strong>是默认选项，它将始终使用最新的Midjourney模型版本。</p>
+
+                    <p>
+                        <span class="discordbtn"><code>Use the latest Model (V6)</code></span>
+                        <span class="discordbtn"><code>6️⃣ Mjourney Model V6 [ALPHA]</code></span>
+                        <span class="discordbtn"><code>🌈 Niji Model V6 [ALPHA]</code></span>
+                        <span class="discordbtn"><code>5️⃣ Mjourney Model V5.2</code></span>
+                        <span class="discordbtn"><code>5️⃣ Mjourney Model V5.1</code></span>
+                        <span class="discordbtn"><code>🍎 Niji Model V5</code></span>
+                        <span class="discordbtn"><code>5️⃣ Mjourney Model V5.0</code></span>
+                        <span class="discordbtn"><code>🌈 Niji Model V4</code></span>
+                        <span class="discordbtn"><code>4️⃣ Mjourney Model V4</code></span>
+                        <span class="discordbtn"><code>3️⃣ Mjourney Model V3</code></span>
+                        <span class="discordbtn"><code>2️⃣ Mjourney Model V2</code></span>
+                        <span class="discordbtn"><code>1️⃣ Mjourney Model V1</code></span>
+                    </p>
+
+                    <h4 id="style-raw-parameter">风格原始参数</h4>
+                    <p>Midjourney模型版本5.1、5.2、6和Niji 6可以使用<a
+                            href="//docs.midjourney.com/docs/models#model-version-52-style-raw-parameter">--style
+                            raw参数</a>进行微调，以减少Midjourney默认美学。如果选择了其他模型版本，则此切换不可用。</p>
+
+                    <p><span class="discordbtn"><code>🔧 Raw Mode</code></span></p>
+
+                    <h4 id="stylize-parameter">风格化参数</h4>
+                    <p>Midjourney机器人已经过训练，可以生成偏好艺术色彩、构图和形式的图像。<a
+                            href="/stylize">--stylize或--s参数</a>影响这种训练的应用强度。低风格化值生成的图像与提示更加匹配，但艺术性较低。高风格化值创建的图像非常具有艺术性，但与提示的联系较少。
+                    </p>
+
+                    <p>
+                        <span class="discordbtn"><code>🖌️ Stylize Low</code></span>
+                        <span class="discordbtn"><code>🖌️ Stylize Med</code></span>
+                        <span class="discordbtn"><code>🖌️ Stylize High</code></span>
+                        <span class="discordbtn"><code>🖌️ Stylize Very High</code></span>
+                    </p>
+
+                    <p>Stylize Low = <code>--s 50</code>, Stylize Med = <code>--s 100</code>, Stylize High =
+                        <code>--s 250</code>, Stylize Very High = <code>--s 750</code>
+                    </p>
+
+                    <h4 id="public-and-stealth-mode">公开和隐身模式</h4>
+                    <p>在<a href="/stealth">公开和隐身模式</a>之间切换。对应<code>/public</code>和<code>/stealth</code>命令。</p>
+
+                    <p><span class="discordbtn"><code>🧍‍♂️Public</code></span></p>
+
+                    <h4 id="remix-mode">重组模式</h4>
+                    <p>使用<a
+                            href="/remix">重组模式</a>在变体之间更改提示、参数、模型版本或宽高比。重组将利用您起始图像的一般构图，并将其作为新作业的一部分。重组可以帮助改变图像的场景或光线、进化主题或实现复杂的构图。
+                    </p>
+
+                    <p><span class="discordbtn"><code>🎛️ Remix</code></span></p>
+
+                    <h4 id="high-and-low-variation-mode">高变化和低变化模式</h4>
+                    <p>在<a href="/variations">高变化和低变化模式</a>之间切换。</p>
+
+                    <p>
+                        <span class="discordbtn"><code>🎨 High Variation Mode</code></span>
+                        <span class="discordbtn"><code>🎨 Low Variation Mode</code></span>
+                    </p>
+
+                    <h4 id="sticky-style">粘性风格</h4>
+                    <p>粘性风格会将上次使用的<a
+                            href="/style-tuner"><code>--style</code>代码参数</a>保存在您的个人后缀中，这样您就不必在未来的提示中重复该代码。通过使用新的<code>--style</code>或取消选择粘性风格来更改代码。
+                    </p>
+
+                    <p><span class="discordbtn"><code>📌 Sticky Style</code></span></p>
+
+                    <h4 id="turbo-fast-and-relax-mode">涡轮、快速和放松模式</h4>
+                    <p>在<a
+                            href="/fast-relax">涡轮、快速和放松模式</a>之间切换。对应<code>/turbo</code>、<code>/fast</code>和<code>/relax</code>命令以及<code>--turbo</code>、<code>--fast</code>和<code>--relax</code>参数。
+                    </p>
+
+                    <p>
+                        <span class="discordbtn"><code>⚡ Turbo Mode</code></span>
+                        <span class="discordbtn"><code>🐇 Fast Mode</code></span>
+                        <span class="discordbtn"><code>🐢 Relax Mode</code></span>
+                    </p>
+
+                    <h4 id="reset-settings">重置设置</h4>
+                    <p>返回默认设置：<span class="discordbtn"><code>Use the latest Model (V6)</code></span> <span
+                            class="discordbtn"><code>🖌️ Stylize Med</code></span>。您的公开/隐身模式、重组、变化和生成速度偏好不受影响。</p>
+
+                    <p><span class="discordbtn"><code>Reset Settings</code></span></p>
+
+                    <h3 id="automatically-direct-message-results">自动私信结果</h3>
+                    <p>使用<code>/prefer auto_dm</code>来开启或关闭自动将完成的作业发送到您的<span class="popover__title"
+                            data-glossary="Direct Message"
+                            data-glossaryid="f826e751-6db0-464b-a6c6-191ed45fe7fe">私信</span>。</p>
+
+                    <h3 id="custom-preferences">自定义偏好</h3>
+                    <p>使用prefer命令创建自定义选项，以自动将常用参数添加到提示的末尾。</p>
+
+                    <div class="infoBox">
+                        <ul>
+                            <li><code>/prefer suffix</code> 指定要添加到每个提示末尾的后缀。</li>
+                            <li><code>/prefer option</code> 创建或管理自定义选项。</li>
+                            <li><code>/prefer option list</code> 查看您当前的自定义选项。</li>
+                        </ul>
+                    </div>
+
+                    <h4 id="prefer-suffix">偏好后缀</h4>
+                    <p><code>/prefer suffix</code>自动在所有提示后附加指定的后缀。</p>
+
+                    <p>命令示例：<code>/prefer suffix</code> <code>--ar 16:9 --video</code></p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/prefer-suffix-diagram.png"
+                            alt="偏好后缀图" height="120px" data-lightbox="box"></p>
+
+                    <p>要清除设置的后缀，使用<code>/settings</code>命令并选择<span
+                            class="discordbtn"><code> Reset Settings</code></span>，或再次使用<code>/prefer suffix</code>而不添加可选的new_value字段到命令中。
+                    </p>
+
+                    <h4 id="option-sets">选项集</h4>
+                    <p><code>/prefer option set &lt;name&gt; &lt;value&gt;</code>命令允许您创建自定义快捷方式，将多个参数或文本片段添加到您的提示中。</p>
+
+                    <p><code>/prefer option set</code> <code>mine</code> <code>--chaos 5 --aspect 2:3</code>
+                        创建了一个名为"mine"的选项，其中包含<a href="/chaos">chaos</a>和<a href="/aspect-ratios">宽高比</a>参数。</p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/prefer-option-set-diagram.png"
+                            alt="偏好选项设置图" height="120px" data-lightbox="box"></p>
+
+                    <p>使用<code>/imagine prompt</code>
+                        <code>vibrant California poppies --mine</code>，会被解释为<code>/imagine prompt</code>
+                        <code>vibrant California poppies --chaos 5 --aspect 2:3</code>。
+                    </p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/imagine-prompt-option-set.png"
+                            alt="使用偏好选项设置图" height="120px" data-lightbox="box"></p>
+
+                    <div class="infoBox">
+                        <ul>
+                            <li>您可以在同一个提示中使用多个选项集。</li>
+                            <li>您可以在选项集中混合使用提示文本和参数。如果这样做，集合中的所有参数必须放在末尾，就像正常提示一样。</li>
+                            <li>您的选项集将在提示中放置的位置"展开"，所以您需要将所有提示参数放在选项集之后。</li>
+                        </ul>
+                    </div>
+
+                    <p><code>/prefer option list</code> 列出所有使用<code>prefer option set</code>创建的选项。用户最多可以拥有20个自定义选项。</p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/prefer-option-list2.png"
+                            alt="偏好选项列表图" width="500px" data-lightbox="box"></p>
+
+                    <p>要删除自定义选项，使用<code>/prefer option set</code> <code>&lt;要删除的名称&gt;</code>而不添加可选的value字段到命令中。</p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/prefer-option-set-delete-diagram.png"
+                            alt="删除选项集图" height="120px" data-lightbox="box"></p>
+
+                    <div class="glossary-popover-contents">
+                        <div class="popover__content hidden f826e751-6db0-464b-a6c6-191ed45fe7fe">
+                            <p>订阅者可以在Discord的私信中一对一地与Midjourney机器人工作，而不是在公共频道中。在您的私信中创建的图像仍然受内容和审核规则的约束，并将在您的Midjourney网站画廊中可见。
+                            </p>
+                        </div>
+                    </div>
+                    <h3 id="show-job">1.6 显示作业（Show Job）</h3>
+                    <p>您可以使用<code>/show</code>命令和唯一的作业ID来将作业移动到另一个服务器或频道、恢复丢失的作业，或刷新旧作业以创建新的变体、放大，或使用较新的参数和功能。</p>
+
+                    <div class="infoBox">
+                        <p><code>/show</code>只适用于您自己的作业。</p>
+                    </div>
+
+                    <h4 id="find-a-job-id">查找作业ID</h4>
+                    <p>作业ID是Midjourney生成的每个图像的唯一标识符。<br>
+                        作业ID看起来像这样：<code>9333dcd0-681e-4840-a29c-801e502ae424</code>，可以在所有图像文件名的第一部分、网站上的URL中以及图像的文件名中找到。
+                    </p>
+
+                    <h5 id="on-the-web">在网页上</h5>
+                    <p>您可以通过选择<span class="discordbtn"><code>Options</code></span> &gt; <span
+                            class="discordbtn"><code>Copy</code></span> &gt; <span
+                            class="discordbtn"><code>Job ID</code></span>来找到会员画廊中任何图像的作业ID。</p>
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-web-show-job-id.png"
+                            alt="使用Midjourney网页应用查找图像作业ID的图示" data-lightbox="box"></p>
+
+                    <h5 id="from-the-url">从URL中</h5>
+                    <p>在Midjourney画廊中查看图像时，作业ID在URL中。<br>
+                        <strong>https://www.midjourney.com/jobs/<span
+                                style="color:#79a70e">9333dcd0-681e-4840-a29c-801e502ae424</span>?index=0</strong>
+                    </p>
+
+                    <h5 id="from-the-file-name">从文件名中</h5>
+                    <p>查看从画廊下载的图像时，作业ID是文件名的最后一部分。<br>
+                        <strong>User_cat_cloud_spirit_<span
+                                style="color:#79a70e">9333dcd0-681e-4840-a29c-801e502ae424</span>.png</strong>
+                    </p>
+
+                    <h5 id="using-a-discord-emoji-reaction"><a href="/v1/docs/discord-emoji-reactions">使用Discord表情反应</a>
+                    </h5>
+                    <p>对您完成的作业用信封表情✉️进行反应，Midjourney机器人会向您发送一条包含其作业ID的私信。如果您没有收到机器人的私信，<a
+                            href="//docs.midjourney.com/docs/direct-messages#troubleshooting">请检查您的Discord隐私设置</a>。</p>
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_EnvelopeResults.jpg"
+                            alt="展示如何使用Discord信封表情反应将作业ID发送到您的私信的图像" data-lightbox="box"></p>
+
+                    <h4 id="how-to-use-show">如何使用Show命令</h4>
+                    <p>在任何<span class="popover__title" data-glossary="Bot Channel"
+                            data-glossaryid="8a726e76-0f37-472c-a5a7-24e81899dfb2">机器人频道</span>中使用<code>/show &lt;作业ID #&gt;</code>来恢复作业。
+                    </p>
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Command_show.gif"
+                            alt="展示如何使用Midjourney Show命令的动画Gif" data-lightbox="box"></p>
+
+                    <div class="glossary-popover-contents">
+                        <div class="popover__content hidden 8a726e76-0f37-472c-a5a7-24e81899dfb2">
+                            <p><strong>机器人频道</strong>是允许Midjourney机器人处理斜杠命令的Discord频道。在官方Midjourney
+                                Discord服务器上，<strong>新手房间</strong>、<strong>主题频道</strong>、<strong>主题图像生成</strong>和<strong>通用图像生成</strong>类别中的所有频道都是机器人频道。
+                            </p>
+                        </div>
+                    </div>
+                    <h3 id="shorten">1.7 缩短（Shorten）</h3>
+                    <p><code>/shorten</code>命令分析您的提示，突出显示一些最有影响力的词汇，并建议可以删除的不必要词语。通过这个命令，您可以通过专注于核心术语来优化您的提示。</p>
+
+                    <div class="infoBox">
+                        <p><code>/shorten</code>与<a href="/multi-prompts">多重提示</a>或<a
+                                href="/no"><code>--no</code>参数</a>不兼容</p>
+                    </div>
+
+                    <h4 id="analyze-a-prompt-with-shorten">使用<code>/shorten</code>分析提示</h4>
+                    <p>Midjourney机器人通过将提示分解成更小的单位（称为标记）来分析它。这些标记可以是短语、单词甚至音节。Midjourney机器人将这些标记转换为它能理解的格式。它将它们与在训练过程中学到的关联和模式一起使用，来指导图像的生成方式。可以将标记视为帮助Midjourney机器人理解输入并创建所需视觉输出的构建块。
+                    </p>
+
+                    <p>包含不必要词语、冗长描述、诗意短语或直接对机器人说话（"请为我制作一张图像"，"谢谢你的帮助，Midjourney机器人！"）的长提示可能会导致意外元素被添加到您的图像中。</p>
+
+                    <p><code>/shorten</code>命令可以帮助您发现提示中最重要的词语，以及可以省略的词语。</p>
+
+                    <h5 id="shorten-command-example">/shorten命令示例</h5>
+                    <p>如果您想创建一堆撒满糖霜的甜甜圈，您可能会尝试使用以下提示：<br>
+                        <code>请创建一个奇幻壮丽的甜甜圈塔，精心制作并装饰有令人着迷的多彩糖霜。将这个糖果杰作栩栩如生地呈现出来，确保每个细节都以令人惊叹的魔幻现实主义风格呈现。谢谢！</code>
+                    </p>
+
+                    <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Shorten_Original.jpg"
+                            alt="Midjourney图像展示了一座甜甜圈塔。" width="400px" data-lightbox="box"></p>
+
+                    <p>如果您对上述提示使用<code>/shorten</code>命令，Midjourney机器人将返回以下信息：</p>
+
+                    <div class="warningBox">
+                        <p><strong>重要标记</strong><br>
+                            请<s>创建</s>一个奇幻<strong>壮丽的塔</strong>的<strong>甜甜圈</strong>，精心制作并装饰有令人着迷的<strong>多彩糖霜</strong>。将这个<strong>糖果</strong>杰作栩栩如生地呈现出来，<s>确保每个</s>细节都以<s>令人惊叹的</s><strong>魔幻现实主义</strong>风格呈现。<s>谢谢！</s>
+                        </p>
+
+                        <p><strong>缩短的提示</strong><br>
+                            1️⃣ 请，壮丽的甜甜圈塔，制作，多彩糖霜数组，糖果杰作，呈现，魔幻现实主义
+
+                            2️⃣ 请，壮丽的甜甜圈塔，多彩糖霜，糖果杰作，呈现，魔幻现实主义
+
+                            3️⃣ 壮丽的甜甜圈塔，多彩糖霜，糖果，魔幻现实主义
+
+                            4️⃣ 壮丽的甜甜圈塔，多彩糖霜，魔幻
+
+                            5️⃣ 甜甜圈塔，糖霜</p>
+                    </div>
+
+                    <p>提示中最重要的标记以<strong>粗体</strong>显示，最不重要的以<s>删除线</s>显示。您还将得到基于这些信息的5个可能的较短提示。</p>
+
+                    <h4 id="analyzing-the-results">分析结果</h4>
+                    <p>最短的提示，<code>选项5️⃣：甜甜圈塔，糖霜</code>生成的图像最接近原始目标。许多填充词如"奇幻"、"令人着迷的"和"杰作"可以省略。了解到"塔"和"魔幻"被认为是重要标记有助于解释为什么一些图像生成时带有童话城堡元素。了解这一点提供了一个线索，如果目标是创建一堆美味的甜甜圈，应该从提示中删除"魔幻"。
+                    </p>
+
+                    <div class="infoBox">
+                        <p><code>/shorten</code>命令是一个工具，可以帮助您探索Midjourney机器人如何解释标记并实验词语，但它可能不适用于所有主题和提示风格。</p>
+                    </div>
+
+                    <h4 id="how-to-use-shorten">如何使用Shorten</h4>
+                    <p>在任何<span class="popover__title" data-glossary="Bot Channel"
+                            data-glossaryid="8a726e76-0f37-472c-a5a7-24e81899dfb2">机器人频道</span>中使用<code>/shorten &lt;您的提示&gt;</code>命令来获取关于您提示的信息
+                    </p>
+
+                    <div class="glossary-popover-contents">
+                        <div class="popover__content hidden 8a726e76-0f37-472c-a5a7-24e81899dfb2">
+                            <p><strong>机器人频道</strong>是允许Midjourney机器人处理斜杠命令的Discord频道。在官方Midjourney
+                                Discord服务器上，<strong>新手房间</strong>、<strong>主题频道</strong>、<strong>主题图像生成</strong>和<strong>通用图像生成</strong>类别中的所有频道都是机器人频道。
+                            </p>
+                        </div>
+                    </div>
                 </section>
 
                 <section id="parameters" class="content-section">
