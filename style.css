@@ -171,28 +171,18 @@ ol {
     padding-left: 20px;
 }
 
-main {
-    display: flex;
-    margin-top: 20px;
-    flex-direction: row-reverse; /* 将侧边栏放在左侧 */
-}
-
-.content {
-    flex: 1;
-    padding-left: 20px; /* 改为左侧padding */
-}
-
+/* 侧边栏样式 */
 .sidebar {
-    width: 280px; /* 稍微增加宽度以适应更多内容 */
+    width: 1000px;
     position: sticky;
     top: 20px;
     align-self: flex-start;
     background-color: white;
     padding: 20px;
-    border-right: 1px solid var(--secondary-color); /* 改为右侧边框 */
+    border-left: 1px solid var(--secondary-color);
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    margin-right: 20px; /* 添加右侧边距 */
+    margin-right: 20px;
 }
 
 .sidebar h3 {
@@ -227,6 +217,7 @@ main {
     margin-bottom: 5px;
 }
 
+/* 网格布局样式 */
 .grid, .gridsmall {
     display: grid;
     gap: 20px;
@@ -255,34 +246,4 @@ main {
 .grid > div:hover, .gridsmall > div:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* 网格项目标题样式 */
-.grid h5, .gridsmall h5, 
-.grid strong, .gridsmall strong {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-}
-
-/* 网格项目图片样式 */
-.grid img, .gridsmall img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-/* 网格项目段落样式 */
-.grid p, .gridsmall p {
-    font-size: 0.9em;
-    line-height: 1.5;
-    color: var(--text-color);
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .grid, .gridsmall {
-        grid-template-columns: 1fr;
-    }
 }
