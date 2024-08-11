@@ -181,7 +181,8 @@ ol {
 
 /* 侧边栏样式 */
 .sidebar {
-    width: 100%; /* 桌面端侧边栏宽度 */
+    width: 20%; /* 桌面端侧边栏宽度 */
+    min-width: 20%;
     position: sticky; /* 保持侧边栏在视口顶部固定 */
     top: 20px;
     background-color: white;
@@ -199,12 +200,14 @@ ol {
     padding: 20px;
     background-color: var(--bg-color);
     border-radius: 10px;
-    width: calc(100% - 320px); /* 假设侧边栏宽度为 300px，加上一些边距 */
+    width: calc(70% - 320px); /* 假设侧边栏宽度为 300px，加上一些边距 */
     box-sizing: border-box;
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 .main-content img {
-    max-width: 100%;
+    max-width: calc(70% - 400px);
     height: auto;
     display: block;
 }
@@ -231,6 +234,7 @@ ol {
     display: grid;
     gap: 20px;
     margin-bottom: 30px;
+    justify-content: center;
 }
 
 /* 大网格样式 */
@@ -295,7 +299,7 @@ ol {
     }
 
     .sidebar {
-        width: 80%;
+        width: 50%;
         position: fixed;
         top: 0;
         left: 0;
@@ -313,6 +317,6 @@ ol {
     }
 
     .toggle-button.sidebar-open {
-        left: calc(80% - 20px); /* 当侧边栏可见时，按钮显示在侧边栏右侧 */
+        left: calc(50% - 20px); /* 当侧边栏可见时，按钮显示在侧边栏右侧 */
     }
 }
