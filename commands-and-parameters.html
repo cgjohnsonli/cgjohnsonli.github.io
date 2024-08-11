@@ -31,7 +31,7 @@
                             <li><a href="#blend">混合(Blend)</a></li>
                             <li><a href="#describe">描述(Describe)</a></li>
                             <li><a href="#user-info">用户信息(User Info)</a></li>
-                            <li><a href="#settings-and-presets">1.5设置和预设(Settings and Presets in Discord)</a></li>
+                            <li><a href="#settings-and-presets">设置和预设(Settings and Presets in Discord)</a></li>
                             <li><a href="#show-job">显示作业(Show Job)</a></li>
                             <li><a href="#shorten">缩短(Shorten)</a></li>
                         </ul>
@@ -55,7 +55,7 @@
                             <li><a href="#version">版本 (Version)</a></li>
                             <li><a href="#video">视频 (Video)</a></li>
                             <li><a href="#weird">怪异 (Weird)</a></li>
-                            
+
                         </ul>
                         <li><a href="#text-generation">文本生成（Text Generation）</a></li>
                     </ul>
@@ -607,7 +607,7 @@
                     <h5><a href="/aspect-ratios">宽高比（Aspect Ratios）</a></h5>
                     <p><code>--aspect</code>或<code>--ar</code> 改变生成图像的宽高比。</p>
 
-                    <h5 ><a href="/chaos">混沌（Chaos）</a></h5>
+                    <h5><a href="/chaos">混沌（Chaos）</a></h5>
                     <p><code>--chaos &lt;0–100之间的数字&gt;</code> 改变结果的变化程度。更高的值会产生更不寻常和意想不到的生成结果。</p>
 
                     <h5><a href="/character-reference">角色参考（Character Reference）</a></h5>
@@ -1706,6 +1706,7 @@
                         <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Parameter_Stop.gif"
                             alt="显示如何输入Midjourney停止参数的动画Gif" data-tomark-pass="" data-lightbox="box">
                     </div>
+
                     <h3 id="style">样式（Style）</h3>
 
                     <h4><code>--style</code> 参数替换了某些<a href="/models">Midjourney模型版本</a>的默认美学风格。</h4>
@@ -1836,7 +1837,9 @@
 
                     <p>如果 <code>标准模式</code> 是您的默认样式，您可以通过在单个提示中添加 <code>--style raw</code> 来覆盖它。如果 <code>原始模式</code>
                         是您的默认设置，您需要在设置中切换回 <code>标准模式</code> 以关闭它。</p>
+
                     <h3 id="style-reference">样式参考（Style Reference）</h3>
+                    
 
                     <h4>您可以在提示中使用图像作为样式参考，以影响您想要Midjourney制作的图像的风格或美学。</h4>
 
@@ -1861,7 +1864,7 @@
                             </ul>
                         </div>
                     </section>
-
+                    
                     <section class="warningBox">
                         <div class="title">隐私注意事项</div>
                         <div class="content">
@@ -1871,16 +1874,17 @@
                             </ul>
                         </div>
                     </section>
-
+                    
                     <h3 data-tomark-pass=""
                         id="see-the-image-prompts-page-for-help-using-image-urls-in-your-prompts-on-discord-or-the-using-image-references-on-web-page-for-help-using-all-kinds-of-image-references-on-midjourneycom">
                         请参阅<a href="/v1/docs/image-prompts">图像提示</a>页面以获取在 Discord 上的提示中使用图像 URL 的帮助，或参阅<a
                             href="/v1/docs/using-images">在网页上使用图像参考</a>页面以获取在 midjourney.com 上使用各种图像参考的帮助。</h3>
 
                     <hr>
+                    
 
                     <h2 id="examples">示例</h2>
-
+                    
                     <div class="grid" data-tomark-pass="">
                         <div data-tomark-pass="">
                             <p data-tomark-pass=""><code data-tomark-pass="">参考图像：CatSketch.png</code></p>
@@ -1913,7 +1917,7 @@
                     <hr>
 
                     <h2 id="style-weight-parameter">样式权重参数</h2>
-
+                    
                     <p>使用样式权重参数 <code>--sw</code> 来设置样式化的强度。<code>--sw</code> 接受 0 到 1000 之间的值。<code>--sw 100</code>
                         是默认值。</p>
 
@@ -1947,7 +1951,7 @@
                     <hr>
 
                     <h2 id="style-reference-versions">样式参考版本</h2>
-
+                    
                     <p>样式参考功能有四个版本。使用 <code>--sv</code> 参数在它们之间选择。<code>--sv 4</code> 是默认值。</p>
 
                     <section class="infoBox">
@@ -1991,7 +1995,7 @@
                     <hr>
 
                     <h2 id="random-style-references">随机样式参考</h2>
-
+                    
                     <p>您可以使用 --sref random 从 Midjourney 知道如何生成的抽象范围内随机选择一种样式。</p>
 
                     <section class="infoBox">
@@ -2026,17 +2030,23 @@
                                 data-lightbox="box">
                         </div>
                         <div data-tomark-pass="">
-                            <h5 data-tomark-pass=""><code data-tomark-pass="">`一只猫 --sref random`code></h5>
-                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sref-random5.png" alt="使用文本提示'一只猫'和--sref random参数应用随机样式由Midjourney生成的四张猫图像网格" data-tomark-pass="" data-lightbox="box">
+                            <h5 data-tomark-pass=""><code data-tomark-pass="">`一只猫 --sref random`</code></h5>
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sref-random5.png" 
+                            alt="使用文本提示'一只猫'和--sref random参数应用随机样式由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
                         </div>
                         <div data-tomark-pass="">
                             <h5 data-tomark-pass=""><code data-tomark-pass="">`一只猫 --sref random`</code></h5>
                             <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sref-random4.png"
-                                alt="使用文本提示'一只猫'和--sref random参数应用随机样式由Midjourney生成的四张猫图像网格" data-tomark-pass=""
-                                data-lightbox="box">
+                            alt="使用文本提示'一只猫'和--sref random参数应用随机样式由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
                         </div>
                     </div>
-                    <h3 id="style-reference-seeds">样式参考种子</h3>
+
+                    <hr>
+                    
+                    
+                    <h2 id="style-reference-seeds">样式参考种子</h2>
                     <p>在您完成的作业中，"random"值将被替换为样式参考种子号码：<code>--sref random</code> ➡️
                         <code>--sref 762351716</code>。您可以在未来的提示中使用该样式参考种子来生成相同风格的图像。
                     </p>
@@ -2067,7 +2077,10 @@
                         </div>
                     </div>
 
-                    <h3 id="stylize">风格化（Stylize）</h3>
+                    <hr>
+
+                    <h3 id="stylize">风格化（Stylizex）</h3>
+                    
 
                     <h4>Midjourney机器人经过训练，可以生成偏好艺术性色彩、构图和形式的图像。<code>--stylize</code> 或 <code>--s</code>
                         参数影响这种训练应用的强度。低风格化值产生的图像与提示更加匹配，但艺术性较低。高风格化值创建的图像非常具有艺术性，但与提示的关联性较低。</h4>
@@ -2198,6 +2211,8 @@
                     <p>向左调节滑块以获得较低的值，向右调节以获得较高的值。</p>
 
                     <p>除非您在单个提示中使用 <code>--stylize</code> 或 <code>--s</code> 参数指定不同的值，否则您在此处设置的值将应用于所有提示。</p>
+                    
+                    
                     <h3 id="tile">平铺（Tile）</h3>
 
                     <h4><code>--tile</code> 参数生成可用作重复图块的图像，以创建无缝图案，适用于织物、壁纸和纹理。</h4>
