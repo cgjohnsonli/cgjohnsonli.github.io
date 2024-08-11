@@ -278,8 +278,7 @@ video {
 
 /* 网格项目图片样式 */
 .grid img, .gridsmall img {
-    max-width: 50%;
-    width: 50%;
+    max-width: 100%;
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
