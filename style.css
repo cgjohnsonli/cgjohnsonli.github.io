@@ -202,7 +202,7 @@ ol {
     border-radius: 10px;
     width: calc(70% - 320px); /* 假设侧边栏宽度为 300px，加上一些边距 */
     box-sizing: border-box;
-    max-width: 100%;
+    max-width: 70%;
     overflow-wrap: break-word;
 }
 
@@ -278,7 +278,8 @@ video {
 
 /* 网格项目图片样式 */
 .grid img, .gridsmall img {
-    width: 100%;
+    max-width: 50%;
+    width: 50%;
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
