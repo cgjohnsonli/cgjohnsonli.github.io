@@ -195,7 +195,7 @@ ol {
     overflow-y: auto; /* 当内容超过侧边栏高度时启用滚动 */
 }
 
-.main-content {
+.main {
     flex-grow: 1; /* 占据剩余空间 */
     padding: 20px;
     background-color: var(--bg-color);
@@ -206,7 +206,7 @@ ol {
     overflow-wrap: break-word;
 }
 
-.main-content img {
+.main img {
     max-width: calc(70% - 400px);
     height: auto;
     display: block;
