@@ -176,11 +176,7 @@ ol {
     width: 100%;
     display: flex;
     transition: all 0.3s ease;
-}
-
-.main-content {
-    flex-grow: 1;
-    padding-left: 20px;
+    justify-content: space-between; /* 在侧边栏和主内容之间平均分配空间 */
 }
 
 /* 侧边栏样式 */
@@ -203,6 +199,14 @@ ol {
     padding: 20px;
     background-color: var(--bg-color);
     border-radius: 10px;
+    width: calc(100% - 320px); /* 假设侧边栏宽度为 300px，加上一些边距 */
+    box-sizing: border-box;
+}
+
+.main-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .toggle-button {
@@ -278,6 +282,14 @@ ol {
 
 /* 响应式设计 */
 @media (max-width: 1000px) {
+    .main-content {
+        width: 100%; /* 在小屏幕上占满宽度 */
+    }
+    .content-wrapper {
+        flex-direction: column; /* 在小屏幕上改为垂直布局 */
+    }
+
+
     .grid, .gridsmall {
         grid-template-columns: 1fr;
     }
