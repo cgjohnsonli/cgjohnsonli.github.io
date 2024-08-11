@@ -207,9 +207,14 @@ ol {
 }
 
 .main img {
-    max-width: calc(70% - 400px);
+    max-width: 100%;
     height: auto;
     display: block;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
 }
 
 .toggle-button {
