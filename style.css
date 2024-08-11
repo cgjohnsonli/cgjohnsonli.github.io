@@ -195,19 +195,19 @@ ol {
     overflow-y: auto; /* 当内容超过侧边栏高度时启用滚动 */
 }
 
-.main {
+.main-content {
     flex-grow: 1; /* 占据剩余空间 */
     padding: 20px;
     background-color: var(--bg-color);
     border-radius: 10px;
     width: calc(70% - 320px); /* 假设侧边栏宽度为 300px，加上一些边距 */
     box-sizing: border-box;
-    max-width: 70%;
+    max-width: 100%;
     overflow-wrap: break-word;
 }
 
-.main img {
-    max-width: 100px;
+.main-content img {
+    max-width: 100%;
     height: auto;
     display: block;
     object-fit: contain;
