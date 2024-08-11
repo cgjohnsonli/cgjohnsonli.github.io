@@ -173,6 +173,7 @@ ol {
 
 /* 内容包裹样式 */
 .content-wrapper {
+    width: 100%;
     display: flex;
     transition: all 0.3s ease;
 }
