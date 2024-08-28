@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>莲花启发的可折叠太阳能充电站 - 创意PPT预览</title>
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.slideshow-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #333;
+    overflow: hidden;
+}
+
+.slide-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+.slide-number {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 18px;
+    color: #7f8c8d;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+    z-index: 100;
+}
+
+.nav-button:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Slide 1 - Title */
+#slide1 {
+    background: linear-gradient(135deg, #71b280 0%,#134e5e 100%);
+    color: white;
+}
+
+#slide1 .slide-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#slide1 h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#slide1 .lotus-solar {
+    width: 200px;
+    height: 200px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    margin: 20px 0;
+}
+
+/* Slide 2 - Research Background */
+#slide2 {
+    background: #f9f9f9;
+}
+
+#slide2 .slide-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+#slide2 .lotus-image {
+    width: 100%;
+    height: 300px;
+    background-color: #98FB98;
+    border-radius: 10px;
+}
+
+/* Slide 3 - Lotus Growth Observation (Morphology) */
+#slide3 {
+    background: #e8f5e9;
+}
+
+#slide3 .slide-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#slide3 .lotus-parts {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+#slide3 .lotus-part {
+    text-align: center;
+    width: 30%;
+}
+
+#slide3 .lotus-part-image {
+    width: 100%;
+    height: 150px;
+    background-color: #87CEFA;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Slide 4 - Lotus Growth Observation (Function) */
+#slide4 {
+    background: #e3f2fd;
+}
+
+#slide4 .slide-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#slide4 .function-image {
+    width: 100%;
+    height: 200px;
+    background-color: #FFA07A;
+    border-radius: 10px;
+}
+
+/* Slide 5 - Dynamic Phenomenon Analysis */
+#slide5 {
+    background: #fff3e0;
+}
+
+#slide5 .slide-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#slide5 .dynamic-process {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#slide5 .process-step {
+    text-align: center;
+    width: 30%;
+}
+
+#slide5 .process-image {
+    width: 100%;
+    height: 150px;
+    background-color: #DDA0DD;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Slide 6 - Creative Divergence (Morphological Transformation) */
+#slide6 {
+    background: #f3e5f5;
+}
+
+#slide6 .slide-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+#slide6 .transformation {
+    text-align: center;
+}
+
+#slide6 .transformation-image {
+    width: 100%;
+    height: 150px;
+    background-color: #20B2AA;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Slide 7 - Creative Divergence (Functional Mapping) */
+#slide7 {
+    background: #e0f2f1;
+}
+
+#slide7 .slide-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#slide7 .mapping-diagram {
+    width: 100%;
+    height: 300px;
+    background-color: #F0E68C;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Slide 8 - Preliminary Design Concept */
+#slide8 {
+    background: #fafafa;
+}
+
+#slide8 .slide-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#slide8 .design-concept {
+    width: 100%;
+    height: 300px;
+    background-color: #FF69B4;
+    border-radius: 10px;
+}
+
+/* Slide 9 - Innovation Points Summary */
+#slide9 {
+    background: #e8eaf6;
+}
+
+#slide9 .slide-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+#slide9 .innovation-point {
+    display: flex;
+    align-items: center;
+}
+
+#slide9 .innovation-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #7B68EE;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* Slide 10 - Application Scenarios */
+#slide10 {
+    background: #fff8e1;
+}
+
+#slide10 .slide-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+#slide10 .scenario {
+    text-align: center;
+}
+
+#slide10 .scenario-image {
+    width: 100%;
+    height: 150px;
+    background-color: #00CED1;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Slide 11 - Next Steps */
+#slide11 {
+    background: #f1f8e9;
+}
+
+#slide11 .slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#slide11 .timeline {
+    width: 100%;
+    height: 200px;
+    background-color: #FF6347;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Slide 12 - Conclusion */
+#slide12 {
+    background: linear-gradient(135deg, #134e5e 0%, #71b280 100%);
+    color: white;
+}
+
+#slide12 .slide-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#slide12 .final-image {
+    width: 300px;
+    height: 200px;
+    background-color: #32CD32;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div id="slide1" class="slide">
+            <div class="slide-content">
+                <h1>莲花启发的可折叠太阳能充电站</h1>
+                <div class="lotus-solar"></div>
+                <h2>中期汇报</h2>
+                <p>学生姓名：[您的姓名]</p>
+                <p>日期：2024年8月28日</p>
+            </div>
+            <div class="slide-number">1 / 12</div>
+        </div>
+
+        <div id="slide2" class="slide">
+            <div class="slide-content">
+                <div>
+                    <h2>研究背景与目标</h2>
+                    <ul>
+                        <li>课程要求：选择植物，研究生长特性，应用到创新产品设计</li>
+                        <li>选择莲花的原因：独特生长方式和适应能力</li>
+                        <li>项目目标：开发基于莲花特性的创新能源产品</li>
+                    </ul>
+                </div>
+                <div class="lotus-image"></div>
+            </div>
+            <div class="slide-number">2 / 12</div>
+        </div>
+
+        <div id="slide3" class="slide">
+            <div class="slide-content">
+                <h2>莲花生长观察 - 形态</h2>
+                <div class="lotus-parts">
+                    <div class="lotus-part">
+                        <div class="lotus-part-image"></div>
+                        <p>莲叶的形状和结构</p>
+                    </div>
+                    <div class="lotus-part">
+                        <div class="lotus-part-image"></div>
+                        <p>莲花的开合机制</p>
+                    </div>
+                    <div class="lotus-part">
+                        <div class="lotus-part-image"></div>
+                        <p>莲茎的柔韧性和支撑结构</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">3 / 12</div>
+        </div>
+
+        <div id="slide4" class="slide">
+            <div class="slide-content">
+                <div>
+                    <h2>莲花生长观察 - 功能</h2>
+                    <ul>
+                        <li>莲叶的自清洁功能</li>
+                        <li>莲花对光照的响应</li>
+                        <li>莲茎的水分传输系统</li>
+                    </ul>
+                </div>
+                <div class="function-image"></div>
+            </div>
+            <div class="slide-number">4 / 12</div>
+        </div>
+
+        <div id="slide5" class="slide">
+            <div class="slide-content">
+                <h2>动态现象分析</h2>
+                <div class="dynamic-process">
+                    <div class="process-step">
+                        <div class="process-image"></div>
+                        <p>莲叶从水下到水面的生长过程</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-image"></div>
+                        <p>莲花开合对环境变化的响应机制</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-image"></div>
+                        <p>莲茎对水位变化的适应策略</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">5 / 12</div>
+        </div>
+
+        <div id="slide6" class="slide">
+            <div class="slide-content">
+                <h2>创意发散 - 形态转化</h2>
+                <div class="transformation">
+                    <div class="transformation-image"></div>
+                    <p>莲叶展开 → 可折叠太阳能板</p>
+                </div>
+                <div class="transformation">
+                    <div class="transformation-image"></div>
+                    <p>莲花开合 → 自适应遮光系统</p>
+                </div>
+                <div class="transformation">
+                    <div class="transformation-image"></div>
+                    <p>莲茎结构 → 灵活支撑架构</p>
+                </div>
+            </div>
+            <div class="slide-number">6 / 12</div>
+        </div>
+
+        <div id="slide7" class="slide">
+            <div class="slide-content">
+                <h2>创意发散 - 功能映射</h2>
+                <ul>
+                    <li>自清洁特性 → 自清洁太阳能板</li>
+                    <li>光照响应 → 智能能源管理系统</li>
+                    <li>水分传输 → 高效散热设计</li>
+                </ul>
+                <div class="mapping-diagram"></div>
+            </div>
+            <div class="slide-number">7 / 12</div>
+        </div>
+
+        <div id="slide8" class="slide">
+            <div class="slide-content">
+                <div>
+                    <h2>初步设计概念</h2>
+                    <ul>
+                        <li>整体结构示意图</li>
+                        <li>关键组件：可折叠面板、自适应支架、智能控制单元</li>
+                        <li>工作原理简述</li>
+                    </ul>
+                </div>
+                <div class="design-concept"></div>
+            </div>
+            <div class="slide-number">8 / 12</div>
+        </div>
+
+        <div id="slide9" class="slide">
+            <div class="slide-content">
+                <h2>创新点总结</h2>
+                <div class="innovation-point">
+                    <div class="innovation-icon"></div>
+                    <p>仿生折叠设计</p>
+                </div>
+                <div class="innovation-point">
+                    <div class="innovation-icon"></div>
+                    <p>自清洁太阳能板</p>
+                </div>
+                <div class="innovation-point">
+                    <div class="innovation-icon"></div>
+                    <p>智能环境适应系统</p>
+                </div>
+                <div class="innovation-point">
+                    <div class="innovation-icon"></div>
+                    <p>模块化设计</p>
+                </div>
+            </div>
+            <div class="slide-number">9 / 12</div>
+        </div>
+
+        <div id="slide10" class="slide">
+            <div class="slide-content">
+                <h2>应用场景</h2>
+                <div class="scenario">
+                    <div class="scenario-image"></div>
+                    <p>野外探险</p>
+                </div>
+                <div class="scenario">
+                    <div class="scenario-image"></div>
+                    <p>灾难救援</p>
+                </div>
+                <div class="scenario">
+                    <div class="scenario-image"></div>
+                    <p>偏远地区供电</p>
+                </div>
+                <div class="scenario">
+                    <div class="scenario-image"></div>
+                    <p>城市公共空间</p>
+                </div>
+            </div>
+            <div class="slide-number">10 / 12</div>
+        </div>
+
+        <div id="slide11" class="slide">
+            <div class="slide-content">
+                <h2>下一步计划</h2>
+                <ul>
+                    <li>原型开发</li>
+                    <li>性能测试</li>
+                    <li>用户反馈收集</li>
+                    <li>设计优化</li>
+                </ul>
+                <div class="timeline"></div>
+            </div>
+            <div class="slide-number">11 / 12</div>
+        </div>
+
+        <div id="slide12" class="slide">
+            <div class="slide-content">
+                <h2>结束语</h2>
+                <p>"通过这个项目，我们看到了自然启发设计的无限可能。将莲花的智慧与现代技术相结合，我们正在创造一个更清洁、更高效的能源未来。"</p>
+                <div class="final-image"></div>
+            </div>
+            <div class="slide-number">12 / 12</div>
+        </div>
+
+        <a class="nav-button prev" onclick="changeSlide(-1)">❮</a>
+        <a class="nav-button next" onclick="changeSlide(1)">❯</a>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlide(slideIndex);
+
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+        }
+
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex-1].style.display = "block";
+        }
+    </script>
+</body>
+</html>
