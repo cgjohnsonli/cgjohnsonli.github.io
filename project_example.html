@@ -4,142 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>清华大学继续教育学院 × 美的集团定制化人才培养计划</title>
-    <!-- React 18.2.0 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
-    <!-- Framer Motion 10.12.17 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.12.17/framer-motion.js"></script>
-    <!-- Babel 7.22.5 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.5/babel.min.js"></script>
-    <!-- Lucide 0.252.0 -->
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.252.0/dist/umd/lucide.min.js"></script>
-    <!-- Tailwind CSS 2.2.19 -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="project_styles.css">
 </head>
 <body>
-    <div id="root"></div>
-
-    <script type="text/babel">
-        const { motion } = Motion;
-        const { Zap, Globe, Briefcase, Users, Brain, Check } = lucide;
-
-        const FrameworkCard = ({ title, items, icon, color }) => {
-            const [isHovered, setIsHovered] = React.useState(false);
-            const Icon = icon;
-
-            return (
-                <motion.div
-                    className={`bg-white rounded-lg shadow-lg p-6 mb-6 ${color} transition-all duration-300 ease-in-out`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    whileHover={{ scale: 1.05 }}
-                    onHoverStart={() => setIsHovered(true)}
-                    onHoverEnd={() => setIsHovered(false)}
-                >
-                    <div className="flex items-center mb-4">
-                        <Icon className="text-white mr-4" size={24} />
-                        <h2 className="text-xl font-bold text-white">{title}</h2>
-                    </div>
-                    <ul className="space-y-2">
-                        {items.map((item, index) => (
-                            <motion.li
-                                key={index}
-                                className="flex items-center text-white"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                            >
-                                <Check className="mr-2" size={16} />
-                                <span className={isHovered ? 'font-bold' : ''}>{item}</span>
-                            </motion.li>
-                        ))}
-                    </ul>
-                </motion.div>
-            );
-        };
-
-        const MasonryLayout = () => {
-            const sections = [
-                {
-                    title: "用户痛点（Pain）",
-                    items: [
-                        "不确定的市场环境",
-                        "全球化布局的挑战",
-                        "内部运营效率低下",
-                        "管理与创新力不足"
-                    ],
-                    icon: Zap,
-                    color: "bg-red-500"
-                },
-                {
-                    title: "解决方案（Solution）",
-                    items: [
-                        "战略合作伙伴",
-                        "分类培养",
-                        "全面提升运营效率",
-                        "创新驱动与领导力提升"
-                    ],
-                    icon: Globe,
-                    color: "bg-blue-500"
-                },
-                {
-                    title: "带来好处（Benefit）",
-                    items: [
-                        "增强全球竞争力",
-                        "提高运营效率",
-                        "推动创新与转型",
-                        "解决实际业务问题"
-                    ],
-                    icon: Briefcase,
-                    color: "bg-green-500"
-                },
-                {
-                    title: "方案优势（Advantage）",
-                    items: [
-                        "顶尖师资与学科优势",
-                        "定制化学习设计",
-                        "6D法则保障学用转化"
-                    ],
-                    icon: Users,
-                    color: "bg-purple-500"
-                },
-                {
-                    title: "方案功能（Function）",
-                    items: [
-                        "全流程学习体验",
-                        "分层次的学习内容",
-                        "教学与企业深度结合"
-                    ],
-                    icon: Brain,
-                    color: "bg-yellow-500"
-                },
-                {
-                    title: "功能特性（Feature）",
-                    items: [
-                        "模块化课程设计",
-                        "小组学习与导师制",
-                        "灵活学习形式"
-                    ],
-                    icon: Check,
-                    color: "bg-indigo-500"
-                }
-            ];
-
-            return (
-                <div className="min-h-screen bg-gray-100 p-8">
-                    <h1 className="text-4xl font-bold text-center mb-12">清华大学继续教育学院 × 美的集团定制化人才培养计划</h1>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-                        {sections.map((section, index) => (
-                            <FrameworkCard key={index} {...section} />
-                        ))}
-                    </div>
-                </div>
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<MasonryLayout />);
-    </script>
+    <div class="container">
+        <h1 class="main-title">清华大学继续教育学院 × 美的集团定制化人才培养计划</h1>
+        <div class="masonry-column" id="cardContainer">
+            <!-- Cards will be dynamically inserted here -->
+        </div>
+    </div>
+    <script src="project_script.js"></script>
 </body>
 </html>
