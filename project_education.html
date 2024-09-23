@@ -582,8 +582,14 @@
                 <div class="subsection-card">
                     <h3>主流 AI 工具和应用</h3>
                     <div class="visual-focus">
-                        <img src="./photos/project_example.jpg" alt="AI工具功能案例图" class="focus-image">
                         <p class="image-caption">AI重构的历史项目设计</p>
+                        <div class="expandable-content">
+                            <button class="expand-btn">展开详细内容</button>
+                            <div class="detailed-content" style="display: none;">
+                             <img src="./photos/project_example.jpg" alt="AI工具功能案例图" class="focus-image">
+                             <p class="image-caption">AI重构的历史项目设计</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="expandable-content">
                         <button class="expand-btn">展开工具详情</button>
@@ -868,7 +874,7 @@
                 <div class="subsection-card">
                     <h3>AI 在办公自动化和数据处理中的应用概述</h3>
                     <div class="visual-focus">
-                        <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113168026177029&bvid=BV1tLtoeTE2Z&cid=25930301450&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+                        <iframe width=100% src="//player.bilibili.com/player.html?isOutside=true&aid=113168026177029&bvid=BV1tLtoeTE2Z&cid=25930301450&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
                         <!-- <img src="/api/placeholder/400/200" alt="AI在办公中的应用图" class="focus-image"> -->
                         <p class="image-caption">AI 技术在办公环境中的多样化应用场景</p>
                     </div>
@@ -880,7 +886,6 @@
                                 <li><strong class="key-term">自动化数据分析</strong>：机器学习算法助力<span class="highlight">快速发现数据模式和异常</span>。</li>
                                 <li><strong class="key-term">智能日程管理</strong>：AI 助手优化<span class="highlight">时间安排，提高会议效率</span>。</li>
                                 <li><strong class="key-term">自然语言交互</strong>：通过<span class="highlight">语音命令和对话界面</span>简化办公操作。</li>
-                                <li><strong class="key-term">预测性维护</strong>：AI 分析设备数据，<span class="highlight">预防办公设备故障</span>。</li>
                             </ul>
                         </div>
                     </div>
@@ -890,31 +895,32 @@
                 <div class="subsection-card">
                     <h3>实际案例分析</h3>
                     <div class="visual-focus">
-                        <img src="/api/placeholder/400/200" alt="AI办公应用案例图" class="focus-image">
-                        <p class="image-caption">AI 在办公自动化和数据处理中的实际应用效果</p>
+                        <img src="./photos/office_ai.png" alt="AI办公应用案例图" class="focus-image">
+                        <p class="image-caption">AI 辅助办公实现异构数据转化</p>
                     </div>
                     <div class="expandable-content">
                         <button class="expand-btn">展开案例详情</button>
                         <div class="detailed-content" style="display: none;">
                             <ul>
-                                <li><strong class="key-term">案例 1：财务软件企业员工培训使用 AI 撰写 Excel 脚本</strong>
+                                <li><strong class="key-term">案例 ：财务软件企业员工培训使用 AI 撰写 Excel 脚本</strong>
                                     <div class="case-study-image">
-                                        <img src="/api/placeholder/300/200" alt="AI Excel脚本培训" class="case-image">
+                                        <ul>
+                                        <li>
+                                            具体的需求为：将<span class="highlight">文件名同一前缀的两份excel表</span>视为一组，读取其中的数据并写入到一个<span class="highlight">模板表的指定位置</span>中。<br>
+                                        
+                                            在这个过程中需要进行<span class="highlight">遍历数据表文件、分列、分列再写入、删除空行、对一些空格进行处理</span>等。<br>
+                                        
+                                            手工使用excel处理这样一组表格大约需要<span class="highlight">15-20min</span>，但当时有约<span class="highlight">400组文件</span>需要处理，加上偶有错误返工时间，正常处理时间大概需要<span class="highlight">13-14个工作日</span>。<br>
+                                        
+                                            使用脚本处理后，每组文件处理时间大约只需要<span class="highlight">5-15s</span>（依文件大小而定），400组文件处理仅需要<span class="highlight">1.5h左右</span>。
+                                        </li></ul>
+
+                                        <!-- <img src="/api/placeholder/300/200" alt="AI Excel脚本培训" class="case-image"> -->
                                     </div>
                                     <ul>
                                         <li>背景：提高财务分析师的 Excel 自动化能力，减少重复性工作</li>
-                                        <li>应用：引入基于 OpenAI Codex 的 AI 工具，辅助生成复杂的 Excel 函数和 VBA 脚本</li>
-                                        <li>结果：员工脚本开发效率提升 200%，错误率降低 60%，客户满意度显著提高</li>
-                                    </ul>
-                                </li>
-                                <li><strong class="key-term">案例 2：大型制造企业应用 AI 优化供应链数据处理</strong>
-                                    <div class="case-study-image">
-                                        <img src="/api/placeholder/300/200" alt="AI供应链数据处理" class="case-image">
-                                    </div>
-                                    <ul>
-                                        <li>背景：需要处理和分析来自全球各地的大量供应链数据</li>
-                                        <li>应用：部署 Alteryx 平台，实现数据清洗、整合和预测分析的自动化</li>
-                                        <li>结果：数据处理时间缩短 75%，库存优化节省成本 15%，预测准确率提高 30%</li>
+                                        <li>应用：引入基于 chatGPT(海外) 通义灵码（国内）的 AI 工具培训，辅助生成复杂的 Excel 函数和 VBA 脚本</li>
+                                        <li>结果：对应工作效率提高<span class="highlight">100倍</span>以上</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -925,7 +931,7 @@
                 <div class="subsection-card">
                     <h3>AI 办公应用经验与最佳实践</h3>
                     <div class="visual-focus">
-                        <img src="/api/placeholder/400/200" alt="AI办公最佳实践图" class="focus-image">
+                        <img src="./photos/diagram_education.png" alt="AI办公最佳实践图" class="focus-image">
                         <p class="image-caption">AI 工具在办公环境中的有效应用策略</p>
                     </div>
                     <div class="expandable-content">
@@ -970,7 +976,7 @@
             </div>
             
             <div class="section-card" id="business-expansion">
-                <h2>7. AI 工具在业务拓展与合作中的应用（15 分钟）</h2>
+                <h2>7. AI 工具在业务拓展与合作中的应用</h2>
                 
                 <div class="subsection-card">
                     <h3>章节简介</h3>
@@ -980,7 +986,7 @@
                 <div class="subsection-card">
                     <h3>AI 在业务拓展与合作中的应用概述</h3>
                     <div class="visual-focus">
-                        <img src="/api/placeholder/400/200" alt="AI在业务拓展中的应用图" class="focus-image">
+                        <img src="./photos/diagram_education2.png" alt="AI在业务拓展中的应用图" class="focus-image">
                         <p class="image-caption">AI 技术在业务拓展与合作中的多维度应用</p>
                     </div>
                     <div class="expandable-content">
@@ -989,7 +995,6 @@
                             <ul>
                                 <li><strong class="key-term">市场智能分析</strong>：AI 算法分析<span class="highlight">大规模市场数据</span>，识别潜在机会和趋势。</li>
                                 <li><strong class="key-term">智能客户洞察</strong>：利用机器学习<span class="highlight">预测客户需求和行为</span>，优化产品和服务。</li>
-                                <li><strong class="key-term">AI 驱动的创新管理</strong>：通过<span class="highlight">自然语言处理和知识图谱</span>加速创新过程。</li>
                                 <li><strong class="key-term">智能合作伙伴匹配</strong>：AI 系统帮助<span class="highlight">识别最佳合作伙伴</span>，促进战略联盟。</li>
                                 <li><strong class="key-term">AI 辅助谈判策略</strong>：利用<span class="highlight">博弈论和预测模型</span>优化商业谈判策略。</li>
                             </ul>
@@ -1001,7 +1006,7 @@
                 <div class="subsection-card">
                     <h3>实际案例分析</h3>
                     <div class="visual-focus">
-                        <img src="/api/placeholder/400/200" alt="AI业务拓展应用案例图" class="focus-image">
+                        <img src="./photos/AARG_logo.png" alt="AI业务拓展应用案例图" class="focus-image">
                         <p class="image-caption">AI 在业务拓展与合作中的实际应用效果</p>
                     </div>
                     <div class="expandable-content">
@@ -1010,22 +1015,27 @@
                             <ul>
                                 <li><strong class="key-term">案例 1：上海申隧建设工程有限公司的 AI 竞赛策划</strong>
                                     <div class="case-study-image">
-                                        <img src="/api/placeholder/300/200" alt="申隧AI竞赛" class="case-image">
+                                        <img src="./photos/shanghai_tunnel.jpg" alt="申隧AI竞赛" class="case-image">
                                     </div>
                                     <ul>
-                                        <li>背景：希望通过 AI 技术创新提升隧道建设效率和安全性</li>
-                                        <li>应用：利用 Kaggle 平台组织 AI 算法竞赛，吸引全球人才参与</li>
-                                        <li>结果：收到 500+ 创新方案，最佳方案将施工效率提高 30%，安全指数提升 25%</li>
+                                        <li>背景：希望通过 AI 技术创新推进院内技术的整体更新</li>
+                                        <li>应用：培训+竞赛的模式充分调动员工的积极性</li>
+                                        <li>结果：14支队伍产生了许多实际生产中积极可用的AI创新作品</li>
                                     </ul>
                                 </li>
                                 <li><strong class="key-term">案例 2：与腾讯、华为合作宣传大模型产品</strong>
                                     <div class="case-study-image">
-                                        <img src="/api/placeholder/300/200" alt="大模型产品合作" class="case-image">
+                                        <!-- <img src="/api/placeholder/300/200" alt="大模型产品合作" class="case-image"> -->
+                                        <iframe width=100% src="//player.bilibili.com/player.html?isOutside=true&aid=113169284533644&bvid=BV1kebce6E2x&cid=25933778732&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+                                        <p class="image-caption">华为AI硬件推广宣传</p>
+                                        <iframe width=100% src="//player.bilibili.com/player.html?isOutside=true&aid=113162691020632&bvid=BV1KotneYELH&cid=25918705283&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+                                        <p class="image-caption">阿里开源模型宣传</p>
+                                        <iframe width=100% src="//player.bilibili.com/player.html?isOutside=true&aid=1305478379&bvid=BV1tM4m1U7DQ&cid=1566458723&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+                                        <p class="image-caption">腾讯AI模型宣传</p>
                                     </div>
                                     <ul>
-                                        <li>背景：推广新开发的 AI 大模型，扩大市场影响力</li>
-                                        <li>应用：利用 HubSpot 和 Persado 进行 AI 驱动的个性化营销活动</li>
-                                        <li>结果：产品知名度提升 200%，合作伙伴增加 50%，市场份额增长 15%</li>
+                                        <li>背景：大厂均有需求推广新开发的 AI 大模型，扩大市场影响力</li>
+                                        <li>应用：利用对AI概念的理解和可视化经验，驱动个性化营销活动</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -1036,7 +1046,8 @@
                 <div class="subsection-card">
                     <h3>AI 业务拓展经验与最佳实践</h3>
                     <div class="visual-focus">
-                        <img src="/api/placeholder/400/200" alt="AI业务拓展最佳实践图" class="focus-image">
+                        <iframe width=100% src="//player.bilibili.com/player.html?isOutside=true&aid=1006709498&bvid=BV1n74y1m7U3&cid=1658482422&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+                        <!-- <img src="/api/placeholder/400/200" alt="AI业务拓展最佳实践图" class="focus-image"> -->
                         <p class="image-caption">AI 工具在业务拓展与合作中的有效应用策略</p>
                     </div>
                     <div class="expandable-content">
@@ -1223,7 +1234,7 @@
             </div>
             
             <div class="section-card" id="future-outlook">
-                <h2>9. 未来展望：AI 在教育和业务中的趋势（15 分钟）</h2>
+                <h2>9. 未来展望：AI 在教育和业务中的趋势</h2>
                 
                 <div class="subsection-card">
                     <h3>章节简介</h3>
