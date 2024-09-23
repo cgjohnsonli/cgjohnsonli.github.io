@@ -74,7 +74,7 @@ h4 {
 }
 
 .sidebar {
-    width: 30%;
+    width: calc(100vh - 40px);
     position: sticky;
     top: 20px;
     background-color: var(--light-bg);
@@ -289,7 +289,8 @@ footer {
 }
 
 .focus-image {
-    max-width: 60%;
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -324,4 +325,13 @@ footer {
     background-color: #f9f9f9;
     border-radius: 5px;
     border: 1px solid #e0e0e0;
+}
+
+
+img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
