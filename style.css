@@ -45,6 +45,20 @@ h1 {
     font-weight: 300;
 }
 
+.section-link {
+    color: white; /* 文字颜色设为白色 */
+    font-weight: bold; /* 加粗以增强可读性 */
+    text-decoration: none; /* 去掉默认下划线 */
+    padding: 5px 10px; /* 增加一些内边距，让点击区域更大 */
+    border-radius: 4px; /* 轻微圆角，提升视觉效果 */
+    transition: opacity 0.3s ease-in-out; /* 平滑的透明度变化 */
+}
+
+.section-link:hover {
+    opacity: 0.8; /* 悬停时降低透明度，提供视觉反馈 */
+    text-decoration: underline; /* 悬停时显示下划线，增强可点击性 */
+}
+
 .notice {
     background-color: var(--accent-color);
     color: white;
@@ -58,7 +72,7 @@ h1 {
     background-color: white;
     border-radius: 10px;
     padding: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -66,6 +80,15 @@ h1 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+}
+
+.section-header {
+    background-color: var(--accent-color);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 2rem;
+    margin-top: 30px;
 }
 
 .outline-item {
