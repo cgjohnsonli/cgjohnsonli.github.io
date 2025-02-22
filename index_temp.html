@@ -7,10 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav class="top-nav">
+        <ul>
+            <li><a href="#top">回到开头</a></li>
+            <li><a href="#workflow">工作流</a></li>
+            <li><a href="#basic-tools">基础单项</a></li>
+            <li><a href="#resources">参考资源</a></li>
+        </ul>
+    </nav>
+
     <header>
-        <div class="container">
+        <div id='top' class="container">
+            <p>最近更新：2025.2 新增工作流栏目与 DeepSeek 相关</p>
             <h1>AI工具技巧分享</h1>  
-            <p class="subtitle">2025.2 更新：新增工作流与 DeepSeek 相关内容</p>
+            <p class="subtitle"><strong>编者·李策 清华大学设计学博士在读</strong></p>
             <p><strong>如何使用本网站（点击小标题可直接跳转至对应章节）</strong></p>        
             <p><a href="#workflow" class="section-link">工作流</a> - 查找适合你的 AI 使用方案（按角色划分）</p>
             <p><a href="#basic-tools" class="section-link">基础单项</a> - 学习 AI 生成文本、图像、视频等技术</p>
@@ -24,51 +34,81 @@
             <div class="outline-item">
                 <h3>设计师工作流</h3>
                 <ul>
-                    <li><a href="#">PPT 设计流程</a></li>
-                    <li><a href="#">概念创意与视觉参考</a></li>
-                    <li><a href="#">品牌与 Logo 设计</a></li>
-                    <li><a href="#">平面设计与海报生成</a></li>
+                    <li><a href="#">设计概念提案创作</a></li>
+                    <li><a href="#">材质与人脸替换</a></li>
+                    <li><a href="#">表情包创作</a></li>
+                    <li><a href="#">平面设计与排版参考</a></li>
                 </ul>
             </div>
             <div class="outline-item">
                 <h3>学生工作流</h3>
                 <ul>
-                    <li><a href="#">论文写作与润色</a></li>
+                    <li><a href="#">课前预习与准备</a></li>
                     <li><a href="#">课程报告与演示</a></li>
-                    <li><a href="#">简历优化与求职文案</a></li>
                     <li><a href="#">学习笔记与总结</a></li>
+                    <li><a href="#">简历优化与求职文案</a></li>
                 </ul>
             </div>
             <div class="outline-item">
                 <h3>教师工作流</h3>
                 <ul>
-                    <li><a href="#">课程讲义与教学资源制作</a></li>
-                    <li><a href="#">作业批改与反馈</a></li>
-                    <li><a href="#">知识图谱构建</a></li>
+                    <li><a href="#">课程大纲设计</a></li>
+                    <li><a href="#">教学资源制作</a></li>
+                    <li><a href="#">作业批改与分析</a></li>
+                    <li><a href="#">课程反馈与改进</a></li>
                 </ul>
             </div>
             <div class="outline-item">
                 <h3>科研人员工作流</h3>
                 <ul>
-                    <li><a href="#">论文文献阅读与摘要</a></li>
-                    <li><a href="#">研究数据分析与可视化</a></li>
                     <li><a href="#">研究思路与大纲整理</a></li>
+                    <li><a href="#">文献综述写作</a></li>
+                    <li><a href="#">研究数据分析与可视化</a></li>
+                    <li><a href="#">论文翻译与润色</a></li>
                 </ul>
             </div>
             <div class="outline-item">
-                <h3>企业领导工作流</h3>
+                <h3>领导干部工作流</h3>
                 <ul>
-                    <li><a href="#">商业策略与市场分析</a></li>
-                    <li><a href="#">AI 生成的商业决策支持</a></li>
-                    <li><a href="#">企业品牌塑造与演示</a></li>
+                    <li><a href="#">行业报告与商业机会</a></li>
+                    <li><a href="#">新业务快速搭建</a></li>
+                    <li><a href="#">管理框架与绩效建议</a></li>
+                    <li><a href="#">项目复盘与改进</a></li>
                 </ul>
             </div>
             <div class="outline-item">
                 <h3>逢年过节工作流</h3>
                 <ul>
-                    <li><a href="#">个性化贺卡与祝福语生成</a></li>
-                    <li><a href="#">节日宣传素材制作</a></li>
-                    <li><a href="#">社交媒体 AI 互动</a></li>
+                    <li><a href="#">节日风俗查询与建议</a></li>
+                    <li><a href="#">假期规划与出行准备</a></li>
+                    <li><a href="#">个性化祝福语生成</a></li>
+                    <li><a href="#">礼品内容与赠送建议</a></li>
+                </ul>
+            </div>
+            <div class="outline-item">
+                <h3>玄学算命工作流</h3>
+                <ul>
+                    <li><a href="#">周易 / 八字推演</a></li>
+                    <li><a href="#">塔罗牌解读辅助</a></li>
+                    <li><a href="#">AI 占星术解析</a></li>
+                </ul>
+            </div>
+            <div class="outline-item">
+                <h3>情感咨询工作流</h3>
+                <ul>
+                    <li><a href="#">虚拟男友/女友创建</a></li>
+                    <li><a href="#">撩汉/撩妹话术</a></li>
+                    <li><a href="#">AI情感分析与建议</a></li>
+                    <li><a href="#">心理支持与倾诉</a></li>
+                </ul>
+            </div>
+            <div class="outline-item">
+                <h3>媒体文案工作流</h3>
+                <ul>
+                    <li><a href="#">锐评文案</a></li>
+                    <li><a href="#">深刻文案</a></li>
+                    <li><a href="#">仿古文案</a></li>
+                    <li><a href="#">震惊文案</a></li>
                 </ul>
             </div>
         </div>
@@ -78,41 +118,51 @@
             <div class="outline-item">
                 <h3>文本生成</h3>
                 <ul>
-                    <li><a href="#">GPT / Claude / DeepSeek 使用方法</a></li>
+                    <li><a href="#">DeepSeek / chatGPT / Claude 通用技巧</a></li>
                     <li><a href="#">Prompt 工程与优化</a></li>
-                    <li><a href="#">文本润色、改写、格式化技巧</a></li>
+                    <li><a href="#">优秀文档的标准</a></li>
                 </ul>
             </div>
             <div class="outline-item">
                 <h3>图像生成</h3>
                 <ul>
-                    <li><a href="#">MidJourney / Stable Diffusion 使用</a></li>
-                    <li><a href="#">Prompt 关键词设计与优化</a></li>
-                    <li><a href="#">风格迁移与图像后处理</a></li>
+                    <li><a href="#">MidJourney官方指南翻译</a></li>
+                    <li><a href="#">MidJourney命令、参数和工具</a></li>
+                    <li><a href="#">Adobe 软件中的AI工具</a></li>
+                    <li><a href="#">其他图像生成工具（SD， DALL-E）</a></li>
                 </ul>
             </div>
             <div class="outline-item">
                 <h3>视频生成</h3>
                 <ul>
-                    <li><a href="#">Runway / Pika AI 视频生成</a></li>
-                    <li><a href="#">AI 生成动画 / 3D 内容</a></li>
-                    <li><a href="#">视频剪辑与后期优化</a></li>
+                    <li><a href="#">Runway介绍与文档</a></li>
+                    <li><a href="#">可灵AI介绍与文档</a></li>
+                    <li><a href="#">SD视频生成介绍</a></li>
+                    <li><a href="#">其他视频生成工具（sora，海螺）</a></li>
+                </ul>
+            </div>
+            <div class="outline-item">
+                <h3>3D素材生成</h3>
+                <ul>
+                    <li><a href="#">AI 生成 3D 模型</a></li>
+                    <li><a href="#">纹理与材质优化</a></li>
+                    <li><a href="#">3D 动画生成与应用</a></li>
                 </ul>
             </div>
             <div class="outline-item">
                 <h3>音频生成</h3>
                 <ul>
-                    <li><a href="#">Suno / Voicify AI 语音生成</a></li>
-                    <li><a href="#">背景音乐 / 音效合成</a></li>
-                    <li><a href="#">AI 歌曲生成与音频处理</a></li>
+                    <li><a href="#">人声模型训练与应用</a></li>
+                    <li><a href="#">AI纯音乐生成</a></li>
+                    <li><a href="#">AI歌曲生成</a></li>
                 </ul>
             </div>
             <div class="outline-item">
                 <h3>代码辅助</h3>
                 <ul>
-                    <li><a href="#">AI 代码生成（Python / JavaScript / C++）</a></li>
+                    <li><a href="#">AI 代码生成</a></li>
                     <li><a href="#">代码优化与 Debug</a></li>
-                    <li><a href="#">自动化脚本生成</a></li>
+                    <li><a href="#">API调用与模型部署</a></li>
                 </ul>
             </div>
         </div>
@@ -125,30 +175,48 @@
                     <li><a href="#">OpenAI ChatGPT 官方文档</a></li>
                     <li><a href="#">MidJourney 官方指南</a></li>
                     <li><a href="#">Runway AI 视频制作指南</a></li>
-                    <li><a href="#">Stable Diffusion 参数详解</a></li>
                 </ul>
             </div>
             <div class="outline-item">
-                <h3>知名网站</h3>
+                <h3>AI学习资源推荐</h3>
                 <ul>
-                    <li><a href="#">AI 工具合集推荐</a></li>
-                    <li><a href="#">各类 AI 相关资讯博客</a></li>
+                    <li><a href="#">论坛社区</a></li>
+                    <li><a href="#">学术资源</a></li>
+                    <li><a href="#">视频教程</a></li>
                 </ul>
             </div>
             <div class="outline-item">
-                <h3>知名博主</h3>
+                <h3>AI平台与工具推荐</h3>
                 <ul>
-                    <li><a href="#">AI 设计相关的 YouTube / B 站 UP 主推荐</a></li>
-                    <li><a href="#">AI 技术深度解析博主</a></li>
+                    <li><a href="#">AI模型下载平台</a></li>
+                    <li><a href="#">重要AI公司官网</a></li>
                 </ul>
             </div>
         </div>
     </main>
 
+    <script>
+        let lastScrollY = window.scrollY;
+        const nav = document.querySelector(".top-nav");
+    
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > lastScrollY) {
+                // 向下滚动，隐藏导航栏
+                nav.classList.add("hidden");
+            } else {
+                // 向上滚动，显示导航栏
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = window.scrollY;
+        });
+    </script>
+
     <footer>
         <div class="container">
             <strong>注意：</strong> 本网站所有原创内容为个人分享，严禁其他个人或组织用于商业用途，翻译转载内容均标明出处，相关问题请咨询原作者，欢迎勘误。
-            <p>© 2025 编者·李策. 保留所有权利。</p>
+            <p>© 2025 编者·李策及其它作者 保留所有权利。</p>
+            <p>原创作者名单</p>
+            <p>李策</p>
         </div>
     </footer>
 </body>
