@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midjourney官方文档翻译（节选） - AI大模型工具使用技巧整理</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<script src="../scripts/script.js"></script>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Midjourney官方文档翻译（节选）</h1>
+            <p class="subtitle">AI大模型工具使用技巧整理</p>
+        </div>
+    </header>
+
+    <main class="content-wrapper container">
+        <button id="toggle-sidebar" class="toggle-button">☰ 目录</button>
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <h3><a href="../index.html.html">回到首页</a></h3>
+            <h3>目录</h3>
+            <ul>
+                <li><a href="#introduction">引言</a></li>
+                <li><a href="#midjourney-documentation">1.MIDJOURNEY官方文档节选翻译</a>
+                    <ul>
+                        <li><a href="#getting-started">入门指南（Getting Started）</a></li>
+                        <li><a href="#basic-concepts">基础概念与操作</a></li>
+                        <li><a href="#variation-examples">变体示例</a></li>
+                        <li><a href="#upscalers">放大器（Upscalers）</a></li>
+                        <li><a href="#vary-region">区域变化（Vary Region）</a></li>
+                        <li><a href="#vary-region-remix">区域变化与重组（Vary Region + Remix）</a></li>
+                        <li><a href="#version">版本（Version）</a></li>
+                    </ul>
+                </li>
+                <li><a href="#commands-parameters">命令、参数和工具（Commands, Parameters, and Tools）</a></li>
+                <li><a href="#other-tools">2. 其他图像生成工具</a>
+                    <ul>
+                        <li><a href="#stable-diffusion">2.1 Stable Diffusion</a></li>
+                        <li><a href="#dall-e">2.2 DALL-E 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#ethics-and-future">3. AI图像生成的伦理问题和未来趋势</a></li>
+            </ul>
+        </aside>
+
+        <div class="main-content">
+            <section id="introduction" class="content-section">
+                <h2>引言</h2>
+                <p>
+                    本章聚焦AI驱动的图像生成工具，重点介绍业界领先的Midjourney平台。通过深入浅出地解析Midjourney官方文档，我们将带领读者快速掌握AI文本生成图像的基本概念和操作技巧。同时，我们还将简要介绍Stable
+                    Diffusion和DALL-E 3等其他主流工具，并探讨AI图像生成技术带来的伦理挑战和未来趋势。本章旨在为读者开启AI辅助设计的大门，助力他们在创意设计的新纪元中把握先机。
+                </p>
+            </section>
+
+            <section id="midjourney-documentation" class="content-section">
+                <h2>1. MIDJOURNEY官方文档节选翻译</h2>
+                <p>（官方文档链接：<a href="https://docs.midjourney.com/docs"
+                        target="_blank">https://docs.midjourney.com/docs</a>）</p>
+
+                <h3 id="getting-started">1.1 入门指南（Getting Started）</h3>
+
+                <h4>1.1.1 网页版快速入门</h4>
+                <p>观看以下视频，快速了解 <a href="http://midjourney.com">midjourney.com</a> 的使用，然后按照下面的指南创建您的第一批图像！</p>
+                <video controls>
+                    <source
+                        src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/Midjourney_Web_Overview_-_Treble_Boost_-_Captions.mp4"
+                        type="video/mp4">
+                    您的浏览器不支持视频标签。
+                </video>
+
+                <h4>在Midjourney.com上创建图像</h4>
+
+                <h5>1. 使用想象栏创建图像</h5>
+                <p>在网站的大多数页面顶部，您会看到想象栏。要开始创建图像，只需在栏中输入提示并按回车键。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/Gif002.gif"
+                    alt="使用想象栏">
+                <p>一旦您的图像开始生成，您可以在"创建"标签页中找到它们。点击该标签页查看您的结果。</p>
+
+                <h5>2. 创建变体</h5>
+                <p>在"创建"标签页中，您可以看到所有已生成的图像。点击一个图像可以打开灯箱视图。一旦您找到喜欢的图像，就可以使用变体功能创建新版本。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/Gif008.gif"
+                    alt="创建变体">
+                <p>灯箱还提供了其他工具来帮助您优化和实验图像。您可以了解更多关于放大、重新构图和重新绘制等功能的信息。</p>
+
+                <h5>3. 更改设置</h5>
+                <p>想象栏中的设置按钮允许您为所有提示设置默认参数。您可以调整图像的宽高比、风格化程度和多样性，或调整生成速度和隐私设置。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/settings.png"
+                    alt="更改设置">
+
+                <h5>4. 在提示中使用图像</h5>
+                <p>Midjourney可以使用现有图像作为灵感来创建全新的图像。您可以将喜欢的图像拖放到想象栏中，有三种不同的使用方式：</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/Gif010.gif"
+                    alt="使用参考图像">
+                <p>要深入了解如何使用参考图像，请查看我们的<a href="/v1/docs/using-images">在Web上使用图像</a>页面。</p>
+
+                <h5>5. 保存和管理图像</h5>
+                <p>如果您准备下载图像或想要过滤或组织它们，请访问<a href="/v1/docs/archive-page">归档</a>标签页。</p>
+                <p>无论在哪里看到 <svg xmlns="http://www.w3.org/2000/svg" height="16" fill="none" stroke="currentColor"
+                        stroke-width="2" class="opacity-70" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4 16v1a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1m-4-4-4 4m0 0-4-4m4 4V4"></path>
+                    </svg> 按钮，您都可以点击保存单个图像。您也可以通过在网格外点击并拖动进行选择来批量下载图像。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-website-archive-bulk-download.png"
+                    alt="保存和管理图像">
+                <p>您可以在<a href="/v1/docs/archive-page">这里</a>找到更多关于归档页面的过滤器和其他选项的信息。</p>
+
+                <h5>6. 与他人协作创作</h5>
+                <p>没有什么比与他人一起创作图像更能激发创意能量了！在 <svg xmlns="http://www.w3.org/2000/svg" height="22" fill="none"
+                        stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17 8h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2v4l-4-4H9a1.994 1.994 0 0 1-1.414-.586m0 0L11 14h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2v4l.586-.586z">
+                        </path>
+                    </svg> <a href="//www.midjourney.com/rooms">聊天</a>标签页，您可以找到（或创建！）与其他用户一起工作的共享空间。</p>
+                <div class="tip">
+                    <p><strong>需要一些灵感？</strong>每天查看<a
+                            href="//www.midjourney.com/rooms/fdcd697e-d8c9-4848-9d6b-27dc8a209eea">每日主题</a>聊天室，获取新的提示主题！在那里观察其他用户如何创造性地融入当日主题，或与他们一起创作。
+                    </p>
+                </div>
+
+                <h4>1.1.2 Discord版快速入门</h4>
+                <p>通过Discord中的Midjourney机器人，您可以在几秒钟内使用简单的文本提示生成令人惊叹的图像。直接在Discord中工作，无需专门的硬件或软件。</p>
+
+                <section class="infoBox">
+                    <div class="title">行为准则</div>
+                    <div class="content">
+                        <ul>
+                            <li>不要做一个混蛋。</li>
+                            <li>不要使用我们的工具制作可能引起争议、不安或引起戏剧性的图像。这包括血腥和成人内容。</li>
+                            <li>尊重他人和团队。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <h5>1. 登录Discord</h5>
+                <p>通过网络浏览器、移动应用程序或桌面应用程序访问Discord中的Midjourney机器人。在加入Midjourney
+                    Discord服务器之前，请确保您有一个<strong>经过验证的</strong>Discord账户。</p>
+                <p><strong>按照以下指南创建或验证您的Discord账户：</strong><br>
+                    <a href="//support.discord.com/hc/en-us/articles/360033931551-Getting-Started">创建Discord账户</a><br>
+                    <a href="//support.discord.com/hc/en-us/articles/6181726888215">验证Discord账户</a>
+                </p>
+
+                <h5>2. 订阅Midjourney计划</h5>
+                <p>要开始使用Midjourney生成图像，您需要订阅一个计划。</p>
+                <ul>
+                    <li>访问 <a href="//www.midjourney.com/">Midjourney.com</a>。</li>
+                    <li>使用您的<strong>经过验证的</strong>Discord账户登录。</li>
+                    <li>选择适合您需求的订阅计划。</li>
+                </ul>
+                <p>有关定价和每个等级可用功能的信息，请访问<a href="/plans">订阅计划</a>。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_SubscriptionTiers.png"
+                    alt="Midjourney订阅等级">
+
+                <h5>3. 加入Discord上的Midjourney服务器</h5>
+                <p>要开始与Midjourney机器人互动，请加入Midjourney服务器</p>
+                <ul>
+                    <li>打开Discord并找到左侧侧边栏中的服务器列表。</li>
+                    <li>按服务器列表底部的 <code>+</code> 按钮。</li>
+                    <li>在弹出窗口中，点击 <code>加入服务器</code> 按钮。</li>
+                    <li>粘贴或输入以下URL：<a href="http://discord.gg/midjourney">http://discord.gg/midjourney</a> 并按
+                        <code>加入</code>。
+                    </li>
+                </ul>
+                <p>要了解更多信息，<a
+                        href="//support.discord.com/hc/en-us/articles/360034842871-How-do-I-join-a-Server-">了解更多关于Discord服务器的信息</a>。
+                </p>
+
+                <h5>4. 进入任何 #general 或 #newbie 频道</h5>
+                <p>加入Discord上的Midjourney服务器后，您会在侧边栏中看到几个频道列表。</p>
+                <p>在Midjourney服务器上，找到并选择任何标记为 <code>general-#</code> 或 <code>newbie-#</code>
+                    的频道。这些频道是为初学者开始使用Midjourney机器人而设计的。Midjourney机器人不会在其他频道中生成图像。</p>
+                <p>在其他服务器上，您可以在任何邀请了Midjourney机器人的Discord服务器上生成图像。查看您所在服务器的说明，了解在哪里使用机器人。</p>
+
+                <h5>5. 使用 /imagine 命令</h5>
+                <p><strong>关于Discord命令</strong><br>
+                    在Discord上通过<span
+                        class="popover__title">命令</span>与Midjourney机器人互动。命令用于创建图像、更改默认设置、监控用户信息和执行其他有用的任务。<code>/imagine</code>
+                    命令从简短的文本描述（称为<span class="popover__title">提示</span>）生成独特的图像。<a href="/prompts">了解更多关于提示的信息</a>
+                </p>
+
+                <p><strong>如何使用 <code>/imagine</code></strong></p>
+                <ul>
+                    <li>在消息字段中输入'/imagine prompt:'。您也可以从输入'/'时弹出的可用斜杠命令列表中选择 <code>/imagine</code> 命令。</li>
+                    <li>在 <code>prompt</code> 字段中输入您想要创建的图像描述。</li>
+                    <li>发送您的消息。机器人将解释您的文本提示并开始生成图像。</li>
+                    <li>遵守<a href="/community-guidelines">社区指南</a>。无论在哪里使用Midjourney机器人，社区指南都适用。</li>
+                </ul>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_ImagineGif.gif"
+                    alt="输入midjourney /imagine命令的动画gif">
+
+                <h5>6. 接受服务条款</h5>
+                <p>在生成任何图像之前，Midjourney机器人会提示您接受<a href="/docs/terms-of-service">服务条款</a>。您必须同意这些条款才能继续创建图像。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_TOS.jpg"
+                    alt="Midjourney服务条款">
+
+                <h5>7. 图像生成过程</h5>
+                <p>提交文本提示后，Midjourney机器人会处理您的请求，在一分钟内创建四个独特的图像选项。此过程利用先进的图形处理单元（GPU），每次图像生成都会计入您Midjourney订阅中包含的<a
+                        href="//docs.midjourney.com/fast-relax">GPU时间</a>。要监控您可用的GPU时间（<strong>剩余快速时间</strong>），请使用
+                    <code>/info</code> 命令。
+                </p>
+
+                <h5>8. 选择图像或创建变体</h5>
+                <p>一旦生成了初始图像网格，图像网格下方会出现两排按钮。</p>
+                <ul>
+                    <li>U1 U2 U3 U4 按钮：选择单个图像</li>
+                    <li>🔄 按钮：重新运行或重新生成作业</li>
+                    <li>V1 V2 V3 V4 按钮：创建所选图像的变体</li>
+                </ul>
+
+                <h5>9. 增强或修改您的图像</h5>
+                <p>单独选出一个图像后，会出现一组扩展的选项。</p>
+                <ul>
+                    <li>🪄 Vary (Strong) / 🪄 Vary (Subtle)：创建所选图像的强烈或微妙<a
+                            href="//docs.midjourney.com/docs/variations">变体</a></li>
+                    <li>🔍 Zoom Out 2x / 🔍 Zoom Out 1.5x / 🔍 Custom Zoom：<a
+                            href="//docs.midjourney.com/docs/zoom-out">放大</a>您的图像</li>
+                    <li>⬅️ ➡️ ⬆️ ⬇️：<a href="//docs.midjourney.com/docs/pan">平移</a>按钮允许您在选定方向上扩展图像的画布</li>
+                    <li>❤️ Favorite：标记您最喜欢的图像</li>
+                    <li>Web ↗️：在 <a href="//www.midjourney.com/home/">midjourney.com</a> 上的画廊中打开图像</li>
+                </ul>
+
+                <h5>10. 保存您的图像</h5>
+                <p>点击图像以全尺寸打开，然后右键单击并选择 <code>保存图像</code>。在移动设备上，长按图像，然后点击右上角的下载图标。</p>
+                <p>所有图像都可以立即在 <a href="//www.midjourney.com/imagine/">midjourney.com/imagine</a> 上查看</p>
+
+                <h4>后续步骤</h4>
+                <p><strong><a href="/direct-messages">直接与Midjourney机器人通信</a></strong><br>
+                    在Midjourney服务器上与其他用户一起工作时遇到困难？您可以在直接消息中一对一与Midjourney机器人互动。在直接消息中创建的图像仍然受内容和审核规则的约束，并且在Midjourney网站上可见。
+                </p>
+
+                <p><strong>了解更多关于提示</strong><br>
+                    <a href="/prompts">了解如何编写有效和创意的提示</a>,<br>
+                    <a href="/explore-prompting">探索艺术媒介、位置和时期的描述如何改变图像</a>。
+                </p>
+
+                <p><strong><a href="/blend">混合您自己的图像</a></strong><br>
+                    学习如何使用 <code>/blend</code> 命令上传和混合您自己的图像。</p>
+
+                <h4>Midjourney机器人帮助</h4>
+                <p>需要帮助或有问题？尝试这些命令：<br>
+                    <code>/help</code> 显示有关Midjourney机器人的有用信息和提示。<br>
+                    <code>/ask</code> 提供关于Midjourney机器人的问题答案。
+                </p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Command_Ask.png"
+                    alt="Midjourney Ask命令" height="45px">
+                <p>您也可以访问Midjourney Discord上的#<a
+                        href="//discord.com/channels/662267976984297473/958069758211797092">支持</a>频道获取额外帮助。</p>
+
+                <h4>账单和订阅查询</h4>
+                <p>关于账单和订阅问题，请访问 <a href="//help.midjourney.com/">help.midjourney.com</a>。</p>
+
+                <h4>1.1.3 社区指南</h4>
+
+                <h5>简介</h5>
+                <p>Midjourney是一个默认开放的社区。为了保持平台对最广泛用户群的可访问性和友好性，内容必须是"适合工作场所"（SFW）的。</p>
+
+                <h5>我们的四个主要规则</h5>
+                <ol>
+                    <li><strong>友善并互相尊重</strong></li>
+                    <li><strong>仅限SFW内容</strong></li>
+                    <li><strong>谨慎分享您的创作</strong></li>
+                    <li><strong>不允许未经授权的自动化和第三方应用</strong></li>
+                </ol>
+
+                <p>感谢您帮助我们使Midjourney成为一个安全、欢迎所有人的空间。</p>
+
+                <p>如果您看到有人违反这些指南，可以<a href="//www.midjourney.com/help" target="_blank">在这里报告</a>。</p>
+
+                <p>请以喜悦、好奇、负责任和尊重的态度使用这些令人惊叹的能力。</p>
+
+                <h5>详细规则</h5>
+
+                <ol>
+                    <li>
+                        <strong>友善并互相尊重</strong>
+                        <ol>
+                            <li>对他人和工作人员友善和尊重。不会容忍任何形式的暴力行为、骚扰或煽动。</li>
+                            <li>不要创建本质上不尊重、侮辱或以其他方式滥用的图像或使用文本提示。</li>
+                            <li>不要创建或使用真实人物（无论是否著名）的图像，这些图像可能被用于骚扰、虐待、诽谤或以其他方式伤害。</li>
+                            <li>尊重他人的权利。不要试图查找他人的私人信息。不要上传他人的私人信息。</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <strong>仅限SFW内容</strong>
+                        <ol>
+                            <li>不要创建或尝试创建血腥或成人内容。避免制作视觉上令人震惊或令人不安的内容。</li>
+                            <li><strong>什么被视为血腥？</strong> 血腥包括人类或动物的分离身体部位图像、食人、血液、暴力（例如，射击或炸死某人的图像）、肢解的尸体、断肢、瘟疫等。
+                            </li>
+                            <li><strong>什么是NSFW或成人内容？</strong> 避免裸体、性器官、对此类事物的固定关注、色情图像、恋物癖、淋浴中的人、坐在马桶上的人等。</li>
+                            <li>不要以任何方式创建或尝试创建将儿童或未成年人性化的内容。这包括真实图像和生成的图像。不要生成、上传、分享或尝试分发描绘、促进或试图正常化儿童性虐待的内容。</li>
+                            <li>不要创建其他令人反感的内容。其他事物可能被视为令人反感或滥用，因为它们可能被视为种族主义、同性恋恐惧症、令人不安或以某种方式贬低某个社区。这包括对名人或公众人物的冒犯性或煽动性图像。
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <strong>谨慎分享您的创作</strong>
+                        <ol>
+                            <li>未经许可，不要公开重新发布他人的作品。</li>
+                            <li>分享时要谨慎。在Midjourney社区之外分享您的创作是可以的，但请考虑其他人可能如何看待您的内容。</li>
+                            <li>不要生成图像以传播错误信息或虚假信息。</li>
+                            <li>不要为政治竞选生成图像或试图影响选举结果。</li>
+                            <li>不要生成图像来尝试或实际欺骗或欺诈任何人。</li>
+                            <li>不要故意误导生成图像的接收者有关其性质或来源。</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <strong>不允许未经授权的自动化和第三方应用</strong>
+                        <ol>
+                            <li>为了保持所有用户的最高质量体验，Midjourney账户设计为个人使用，每个用户只能维护一个账户。</li>
+                            <li>除了少数明确授予的例外情况，Midjourney不提供API，也不提供第三方应用程序或脚本，根据我们的服务条款，严格禁止自动化与Midjourney服务的交互。不遵守这些规则的账户可能会被封锁。
+                            </li>
+                            <li>您不得转售或重新分发Midjourney服务或对服务的访问（这包括共享您的账户）。</li>
+                        </ol>
+                    </li>
+                </ol>
+
+                <h5>审核政策说明</h5>
+                <ol>
+                    <li>Midjourney会自动阻止一些文本和图像输入。输入未被自动阻止并不一定意味着它是允许的。</li>
+                    <li>违反服务条款的用户可能会被社区版主警告、暂时禁止使用服务或被永久封禁。</li>
+                    <li>如果您看到其他人的内容违反规则，请举报。</li>
+                </ol>
+
+                <h5>总体政策说明</h5>
+                <ol>
+                    <li>上述规则适用于所有内容，包括在私人服务器上制作的图像、删除/隐藏的图像、使用隐身模式、与Midjourney机器人的直接消息以及Midjourney网站。</li>
+                    <li>违反这些规则可能导致被禁止使用我们的服务。</li>
+                    <li>Midjourney既是产品也是社区。我们可能会分别撤销您对社区的访问权限和对产品的访问权限。</li>
+                    <li>随着Midjourney社区的发展，内容指南会不断审查和可能修改。</li>
+                    <li>不要生成涉及非法活动的图像或将涉及非法活动的图像上传到我们的服务器，或者上传本身可能是非法的内容。</li>
+                    <li>这不是一个详尽的列表。我们可能会对违反这些指南精神的用户采取行动，即使他们的行为没有被明确禁止。</li>
+                    <li>我们是一个小团队，努力平衡社区中最广泛用户的需求。我们的决策过程不是民主的，但我们非常重视对审核的反馈。</li>
+                    <li>最重要的是，玩得开心！</li>
+                </ol>
+
+                <h5>自我监管和报告</h5>
+                <p>有时，提示可能会无意中产生不适合工作场所的内容。请通过使用❌表情反应或右键单击选择应用程序然后点击"取消作业"来自我监管这些图像以删除图像。</p>
+
+                <p>用户可以通过在Discord中右键单击选择应用程序然后点击"报告作业"，或在网站上通过选择图像下的"..."然后点击"报告"来标记任何图像以供版主审核。</p>
+
+                <div class="grid">
+                    <div>
+                        <h5>在Discord中报告图像</h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Report_App.png"
+                            alt="展示如何通过Discord右键点击转到应用并选择报告作业的图像">
+                    </div>
+                    <div>
+                        <h5>在网站上报告图像</h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Report_web.png"
+                            alt="展示如何在Midjourney网站上点击图像下的省略号来报告作业的图像">
+                    </div>
+                </div>
+
+                <h3 id="basic-concepts">1.2 基础概念与操作</h3>
+                <h4 id="prompts">1.2.1 提示词（Prompts）</h4>
+                <p>提示词是一个简短的文本短语，Midjourney机器人会解释这个短语来生成图像。Midjourney机器人将提示中的单词和短语分解成更小的部分，称为标记，这些标记会与其训练数据进行比较，然后用于生成图像。精心制作的提示可以帮助创建独特和令人兴奋的图像。
+                </p>
+
+                <h5>基本提示</h5>
+                <p>基本提示可以简单到只有一个单词、短语或表情符号 😊。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Prompt_basic.png"
+                    alt="展示Midjourney提示结构的图像。">
+
+                <div class="tip">
+                    <h6>提示技巧！</h6>
+                    <p>Midjourney机器人最适合处理描述您想看到的简单、简短的短语。避免使用长列表的请求和指令。不要使用："给我展示一张很多加州罂粟花盛开的图片，让它们明亮、充满活力的橙色，并以彩色铅笔的插图风格绘制"，而应该尝试："用彩色铅笔画的明亮橙色加州罂粟花"
+                    </p>
+                </div>
+
+                <h5>高级提示</h5>
+                <p>更高级的提示可以包含一个或多个图像URL、多个文本短语和一个或多个参数</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ%20Prompt.png"
+                    alt="展示Midjourney提示结构的图像。">
+
+                <div class="grid">
+                    <div>
+                        <h6>图像提示</h6>
+                        <p>可以将图像URL添加到提示中，以影响最终结果的风格和内容。图像URL总是放在提示的前面。</p>
+                        <p><a href="/image-prompts">阅读更多关于图像提示的信息</a></p>
+                    </div>
+                    <div>
+                        <h6>文本提示</h6>
+                        <p>您想生成的图像的文本描述。请参阅下面的提示信息和技巧。编写得好的提示有助于生成令人惊叹的图像。</p>
+                    </div>
+                    <div>
+                        <h6>参数</h6>
+                        <p>参数改变图像的生成方式。参数可以改变宽高比、模型、升频器等等。参数放在提示的末尾。</p>
+                        <p><a href="/parameter-list">阅读更多关于参数的信息</a></p>
+                    </div>
+                </div>
+
+                <h5>提示注意事项</h5>
+                <h6>词语选择</h6>
+                <p>词语选择很重要。在许多情况下，更具体的同义词效果更好。比如用微小、巨大、庞大、巨型或浩瀚来替代大。</p>
+
+                <h6>复数词和集合名词</h6>
+                <p>复数词会留下很多不确定性。尝试使用特定数字。"三只猫"比"猫"更具体。集合名词也有效，比如用"一群鸟"代替"鸟"。</p>
+
+                <h6>专注于您想要的内容</h6>
+                <p>最好描述您想要的内容，而不是您不想要的内容。如果您要求一个"没有蛋糕"的派对，您的图像可能会包含一个蛋糕。要确保某个物体不在最终图像中，请尝试使用 <code>--no</code>
+                    参数进行高级提示。</p>
+
+                <h6>提示长度和细节</h6>
+                <p>提示可以很简单。单个词或表情符号就可以。然而，简短的提示依赖于Midjourney的默认风格，允许它创造性地填充任何未指定的细节。在您的提示中包含任何对您重要的元素。细节越少意味着更多的多样性，但控制力更少。
+                </p>
+
+                <p><strong>尝试清楚地说明对您来说重要的任何上下文或细节。考虑以下几点：</strong></p>
+                <ul>
+                    <li><strong>主题：</strong> <em>人、动物、角色、位置、物体</em></li>
+                    <li><strong>媒介：</strong> <em>照片、绘画、插图、雕塑、涂鸦、挂毯</em></li>
+                    <li><strong>环境：</strong> <em>室内、室外、月球上、水下、在城市中</em></li>
+                    <li><strong>照明：</strong> <em>柔和、环境、阴天、霓虹灯、摄影棚灯光</em></li>
+                    <li><strong>颜色：</strong> <em>生动的、柔和的、明亮的、单色的、丰富多彩的、黑白的、柔和的</em></li>
+                    <li><strong>情绪：</strong> <em>平静的、安静的、喧闹的、充满活力的</em></li>
+                    <li><strong>构图：</strong> <em>肖像、头部特写、特写、鸟瞰图</em></li>
+                </ul>
+                <h4 id="explore-prompting">1.2.2 探索提示词（Explore Prompting）</h4>
+                <p>即使是简短的单词提示也能以Midjourney的默认风格产生美丽的图像，但通过结合艺术媒介、历史时期、地点等概念，您可以创造出更有趣的个性化结果。</p>
+
+                <h5>选择一种媒介</h5>
+                <p>拿出颜料、蜡笔、刮画板、印刷机、亮片、墨水和彩纸。创造风格化图像的最佳方式之一是指定一种艺术媒介。</p>
+                <p>提示示例：<code>/imagine prompt &lt;任何艺术风格&gt; 风格的猫</code></p>
+
+                <div class="gridsmall">
+                    <div>
+                        <strong>版画</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cat_Blockprint_Cat.jpeg"
+                            alt="木刻版画风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>圆珠笔素描</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cat_ballpoint.jpg"
+                            alt="圆珠笔风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>蓝晒</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cat_Cyanotype.jpeg"
+                            alt="蓝晒风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>涂鸦</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cat_Graffiti.jpeg"
+                            alt="涂鸦风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>数字填色</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cat_Paint-by-numbers.jpeg"
+                            alt="数字填色风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>印刷版画</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cat_Risograph.jpeg"
+                            alt="印刷版画风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>浮世绘</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cat_UkiyoE.jpg"
+                            alt="浮世绘风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>铅笔素描</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cat_Pencilsketch.jpg"
+                            alt="铅笔素描风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>水彩</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cat_watercolor.jpeg"
+                            alt="水彩风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>像素艺术</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_pixelArt.jpeg"
+                            alt="像素艺术风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>黑光绘画</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_blacklight.jpeg"
+                            alt="黑光绘画风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>十字绣</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_crossStitch.jpeg"
+                            alt="十字绣风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>丙烯酸倾倒画</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cat_acrylicPour.jpg"
+                            alt="丙烯酸倾倒画风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>剪纸</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cat_cutpaper.jpg"
+                            alt="剪纸风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>压花</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cat_pressedFlower.jpg"
+                            alt="压花风格的猫的Midjourney图像示例">
+                    </div>
+                </div>
+
+                <h5>更加具体</h5>
+                <p>更精确的词语和短语将有助于创造具有恰当外观和感觉的图像。</p>
+                <p>提示示例：<code>/imagine prompt &lt;风格&gt; 猫的素描</code></p>
+
+                <div class="gridsmall">
+                    <div>
+                        <strong>生活绘画</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_lifeDrawingSketch.jpeg"
+                            alt="生活绘画素描风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>连续线条</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_continuousLine.jpeg"
+                            alt="连续线条素描风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>随意手势</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_looseGesturalSketch.jpeg"
+                            alt="随意手势素描风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>明暗研究</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_valueStudy.jpeg"
+                            alt="明暗研究素描风格的猫的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <strong>炭笔</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_Charcoal.jpeg"
+                            alt="炭笔素描风格的猫的Midjourney图像示例">
+                    </div>
+                </div>
+
+                <h5>时间旅行</h5>
+                <p>不同的时代有不同的视觉风格。</p>
+                <p>提示示例：<code>/imagine prompt &lt;时间段&gt; 风格的猫的插画</code></p>
+
+                <div class="gridsmall">
+                    <div>
+                        <strong>1400年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1400.jpg"
+                            alt="1400年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1500年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1500.jpg"
+                            alt="1500年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1600年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1600.jpg"
+                            alt="1600年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1700年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1750.jpeg"
+                            alt="1750年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1800年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1800.jpeg"
+                            alt="1800年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1900年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1900.jpeg"
+                            alt="1900年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1910年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1910.jpeg"
+                            alt="1910年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1920年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1920.jpeg"
+                            alt="1920年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1930年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1930.jpeg"
+                            alt="1930年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1940年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1940.jpeg"
+                            alt="1940年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1950年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1950.jpeg"
+                            alt="1950年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1960年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1960.jpeg"
+                            alt="1960年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1970年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1970.jpeg"
+                            alt="1970年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1980年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1980.jpeg"
+                            alt="1980年代风格的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>1990年代</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_cat_1990.jpeg"
+                            alt="1990年代风格的猫的Midjourney图像">
+                    </div>
+                </div>
+
+                <h5>表达情感</h5>
+                <p>使用情感词语给角色赋予个性。</p>
+                <p>提示示例：<code>/imagine prompt &lt;情感&gt; 的猫</code></p>
+                <div class="gridsmall">
+                    <div>
+                        <strong>坚定的</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Determined_cat.jpeg"
+                            alt="坚定的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>快乐的</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Happy_Cat.jpeg"
+                            alt="快乐的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>困倦的</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Sleepy_Cat.jpeg"
+                            alt="困倦的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>生气的</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Angry_Cat.jpeg"
+                            alt="生气的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>害羞的</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Shy_cat.jpeg"
+                            alt="害羞的猫的Midjourney图像">
+                    </div>
+                </div>
+
+                <h5>丰富多彩</h5>
+                <p>色彩的全光谱可能性。</p>
+                <p>提示示例：<code>/imagine prompt &lt;颜色词&gt; 的猫</code></p>
+
+                <div class="gridsmall">
+                    <div>
+                        <strong>千禧粉</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_MillenialPink_Cat.jpeg"
+                            alt="千禧粉色的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>酸性绿</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Acid_Cat.jpeg"
+                            alt="酸性绿色的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>去饱和</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Desaturated_cat.jpeg"
+                            alt="去饱和的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>金丝雀黄</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Canary_Cat.jpeg"
+                            alt="金丝雀黄色的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>桃色</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Peach_Cat.jpeg"
+                            alt="桃色的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>双色调</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Twotoned_cat.jpeg"
+                            alt="双色调的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>粉彩</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Pastel_cat.jpeg"
+                            alt="粉彩色的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>紫红色</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Mauve_Cat.jpeg"
+                            alt="紫红色的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>乌木色</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Ebony_Cat.jpeg"
+                            alt="乌木色的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>中性色</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Neutral_Cat.jpeg"
+                            alt="中性色的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>CMYK</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_CMYK_Cat.jpeg"
+                            alt="CMYK色的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>蓝色调</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Bluetinted_Cat.jpeg"
+                            alt="蓝色调的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>彩虹色</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Iridescent_Cat.jpg"
+                            alt="彩虹色的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>明亮的</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Brightly_Cat.jpg"
+                            alt="明亮色彩的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>粉蓝</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_PinkBlue_Cat.jpg"
+                            alt="粉蓝色的猫的Midjourney图像">
+                    </div>
+                </div>
+
+                <h5>环境探索</h5>
+                <p>不同的环境可以营造独特的氛围。</p>
+                <p>提示示例：<code>/imagine prompt &lt;地点&gt; 中的猫</code></p>
+
+                <div class="gridsmall">
+                    <div>
+                        <strong>苔原</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Tundra_Cat.jpg"
+                            alt="苔原中的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>盐沼</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Saltflat_Cat.jpg"
+                            alt="盐沼中的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>丛林</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Jungle_Cat.jpg"
+                            alt="丛林中的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>沙漠</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Desert_Cat.jpg"
+                            alt="沙漠中的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>森林</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Forest_Cat.jpg"
+                            alt="森林中的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>洞穴</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Cave_Cat.jpg"
+                            alt="洞穴中的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>农场</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Farm_Cat.jpg"
+                            alt="农场中的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>水晶森林</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_CrystalForest_Cat.jpg"
+                            alt="水晶森林中的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>城市</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_City_Cat.jpg"
+                            alt="城市中的猫的Midjourney图像">
+                    </div>
+                    <div>
+                        <strong>花园</strong>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Garden_Cat.jpg"
+                            alt="花园中的猫的Midjourney图像">
+                    </div>
+                </div>
+                <h4 id="variations">1.2.3 变体（Variations）</h4>
+                <p>使用图像网格下方的 <code>V1</code> <code>V2</code> <code>V3</code> <code>V4</code> 按钮，或使用放大图像下方的
+                    <code>Vary (Strong)</code> 和 <code>Vary (Subtle)</code> 按钮来生成该图像的不同版本。
+                </p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li><code>V</code> 按钮对应于每个生成的网格中从左到右、从上到下的图像，如这样: 🔢。</li>
+                        <li>使用 <span class="discordbtn"><code>🎨 High Variation Mode</code></span> 和 <span
+                                class="discordbtn"><code>🎨 Low Variation Mode</code></span> 在<a
+                                href="/v1/docs/settings-and-presets">设置</a>中控制使用 <code>V</code> 按钮时的默认变化量。<span
+                                class="discordbtn"><code>🎨 High Variation Mode</code></span> 是默认设置。</li>
+                        <li>您也可以使用 <code>/prefer variability</code> 命令在高变化模式和低变化模式之间切换。</li>
+                        <li>在<a href="/v1/docs/upscalers">放大的</a>图像下，<span
+                                class="discordbtn"><code>🪄 Vary (Strong)</code></span> 按钮对应于 <span
+                                class="discordbtn"><code>🎨 High Variation Mode</code></span>，而 <span
+                                class="discordbtn"><code>🪄 Vary (Subtle)</code></span> 对应于 <span
+                                class="discordbtn"><code>🎨 Low Variation Mode</code></span>。这些按钮会忽略您的个人设置。</li>
+                    </ul>
+                </div>
+
+                <div class="warningBox">
+                    <p>想在制作变体时更改提示词吗？在设置中启用 <code>Remix Mode</code>。在<a href="/v1/docs/remix">这里</a>了解更多关于使用 Remix
+                        Mode 以及它如何与您的变体设置交互的信息。</p>
+                </div>
+
+                <h2 id="variation-examples">变体示例</h2>
+                <p>当使用 <a href="/v1/docs/model-versions">Midjourney 版本 5 或 6，或 Niji 版本 5 或 6</a>
+                    时，您可以在高变化和低变化模式之间选择。</p>
+
+                <p>默认的 <span class="discordbtn"><code>🎨 High Variation Mode</code></span>
+                    将生成在构图、元素数量、颜色和细节类型上与原图有所不同的新图像。要使用高变化模式，请在设置中选择它，然后点击网格下方的 <code>V</code> 按钮，或点击放大图像下方的 <span
+                        class="discordbtn"><code>🪄 Vary (Strong)</code></span> 按钮。</p>
+
+                <p><span class="discordbtn"><code>🎨 Low Variation Mode</code></span>
+                    将生成保留原图构图和颜色的新图像，但对图像细节进行微妙的更改。要使用低变化模式，请在 <code>/settings</code> 中选择它，然后点击对应于您想要变化的图像的
+                    <code>V</code> 按钮，或点击放大图像下方的 <span class="discordbtn"><code>🪄 Vary (Subtle)</code></span> 按钮。
+                </p>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>a cute robot holding flowers</code></p>
+
+                <div class="grid">
+                    <div>
+                        <h5>原始放大图像</h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/variation-starting-image.png"
+                            alt="使用提示" 一个可爱的机器人拿着花"生成的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <h5>使用 <code>🪄Vary (Subtle)</code> 的图像网格</h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/vary-subtle.png"
+                            alt="使用低变化模式和提示" 一个可爱的机器人拿着花"生成的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <h5>使用 <code>🪄Vary (Strong)</code> 的图像网格</h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/vary-strong.png"
+                            alt="使用高变化模式和提示" 一个可爱的机器人拿着花"生成的Midjourney图像示例">
+                    </div>
+                </div>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>a bird watching a butterfly</code></p>
+
+                <div class="grid">
+                    <div>
+                        <h5>原始放大图像</h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/variation-starting-image2.png"
+                            alt="使用提示" 一只鸟看着蝴蝶"生成的Midjourney图像">
+                    </div>
+                    <div>
+                        <h5>使用 <code>🪄Vary (Subtle)</code> 的图像网格</h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/vary-subtle2.png"
+                            alt="使用低变化模式和提示" 一只鸟看着蝴蝶"生成的Midjourney图像示例">
+                    </div>
+                    <div>
+                        <h5>使用 <code>🪄Vary (Strong)</code> 的图像网格</h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/vary-strong2.png"
+                            alt="使用高变化模式和提示" 一只鸟看着蝴蝶"生成的Midjourney图像示例">
+                    </div>
+                </div>
+                <h4 id="upscalers">1.2.4 放大器（Upscalers）</h4>
+                <p>当前的 <a href="/models">Midjourney 和 Niji 模型版本</a>生成 1024 x 1024 像素的图像网格。使用每个图像网格下方的
+                    <code>U1</code> <code>U2</code> <code>U3</code> <code>U4</code> 按钮将您选择的图像从网格中分离出来。然后，您可以使用
+                    <code>Upscale (Creative)</code> 或 <code>Upscale (Subtle)</code> 工具来增加图像的大小。
+                </p>
+
+                <p><span class="discordbtn"><code>Upscale (Subtle)</code></span> 选项会将您的图像尺寸加倍，并保持细节与原图非常相似。<span
+                        class="discordbtn"><code>Upscale (Creative)</code></span>
+                    也会将您的图像尺寸加倍，但会向图像添加新的细节。尝试每种放大器选项，找到最适合您图像风格的一种。</p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li><code>Upscale</code> 工具使用您订阅的 <span class="popover__title" data-glossary="GPU minute"
+                                data-glossaryid="ec037fba-cbdf-4d1e-826e-3dfa9d0d1ff4">GPU
+                                分钟</span>。放大可能会使用多达两倍于生成初始图像网格的 GPU 分钟。</li>
+                        <li><code>Upscale</code> 工具与 <a href="/tile">--tile 参数</a>不兼容。</li>
+                    </ul>
+                </div>
+
+                <h2 id="how-to-use-the-upscale-tools">如何使用放大工具</h2>
+
+                <h3 id="1-generate-an-image"><span class="blue">1. 生成图像</span></h3>
+                <p>使用 <code>/imagine</code> 命令创建图像。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Upscale_Prompt.gif"
+                    alt="显示在Midjourney中输入" 条纹河石"提示的动画GIF">
+
+                <h3 id="2-select-an-image"><span class="blue">2. 选择图像</span></h3>
+                <p>使用 <code>U</code> 按钮将您选择的图像从网格中分离出来。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Upscale_ImageGrid.png"
+                    alt="Midjourney机器人使用提示" 条纹河石"生成的图像网格，U4按钮以蓝色高亮显示。">
+
+                <h3 id="3-select-upscale"><span class="blue">3. 选择放大</span></h3>
+                <p>点击 <span class="discordbtn"><code>Upscale (Subtle)</code></span> 或 <span
+                        class="discordbtn"><code>Upscale (Creative)</code></span> 按钮来放大您的图像。放大器将使您的图像尺寸加倍至 2048 x
+                    2048 像素。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Upscale_Interface.jpg"
+                    alt="Midjourney机器人使用提示" 条纹河石"生成的放大图像，Upscale Subtle按钮以蓝色高亮显示。">
+
+                <h2 id="upscale-comparison">放大对比</h2>
+                <p>提示：<code>chiaroscuro rooster portrait</code><br>
+                    原始 1024 x 1024 像素图像。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Upscale_Chicken_Original.jpg"
+                    alt="使用提示" 明暗对比的公鸡肖像"创建的Midjourney图像">
+
+                <h3 id="detail-from-original-image">原始图像的细节</h3>
+                <div class="grid">
+                    <div>
+                        <p>原始图像</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Upscale_Chicken_Up1X.jpg"
+                            alt="使用提示" 明暗对比的公鸡肖像"创建的Midjourney图像的裁剪版">
+                    </div>
+                    <div>
+                        <p>放大到 2048 x 2048 像素后</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Upscale_Chicken_Up2X.jpg"
+                            alt="使用提示" 明暗对比的公鸡肖像"创建的Midjourney图像在2倍放大后的裁剪版">
+                    </div>
+                </div>
+
+                <h2 id="upscale-comparison1">放大对比</h2>
+                <p>提示：<code>1960s pop-art acrylic painting of a stream running through a redwood forest</code></p>
+                <div class="grid">
+                    <div>
+                        <p>原始图像</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Upscale_Redwood_Original.jpg"
+                            alt="使用提示" 1960年代流经红杉森林的溪流的波普艺术丙烯画"创建的Midjourney图像">
+                    </div>
+                    <div>
+                        <p>Subtle 放大</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Upscale_Redwood_Subtle.jpg"
+                            alt="使用Subtle放大器后，使用提示" 1960年代流经红杉森林的溪流的波普艺术丙烯画"创建的Midjourney图像">
+                    </div>
+                    <div>
+                        <p>Creative 放大</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Upscale_Redwood_Creative.jpg"
+                            alt="使用Creative放大器后，使用提示" 1960年代流经红杉森林的溪流的波普艺术丙烯画"创建的Midjourney图像">
+                    </div>
+                </div>
+                <div class="grid">
+                    <div>
+                        <p>原始图像的细节</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Upscale_Redwood_Detail.jpg"
+                            alt="使用提示" 1960年代流经红杉森林的溪流的波普艺术丙烯画"创建的Midjourney图像的细节">
+                    </div>
+                    <div>
+                        <p>Subtle 放大的细节</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Upscale_Redwood_SubtleDetail.jpg"
+                            alt="使用Subtle放大器后，使用提示" 1960年代流经红杉森林的溪流的波普艺术丙烯画"创建的Midjourney图像的细节">
+                    </div>
+                    <div>
+                        <p>Creative 放大的细节</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Upscale_Redwood_CreativeDetail.jpg"
+                            alt="使用Creative放大器后，使用提示" 1960年代流经红杉森林的溪流的波普艺术丙烯画"创建的Midjourney图像的细节">
+                    </div>
+                </div>
+
+                <div class="infoBox">
+                    <div class="title">放大技巧</div>
+                    <div class="content">
+                        <p>通过使用 <a href="/show-job">/show</a> 命令刷新在新放大器发布之前生成的作业。刷新后的作业下方将出现与该图像兼容的所有放大器的按钮。</p>
+                    </div>
+                </div>
+
+                <h2 id="legacy-upscalers">旧版放大器</h2>
+                <p>早期的 Midjourney 模型版本生成较低分辨率图像的网格。您可以在这些使用早期 Midjourney 模型创建的图像上使用旧版 Midjourney
+                    放大器来增加尺寸并添加额外的细节。有多个旧版放大模型可用于放大使用早期 Midjourney 模型创建的图像。使用旧版放大器会消耗您订阅的 <span class="popover__title"
+                        data-glossary="GPU minute" data-glossaryid="ec037fba-cbdf-4d1e-826e-3dfa9d0d1ff4">GPU 分钟</span>。
+                </p>
+
+                <div class="glossary-popover-contents">
+                    <div class="popover__content hidden ec037fba-cbdf-4d1e-826e-3dfa9d0d1ff4">
+                        <p>Midjourney 机器人在高端 GPU 上处理作业。完成一个作业所需的每一分钟都是一个 <strong>GPU
+                                分钟</strong>。在<strong>快速模式</strong>下，您有限量的 GPU 分钟。由于图像生成可能同时在多个 GPU 上处理，GPU
+                            分钟与您等待图像生成的时间并不直接相关。</p>
+                    </div>
+                </div>
+                <h4 id="vary-region">1.2.5 区域变化（Vary Region）</h4>
+                <p>使用Midjourney区域变化编辑器来选择和重新生成已放大图像的特定部分。</p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li><code>Vary (Region)</code> 按钮会在Midjourney图像被<a href="/upscalers">放大</a>后出现。</li>
+                        <li>区域变化的结果受原始图像内容和您选择的区域的引导。</li>
+                        <li><code>Vary (Region)</code> 与 <a href="/models">Midjourney模型版本</a> <code>V5</code>,
+                            <code>V6</code>, <code>niji 5</code>, 和 <code>niji 6</code> 兼容。
+                        </li>
+                    </ul>
+                </div>
+
+                <h2 id="how-to-use-vary-region">如何使用区域变化</h2>
+
+                <h3 id="1-generate-an-image"><span class="blue">1. 生成图像</span></h3>
+                <p>使用 <code>/imagine</code> 命令创建图像。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VaryRegion_Prompt.gif"
+                    alt="显示在Midjourney中输入" 彩色铅笔松鼠戴皇冠"提示的动画GIF">
+
+                <h3 id="2-upscale-the-image"><span class="blue">2. 放大图像</span></h3>
+                <p>使用U按钮放大您选择的图像。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VaryRegion_ImageGrid.png"
+                    alt="Midjourney机器人使用提示" 彩色铅笔松鼠戴皇冠"生成的图像网格，U4按钮以蓝色高亮显示。">
+
+                <h3 id="3-select-vary-region"><span class="blue">3. 选择区域变化</span></h3>
+                <p>点击 <span class="discordbtn"><code>🖌️ Vary (Region)</code></span> 按钮打开编辑界面。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VaryRegion_Upscale.png"
+                    alt="Midjourney机器人使用提示" 彩色铅笔松鼠戴皇冠"生成的放大图像，Vary Region按钮以蓝色高亮显示。">
+
+                <h3 id="4-select-areas-to-regenerate"><span class="blue">4. 选择要重新生成的区域</span></h3>
+                <ul>
+                    <li>在编辑器左下角选择自由手绘或矩形选择工具。</li>
+                    <li>选择您想要重新生成的图像区域。
+                        <ul>
+                            <li>选择的大小会影响您的结果。较大的选择给Midjourney机器人更多空间来生成新的创意细节。较小的选择会导致更小、更微妙的变化。<br>
+                                注意：您无法编辑现有的选择，但可以使用右上角的撤销按钮撤销多个步骤。</li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VaryRegion_Editor.png"
+                    alt="Midjourney区域变化用户界面，显示使用选择工具进行的活动选择">
+
+                <h3 id="5-submit-your-job"><span class="blue">5. 提交您的作业</span></h3>
+                <p>点击 <span class="discordbtn"><code>Submit →</code></span>
+                    按钮将您的请求发送给Midjourney机器人。现在可以关闭区域变化编辑器，您可以在作业处理时返回Discord。</p>
+                <p><strong>注意</strong> 您可以多次使用放大图像下方的 <span class="discordbtn"><code>🖌️ Vary (Region)</code></span>
+                    按钮来尝试不同的选择。您之前的选择将被保留。您可以继续添加到这个现有的选择，或使用 <code>undo</code> 按钮清除您的选择。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VaryRegion_SubmitPrompt.png"
+                    alt="Midjourney机器人使用提示" 彩色铅笔松鼠戴皇冠"生成的放大图像，submit按钮以蓝色高亮显示。">
+
+                <h3 id="6-view-your-results"><span class="blue">6. 查看您的结果</span></h3>
+                <p>Midjourney机器人将处理您的作业，并在您选择的区域内生成一个新的变体图像网格。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VaryRegion_Results.jpg"
+                    alt="Midjourney机器人使用提示" 彩色铅笔松鼠戴皇冠"生成的图像网格，用于修改现有的戴皇冠的松鼠图像">
+
+                <h2 id="vary-region-examples">区域变化示例</h2>
+                <div class="grid">
+                    <div>
+                        <p>放大的图像</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VaryRegion_BroochOrigina.jpg"
+                            alt="使用提示" 彩色糖果胸针"在Midjourney中生成的三个彩色胸针的图像">
+                        <p>提示：彩色糖果胸针</p>
+                    </div>
+                    <div>
+                        <p>选择</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VaryRegion_BroochSelection.jpg"
+                            alt="三个彩色糖果胸针的图像，覆盖了Midjourney区域变化编辑器的选择">
+                    </div>
+                    <div>
+                        <p>结果</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VaryRegion_BroochResult.jpg"
+                            alt="使用Midjourney区域变化编辑器制作的三个彩色糖果胸针的图像">
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div>
+                        <p>放大的图像</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VaryRegion_House_Original.jpg"
+                            alt="使用提示" 房子的建筑图纸"在Midjourney中生成的房子分支图像">
+                        <p>提示：房子的建筑图纸</p>
+                    </div>
+                    <div>
+                        <p>选择</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VaryRegion_House_Selection.png"
+                            alt="房子建筑图纸的图像，覆盖了Midjourney区域变化选择">
+                    </div>
+                    <div>
+                        <p>结果</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VaryRegion_House_Result.jpg"
+                            alt="使用Midjourney区域变化编辑器和提示" 房子的建筑图纸"制作的房子图像">
+                    </div>
+                </div>
+
+                <h2 id="technical-details">技术细节</h2>
+                <p><strong>使用区域变化（Vary Region）生成的作业将遵守以下<a href="/parameter-list">参数</a>：</strong><br>
+                    --chaos<br>
+                    --fast<br>
+                    --iw<br>
+                    --no<br>
+                    --stylize<br>
+                    --relax<br>
+                    --style<br>
+                    --version<br>
+                    --video<br>
+                    --weird</p>
+                <h4 id="vary-region-remix">1.2.6 区域变化与重组（Vary Region + Remix）</h4>
+                <p>结合<a href="/remix">重组模式</a>和Midjourney区域变化编辑器，使用新的或修改的提示来选择和重新生成已放大图像的特定部分。</p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li><code>Vary (Region)</code> 按钮会在Midjourney图像被<a href="/upscalers">放大</a>后出现。</li>
+                        <li>区域变化结果受原始图像内容、您选择的区域以及使用的修改提示的引导。</li>
+                        <li><code>Vary (Region)</code> 与 <a href="/models">Midjourney模型版本</a> <code>V5</code>,
+                            <code>V6</code>, <code>niji 5</code>, 和 <code>niji 6</code> 兼容。
+                        </li>
+                    </ul>
+                </div>
+
+                <h2 id="how-to-use-remix-mode-with-vary-region">如何将重组模式与区域变化一起使用</h2>
+
+                <h3 id="1-enable-remix-mode"><span class="blue">1. 启用重组模式</span></h3>
+                <p>使用 <a href="/settings-and-presets"><code>/settings</code> 命令</a>并从弹出窗口中选择 <span
+                        class="discordbtn"><code>🎛️ Remix</code></span>。</p>
+
+                <h3 id="2-generate-an-image"><span class="blue">2. 生成图像</span></h3>
+                <p>使用 <code>/imagine</code> 命令创建图像。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Inpainting_Prompt.gif"
+                    alt="显示在Midjourney中输入" 草地小径石版画"提示的动画GIF">
+
+                <h3 id="3-upscale-the-image"><span class="blue">3. 放大图像</span></h3>
+                <p>使用U按钮放大您选择的图像。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_ImageGrid.png"
+                    alt="Midjourney机器人使用提示" 草地小径石版画"生成的图像网格，U4按钮以蓝色高亮显示。">
+
+                <h3 id="4-select-vary-region"><span class="blue">4. 选择区域变化</span></h3>
+                <p>点击 <span class="discordbtn"><code>🖌️ Vary (Region)</code></span> 按钮打开编辑界面。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_Upscale.png"
+                    alt="Midjourney机器人使用提示" 草地小径石版画"生成的放大图像，Editor按钮以蓝色高亮显示。">
+
+                <h3 id="5-select-areas-to-regenerate"><span class="blue">5. 选择要重新生成的区域</span></h3>
+                <ul>
+                    <li>在编辑器左下角选择自由手绘或矩形选择工具。</li>
+                    <li>选择您想要重新生成的图像区域。
+                        <ul>
+                            <li>选择的大小会影响您的结果。较大的选择给Midjourney机器人更多空间来生成新的创意细节。较小的选择会导致更小、更微妙的变化。<br>
+                                注意：您无法编辑现有的选择，但可以使用右上角的撤销按钮撤销多个步骤。</li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_Editor.png"
+                    alt="Midjourney InPaint编辑器用户界面，显示使用自由手绘选择工具进行的活动选择">
+
+                <h3 id="6-modify-your-prompt"><span class="blue">6. 修改您的提示</span></h3>
+                <p>使用更新的提示描述您想在选定区域生成的内容。您修改后的提示应该集中在您想要引入或改变的细节上。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_NewPrompt.gif"
+                    alt="显示在Midjourney中输入" 草地溪流石版画"提示的动画GIF">
+
+                <h3 id="7-submit-your-job"><span class="blue">7. 提交您的作业</span></h3>
+                <p>点击 <span class="discordbtn"><code>Submit →</code></span>
+                    按钮将您的请求发送给Midjourney机器人。现在可以关闭区域变化编辑器，您可以在作业处理时返回Discord。</p>
+                <p><strong>注意</strong> 您可以多次使用放大图像下方的编辑器按钮来尝试不同的选择和提示。</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_SubmitPrompt.png"
+                    alt="Midjourney机器人使用提示" 草地小径石版画"生成的放大图像，submit按钮以蓝色高亮显示。">
+
+                <h3 id="8-view-your-results"><span class="blue">8. 查看您的结果</span></h3>
+                <p>Midjourney机器人将处理您的作业，并使用您原始图像的信息和新提示的指导生成一个新的图像网格。</p>
+                <div class="grid">
+                    <div>
+                        <p>新的图像网格</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_Results.jpg"
+                            alt="Midjourney机器人使用提示" 山溪石版画"来修改现有的草地小径图像所生成的图像网格">
+                    </div>
+                    <div>
+                        <p>原始vs变化比较</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Inpaint_Transition.gif"
+                            alt="比较原始和经过InPaint处理的Midjourney图像的动画gif">
+                    </div>
+                </div>
+
+                <h3 id="8-upscale-and-vary-region-again"><span class="blue">8. 再次放大和区域变化</span></h3>
+                <p>您可以放大其中一个新图像，并再次使用区域变化编辑器来继续优化您的图像。</p>
+                <div class="grid">
+                    <div>
+                        <h5>选择</h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_CastleSelection.png"
+                            alt="Midjourney InPaint编辑器用户界面，显示使用矩形选择工具进行的活动选择">
+                    </div>
+                    <div>
+                        <h5>结果</h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_BalloonResult.png"
+                            alt="Midjourney机器人使用提示" 热气球石版画"生成的图像">
+                        <p><strong>更新的提示：</strong> 热气球石版画</p>
+                    </div>
+                    <div>
+                        <h5>结果</h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_CastleResult.jpg"
+                            alt="Midjourney机器人使用提示" 山中城堡石版画"生成的图像">
+                        <p><strong>更新的提示：</strong> 草地中的城堡石版画</p>
+                    </div>
+                </div>
+
+                <h2 id="vary-region-remix-prompting-tips">区域变化 + 重组提示技巧</h2>
+                <ul>
+                    <li>
+                        <p><strong>选择</strong>
+                            您的选择大小会影响结果。较大的选择为Midjourney机器人提供更多上下文信息，这可以改善新添加元素的缩放和上下文。但选择太多可能会导致新生成的元素与您希望保留的原始图像部分混合或替换。
+                        </p>
+                    </li>
+                    <li>
+                        <p><strong>提示</strong> 在使用区域变化 +
+                            重组模式时，尝试如何修改您的提示。提示应该集中在您想在选定区域发生的事情上。Midjourney机器人在生成选定区域时也会考虑现有图像，所以更短、更集中的提示通常更有效。Midjourney提示不应该是对话式的。不要说"请将草地小径改成美丽的溪流"，而应该直接说"草地溪流"。
+                        </p>
+                    </li>
+                    <li>
+                        <p><strong>小步骤工作</strong> 如果您想改变图像的多个部分，一次处理一个部分。这样，您可以为每个部分创建一个集中的提示。<br><br></p>
+                    </li>
+                </ul>
+
+                <h2 id="vary-region-remix-examples">区域变化 + 重组示例</h2>
+                <div class="grid">
+                    <div>
+                        <p>原始图像</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_AlligatorOriginal.png"
+                            alt="使用提示" 戴墨镜的鳄鱼"在Midjourney中生成的戴墨镜的鳄鱼图像">
+                        <p>提示：<code>水彩戴墨镜的鳄鱼</code></p>
+                    </div>
+                    <div>
+                        <p>选择</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_AlligatorSelection.png"
+                            alt="戴墨镜的鳄鱼图像，覆盖了Midjourney InPaint编辑器的选择">
+                        <p>更新的提示：<code>水彩戴绿色墨镜的鳄鱼</code></p>
+                    </div>
+                    <div>
+                        <p>结果</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_AlligatorResult.jpg"
+                            alt="使用Midjourney InPaint编辑器和提示" 绿色墨镜"制作的戴绿色墨镜的鳄鱼图像">
+                        <p>更新的提示：<code>水彩戴绿色墨镜的鳄鱼</code></p>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div>
+                        <p>原始图像</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_ApplesOriginal.jpg"
+                            alt="使用提示" 刮画苹果树枝"在Midjourney中生成的刮画苹果树枝图像">
+                        <p>提示：<code>刮画苹果树枝</code></p>
+                    </div>
+                    <div>
+                        <p>选择</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_AppleSelection.jpg"
+                            alt="刮画苹果树枝的图像，覆盖了Midjourney InPaint编辑器的选择">
+                        <p>更新的提示：<code>彩虹刮画苹果树枝</code></p>
+                    </div>
+                    <div>
+                        <p>结果</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_InPaint_AppleResult.jpg"
+                            alt="使用Midjourney InPaint编辑器和提示" 彩虹刮画苹果树枝"制作的苹果树枝图像">
+                        <p>更新的提示：<code>彩虹刮画苹果树枝</code></p>
+                    </div>
+                </div>
+
+                <h2 id="technical-details">技术细节</h2>
+                <p><strong>使用区域变化（Vary Region）+ 重组模式生成的作业将遵守以下<a href="/parameter-list">参数</a>：</strong><br>
+                    --chaos<br>
+                    --fast<br>
+                    --iw<br>
+                    --no<br>
+                    --stylize<br>
+                    --relax<br>
+                    --style<br>
+                    --version<br>
+                    --video<br>
+                    --weird</p>
+                <h4 id="version">1.2.7 版本（Version）</h4>
+                <p>Midjourney定期推出新的模型版本，以提高连贯性、效率、质量和风格。您可以使用 --version 或 --v 参数或使用 /settings
+                    命令并选择您喜欢的模型版本来切换模型版本。不同的模型在生成不同类型的图像方面表现出色。</p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li><code>--version</code> 接受值 1, 2, 3, 4, 5, 5.0, 5.1, 5.2, 6, 和 6.1。</li>
+                        <li><code>--version</code> 可以缩写为 <code>--v</code>。</li>
+                        <li><code>--v 6.1</code> 是最新的且当前默认的模型。</li>
+                    </ul>
+                </div>
+
+                <h2 id="model-version-61">模型版本 6.1</h2>
+                <p>版本6.1于2024年7月30日发布，成为新的默认模型。它生成更加连贯的图像，具有更精确的细节和纹理，并且生成图像的速度比版本6快约25%。</p>
+
+                <div class="grid">
+                    <div>
+                        <div class="example-image">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/poppies-v6-1.png"
+                                alt="Midjourney 版本 6.1 示例图像，提示为 Vibrant California Poppies">
+                            <div class="img-overlay">提示：vibrant California poppies --v 6.1</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="example-image">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/collage-v6-1.png"
+                                alt="Midjourney 版本 6.1 示例图像，提示为 high contrast surreal collage">
+                            <div class="img-overlay">提示：high contrast surreal collage --v 6.1</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 id="model-version-6">模型版本 6</h2>
+                <p>Midjourney 模型版本 6 增强了对长输入的提示准确性，改进了连贯性和知识，并提升了图像提示和重组功能。</p>
+                <p>Midjourney 模型版本 6 于 2023 年 12 月 20 日发布，从 2024 年 2 月 14 日至 7 月 30 日期间是默认模型。</p>
+
+                <div class="grid">
+                    <div>
+                        <div class="example-image">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_V6_poppies.jpg"
+                                alt="Midjourney 版本 6 示例图像，提示为 Vibrant California Poppies">
+                            <div class="img-overlay">提示：vibrant California poppies --v 6</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="example-image">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_V6_HighContrastCollage.jpg"
+                                alt="Midjourney 版本 6 示例图像，提示为 high contrast surreal collage">
+                            <div class="img-overlay">提示：high contrast surreal collage --v 6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 id="niji-model-6">Niji 模型 6</h2>
+                <p>Niji 模型是 Midjourney 与 <a href="//spellbrush.com/" target="_blank">Spellbrush</a>
+                    合作的成果，专门调教用于生成动漫和插图风格，具有更多的动漫、动漫风格和动漫美学知识。它在动态和动作镜头以及以角色为中心的构图方面表现出色。</p>
+                <p>要使用此模型，请在提示的末尾添加 <code>--niji 6</code> 参数，或使用 <code>/settings</code> 命令并选择 <span
+                        class="discordbtn"><code>🌈 Niji version 6</code></span></p>
+
+                <div class="grid">
+                    <div>
+                        <div class="example-image">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Niji6_VibrantPoppies.jpg"
+                                alt="Niji 6 示例图像，提示为 Vibrant California Poppies">
+                            <div class="img-overlay">提示：vibrant California poppies --niji 6</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="example-image">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_niji6_HighContrastCollage.jpg"
+                                alt="Niji 6 示例图像，提示为 high contrast surreal collage">
+                            <div class="img-overlay">提示：high contrast surreal collage --niji 6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 id="niji-6-vs-midjourney-version-6">Niji 6 vs. Midjourney 版本 6</h3>
+                <div class="grid">
+                    <div>
+                        <h5><code>--v 6</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_V6_Poppies.jpg"
+                            alt="Midjourney 版本 v6 示例图像，提示为 vibrant california poppies --v 6">
+                        <code>vibrant California poppies --v 6</code>
+                    </div>
+                    <div>
+                        <h5><code>--niji 6</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Niji6_Poppies.jpg"
+                            alt="niji 6 示例图像，提示为 vibrant california poppies --niji 6">
+                        <code>vibrant California poppies --niji 6</code>
+                    </div>
+                    <div>
+                        <h5><code>--v 6</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_V6_FruitSalad.jpg"
+                            alt="Midjourney 版本 v6 示例图像，提示为 fruit salad tree  --v 6">
+                        <code>fruit salad tree --v 6</code>
+                    </div>
+                    <div>
+                        <h5><code>--niji 6</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_niji6_FruitSalad.jpg"
+                            alt="niji 6 示例图像，提示为 fruit salad tree --niji 6">
+                        <code>fruit salad tree --v 6 --style raw</code>
+                    </div>
+                </div>
+
+                <h2 id="how-to-switch-models">如何切换模型</h2>
+                <h3 id="use-the-version-parameter">使用版本参数</h3>
+                <p>使用 <code>--version</code> 或 <code>--v</code> 参数来更改模型版本。例如，<code>--v 5.2</code> 使用版本 5.2，或
+                    <code>--niji 6</code> 使用 Niji 版本 6。
+                </p>
+                <div>
+                    <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Version_V52.gif"
+                        alt="动画 Gif 显示如何输入 Midjourney 版本参数">
+                </div>
+
+                <h3 id="use-the-discord-settings-command">使用 Discord 设置命令</h3>
+                <p>输入 <code>/settings</code> 并从下拉列表中选择您喜欢的版本。</p>
+                <div class="buttonrowlarge">
+                    <span class="discordbtn"><code>6️⃣ MJ Version 6.1</code></span>
+                    <span class="discordbtn"><code>6️⃣ MJ Version 6</code></span>
+                    <span class="discordbtn"><code>🌈 Niji Version 6</code></span>
+                </div>
+
+                <div class="infoBox">
+                    <p>想要了解更多关于 Midjourney 旧模型的信息？查看 <a href="/v1/docs/legacy-model-version-parameters">遗留模型版本页面</a>。
+                    </p>
+                </div>
+
+                <h3 id="website-settings">网站设置</h3>
+                <p>您可以使用想象栏中的设置按钮设置默认版本：</p>
+                <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-website-settings-version.png"
+                    alt="Midjourney 网站设置版本选项">
+
+                <p>从下拉菜单中选择您喜欢的版本。您的图像将使用该版本生成，除非您在单个提示中使用 <code>--version</code> 或 <code>--v</code> 参数指定不同的值。</p>
+
+
+                <h3 id="commands-parameters">1.3 命令、参数和工具（Commands, Parameters, and Tools）</h3>
+                <p>Midjourney提供了丰富的命令、参数和工具来帮助您更好地控制图像生成过程。要了解更多详细信息，请访问我们的<a
+                        href="commands-and-parameters.html">命令和参数专页</a>。</p>
+
+            </section>
+
+            <section id="other-tools" class="content-section">
+                <h2>2. 部分其他图像生成工具</h2>
+                <h3 id="stable-diffusion">2.1 Stable Diffusion：最流行的开源模型</h3>
+                <p>Stable Diffusion作为一种开源的人工智能图像生成技术，在当前市场中展现出独特的优势和潜在挑战。</p>
+
+                <h4>2.1.1 优势</h4>
+                <ol>
+                    <li><strong>社区驱动的创新生态：</strong>Stable
+                        Diffusion的开源特性吸引了广泛的开发者参与，推动了技术的快速迭代。例如，ControlNet插件的引入使得用户能够通过条件输入（如姿势关键点、深度图等）精确控制图像生成过程。</li>
+                    <li><strong>高度定制化能力：</strong>支持多样化的插件和模型，如ComfyUI提供的基于节点的工作流定制，允许用户通过调整模块连接实现不同的输出效果。</li>
+                    <li><strong>商业应用的适应性：</strong>其灵活性和开源性使企业能够迅速将Stable Diffusion集成到现有工作流程中，适用于内容创作、广告设计或游戏开发等多个领域。
+                    </li>
+                    <li><strong>高质量图像生成潜力：</strong>在精心调校的条件下，能够生成细节丰富的高质量图像。例如，After Detailer插件能够在小图上精修人物的面部、手部和全身细节。
+                    </li>
+                </ol>
+
+                <h4>2.1.2 局限</h4>
+                <ol>
+                    <li><strong>硬件要求较高：</strong>为实现最佳性能，用户需要配备高性能GPU和充足的内存。</li>
+                    <li><strong>操作稳定性问题：</strong>特别是在本地部署环境中处理大量或复杂的图像生成任务时，可能面临稳定性挑战。</li>
+                </ol>
+
+                <h4>2.1.3 关键插件及其影响</h4>
+                <p>Stable Diffusion的生态系统因其重要插件而得到进一步增强：</p>
+                <ul>
+                    <li><strong>ControlNet：</strong>通过添加条件图片的形式来自定义内容，实现用户期望的精确效果。</li>
+                    <li><strong>ComfyUI：</strong>提供高度模块化的用户界面，简化了用户入门过程，使快速运行第一个图像生成工作流成为可能。</li>
+                </ul>
+                <h3 id="dall-e">2.2 DALL-E 3</h3>
+                <p>DALL-E 3，作为OpenAI推出的文生图像AI模型，内嵌于chatGPT中，在此简单介绍其优势与局限。</p>
+                <h4>2.2.1 优势</h4>
+                <ul>
+                    <li><strong>卓越的语言理解能力：</strong>基于ChatGPT构建，显著提升了自然语言处理能力。</li>
+                    <li><strong>简化的用户交互：</strong>用户可通过简单描述即可生成精准的提示词，进而转化为图像。</li>
+                    <li><strong>细节描绘的精准性：</strong>能够准确捕捉并呈现抽象概念和模糊形容词的深层含义。</li>
+                    <li><strong>与ChatGPT的无缝集成：</strong>极大提升了用户的工作效率和创作体验。</li>
+                </ul>
+
+                <h4>2.2.2 局限</h4>
+                <ul>
+                    <li><strong>图像质量：</strong>整体不如Midjourney等竞争对手。</li>
+                    <li><strong>空间关系处理：</strong>在处理图像中的空间位置关系时可能存在错误。</li>
+                    <li><strong>人物细节：</strong>在皮肤纹理和表情的真实感上可能略显不足。</li>
+                </ul>
+
+                <h4>2.2.4 应用建议</h4>
+                <p>DALL-E 3在自然语言交互和图像生成的结合方面具有显著优势，但在某些具体的图像质量指标上可能存在局限。用户在选择时应考虑以下因素：</p>
+                <ul>
+                    <li>如果项目重点在于通过自然语言快速生成图像，DALL-E 3可能是理想选择。</li>
+                    <li>对于需要极高图像质量，特别是在人物描绘方面的项目，可能需要考虑Midjourney等替代选项。</li>
+                    <li>最终选择应基于具体项目需求、创作目标和个人偏好来决定。</li>
+                </ul>
+            </section>
+
+            <section id="ethics-and-future" class="content-section">
+                <h2>3. AI图像生成的伦理问题和未来趋势</h2>
+                <p>人工智能图像生成技术作为计算机视觉和深度学习领域的前沿发展，正在以前所未有的速度渗透到社会的各个层面。然而，伴随这一技术进步的是一系列复杂的伦理问题、法律挑战以及对未来发展趋势的深远影响。本节将对这些方面进行深入探讨。
+                </p>
+
+                <h3>3.1 伦理问题</h3>
+                <p>AI图像生成技术的广泛应用引发了多方面的伦理问题，主要包括：</p>
+                <ul>
+                    <li><strong>隐私保护：</strong>AI生成的图像可能涉及个人隐私信息的不当使用或泄露。</li>
+                    <li><strong>信息真实性：</strong>该技术可能被用于制作和传播虚假或误导性信息。</li>
+                    <li><strong>知识产权：</strong>在未经授权的情况下使用网络图像作为训练数据，可能引发版权争议。</li>
+                    <li><strong>社会偏见：</strong>AI生成的图像可能无意中强化现有的社会偏见和刻板印象。</li>
+                    <li><strong>滥用风险：</strong>技术可能被用于身份伪造或欺诈等非法活动，威胁社会秩序。</li>
+                </ul>
+
+                <h3>3.2 法律挑战</h3>
+                <p>AI图像生成技术的快速发展对现有法律体系提出了新的挑战：</p>
+                <ul>
+                    <li><strong>版权归属：</strong>AI生成图像的知识产权归属问题尚未得到明确界定。</li>
+                    <li><strong>责任认定：</strong>对于AI生成的不实或有害内容，责任追究机制需要进一步明确。</li>
+                    <li><strong>法律更新：</strong>现有法律法规需要适应性调整，以应对新技术带来的挑战。</li>
+                </ul>
+
+                <h3>3.3 未来发展趋势</h3>
+                <p>AI图像生成技术的未来发展趋势主要集中在以下几个方面：</p>
+                <ol>
+                    <li><strong>图像质量提升：</strong>技术将朝着生成更高质量、更逼真的图像方向发展。</li>
+                    <li><strong>多样性和稳定性：</strong>提高生成图像的多样性和生成过程的稳定性。</li>
+                    <li><strong>精细控制能力：</strong>实现对生成过程更精细、更精准的控制。</li>
+                    <li><strong>深度语义理解：</strong>加强对图像实体关系的深层次理解。</li>
+                    <li><strong>多模态融合：</strong>提升跨模态间的转换和生成效果。</li>
+                    <li><strong>性能优化：</strong>提高采样速度和样本质量。</li>
+                    <li><strong>市场细分：</strong>向更加标准化、细分化的市场需求方向发展，以满足不同用户群体的需求。</li>
+                </ol>
+                <h3>3.4 商业授权策略：</h3>
+                <ul>
+                    <li>对于各类免费用户，不保证其版权与商业应用许可，用户需要自行负责。</li>
+                    <li>对于付费用户，根据软件和平台的不同，承诺其版权与部分商业应用许可。</li>
+                    <li>对于stable diffusion这样的开源模型，其条款会更复杂一些，并且仍在不断更新中，目前对于SD的核心模型使用，100万美元收入以下的组织和团体是免费的</li>
+                </ul>
+
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 编者·李策. 保留所有权利。</p>
+            <p><a href="../index.html.html" style="color: white;">返回首页</a></p>
+        </div>
+    </footer>
+
+    
+</body>
+
+</html>
