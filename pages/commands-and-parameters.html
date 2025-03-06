@@ -1,0 +1,2697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midjourney命令和参数 - AI大模型工具使用技巧整理</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<script src="../scripts/script.js"></script>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Midjourney命令和参数</h1>
+            <p class="subtitle">AI大模型工具使用技巧整理</p>
+        </div>
+    </header>
+
+
+    <main class="content-wrapper container">
+        <button id="toggle-sidebar" class="toggle-button">☰ 目录</button>
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <h3><a href="index.html">回到首页</a></h3>
+
+            <ul>
+                <li><a href="#introduction">引言</a></li>
+
+                <li><a href="#commands">指令(Commands)</a></li>
+                <ul>
+                    <li><a href="#command-list">命令列表(Command List)</a></li>
+                    <li><a href="#blend">混合(Blend)</a></li>
+                    <li><a href="#describe">描述(Describe)</a></li>
+                    <li><a href="#user-info">用户信息(User Info)</a></li>
+                    <li><a href="#settings-and-presets">设置和预设(Settings and Presets in Discord)</a></li>
+                    <li><a href="#show-job">显示作业(Show Job)</a></li>
+                    <li><a href="#shorten">缩短(Shorten)</a></li>
+                </ul>
+
+                <li><a href="#parameters">参数(Parameters)</a></li>
+                <ul>
+                    <li><a href="#parameter-list">参数列表 (Parameter List)</a></li>
+                    <li><a href="#aspect-ratios">宽高比 (Aspect Ratios)</a></li>
+                    <li><a href="#chaos">混沌 (Chaos)</a></li>
+                    <li><a href="#character-reference">角色参考 (Character Reference)</a></li>
+                    <li><a href="#no">反向参数（No）</a></li>
+                    <li><a href="#personalization">个性化（Personalization）</a></li>
+                    <li><a href="#quality">质量 (Quality)</a></li>
+                    <li><a href="#repeat">重复 (Repeat)</a></li>
+                    <li><a href="#seeds">种子 (Seeds)</a></li>
+                    <li><a href="#stop">停止 (Stop)</a></li>
+                    <li><a href="#style">样式 (Style)</a></li>
+                    <li><a href="#style-reference">样式参考 (Style Reference)</a></li>
+                    <li><a href="#stylize">风格化 (Stylize)</a></li>
+                    <li><a href="#tile">平铺 (Tile)</a></li>
+                    <li><a href="#version">版本 (Version)</a></li>
+                    <li><a href="#video">视频 (Video)</a></li>
+                    <li><a href="#weird">怪异 (Weird)</a></li>
+                </ul>
+                <li><a href="#text-generation">文本生成（Text Generation）</a></li>
+            </ul>
+
+        </aside>
+
+
+
+
+        <div class="main-content">
+            <section id="introduction" class="content-section">
+                <h2>引言</h2>
+                <p>本页面详细介绍了Midjourney提供的各种命令和参数，帮助您更好地控制和优化图像生成过程。内容结构基于Midjourney官方文档，为您提供全面而准确的信息。</p>
+            </section>
+
+            <section id="commands" class="content-section">
+                <h2>1. 命令</h2>
+                <h3 id="command-list">命令列表(Command List)</h3>
+                <p>以下是Midjourney机器人支持的命令列表。这些命令可以在任何机器人频道、允许Midjourney机器人操作的私人Discord服务器上，或与Midjourney机器人的直接消息中使用。
+                </p>
+
+                <ul>
+                    <li><strong>/ask</strong>：获取问题的答案。</li>
+                    <li><strong>/blend</strong>：轻松混合两张图片。</li>
+                    <li><strong>/daily_theme</strong>：切换#daily-theme频道更新的通知提醒。</li>
+                    <li><strong>/describe</strong>：基于您上传的图片生成四个示例提示。</li>
+                    <li><strong>/fast</strong>：切换到快速模式。</li>
+                    <li><strong>/help</strong>：显示有关Midjourney机器人的基本信息和提示。</li>
+                    <li><strong>/imagine</strong>：使用提示生成图像。</li>
+                    <li><strong>/info</strong>：查看您的账户信息以及任何排队或运行中的作业。</li>
+                    <li><strong>/prefer option set</strong>：创建或管理自定义选项。</li>
+                    <li><strong>/prefer option list</strong>：查看您当前的自定义选项。</li>
+                    <li><strong>/prefer remix</strong>：切换重组模式。</li>
+                    <li><strong>/prefer suffix</strong>：指定要添加到每个提示末尾的后缀。</li>
+                    <li><strong>/public</strong>：（仅限Pro计划订阅者）切换到公共模式。</li>
+                    <li><strong>/relax</strong>：切换到放松模式。</li>
+                    <li><strong>/settings</strong>：查看和调整Midjourney机器人的设置。</li>
+                    <li><strong>/stealth</strong>：（仅限Pro计划订阅者）切换到隐身模式。</li>
+                    <li><strong>/shorten</strong>：提交长提示并获得如何使其更简洁的建议。</li>
+                    <li><strong>/show</strong>：使用图像的作业ID在Discord中重新生成作业。</li>
+                    <li><strong>/subscribe</strong>：生成用户账户页面的个人链接。</li>
+                    <li><strong>/tune</strong>：基于您的提示生成风格调谐器。风格调谐器允许您创建自己的Midjourney风格并自定义作业的外观。</li>
+                    <li><strong>/turbo</strong>：切换到涡轮模式。</li>
+                    <li><strong>/userid</strong>：获取您的Midjourney用户ID。</li>
+                </ul>
+
+                <p><strong>注意</strong>：一些命令（如/docs、/feedback、/faq、/invite、/list_tuners、/synonyms）仅在官方Midjourney
+                    Discord服务器中可用。</p>
+
+                <h4>已弃用的命令</h4>
+                <ul>
+                    <li>/private（已被'/stealth'替代）</li>
+                    <li>/pixels</li>
+                    <li>/idea</li>
+                </ul>
+                <h3 id="blend">混合(Blend)</h3>
+                <p><code>/blend</code>命令允许您快速上传2-5张图片，然后分析每张图片的概念和美学特征，将它们融合成一张全新的图像。</p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li><code>/blend</code>的效果等同于在<code>/imagine</code>命令中使用多个<a
+                                href="/image-prompts">图像提示</a>，但其界面针对移动设备进行了优化，使用更加便捷。</li>
+                        <li><code>/blend</code>最多支持5张图片。如果需要使用超过5张图片，请使用<a
+                                href="/image-prompts">图像提示</a>配合<code>/imagine</code>命令。</li>
+                        <li><code>/blend</code>不支持文本提示。如果需要同时使用文本和图像提示，请使用<a
+                                href="/image-prompts">图像提示</a>和文本配合<code>/imagine</code>命令。</li>
+                    </ul>
+                </div>
+
+                <h4><code>/blend</code>命令选项</h4>
+                <p>输入<code>/blend</code>命令后，系统会提示您上传两张照片。您可以从硬盘拖放图片，或在移动设备上从照片库添加图片。如需添加更多图片，请选择<code>optional/options</code>字段，然后选择<code>image3</code>、<code>image4</code>或<code>image5</code>。请注意，<code>/blend</code>命令可能比其他命令启动时间更长，因为系统需要先上传您的图片，然后Midjourney机器人才能处理您的请求。
+                </p>
+
+                <p>融合后的图像默认使用<a
+                        href="/v1/docs/aspect-ratios">1:1的宽高比</a>，但您可以使用可选的<code>dimensions</code>字段选择正方形（1:1）、肖像（2:3）或风景（3:2）宽高比。
+                </p>
+
+                <p><a
+                        href="/v1/docs/settings-and-presets">自定义后缀</a>会被添加到<code>/blend</code>提示的末尾，就像其他<code>/imagine</code>提示一样。在<code>/blend</code>命令中指定的宽高比会覆盖自定义后缀中的宽高比设置。
+                </p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Blend_Interface.png"
+                        alt="显示Midjourney /blend命令的Discord应用界面图像" data-lightbox="box"></p>
+
+                <div class="infoBox">
+                    <div class="title">融合技巧</div>
+                    <div class="content">
+                        <p>为获得最佳效果，请上传与您期望的结果具有相同宽高比的图像。</p>
+                    </div>
+                </div>
+
+                <h4>如何使用<code>/blend</code></h4>
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Blend.gif"
+                        alt="展示如何使用Midjourney blend命令的动画gif" data-lightbox="box"></p>
+                <h3 id="describe">描述(Describe)</h3>
+                <p><code>/describe</code>命令允许您上传一张图片，并基于该图片生成四个可能的提示。使用<code>/describe</code>命令来探索新的词汇和美学风格。</p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li>describe功能生成的提示建议具有启发性和暗示性。它不能用于精确重现上传的图像。</li>
+                        <li>describe在Discord和网站上的工作方式略有不同。在Discord中使用<code>/describe</code>命令会生成完整的提示，而网站则会提供词语和短语建议，帮助您构建自己的提示。
+                        </li>
+                        <li>对同一图像多次使用"describe"会提供不同的建议。</li>
+                    </ul>
+                </div>
+
+                <h4>在Discord中使用</h4>
+                <h5>使用<code>/describe</code>命令</h5>
+                <p>在Discord中任何可以使用Midjourney机器人的地方使用<code>/describe</code>命令。您可以通过输入图片的URL（选择<code>link</code>选项；在<a
+                        href="/v1/docs/image-prompts">这里</a>查找更多关于在Discord中使用图像URL的信息），或选择存储在您设备上的图片（使用<code>image</code>选项）来提供要描述的图片。
+                </p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/describe-command.png"
+                         alt="Describe命令界面" data-lightbox="box"></p>
+
+                <p>生成建议后，点击相应的数字按钮来使用该提示<code>/imagine</code>。您可以在提交之前编辑文本。</p>
+
+                <p>您还可以使用🔄按钮对同一图像再次运行<code>/describe</code>命令，或使用<span
+                        class="discordbtn"><code>🎉 Imagine all</code></span>按钮一次性生成所有四个提示的图像（但您将没有机会先编辑它们）。</p>
+
+                <h5>Discord中的<code>/describe</code>示例</h5>
+                <p>如果您使用<code>/describe</code>命令描述下面的图像，Midjourney机器人将建议四个可能生成类似图像的提示：</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/ref-image-cat.jpg"
+                        height="300" data-lightbox="box"></p>
+
+                <div class="warningBox">
+                    <p>1️⃣ 在白色背景上用紫色圆珠笔绘制的波斯猫脸部素描，紫色毛发，未知艺术家风格。</p>
+                    <p>2️⃣ 紫色铅笔绘制的波斯猫，白色背景，John Beastman风格。</p>
+                    <p>3️⃣ 紫色铅笔绘制的可爱波斯猫，白色背景上的简单线条，具有精细细节和精美构图，超写实风格，锐利的边缘和清晰的焦点。</p>
+                    <p>4️⃣
+                        紫色铅笔绘制的异国短毛猫，简单的线条艺术和白色背景，精细线条和柔和色彩营造出柔和细腻的氛围，这幅特写肖像。素描风格将猫描绘得可爱而梦幻，通过详细的线条展现复杂细节，正面视角。水墨技法使用低饱和度的深黑色调创造艺术家风格。
+                    </p>
+                </div>
+
+                <div class="infoBox">
+                    <div class="title">旧版<code>/describe</code></div>
+                    <div class="content">
+                        <ul>
+                            <li>默认情况下，Discord中的<code>/describe</code>生成最适合版本6的提示。</li>
+                            <li>如果您在Discord中将默认Midjourney版本设置为5.0，<code>/describe</code>将生成更短的提示，这些提示更适合较旧的<a
+                                    href="/v1/docs/model-version-5">模型版本</a>。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>在网站上使用</h4>
+                <h5>从想象栏使用</h5>
+                <p>点击想象栏中的<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                        height="16" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m4 16 4.586-4.586a2 2 0 0 1 2.828 0L16 16m-2-2 1.586-1.586a2 2 0 0 1 2.828 0L20 14m-6-6h.01M6 20h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z">
+                        </path>
+                    </svg>图标来访问网站上的图像参考选项。如果您想描述的图像没有出现，可以从此视图上传。上传后，将鼠标悬停在图像上以显示<svg xmlns="http://www.w3.org/2000/svg"
+                        height="16" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 9a1 1 0 0 0 0 2v3a1 1 0 0 0 1 1h1a1 1 0 1 0 0-2v-3a1 1 0 0 0-1-1H9z">
+                        </path>
+                    </svg>图标，然后点击它来生成建议。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-website-create-image-upload2.png"
+                         alt="网站上的图像上传界面" data-lightbox="box"></p>
+
+                <p>与Discord中的<code>/describe</code>生成完整提示不同，网站会提供各种词语和短语供您使用。点击生成的短语会将其添加到您当前提示的末尾。点击<svg
+                        xmlns="http://www.w3.org/2000/svg" height="16" fill="none" stroke="currentColor"
+                        stroke-width="2" class="group-active:-rotate-180 group-active:transition-all"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15">
+                        </path>
+                    </svg>重新生成按钮来生成新的描述，点击<svg xmlns="http://www.w3.org/2000/svg" height="16" fill="none"
+                        stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m11 17-5-5m0 0 5-5m-5 5h12"></path>
+                    </svg>返回按钮返回图像选择工具。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/web-describe-cat.png"
+                         alt="网站上的Describe功能界面" data-lightbox="box"></p>
+
+                <h5>从工具标签页使用</h5>
+                <p>点击侧边栏底部的<svg xmlns="http://www.w3.org/2000/svg" height="24" fill="none" stroke="currentColor"
+                        stroke-width="2" class="text-splash" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19.428 15.428a2 2 0 0 0-1.022-.547l-2.387-.477a6 6 0 0 0-3.86.517l-.318.158a6 6 0 0 1-3.86.517L6.05 15.21a2 2 0 0 0-1.806.547M8 4h8l-1 1v5.172a2 2 0 0 0 .586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 0 0 9 10.172V5L8 4z">
+                        </path>
+                    </svg>工具菜单来访问<a href="//www.midjourney.com/describe">Describe</a>页面。该页面将自动填充您所有的<a
+                        href="/v1/docs/using-images">已上传图像</a>。</p>
+
+                <p>您可以将图像从计算机拖放到页面上，以生成完整提示的建议，类似于在Discord中使用<code>/describe</code>的效果。</p>
+
+                <p>将鼠标悬停在提示上，点击+copy按钮将其复制到剪贴板。</p>
+                <h3 id="user-info">用户信息（User Info）</h3>
+                <p>使用<code>/info</code>命令可以查看关于您当前排队和运行中的作业、订阅类型、续订日期等信息。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/discord-user-info-command.png"
+                        alt="使用/info命令后生成的用户信息弹窗图像" data-lightbox="box"></p>
+
+                <h4 id="user-id">用户ID（User ID）</h4>
+                <p>您的Midjourney用户ID</p>
+
+                <h4 id="subscription">订阅（Subscription）</h4>
+                <p>订阅部分显示<a href="/plans">您订阅的计划</a>以及下一次续订日期。</p>
+
+                <h4 id="visibility-mode">可见性模式（Visibility Mode）</h4>
+                <p>显示您当前是处于<a href="/stealth">公开模式还是隐身模式</a>。隐身模式仅适用于Pro计划订阅者。</p>
+
+                <h4 id="fast-time-remaining">剩余快速时间（Fast Time Remaining）</h4>
+                <p>显示您本月剩余的<a href="/fast-relax">快速GPU时间</a>。快速GPU时间每月重置，不会结转。</p>
+
+                <h4 id="ranking-count">评分计数（Ranking Count）</h4>
+                <p>显示您<a href="/v1/docs/free-hours">评分图像</a>的总数，以及最近30天内评分的图像数量。</p>
+
+                <h4 id="lifetime-usage">终身使用情况（Lifetime Usage）</h4>
+                <p>显示您的Midjourney终身统计数据。<strong>图像</strong>包括所有类型的生成（初始图像网格、放大、变体、重组等）。</p>
+
+                <h4 id="fast-turbo-and-relaxed-usage">快速、涡轮和放松模式使用情况（Fast, Turbo and Relaxed Usage）</h4>
+                <p>显示您<a href="/fast-relax">快速、涡轮和放松模式</a>的使用情况。</p>
+
+                <h4 id="queued-fast-and-relaxed-jobs">排队的快速和放松作业（Queued Fast and Relaxed Jobs）</h4>
+                <p>列出所有排队等待运行的<span class="popover__title" data-glossary="Job"
+                        data-glossaryid="4ca91c3e-a953-4ca4-a4c9-03fff744ef98">作业</span>。</p>
+
+                <h4 id="running-jobs">运行中的作业（Running Jobs）</h4>
+                <p>列出所有当前运行的<span class="popover__title" data-glossary="Job"
+                        data-glossaryid="4ca91c3e-a953-4ca4-a4c9-03fff744ef98">作业</span>。同时最多可以运行三个作业。</p>
+
+                <h3 id="use-the-info-command">使用Info命令</h3>
+                <p>在任何<span class="popover__title" data-glossary="Bot Channel"
+                        data-glossaryid="8a726e76-0f37-472c-a5a7-24e81899dfb2">机器人频道</span>或您的私信中输入<code>/info</code>。只有您能看到您的信息弹窗。
+                </p>
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_infoCommand.gif"
+                        alt="展示如何使用Info命令的动画Gif" data-lightbox="box"></p>
+
+                <div class="glossary-popover-contents">
+                    <div class="popover__content hidden 4ca91c3e-a953-4ca4-a4c9-03fff744ef98">
+                        <p><strong>作业（Job）</strong>是指使用Midjourney机器人的任何操作。<strong>作业</strong>包括使用<code>/imagine</code>创建初始图像网格、放大图像和创建图像变体。
+                        </p>
+                    </div>
+                    <div class="popover__content hidden 8a726e76-0f37-472c-a5a7-24e81899dfb2">
+                        <p><strong>机器人频道（Bot Channels）</strong>是允许Midjourney机器人处理斜杠命令的Discord频道。在官方Midjourney
+                            Discord服务器上，<strong>新手房间</strong>、<strong>主题频道</strong>、<strong>主题图像生成</strong>和<strong>通用图像生成</strong>类别中的所有频道都是机器人频道。
+                        </p>
+                    </div>
+                </div>
+                <h3 id="settings-and-presets">设置和预设（Settings and Presets in Discord）</h3>
+                <p><code>/settings</code>命令提供了常用选项的切换按钮，如模型版本、风格值、质量值和放大器版本。设置中还包括<code>/stealth</code>和<code>/public</code>命令的切换。
+                </p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-settings-ui.png"
+                        alt="Midjourney设置命令UI" data-lightbox="box"></p>
+
+                <div class="warningBox">
+                    <p>在提示末尾添加的参数将覆盖使用<code>/settings</code>进行的选择。</p>
+                </div>
+
+                <h4 id="model-version-dropdown">模型版本下拉菜单</h4>
+                <p>选择生成图像时使用的<a href="/models">Midjourney模型版本</a>。<strong>使用最新模型</strong>是默认选项，它将始终使用最新的Midjourney模型版本。
+                </p>
+
+                <p>
+                    <span class="discordbtn"><code>Use the latest Model (V6)</code></span>
+                    <span class="discordbtn"><code>6️⃣ Mjourney Model V6 [ALPHA]</code></span>
+                    <span class="discordbtn"><code>🌈 Niji Model V6 [ALPHA]</code></span>
+                    <span class="discordbtn"><code>5️⃣ Mjourney Model V5.2</code></span>
+                    <span class="discordbtn"><code>5️⃣ Mjourney Model V5.1</code></span>
+                    <span class="discordbtn"><code>🍎 Niji Model V5</code></span>
+                    <span class="discordbtn"><code>5️⃣ Mjourney Model V5.0</code></span>
+                    <span class="discordbtn"><code>🌈 Niji Model V4</code></span>
+                    <span class="discordbtn"><code>4️⃣ Mjourney Model V4</code></span>
+                    <span class="discordbtn"><code>3️⃣ Mjourney Model V3</code></span>
+                    <span class="discordbtn"><code>2️⃣ Mjourney Model V2</code></span>
+                    <span class="discordbtn"><code>1️⃣ Mjourney Model V1</code></span>
+                </p>
+
+                <h4 id="style-raw-parameter">风格原始参数</h4>
+                <p>Midjourney模型版本5.1、5.2、6和Niji 6可以使用<a
+                        href="//docs.midjourney.com/docs/models#model-version-52-style-raw-parameter">--style
+                        raw参数</a>进行微调，以减少Midjourney默认美学。如果选择了其他模型版本，则此切换不可用。</p>
+
+                <p><span class="discordbtn"><code>🔧 Raw Mode</code></span></p>
+
+                <h4 id="stylize-parameter">风格化参数</h4>
+                <p>Midjourney机器人已经过训练，可以生成偏好艺术色彩、构图和形式的图像。<a
+                        href="/stylize">--stylize或--s参数</a>影响这种训练的应用强度。低风格化值生成的图像与提示更加匹配，但艺术性较低。高风格化值创建的图像非常具有艺术性，但与提示的联系较少。
+                </p>
+
+                <p>
+                    <span class="discordbtn"><code>🖌️ Stylize Low</code></span>
+                    <span class="discordbtn"><code>🖌️ Stylize Med</code></span>
+                    <span class="discordbtn"><code>🖌️ Stylize High</code></span>
+                    <span class="discordbtn"><code>🖌️ Stylize Very High</code></span>
+                </p>
+
+                <p>Stylize Low = <code>--s 50</code>, Stylize Med = <code>--s 100</code>, Stylize High =
+                    <code>--s 250</code>, Stylize Very High = <code>--s 750</code>
+                </p>
+
+                <h4 id="public-and-stealth-mode">公开和隐身模式</h4>
+                <p>在<a href="/stealth">公开和隐身模式</a>之间切换。对应<code>/public</code>和<code>/stealth</code>命令。</p>
+
+                <p><span class="discordbtn"><code>🧍‍♂️Public</code></span></p>
+
+                <h4 id="remix-mode">重组模式</h4>
+                <p>使用<a
+                        href="/remix">重组模式</a>在变体之间更改提示、参数、模型版本或宽高比。重组将利用您起始图像的一般构图，并将其作为新作业的一部分。重组可以帮助改变图像的场景或光线、进化主题或实现复杂的构图。
+                </p>
+
+                <p><span class="discordbtn"><code>🎛️ Remix</code></span></p>
+
+                <h4 id="high-and-low-variation-mode">高变化和低变化模式</h4>
+                <p>在<a href="/variations">高变化和低变化模式</a>之间切换。</p>
+
+                <p>
+                    <span class="discordbtn"><code>🎨 High Variation Mode</code></span>
+                    <span class="discordbtn"><code>🎨 Low Variation Mode</code></span>
+                </p>
+
+                <h4 id="sticky-style">粘性风格</h4>
+                <p>粘性风格会将上次使用的<a
+                        href="/style-tuner"><code>--style</code>代码参数</a>保存在您的个人后缀中，这样您就不必在未来的提示中重复该代码。通过使用新的<code>--style</code>或取消选择粘性风格来更改代码。
+                </p>
+
+                <p><span class="discordbtn"><code>📌 Sticky Style</code></span></p>
+
+                <h4 id="turbo-fast-and-relax-mode">涡轮、快速和放松模式</h4>
+                <p>在<a
+                        href="/fast-relax">涡轮、快速和放松模式</a>之间切换。对应<code>/turbo</code>、<code>/fast</code>和<code>/relax</code>命令以及<code>--turbo</code>、<code>--fast</code>和<code>--relax</code>参数。
+                </p>
+
+                <p>
+                    <span class="discordbtn"><code>⚡ Turbo Mode</code></span>
+                    <span class="discordbtn"><code>🐇 Fast Mode</code></span>
+                    <span class="discordbtn"><code>🐢 Relax Mode</code></span>
+                </p>
+
+                <h4 id="reset-settings">重置设置</h4>
+                <p>返回默认设置：<span class="discordbtn"><code>Use the latest Model (V6)</code></span> <span
+                        class="discordbtn"><code>🖌️ Stylize Med</code></span>。您的公开/隐身模式、重组、变化和生成速度偏好不受影响。</p>
+
+                <p><span class="discordbtn"><code>Reset Settings</code></span></p>
+
+                <h3 id="automatically-direct-message-results">自动私信结果</h3>
+                <p>使用<code>/prefer auto_dm</code>来开启或关闭自动将完成的作业发送到您的<span class="popover__title"
+                        data-glossary="Direct Message" data-glossaryid="f826e751-6db0-464b-a6c6-191ed45fe7fe">私信</span>。
+                </p>
+
+                <h3 id="custom-preferences">自定义偏好</h3>
+                <p>使用prefer命令创建自定义选项，以自动将常用参数添加到提示的末尾。</p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li><code>/prefer suffix</code> 指定要添加到每个提示末尾的后缀。</li>
+                        <li><code>/prefer option</code> 创建或管理自定义选项。</li>
+                        <li><code>/prefer option list</code> 查看您当前的自定义选项。</li>
+                    </ul>
+                </div>
+
+                <h4 id="prefer-suffix">偏好后缀</h4>
+                <p><code>/prefer suffix</code>自动在所有提示后附加指定的后缀。</p>
+
+                <p>命令示例：<code>/prefer suffix</code> <code>--ar 16:9 --video</code></p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/prefer-suffix-diagram.png"
+                        alt="偏好后缀图" data-lightbox="box"></p>
+
+                <p>要清除设置的后缀，使用<code>/settings</code>命令并选择<span
+                        class="discordbtn"><code> Reset Settings</code></span>，或再次使用<code>/prefer suffix</code>而不添加可选的new_value字段到命令中。
+                </p>
+
+                <h4 id="option-sets">选项集</h4>
+                <p><code>/prefer option set &lt;name&gt; &lt;value&gt;</code>命令允许您创建自定义快捷方式，将多个参数或文本片段添加到您的提示中。</p>
+
+                <p><code>/prefer option set</code> <code>mine</code> <code>--chaos 5 --aspect 2:3</code>
+                    创建了一个名为"mine"的选项，其中包含<a href="/chaos">chaos</a>和<a href="/aspect-ratios">宽高比</a>参数。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/prefer-option-set-diagram.png"
+                        alt="偏好选项设置图"  data-lightbox="box"></p>
+
+                <p>使用<code>/imagine prompt</code>
+                    <code>vibrant California poppies --mine</code>，会被解释为<code>/imagine prompt</code>
+                    <code>vibrant California poppies --chaos 5 --aspect 2:3</code>。
+                </p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/imagine-prompt-option-set.png"
+                        alt="使用偏好选项设置图"  data-lightbox="box"></p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li>您可以在同一个提示中使用多个选项集。</li>
+                        <li>您可以在选项集中混合使用提示文本和参数。如果这样做，集合中的所有参数必须放在末尾，就像正常提示一样。</li>
+                        <li>您的选项集将在提示中放置的位置"展开"，所以您需要将所有提示参数放在选项集之后。</li>
+                    </ul>
+                </div>
+
+                <p><code>/prefer option list</code> 列出所有使用<code>prefer option set</code>创建的选项。用户最多可以拥有20个自定义选项。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/prefer-option-list2.png"
+                        alt="偏好选项列表图"  data-lightbox="box"></p>
+
+                <p>要删除自定义选项，使用<code>/prefer option set</code> <code>&lt;要删除的名称&gt;</code>而不添加可选的value字段到命令中。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/prefer-option-set-delete-diagram.png"
+                        alt="删除选项集图"  data-lightbox="box"></p>
+
+                <div class="glossary-popover-contents">
+                    <div class="popover__content hidden f826e751-6db0-464b-a6c6-191ed45fe7fe">
+                        <p>订阅者可以在Discord的私信中一对一地与Midjourney机器人工作，而不是在公共频道中。在您的私信中创建的图像仍然受内容和审核规则的约束，并将在您的Midjourney网站画廊中可见。
+                        </p>
+                    </div>
+                </div>
+                <h3 id="show-job">显示作业（Show Job）</h3>
+                <p>您可以使用<code>/show</code>命令和唯一的作业ID来将作业移动到另一个服务器或频道、恢复丢失的作业，或刷新旧作业以创建新的变体、放大，或使用较新的参数和功能。</p>
+
+                <div class="infoBox">
+                    <p><code>/show</code>只适用于您自己的作业。</p>
+                </div>
+
+                <h4 id="find-a-job-id">查找作业ID</h4>
+                <p>作业ID是Midjourney生成的每个图像的唯一标识符。<br>
+                    作业ID看起来像这样：<code>9333dcd0-681e-4840-a29c-801e502ae424</code>，可以在所有图像文件名的第一部分、网站上的URL中以及图像的文件名中找到。
+                </p>
+
+                <h5 id="on-the-web">在网页上</h5>
+                <p>您可以通过选择<span class="discordbtn"><code>Options</code></span> &gt; <span
+                        class="discordbtn"><code>Copy</code></span> &gt; <span
+                        class="discordbtn"><code>Job ID</code></span>来找到会员画廊中任何图像的作业ID。</p>
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-web-show-job-id.png"
+                        alt="使用Midjourney网页应用查找图像作业ID的图示" data-lightbox="box"></p>
+
+                <h5 id="from-the-url">从URL中</h5>
+                <p>在Midjourney画廊中查看图像时，作业ID在URL中。<br>
+                    <strong>https://www.midjourney.com/jobs/<span
+                            style="color:#79a70e">9333dcd0-681e-4840-a29c-801e502ae424</span>?index=0</strong>
+                </p>
+
+                <h5 id="from-the-file-name">从文件名中</h5>
+                <p>查看从画廊下载的图像时，作业ID是文件名的最后一部分。<br>
+                    <strong>User_cat_cloud_spirit_<span
+                            style="color:#79a70e">9333dcd0-681e-4840-a29c-801e502ae424</span>.png</strong>
+                </p>
+
+                <h5 id="using-a-discord-emoji-reaction"><a href="/v1/docs/discord-emoji-reactions">使用Discord表情反应</a>
+                </h5>
+                <p>对您完成的作业用信封表情✉️进行反应，Midjourney机器人会向您发送一条包含其作业ID的私信。如果您没有收到机器人的私信，<a
+                        href="//docs.midjourney.com/docs/direct-messages#troubleshooting">请检查您的Discord隐私设置</a>。</p>
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_EnvelopeResults.jpg"
+                        alt="展示如何使用Discord信封表情反应将作业ID发送到您的私信的图像" data-lightbox="box"></p>
+
+                <h4 id="how-to-use-show">如何使用Show命令</h4>
+                <p>在任何<span class="popover__title" data-glossary="Bot Channel"
+                        data-glossaryid="8a726e76-0f37-472c-a5a7-24e81899dfb2">机器人频道</span>中使用<code>/show &lt;作业ID #&gt;</code>来恢复作业。
+                </p>
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Command_show.gif"
+                        alt="展示如何使用Midjourney Show命令的动画Gif" data-lightbox="box"></p>
+
+                <div class="glossary-popover-contents">
+                    <div class="popover__content hidden 8a726e76-0f37-472c-a5a7-24e81899dfb2">
+                        <p><strong>机器人频道</strong>是允许Midjourney机器人处理斜杠命令的Discord频道。在官方Midjourney
+                            Discord服务器上，<strong>新手房间</strong>、<strong>主题频道</strong>、<strong>主题图像生成</strong>和<strong>通用图像生成</strong>类别中的所有频道都是机器人频道。
+                        </p>
+                    </div>
+                </div>
+                <h3 id="shorten">缩短（Shorten）</h3>
+                <p><code>/shorten</code>命令分析您的提示，突出显示一些最有影响力的词汇，并建议可以删除的不必要词语。通过这个命令，您可以通过专注于核心术语来优化您的提示。</p>
+
+                <div class="infoBox">
+                    <p><code>/shorten</code>与<a href="/multi-prompts">多重提示</a>或<a href="/no"><code>--no</code>参数</a>不兼容
+                    </p>
+                </div>
+
+                <h4 id="analyze-a-prompt-with-shorten">使用<code>/shorten</code>分析提示</h4>
+                <p>Midjourney机器人通过将提示分解成更小的单位（称为标记）来分析它。这些标记可以是短语、单词甚至音节。Midjourney机器人将这些标记转换为它能理解的格式。它将它们与在训练过程中学到的关联和模式一起使用，来指导图像的生成方式。可以将标记视为帮助Midjourney机器人理解输入并创建所需视觉输出的构建块。
+                </p>
+
+                <p>包含不必要词语、冗长描述、诗意短语或直接对机器人说话（"请为我制作一张图像"，"谢谢你的帮助，Midjourney机器人！"）的长提示可能会导致意外元素被添加到您的图像中。</p>
+
+                <p><code>/shorten</code>命令可以帮助您发现提示中最重要的词语，以及可以省略的词语。</p>
+
+                <h5 id="shorten-command-example">/shorten命令示例</h5>
+                <p>如果您想创建一堆撒满糖霜的甜甜圈，您可能会尝试使用以下提示：<br>
+                    <code>请创建一个奇幻壮丽的甜甜圈塔，精心制作并装饰有令人着迷的多彩糖霜。将这个糖果杰作栩栩如生地呈现出来，确保每个细节都以令人惊叹的魔幻现实主义风格呈现。谢谢！</code>
+                </p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Shorten_Original.jpg"
+                        alt="Midjourney图像展示了一座甜甜圈塔。"  data-lightbox="box"></p>
+
+                <p>如果您对上述提示使用<code>/shorten</code>命令，Midjourney机器人将返回以下信息：</p>
+
+                <div class="warningBox">
+                    <p><strong>重要标记</strong><br>
+                        请<s>创建</s>一个奇幻<strong>壮丽的塔</strong>的<strong>甜甜圈</strong>，精心制作并装饰有令人着迷的<strong>多彩糖霜</strong>。将这个<strong>糖果</strong>杰作栩栩如生地呈现出来，<s>确保每个</s>细节都以<s>令人惊叹的</s><strong>魔幻现实主义</strong>风格呈现。<s>谢谢！</s>
+                    </p>
+
+                    <p><strong>缩短的提示</strong><br>
+                        1️⃣ 请，壮丽的甜甜圈塔，制作，多彩糖霜数组，糖果杰作，呈现，魔幻现实主义
+
+                        2️⃣ 请，壮丽的甜甜圈塔，多彩糖霜，糖果杰作，呈现，魔幻现实主义
+
+                        3️⃣ 壮丽的甜甜圈塔，多彩糖霜，糖果，魔幻现实主义
+
+                        4️⃣ 壮丽的甜甜圈塔，多彩糖霜，魔幻
+
+                        5️⃣ 甜甜圈塔，糖霜</p>
+                </div>
+
+                <p>提示中最重要的标记以<strong>粗体</strong>显示，最不重要的以<s>删除线</s>显示。您还将得到基于这些信息的5个可能的较短提示。</p>
+
+                <h4 id="analyzing-the-results">分析结果</h4>
+                <p>最短的提示，<code>选项5️⃣：甜甜圈塔，糖霜</code>生成的图像最接近原始目标。许多填充词如"奇幻"、"令人着迷的"和"杰作"可以省略。了解到"塔"和"魔幻"被认为是重要标记有助于解释为什么一些图像生成时带有童话城堡元素。了解这一点提供了一个线索，如果目标是创建一堆美味的甜甜圈，应该从提示中删除"魔幻"。
+                </p>
+
+                <div class="infoBox">
+                    <p><code>/shorten</code>命令是一个工具，可以帮助您探索Midjourney机器人如何解释标记并实验词语，但它可能不适用于所有主题和提示风格。</p>
+                </div>
+
+                <h4 id="how-to-use-shorten">如何使用Shorten</h4>
+                <p>在任何<span class="popover__title" data-glossary="Bot Channel"
+                        data-glossaryid="8a726e76-0f37-472c-a5a7-24e81899dfb2">机器人频道</span>中使用<code>/shorten &lt;您的提示&gt;</code>命令来获取关于您提示的信息
+                </p>
+
+                <div class="glossary-popover-contents">
+                    <div class="popover__content hidden 8a726e76-0f37-472c-a5a7-24e81899dfb2">
+                        <p><strong>机器人频道</strong>是允许Midjourney机器人处理斜杠命令的Discord频道。在官方Midjourney
+                            Discord服务器上，<strong>新手房间</strong>、<strong>主题频道</strong>、<strong>主题图像生成</strong>和<strong>通用图像生成</strong>类别中的所有频道都是机器人频道。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="parameters" class="content-section">
+                <h2>2. 参数(Parameters)</h2>
+                <h3 id="parameter-list">参数列表（Parameter List）</h3>
+                <p>参数是添加到提示中的选项，用于改变图像的生成方式。参数可以改变图像的<a href="/aspect-ratios">宽高比</a>，切换Midjourney<a
+                        href="/models">模型版本</a>，改变使用的<a href="/upscalers">放大器</a>，以及更多功能。</p>
+
+                <p>参数总是添加在提示的末尾。您可以在每个提示中添加多个参数。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Parameters_example.png"
+                        alt="Midjourney参数使用示例。"  data-lightbox="box"></p>
+
+                <div class="infoBox">
+                    <div class="title">使用苹果设备？</div>
+                    <div class="content">
+                        <p>许多苹果设备会自动将双连字符（--）更改为破折号（—）。Midjourney同时接受这两种符号！</p>
+                    </div>
+                </div>
+
+                <h4 id="basic-parameters">基本参数</h4>
+
+                <h5><a href="/aspect-ratios">宽高比（Aspect Ratios）</a></h5>
+                <p><code>--aspect</code>或<code>--ar</code> 改变生成图像的宽高比。</p>
+
+                <h5><a href="/chaos">混沌（Chaos）</a></h5>
+                <p><code>--chaos &lt;0–100之间的数字&gt;</code> 改变结果的变化程度。更高的值会产生更不寻常和意想不到的生成结果。</p>
+
+                <h5><a href="/character-reference">角色参考（Character Reference）</a></h5>
+                <p>使用图像作为角色参考，在您的提示中创建不同情况下的相同角色图像。</p>
+
+                <h5><a href="/fast-relax">快速（Fast）</a></h5>
+                <p><code>--fast</code> 覆盖您当前的设置，使用快速模式运行单个作业。</p>
+
+                <h5><a href="/image-prompts">图像权重（Image Weight）</a></h5>
+                <p><code>--iw &lt;0–3&gt;</code> 设置图像提示相对于文本的权重。默认值为1。</p>
+
+                <h5><a href="/multi-prompts">否定（No）</a></h5>
+                <p><code>--no</code> 负面提示，例如<code>--no plants</code>会尝试从图像中移除植物。</p>
+
+                <h5><a href="/quality">质量（Quality）</a></h5>
+                <p><code>--quality &lt;.25, .5, 或 1&gt;</code>或<code>--q &lt;.25, .5, 或 1&gt;</code>
+                    您想要花费多少渲染质量时间。默认值为1。更高的值使用更多的<span class="popover__title" data-glossary="GPU minute"
+                        data-glossaryid="ec037fba-cbdf-4d1e-826e-3dfa9d0d1ff4">GPU分钟</span>；更低的值使用更少。</p>
+
+                <h5><a href="/style-tuner">随机（Random）</a></h5>
+                <p><code>--style random</code>，向您的提示添加一个随机的32基本风格的Style
+                    Tuner代码。您也可以使用<code>--style random-16</code>、<code>--style random-64</code>或<code>--style random-128</code>来使用其他长度的Style
+                    Tuners的随机结果。</p>
+
+                <h5><a href="/fast-relax">放松（Relax）</a></h5>
+                <p><code>--relax</code> 覆盖您当前的设置，使用放松模式运行单个作业。</p>
+
+                <h5><a href="/repeat">重复（Repeat）</a></h5>
+                <p><code>--repeat &lt;1–40&gt;</code>或<code>--r &lt;1–40&gt;</code>
+                    从单个提示创建多个作业。<code>--repeat</code>对于快速多次重新运行作业很有用。</p>
+
+                <h5><a href="/seeds">种子（Seed）</a></h5>
+                <p><code>--seed &lt;0–4294967295之间的整数&gt;</code>
+                    Midjourney机器人使用种子数来创建视觉噪声场，类似电视静电，作为生成初始图像网格的起点。种子数对每个图像都是随机生成的，但可以使用--seed或--sameseed参数指定。使用相同的种子数和提示将产生类似的最终图像。
+                </p>
+
+                <h5><a href="/stop">停止（Stop）</a></h5>
+                <p><code>--stop &lt;10–100之间的整数&gt;</code>
+                    使用<code>--stop</code>参数在过程中途完成作业。在较早的百分比停止作业可以创建更模糊、细节更少的结果。</p>
+
+                <h5><a href="/style">风格（Style）</a></h5>
+                <p><code>--style &lt;raw&gt;</code> 在Midjourney <a href="/docs/models">模型版本</a> 5.1和5.2之间切换。<br>
+                    <code>--style &lt;4a, 4b, 或 4c&gt;</code> 在Midjourney <a href="/docs/models">模型版本</a>
+                    4的版本之间切换。<br>
+                    <code>--style &lt;cute, expressive, original, 或 scenic&gt;</code> 在Niji <a
+                        href="/docs/models">模型版本</a> 5的版本之间切换。<br>
+                    使用<a href="/style-tuner"><code>/tune</code>命令创建Style Tuner并生成自定义风格代码</a>。
+                </p>
+
+                <h5><a href="/style-reference">风格参考（Style Reference）</a></h5>
+                <p>在您的提示中使用图像作为风格参考，以影响您希望Midjourney制作的图像的风格或美学。</p>
+
+                <h5><a href="/stylize">风格化（Stylize）</a></h5>
+                <p><code>--stylize &lt;数字&gt;</code>或<code>--s &lt;数字&gt;</code>参数影响Midjourney默认美学风格应用于作业的强度。</p>
+
+                <h5><a href="/tile">平铺（Tile）</a></h5>
+                <p><code>--tile</code>参数生成可以用作重复图块来创建无缝图案的图像。</p>
+
+                <h5><a href="/fast-relax">涡轮（Turbo）</a></h5>
+                <p><code>--turbo</code> 覆盖您当前的设置，使用涡轮模式运行单个作业。</p>
+
+                <h5><a href="/video">视频（Video）</a></h5>
+                <p><code>--video</code>
+                    保存初始图像网格生成过程的进度视频。用✉️表情符号对完成的图像网格做出反应，触发视频发送到您的私信。<code>--video</code>在放大图像时不起作用。</p>
+
+                <h5><a href="/weird">怪异（Weird）</a></h5>
+                <p><code>--weird &lt;0–3000之间的数字&gt;</code>或<code>--w &lt;0–3000之间的数字&gt;</code>
+                    使用实验性的<code>--weird</code>参数探索不寻常的美学。</p>
+
+                <h5>默认值（模型版本5.2）</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>宽高比</th>
+                            <th>混沌</th>
+                            <th>质量</th>
+                            <th>种子</th>
+                            <th>停止</th>
+                            <th>风格化</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>默认值</td>
+                            <td>1:1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>随机</td>
+                            <td>100</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>范围</td>
+                            <td>任意</td>
+                            <td>0–100</td>
+                            <td>.25 .5或1</td>
+                            <td>0–4294967295的整数</td>
+                            <td>10–100</td>
+                            <td>0–1000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul>
+                    <li>大于2:1的宽高比是实验性的，可能会产生不可预测的结果。</li>
+                </ul>
+
+                <h5>默认值（模型版本6）</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>宽高比</th>
+                            <th>混沌</th>
+                            <th>质量</th>
+                            <th>种子</th>
+                            <th>停止</th>
+                            <th>风格化</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>默认值</td>
+                            <td>1:1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>随机</td>
+                            <td>100</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>范围</td>
+                            <td>1:14–14:1</td>
+                            <td>0–100</td>
+                            <td>.25 .5或1</td>
+                            <td>0–4294967295的整数</td>
+                            <td>10–100</td>
+                            <td>0–1000</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>模型版本参数</h4>
+                <p>Midjourney定期发布新的模型版本以提高效率、连贯性和质量。不同的模型在生成不同类型的图像方面表现出色。</p>
+
+                <h5><a href="/models">Niji</a></h5>
+                <p><code>--niji &lt;4, 或 5&gt;</code> 一个专注于动漫风格图像的替代模型。</p>
+
+                <h5><a href="/models">版本（Version）</a></h5>
+                <p><code>--version &lt;1, 2, 3, 4, 5.0, 5.1, 5.2, 或 6&gt;</code>或<code>--v &lt;1, 2, 3, 4, 5.0, 5.1, 5.2, 或 6&gt;</code>
+                    使用不同版本的Midjourney算法。</p>
+
+                <h4>旧版参数</h4>
+                <p>一些参数只适用于早期的Midjourney模型。<br>
+                    <a href="/legacy/docs/parameter-list">在这里阅读更多关于旧版参数的信息。</a>
+                </p>
+
+                <h4>兼容性</h4>
+                <h5>模型版本与参数兼容性</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>影响初始生成</th>
+                            <th>影响变体+重组</th>
+                            <th>版本 6</th>
+                            <th>版本 5.2</th>
+                            <th>Niji 5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>最大宽高比（Max Aspect Ratio）</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>任意</td>
+                            <td>任意</td>
+                            <td>任意</td>
+                        </tr>
+                        <tr>
+                            <td>混沌（Chaos）</td>
+                            <td>✓</td>
+                            <td></td>
+                            <td>0–100</td>
+                            <td>0–100</td>
+                            <td>0–100</td>
+                        </tr>
+                        <tr>
+                            <td>图像权重（Image Weight）</td>
+                            <td>✓</td>
+                            <td></td>
+                            <td>0–3 <br> 默认=1</td>
+                            <td>.5–2 <br> 默认=1</td>
+                            <td>.5–2 <br> 默认=1</td>
+                        </tr>
+                        <tr>
+                            <td>否定（No）</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>质量（Quality）</td>
+                            <td>✓</td>
+                            <td></td>
+                            <td>.25, .5, 或 1</td>
+                            <td>.25, .5, 或 1</td>
+                            <td>.25, .5, 或 1</td>
+                        </tr>
+                        <tr>
+                            <td>重复（Repeat）</td>
+                            <td>✓</td>
+                            <td></td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>种子（Seed）</td>
+                            <td>✓</td>
+                            <td></td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>停止（Stop）</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>10–100</td>
+                            <td>10–100</td>
+                            <td>10–100</td>
+                        </tr>
+                        <tr>
+                            <td>风格（Style）</td>
+                            <td></td>
+                            <td></td>
+                            <td>raw</td>
+                            <td>raw</td>
+                            <td>cute, expressive, original <br> 和 scenic</td>
+                        </tr>
+                        <tr>
+                            <td>风格化（Stylize）</td>
+                            <td>✓</td>
+                            <td></td>
+                            <td>0–1000 <br> 默认=100</td>
+                            <td>0–1000 <br> 默认=100</td>
+                            <td>0–1000 <br> 默认=100</td>
+                        </tr>
+                        <tr>
+                            <td>平铺（Tile）</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>视频（Video）</td>
+                            <td>✓</td>
+                            <td></td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>怪异（Weird）</td>
+                            <td>✓</td>
+                            <td></td>
+                            <td>0–3000 <br> 默认=0</td>
+                            <td>0–1000 <br> 默认=0</td>
+                            <td>0–1000 <br> 默认=0</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="glossary-popover-contents">
+                    <div class="popover__content hidden ec037fba-cbdf-4d1e-826e-3dfa9d0d1ff4">
+                        <p>Midjourney机器人在高端GPU上处理作业。完成一个作业所需的每一分钟都是一个<strong>GPU分钟</strong>。在<strong>快速模式</strong>下，您有限量的GPU分钟。因为图像生成可能同时在多个GPU上处理，所以GPU分钟与您等待图像生成的时间并不直接相关。
+                        </p>
+                    </div>
+                </div>
+
+                <h3 id="aspect-ratios">宽高比（Aspect Ratios）</h3>
+                <p><code>--ar</code>（或<code>--aspect</code>）参数用于改变生成图像的宽高比。宽高比是图像的宽度与高度的比率。通常用两个由冒号分隔的数字表示，如7:4或4:3。
+                </p>
+
+                <p>正方形图像的宽度和高度相等，描述为1:1的宽高比。无论图像是1000px × 1000px，还是1500px ×
+                    1500px，宽高比都是1:1。计算机屏幕可能有16:10的比例。宽度是高度的1.6倍。因此，图像可能是1600px × 1000px，4000px × 2000px，320px ×
+                    200px等。</p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li>默认宽高比是1:1。</li>
+                        <li><code>--ar</code>必须使用整数。使用139:100而不是1.39:1。</li>
+                        <li>第一个数字代表宽度，第二个数字代表高度。对于竖向（高）图像，第二个数字应该更大。对于横向（宽）图像，第一个数字应该更大。</li>
+                        <li>宽高比影响生成图像的形状和构图。</li>
+                        <li>某些宽高比在放大时可能会略有改变。</li>
+                        <li>较旧的<a href="/models">Midjourney版本模型</a>可能不支持所有宽高比。</li>
+                    </ul>
+                </div>
+
+                <h4 id="aspect-ratio-comparison">宽高比比较</h4>
+                <p>提示示例：<code>/imagine prompt</code> <code>vibrant California poppies --ar 5:4</code></p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_AspectRatioChart.png"
+                        alt="常见Midjourney宽高比比较" data-lightbox="box"></p>
+
+                <p>极端宽或高的宽高比是实验性的，可能会产生不可预测的结果。</p>
+
+                <h4 id="common-midjourney-aspect-ratios">常见Midjourney宽高比</h4>
+                <p><code>--ar 1:1</code> 默认宽高比。<br>
+                    <code>--ar 5:4</code> 常见的相框和打印比例。<br>
+                    <code>--ar 3:2</code> 常见于印刷摄影。<br>
+                    <code>--ar 7:4</code> 接近高清电视屏幕和智能手机屏幕。
+                </p>
+
+                <h4 id="changing-the-aspect-ratio-of-an-image">更改图像的宽高比</h4>
+                <p>您是否喜欢已生成的图像，但希望它更高或更宽？您可以使用平移和缩放功能以不同方式调整图像的宽高比。更多信息，请查看以下页面：<a href="/v1/docs/pan-1">平移</a>，<a
+                        href="/v1/docs/zoom-out">缩放</a>。</p>
+
+                <h4 id="how-to-set-the-aspect-ratio">如何设置宽高比</h4>
+
+                <h5 id="use-aspect-ratio-parameters">使用宽高比参数</h5>
+                <p>在Discord上或网站的想象栏中，在提示的末尾添加<code>--aspect &lt;值&gt;:&lt;值&gt;</code>，或<code>--ar &lt;值&gt;:&lt;值&gt;</code>：
+                </p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Parameter_Aspect.gif"
+                        alt="展示如何输入Midjourney版本参数的动画Gif" data-lightbox="box"></p>
+
+                <h5 id="website-settings">网站设置</h5>
+                <p>在网站上，您还可以使用想象栏中的设置按钮设置默认宽高比：</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-website-settings-aspect-ratio4.png"
+                        alt="Midjourney网站宽高比设置" data-lightbox="box"></p>
+
+                <p><code>Portrait</code>按钮将您的宽高比设置为3:4。<code>Landscape</code>按钮将其设置为4:3。您可以将滑块向左调整以获得更高的宽高比（最高1:2），或向右调整以获得更宽的宽高比（最高2:1）。
+                </p>
+
+                <p>您在这里设置的值将应用于所有提示，除非您在单个提示中使用<code>--aspect</code>或<code>--ar</code>参数指定不同的值。</p>
+
+                <p>滑块不支持所有宽高比，但您可以在提示末尾使用<code>--ar</code>参数设置任何您想要的比例。</p>
+                <h3 id="chaos">混沌（Chaos）</h3>
+                <p><code>--chaos</code>或<code>--c</code>参数影响初始图像网格的变化程度。高<code>--chaos</code>值会产生更不寻常和意想不到的结果和构图。较低的<code>--chaos</code>值会产生更可靠、可重复的结果。
+                </p>
+
+                <div class="infoBox">
+                    <p><code>--chaos</code>接受0–100之间的值。<br>
+                        默认的<code>--chaos</code>值为0。</p>
+                </div>
+
+                <h4 id="the-influence-of-chaos-on-jobs">混沌对作业的影响</h4>
+
+                <h5 id="no-chaos-value">无<code>--chaos</code>值</h5>
+                <p>使用非常低的<code>--chaos</code>值，或不指定值，将产生相似的初始图像网格。</p>
+                <p>提示示例：<code>/imagine prompt:</code> <code>一个镶嵌有粉色和绿色装饰的银色贝壳 --c 0</code></p>
+                <div class="grid">
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_0a.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 0'生成的Midjourney图像" data-lightbox="box"></div>
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_0b.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 0'生成的Midjourney图像" data-lightbox="box"></div>
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_0c.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 0'生成的Midjourney图像" data-lightbox="box"></div>
+                </div>
+
+                <h5 id="low-chaos-values">低<code>--chaos</code>值</h5>
+                <p>使用低<code>--chaos</code>值将产生略有变化的初始图像网格。</p>
+                <p>提示示例：<code>/imagine prompt:</code> <code>一个镶嵌有粉色和绿色装饰的银色贝壳 --c 10</code></p>
+                <div class="grid">
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_10a.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 10'生成的Midjourney图像" data-lightbox="box"></div>
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_10b.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 10'生成的Midjourney图像" data-lightbox="box"></div>
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_10c.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 10'生成的Midjourney图像" data-lightbox="box"></div>
+                </div>
+
+                <h5 id="moderate-chaos-values">中等<code>--chaos</code>值</h5>
+                <p>使用中等<code>--chaos</code>值将产生变化较大的初始图像网格。</p>
+                <p>提示示例：<code>/imagine prompt:</code> <code>一个镶嵌有粉色和绿色装饰的银色贝壳 --c 25</code></p>
+                <div class="grid">
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_25a.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 25'生成的Midjourney图像" data-lightbox="box"></div>
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_25b.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 25'生成的Midjourney图像" data-lightbox="box"></div>
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_25c.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 25'生成的Midjourney图像" data-lightbox="box"></div>
+                </div>
+
+                <h5 id="high-chaos-values">高<code>--chaos</code>值</h5>
+                <p>使用较高的<code>--chaos</code>值将产生更加多样化和意想不到的初始图像网格。</p>
+                <p>提示示例：<code>/imagine prompt:</code> <code>一个镶嵌有粉色和绿色装饰的银色贝壳 --c 50</code></p>
+                <div class="grid">
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_50a.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 50'生成的Midjourney图像" data-lightbox="box"></div>
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_50b.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 50'生成的Midjourney图像" data-lightbox="box"></div>
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_50c.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 50'生成的Midjourney图像" data-lightbox="box"></div>
+                </div>
+
+                <h5 id="very-high-chaos-values">非常高的<code>--chaos</code>值</h5>
+                <p>使用极高的<code>--chaos</code>值将产生变化极大且构图或元素出乎意料的初始图像网格。</p>
+                <p>提示示例：<code>/imagine prompt:</code> <code>一个镶嵌有粉色和绿色装饰的银色贝壳 --c 80</code></p>
+                <div class="grid">
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_80a.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 80'生成的Midjourney图像" data-lightbox="box"></div>
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_80b.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 80'生成的Midjourney图像" data-lightbox="box"></div>
+                    <div><img
+                            src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Chaos_80c.jpg"
+                            alt="使用提示'一个镶嵌有粉色和绿色装饰的银色贝壳 --c 80'生成的Midjourney图像" data-lightbox="box"></div>
+                </div>
+
+                <h4 id="how-to-change-the-chaos-value">如何更改混沌值</h4>
+
+                <h5 id="use-the-chaos-or-c-parameter">使用<code>--chaos</code>或<code>--c</code>参数</h5>
+                <p>在Discord上或网站的想象栏中，在提示的末尾添加<code>--chaos &lt;值&gt;</code>或<code>--c &lt;值&gt;</code>：</p>
+                <div>
+                    <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Parameter_Chaos.gif"
+                        alt="展示如何输入Midjourney混沌参数的动画Gif" data-lightbox="box">
+                </div>
+
+                <h5 id="website-settings">网站设置</h5>
+                <p>在网站想象栏设置中，混沌被称为多样性（Variety）。您可以使用想象栏中的设置按钮设置默认的多样性值：</p>
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-website-settings-chaos.png"
+                        alt="Midjourney网站混沌设置" data-lightbox="box"></p>
+
+                <p>向左调整滑块以获得较低的值，向右调整以获得较高的值。</p>
+                <p>您在这里设置的值将应用于所有提示，除非您在单个提示中使用<code>--chaos</code>或<code>--c</code>参数指定不同的值。</p>
+                <h3 id="character-reference">角色参考（Character Reference）</h3>
+                <p>您可以在提示中使用图像作为角色参考，以创建同一角色在不同情况下的图像。</p>
+
+                <p>要在提示中添加角色参考，请使用 --cref 参数和图像在线存储的网址（URL）：<code>--cref URL</code></p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/cref-prompt-diagram.png"
+                        alt="Discord消息发送框的图像，显示使用--cref样式参考的/imagine命令示例：'/imagine prompt 想要想象的描述 --cref https://imageURL1.jpg'"
+                        data-lightbox="box"></p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li>角色参考在使用Midjourney生成的单个角色图像时效果最佳。</li>
+                        <li><code>--cref</code><strong>不设计</strong>用于真人照片，会扭曲它们。</li>
+                        <li>精确的细节，如特定的雀斑或T恤标志，不太可能被复制。</li>
+                        <li><code>--cref</code>可以与Midjourney和Niji版本6一起使用，并且可以<a
+                                href="/v1/docs/character-reference#combining-style-and-character-references">与<code>--sref</code>结合使用</a>。
+                        </li>
+                        <li>您可以在单个提示中使用多个角色参考，但可能不需要这样做。</li>
+                        <li>任何常规图像提示必须放在<code>--cref</code>之前。</li>
+                    </ul>
+                </div>
+
+                <div class="warningBox">
+                    <div class="title">隐私注意事项</div>
+                    <div class="content">
+                        <ul>
+                            <li>在与Midjourney机器人的私信中上传图像，以防止其他服务器用户看到图像。</li>
+                            <li>图像提示和参考在Midjourney网站上是可见的，除非您在<a href="/v1/docs/stealth">隐身模式</a>下生成。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p>查看<a href="/v1/docs/image-prompts">图像提示</a>页面以获取在Discord上的提示中使用图像URL的帮助，或查看<a
+                        href="/v1/docs/using-images">在网页上使用图像参考</a>页面以获取在midjourney.com上使用各种图像参考的帮助。</p>
+
+                <h4 id="examples">示例</h4>
+                <div class="grid">
+                    <div>
+                        <p><code>参考图像: BlueHairGuy.png</code></p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/reference-image.jpg"
+                            alt="Midjourney生成的一个蓝发、戴眼镜、穿黄色帽衫的男子插图，黄色背景"  data-lightbox="box">
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div>
+                        <div>
+                            <p><code>提示: 一个男子坐在咖啡馆里的插图</code></p>
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/no-reference%282%29.jpg"
+                                alt="Midjourney使用文本提示'一个男子坐在咖啡馆里的插图'生成的四张竖向图像网格，显示不同的男子坐在咖啡馆里" data-lightbox="box">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <p><code>提示: 一个男子坐在咖啡馆里的插图 --cref https://url.com/BlueHairGuy.png</code></p>
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/cref-default.jpg"
+                                alt="Midjourney使用文本提示'一个男子坐在咖啡馆里的插图'和--cref参数生成的四张竖向图像网格，显示一个蓝发、戴眼镜、穿黄色帽衫的男子坐在咖啡馆里"
+                                data-lightbox="box">
+                        </div>
+                    </div>
+                </div>
+
+                <h4 id="character-weight-parameter">角色权重参数</h4>
+                <p>使用角色权重参数<code>--cw</code>来设置角色化的强度。<code>--cw</code>接受0到100之间的值。<code>--cw 0</code>只关注角色的脸部。较高的值会使用角色的脸部、头发和衣服。<code>--cw 100</code>是默认值。
+                </p>
+
+                <p>提示示例：<code>/imagine prompt</code>
+                    <code>一个男子坐在咖啡馆里的插图 --cref https://url.com/BlueHairGuy.png</code>
+                </p>
+
+                <div class="grid">
+                    <div>
+                        <h5><code>--cw 0</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/cref-cw0.jpg"
+                            alt="Midjourney使用文本提示'一个男子坐在咖啡馆里的插图'和--cref参数以及低角色权重生成的四张竖向图像网格，显示一个蓝发、戴眼镜、穿黄色帽衫的男子坐在咖啡馆里"
+                            data-lightbox="box">
+                    </div>
+                    <div>
+                        <h5><code>--cw 50</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/cref-cw50.jpg"
+                            alt="Midjourney使用文本提示'一个男子坐在咖啡馆里的插图'和--cref参数以及中等角色权重生成的四张竖向图像网格，显示一个蓝发、戴眼镜、穿黄色帽衫的男子坐在咖啡馆里"
+                            data-lightbox="box">
+                    </div>
+                    <div>
+                        <h5><code>--cw 100</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/cref-default.jpg"
+                            alt="Midjourney使用文本提示'一个男子坐在咖啡馆里的插图'和--cref参数以及默认高角色权重生成的四张竖向图像网格，显示一个蓝发、戴眼镜、穿黄色帽衫的男子坐在咖啡馆里"
+                            data-lightbox="box">
+                    </div>
+                </div>
+
+                <h4 id="combining-style-and-character-references">结合风格和角色参考</h4>
+                <p>要在使用角色参考的同时保持一致的风格，您可以结合使用<code>--sref</code>和<code>--cref</code>参数。有关使用--sref的更多信息，请查看<a
+                        href="/v1/docs/style-reference">风格参考</a>页面。</p>
+
+                <div class="grid">
+                    <div>
+                        <h5><code>/imagine prompt</code>
+                            <code>一个男子坐在咖啡馆里的插图 --cref https://url.com/BlueHairGuy.png --sref https://url.com/BlueHairGuy.png</code>
+                        </h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/cref-with-sref.jpg"
+                            alt="Midjourney使用文本提示'一只猫'和--sref参数以及--sv 1生成的四张猫图像网格"  data-lightbox="box">
+                    </div>
+                </div>
+                <h3 id="no">反向参数（No）</h3>
+                <p>No参数告诉Midjourney机器人在您的图像中不要包含什么。</p>
+
+                <div class="infoBox">
+                    <p><code>--no</code>接受用逗号分隔的多个词：<code>--no 物品1, 物品2, 物品3, 物品4</code></p>
+                </div>
+
+                <h4 id="no-comparison"><code>--No</code>对比</h4>
+                <div class="grid">
+                    <div>
+                        <p><code>静物水粉画</code></p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_NO_StillLife.jpg"
+                            alt="Midjourney使用提示'静物水粉画'生成的静物画图像" data-lightbox="box">
+                        <p>静物画中出现了各种物品</p>
+                    </div>
+                    <div>
+                        <p><code>静物水粉画 --no 水果</code></p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_NO_StillLife_NoFruit.jpg"
+                            alt="Midjourney使用提示'静物水粉画 --no 水果'生成的静物画图像" data-lightbox="box">
+                        <p>静物画中的水果较少</p>
+                    </div>
+                </div>
+
+                <h4 id="no-vs-dont"><code>--no</code>与"不要"的比较</h4>
+                <p>Midjourney机器人将提示中的每个词都视为图像的潜在元素。提示"不含任何水果的静物水粉画"或"静物水粉画，请不要加水果！"反而<em>更有可能</em>产生包含水果的图片，因为Midjourney机器人对"不含"或"不要"与"水果"之间的关系的理解与人类读者的理解方式不同。要改善结果，请将提示集中在您希望在图像中看到的内容上，并使用"--no"参数指定您不想包含的概念。
+                </p>
+
+                <div class="grid">
+                    <div>
+                        <p><code>静物水粉画</code></p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_NO_StillLife.jpg"
+                            alt="Midjourney使用提示'静物水粉画'生成的静物画图像" data-lightbox="box">
+                        <p>静物画中出现了各种物品。</p>
+                    </div>
+                    <div>
+                        <p><code>静物水粉画，请不要加水果！</code></p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_NO_StillLife_DONTFruit.jpg"
+                            alt="Midjourney使用提示'静物水粉画，不要加水果'生成的静物画图像" data-lightbox="box">
+                        <p>最终图像中出现了<em>更多</em>水果。</p>
+                    </div>
+                </div>
+
+                <h4 id="multi-prompting">多重提示</h4>
+                <p><code>--no</code>参数等同于在<a
+                        href="/multi-prompts">多重提示</a>中将部分权重设为"-0.5"。<code>静物水粉画:: 水果::-.5</code>与<code>静物水粉画 --no 水果</code>是相同的。
+                </p>
+
+                <h4 id="how-to-use-the-no-paramter">如何使用No参数</h4>
+                <p>在提示的末尾添加<code>--no 物品1, 物品2, 物品3</code>。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_NoParameter.gif"
+                        alt="展示如何输入Midjourney No参数的动画gif" data-lightbox="box"></p>
+                <h3 id="personalization">个性化（Personalization）</h3>
+                <p>在midjourney.com上创建您自己的个性化图像，并在您的图像上使用个性化参数。</p>
+
+                <p>当您对图像对进行排名和喜欢社区中的图像时，Midjourney会记录您偏好的图像类型，并可以根据这些偏好为您生成图像。</p>
+
+                <p>在Discord上或网站的imagine栏中，在提示的末尾添加<code>--p</code>或<code>--personalize</code>。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/imagine-prompt-personalization.png"
+                         alt="个性化参数使用示例" data-lightbox="box"></p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li>个性化使用您在<a href="//www.midjourney.com/rank">图像排名</a>和<a
+                                href="//www.midjourney.com/explore?tab=likes">网站上的喜欢（❤️）</a>的数据来创建您的独特风格。对自己图像的喜欢不会被计入。
+                        </li>
+                        <li>随着您对更多图像进行排名和❤️，您的个性化会不断演变。</li>
+                        <li>默认情况下，--p应用您最新版本的个性化，但您可以通过使用个性化代码与参数来使用旧版本，或其他用户的个性化：<code>--p 代码</code>。</li>
+                        <li><code>--p</code>与Midjourney版本6和6.1兼容。</li>
+                    </ul>
+                </div>
+
+                <div class="errorBox">
+                    <p>只有当您在网站上对足够多的图像进行了排名和/或❤️后，才能使用<code>--p</code>。如果您在没有足够数据的情况下尝试使用<code>--p</code>，您会看到一条错误消息，指示您进行更多排名。
+                    </p>
+                </div>
+
+                <h4 id="examples">示例</h4>
+                <div class="grid">
+                    <div>
+                        <div>
+                            <p>不使用个性化<br><code>提示：一只猫在罂粟花田里</code><br></p>
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/cat-no-p.png"
+                                alt="Midjourney使用提示'一只猫在罂粟花田里'生成的四张猫图像网格，显示默认风格的混合" data-lightbox="box">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <p>使用个性化<br><code>提示：一只猫在罂粟花田里 --p</code></p>
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/cat-p-s1000.png"
+                                alt="Midjourney使用文本提示'一只猫在罂粟花田里'和--p参数生成的四张猫图像网格，显示四张使用个性化生成的图像" data-lightbox="box">
+                        </div>
+                    </div>
+                </div>
+
+                <h4 id="personalize-codes">个性化代码</h4>
+                <p>随着您继续在网站上喜欢和排名图像，您的个性化会随时间演变。您可以通过将该风格的唯一个性化代码添加到<code>--p</code>参数中来切换回旧版本（或使用其他用户的个性化风格），如：<code>--p 代码</code>。
+                </p>
+
+                <div class="infoBox">
+                    <ul>
+                        <li>当您使用<code>--p</code>时，您当前的个性化代码会自动添加到提示中：<code>--p</code> -> <code>--p 代码</code></li>
+                        <li>要查找您旧的个性化代码，请在Discord中使用<code>/list_personalize_codes</code>命令。您最新的个性化代码将列在顶部，最旧的在底部。
+                        </li>
+                        <li>您可以通过<a
+                                href="//www.midjourney.com/explore?tab=random">探索Midjourney动态中的图像</a>或询问他们分享来找到其他用户的个性化代码。
+                        </li>
+                        <li>您可以通过组合代码在同一提示中混合多个个性化：<code>--p 代码1 代码2</code></li>
+                    </ul>
+                </div>
+
+                <h4 id="personalization-in-settings">设置中的个性化</h4>
+                <p>在Discord上，您可以在Midjourney设置中使用<span
+                        class="discordbtn"><code>🙋 Personalization</code></span>按钮（在使用机器人的任何地方运行<code>/settings</code>命令）自动将<code>--p</code>参数添加到所有提示中。
+                </p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-settings-personalization.png"
+                        alt="Discord中/settings窗口的截图，显示个性化按钮" data-lightbox="box"></p>
+
+                <p>在网站上，您可以在设置窗口中打开个性化，自动将<code>--p</code>添加到所有提示中。点击imagine栏中的<svg xmlns="http://www.w3.org/2000/svg"
+                        xml:space="preserve" width="24" height="24" style="enable-background:new 0 0 24 24">
+                        <path
+                            d="M18 12h2m-2 0c0-1.1-.9-2-2-2s-2 .9-2 2m4 0c0 1.1-.9 2-2 2s-2-.9-2-2M6 6c0 1.1.9 2 2 2s2-.9 2-2M6 6c0-1.1.9-2 2-2s2 .9 2 2M6 6H4m6 0h10m-6 6H4m2 6c0 1.1.9 2 2 2s2-.9 2-2m-4 0c0-1.1.9-2 2-2s2 .9 2 2m-4 0H4m6 0h10"
+                            style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round">
+                        </path>
+                    </svg>图标访问网页上的设置窗口。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-settings-web.png"
+                        alt="midjourney.com上设置窗口的截图，显示个性化设置" data-lightbox="box"></p>
+
+                <h4 id="stylize-with-personalization">使用个性化进行风格化</h4>
+                <p>使用<code>--p</code>时，<a
+                        href="/v1/docs/stylize"><code>--stylize</code></a>（<code>--s</code>）参数控制将多少个性化应用于图像。较低的<code>--s</code>值会限制个性化，而较高的<code>--s</code>值会增加个性化。stylize参数接受0到1000之间的值。默认值为100。
+                </p>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>一只猫在罂粟花田里</code></p>
+
+                <div class="grid">
+                    <div>
+                        <div>
+                            <p><code>--s 50</code></p>
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/cat-p-s50.png"
+                                alt="Midjourney使用文本提示'一只猫在罂粟花田里'和--p参数，使用--s 50生成的四张猫图像网格" data-lightbox="box">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <p><code>--s 800</code></p>
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/cat-p-s800.png"
+                                alt="Midjourney使用文本提示'一只猫在罂粟花田里'和--p参数，使用--s 800生成的四张猫图像网格" data-lightbox="box">
+                        </div>
+                    </div>
+                </div>
+                <h3 id="quality">质量（Quality）</h3>
+
+                <h4>使用 <code>--quality</code> 或 <code>--q</code> 控制您的图像生成所需的时间</h4>
+
+                <p>较低的 <code>--q</code> 值意味着您的图像生成速度更快。这些任务消耗的GPU时间更少，但生成的图像细节会更少。这对于尝试新提示很有用，因为您可以更快地完善您的想法。</p>
+
+                <p>使用较高的 <code>--q</code> 值会消耗更多的GPU时间，可以改善图像纹理和细节，但可能会降低图像的连贯性。</p>
+
+                <h3 id="version-quality-compatibility">版本质量兼容性</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>模型版本</th>
+                            <th>质量 .25</th>
+                            <th>质量 .5</th>
+                            <th>质量 1</th>
+                            <th>质量 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>版本 6.1</td>
+                            <td>x</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>版本 6.0</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>x</td>
+                        </tr>
+                        <tr>
+                            <td>版本 5.2</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>x</td>
+                        </tr>
+                        <tr>
+                            <td>niji 5</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>x</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <ul>
+                            <li><code>--quality</code> 不会影响您生成的图像的分辨率，也不保证生成的图像会"更好"或"更差"于使用更高或更低值生成的图像 —
+                                它只影响Midjourney花费在创建它们上的<a href="/v1/docs/fast-relax">GPU时间</a>。</li>
+                            <li>默认的 <code>--quality</code> 值是 1。</li>
+                            <li>其他值会四舍五入到您使用的模型版本的最接近可用选项。</li>
+                            <li><code>--q</code> 只影响初始图像生成，不影响<a href="/v1/docs/variations">变体</a>或<a
+                                    href="/v1/docs/upscalers">放大</a>。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <hr>
+
+                <h3 id="quality-comparison">质量比较</h3>
+
+                <p>提示示例: <code>/imagine prompt</code> <code>牡丹的精细木刻</code></p>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--quality .5</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-version6-1-q05.png"
+                            alt="使用质量设置为.5和提示：牡丹的精细木刻生成的Midjourney图像示例" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">最快，但细节最少的结果</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--quality 1</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-version6-1-q1.png"
+                            alt="使用质量设置为1和提示：牡丹的精细木刻生成的Midjourney图像示例" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">默认设置</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--quality 2</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-version6-1-q2.png"
+                            alt="使用质量设置为2和提示：牡丹的精细木刻生成的Midjourney图像示例" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">较慢，但结果更详细</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 id="how-to-use-the-quality-parameter">如何使用质量参数</h2>
+
+                <h3 id="use-the-quality-or-q-parameter">使用 <code>--quality</code> 或 <code>--q</code> 参数</h3>
+
+                <p>在您的提示末尾添加 <code>--quality &lt;值&gt;</code> 或 <code>--q &lt;值&gt;</code>。</p>
+
+                <div data-tomark-pass="">
+                    <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Parameter_Quality.gif"
+                        alt="显示如何输入Midjourney质量参数的动画GIF" data-tomark-pass="" data-lightbox="box">
+                </div>
+                <h3 id="repeat">重复（Repeat）</h3>
+
+                <h4><code>--repeat</code> 或 <code>--r</code> 参数可以多次运行一个<span class="popover__title" data-glossary="Job"
+                        data-glossaryid="4ca91c3e-a953-4ca4-a4c9-03fff744ef98">任务</span>。将
+                    <code>--repeat</code> 与其他参数（如 <a href="/chaos">--chaos</a>）结合使用,可以加快您的视觉探索步伐。
+                </h4>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <p><code>--repeat</code> 接受的值为 2–4（<a href="/plans">基础订阅用户</a>）<br>
+                            <code>--repeat</code> 接受的值为 2–10（<a href="/plans">标准订阅用户</a>）<br>
+                            <code>--repeat</code> 接受的值为 2–40（<a href="/plans">专业版和大型版订阅用户</a>）<br>
+                            <code>--repeat</code> 参数只能在<span class="popover__title" data-glossary="Fast"
+                                data-glossaryid="cd0455f3-1a63-451a-a0df-8236e07f42b7">快速</span>和 Turbo GPU 模式下使用。
+                        </p>
+                    </div>
+                </section>
+
+                <hr>
+
+                <h3 id="use-the-repeat-or-r-parameter">使用 <code>--repeat</code> 或 <code>--r</code> 参数</h3>
+
+                <p>在提示的末尾添加 <code>--repeat &lt;值&gt;</code> 或 <code>--r &lt;值&gt;</code>。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_RepeatParameterGif.gif"
+                        alt="显示如何输入 Midjourney 重复参数的动画 gif" data-lightbox="box"></p>
+
+                <div class="glossary-popover-contents">
+                    <div class="popover__content hidden 4ca91c3e-a953-4ca4-a4c9-03fff744ef98">
+                        <p><strong>任务</strong>是指使用 Midjourney 机器人执行的任何操作。<strong>任务</strong>包括使用
+                            <code>/imagine</code> 创建初始图像网格、放大图像和创建图像变体。
+                        </p>
+                    </div>
+                    <div class="popover__content hidden cd0455f3-1a63-451a-a0df-8236e07f42b7">
+                        <p>图像生成有两种模式,<strong>快速模式</strong>和<strong>放松模式</strong>。快速模式试图立即为您提供
+                            GPU。它是最高优先级的处理层,使用您订阅的每月 GPU
+                            时间。<strong>放松模式</strong>根据您使用系统的程度,将您的生成任务排在其他人之后。<strong>放松模式</strong>的等待时间是可变的,通常在
+                            1-10 分钟之间。</p>
+                        <p>默认情况下,您的图像将使用<strong>快速</strong>模式生成。如果您有标准或专业版订阅,可以切换到<strong>放松</strong>模式。</p>
+                    </div>
+                </div>
+                <h3 id="seeds">种子（Seeds）</h3>
+
+                <h4>Midjourney机器人使用一个种子数字来创建一个视觉噪声场（类似电视静态），作为生成初始图像网格的起点。种子数字是为每个图像随机生成的，但可以使用 <code>--seed</code>
+                    参数指定。如果您使用相同的种子数字和提示，您将得到相似的最终图像。</h4>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <ul>
+                            <li><code>--seed</code> 接受0–4294967295之间的整数。</li>
+                            <li><code>--seed</code> 值只影响初始图像网格。</li>
+                            <li>使用<a href="/models">模型版本</a>
+                                <code>1</code>、<code>2</code>、<code>3</code>、<code>test</code> 和 <code>testp</code>
+                                的相同 <code>--seed</code> 值将产生构图、颜色和细节相似的图像。
+                            </li>
+                            <li>使用<a href="/models">模型版本</a> <code>4</code>、<code>5</code>、<code>6</code> 和
+                                <code>niji</code> 的相同 <code>--seed</code> 值将产生几乎相同的图像。
+                            </li>
+                            <li>种子数字不是静态的，不应在会话之间依赖它们。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <hr>
+
+                <h2 id="seed-parameter">种子参数</h2>
+
+                <p>如果没有指定种子，Midjourney 将使用随机生成的种子数字，每次使用提示时都会产生各种各样的选项。<br><br></p>
+
+                <h3 id="jobs-run-three-times-with-random-seeds">使用随机种子运行三次任务：</h3>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>青瓷猫头鹰水壶</code></p>
+
+                <div class="grid" data-tomark-pass="">
+                    <div class="example-image" data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_SeedRandom_1.jpg"
+                            alt="使用随机种子在 Midjourney V5.1 中制作的图像网格示例" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div class="example-image" data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_SeedRandom_2.jpg"
+                            alt="使用随机种子在 Midjourney V5.1 中制作的图像网格示例" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div class="example-image" data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_SeedRandom_3.jpg"
+                            alt="使用随机种子在 Midjourney V5.1 中制作的图像网格示例" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                </div>
+
+                <br>
+
+                <h3 id="jobs-run-three-times-with-seed-12345">使用 <code>--seed 12345</code> 运行三次任务：</h3>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>青瓷猫头鹰水壶 --seed 123</code></p>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Seed123_1.jpg"
+                            alt="使用种子 12345 在 Midjourney 中制作的图像网格示例" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Seed123_2.jpg"
+                            alt="使用种子 12345 在 Midjourney 中制作的图像网格示例" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Seed123_3.jpg"
+                            alt="使用种子 12345 在 Midjourney 中制作的图像网格示例" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 id="how-to-find-a-jobs-seed-number">如何找到任务的种子数字</h2>
+
+                <h3 id="use-a-discord-emoji-reaction">使用 Discord 表情反应</h3>
+
+                <p>在 Discord 中，通过对任务<a href="/discord-emoji-reactions">添加 ✉️ 信封表情反应</a>来找到<span class="popover__title"
+                        data-glossary="Job" data-glossaryid="4ca91c3e-a953-4ca4-a4c9-03fff744ef98">任务</span>的种子数字。</p>
+
+                <h3 id="use-the-show-command-to-bring-back-old-jobs">使用 Show 命令恢复旧任务</h3>
+
+                <p>要获取过去图像的种子数字，<a href="show-job">复制任务 ID</a> 并使用该 ID 的 <code>/show &lt;任务 ID #&gt;</code>
+                    命令来恢复任务。然后，您可以对新生成的任务添加 ✉️ 信封表情反应。</p>
+
+                <hr>
+
+                <h2 id="how-to-change-seed-numbers">如何更改种子数字</h2>
+
+                <h3 id="use-the-seed-parameter">使用 <code>--seed</code> 参数</h3>
+
+                <p>在提示的末尾添加 <code>--seed &lt;值&gt;</code>。</p>
+
+                <div data-tomark-pass="">
+                    <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Seed_Gif.gif"
+                        alt="显示如何输入 Midjourney 种子参数的动画 Gif" data-tomark-pass="" data-lightbox="box">
+                </div>
+
+                <div class="glossary-popover-contents">
+                    <div class="popover__content hidden 4ca91c3e-a953-4ca4-a4c9-03fff744ef98">
+                        <p><strong>任务</strong>是指使用 Midjourney 机器人执行的任何操作。<strong>任务</strong>包括使用
+                            <code>/imagine</code> 创建初始图像网格、放大图像和创建图像变体。
+                        </p>
+                    </div>
+                </div>
+                <h3 id="stop">停止（Stop）</h3>
+
+                <h4>使用 <code>--stop</code> 参数在过程中途完成任务。在较早的百分比停止任务可以创建更模糊、细节更少的结果。</h4>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <p><code>--stop</code> 接受的值为：10–100。<br>
+                            默认的 <code>--stop</code> 值是 100。<br>
+                            <code>--stop</code> 在<a href="/upscalers">放大</a>时不起作用。
+                        </p>
+                    </div>
+                </section>
+
+                <hr>
+
+                <h2 id="stop-comparison">停止对比</h2>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>橡子的泼溅艺术画 --stop 90</code></p>
+
+                <div class="gridsmall" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stop_10.jpg"
+                            alt="使用提示'几何色块橡子 --stop 10'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 10</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stop_20.jpg"
+                            alt="使用提示'几何色块橡子 --stop 20'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 20</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stop_30.jpg"
+                            alt="使用提示'几何色块橡子 --stop 30'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 30</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stop_40.jpg"
+                            alt="使用提示'几何色块橡子 --stop 40'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 40</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stop_50.jpg"
+                            alt="使用提示'几何色块橡子 --stop 50'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 50</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stop_60.jpg"
+                            alt="使用提示'几何色块橡子 --stop 60'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 60</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stop_70.jpg"
+                            alt="使用提示'几何色块橡子 --stop 70'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 70</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stop_80.jpg"
+                            alt="使用提示'几何色块橡子 --stop 80'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 80</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stop_90.jpg"
+                            alt="使用提示'几何色块橡子 --stop 90'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 90</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stop_100.jpg"
+                            alt="使用提示'几何色块橡子 --stop 100'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 100</p>
+                    </div>
+                </div>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>一片木质镶嵌橡树叶 --stop 50</code></p>
+
+                <div class="gridsmall" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Leaf_Stop_10.jpg"
+                            alt="使用提示'一片木质镶嵌橡树叶 --stop 10'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 10</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Leaf_Stop_20.jpg"
+                            alt="使用提示'一片木质镶嵌橡树叶 --stop 20'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 20</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Leaf_Stop_30.jpg"
+                            alt="使用提示'一片木质镶嵌橡树叶 --stop 30'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 30</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Leaf_Stop_40.jpg"
+                            alt="使用提示'一片木质镶嵌橡树叶 --stop 40'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 40</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Leaf_Stop_50.jpg"
+                            alt="使用提示'一片木质镶嵌橡树叶 --stop 50'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 50</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Leaf_Stop_60.jpg"
+                            alt="使用提示'一片木质镶嵌橡树叶 --stop 60'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 60</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Leaf_Stop_70.jpg"
+                            alt="使用提示'一片木质镶嵌橡树叶 --stop 70'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 70</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Leaf_Stop_80.jpg"
+                            alt="使用提示'一片木质镶嵌橡树叶 --stop 80'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 80</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Leaf_Stop_90.jpg"
+                            alt="使用提示'一片木质镶嵌橡树叶 --stop 90'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 90</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Leaf_Stop_100.jpg"
+                            alt="使用提示'一片木质镶嵌橡树叶 --stop 100'制作的Midjourney图像" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">--stop 100</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 id="how-to-change-the-stop-percentage">如何更改停止百分比</h2>
+
+                <h3 id="use-the-stop-parameter">使用 <code>--stop</code> 参数</h3>
+
+                <p>在提示的末尾添加 <code>--stop &lt;值&gt;</code>。</p>
+
+                <div data-tomark-pass="">
+                    <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Parameter_Stop.gif"
+                        alt="显示如何输入Midjourney停止参数的动画Gif" data-tomark-pass="" data-lightbox="box">
+                </div>
+
+                <h3 id="style">样式（Style）</h3>
+
+                <h4><code>--style</code> 参数替换了某些<a href="/models">Midjourney模型版本</a>的默认美学风格。</h4>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <p>模型版本 6、5.2、5.1 和 Niji 6 接受 <code>--style raw</code>。</p>
+                    </div>
+                </section>
+
+                <hr>
+
+                <h2 id="the-effects-of-style-raw"><code>--style raw</code> 的效果</h2>
+
+                <p><code>--style raw</code> 使用了一个替代模型，这可能适合已经熟悉提示的用户，他们想要对图像有更多的控制。使用 <code>--style raw</code>
+                    生成的图像应用了较少的自动美化，这在提示特定风格时可能会产生更准确的匹配。</p>
+
+                <h3 id="model-version-6">模型版本 6</h3>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--v 6</code></h5>
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Style_V6_Oak.jpg"
+                                alt="使用提示'黑白橡树图标'制作的Midjourney版本v6示例图像" data-tomark-pass="" data-lightbox="box">
+                            <p data-tomark-pass="">黑白橡树图标</p>
+                        </div>
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--v 6 --style raw</code></h5>
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Style_V6_Oak_Raw.jpg"
+                                alt="使用提示'黑白橡树图标 --style raw'制作的Midjourney版本v6示例图像" data-tomark-pass=""
+                                data-lightbox="box">
+                            <p data-tomark-pass="">黑白橡树图标 --style raw</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--v 6</code></h5>
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Style_V6_ChildCat.jpg"
+                                alt="使用提示'儿童蜡笔画的猫'制作的Midjourney版本v6示例图像" data-tomark-pass="" data-lightbox="box">
+                            <p data-tomark-pass="">儿童蜡笔画的猫</p>
+                        </div>
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--v 6 --style raw</code></h5>
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Style_V6_ChildCat_Raw.jpg"
+                                alt="使用提示'儿童蜡笔画的猫'制作的Midjourney版本v6示例图像" data-tomark-pass="" data-lightbox="box">
+                            <p data-tomark-pass="">儿童蜡笔画的猫 --style raw</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h3 id="model-version-52">模型版本 5.2</h3>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--v 5.2</code></h5>
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Style_V52_IceCream.jpg"
+                                alt="使用提示 - 冰淇淋图标制作的Midjourney版本v5.2示例图像" data-tomark-pass="" data-lightbox="box">
+                            <p data-tomark-pass="">冰淇淋图标</p>
+                        </div>
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--v 5.2 --style raw</code></h5>
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Style_V52_IceCReam_Raw.jpg"
+                                alt="使用提示 - 冰淇淋图标 --style raw制作的Midjourney版本v5.2示例图像" data-tomark-pass=""
+                                data-lightbox="box">
+                            <p data-tomark-pass="">冰淇淋图标 --style raw</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--v 5.2 </code></h5>
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Style_V52_ChildCat.jpg"
+                                alt="使用提示 - 儿童画的猫制作的Midjourney版本v5.2示例图像" data-tomark-pass="" data-lightbox="box">
+                            <p data-tomark-pass="">儿童画的猫</p>
+                        </div>
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--v 5.2 --style raw</code></h5>
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Style_V52_ChildCat_Raw.jpg"
+                                alt="使用提示 - 儿童画的猫 --style raw制作的Midjourney版本v5.2示例图像" data-tomark-pass=""
+                                data-lightbox="box">
+                            <p data-tomark-pass="">儿童画的猫 --style raw</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 id="how-to-use-styles">如何使用样式</h2>
+
+                <h3 id="use-the-style-parameter">使用 <code>--style</code> 参数</h3>
+
+                <p>在Discord上的提示末尾或网站的imagine栏中添加 <code>--style &lt;样式名称&gt;</code>：</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_StyleParameter.gif"
+                        alt="显示如何输入midjourney --style参数的动画gif"  data-lightbox="box"></p>
+
+                <h3 id="use-the-settings-command">使用设置命令</h3>
+
+                <p>输入 <code>/settings</code> 并从菜单中选择 <span class="discordbtn" data-tomark-pass=""><code
+                            data-tomark-pass="">🔧 RAW模式</code></span> 以将 <code>--style raw</code> 附加到所有提示。</p>
+
+                <h3 id="website-settings">网站设置</h3>
+
+                <p>您可以在网站设置菜单中的按钮选择标准或原始样式作为默认"模式"：</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-website-settings-raw.png"
+                        alt="" data-tomark-pass="" data-lightbox="box"></p>
+
+                <p>您当前的默认样式将以红色高亮显示。</p>
+
+                <p>如果 <code>标准模式</code> 是您的默认样式，您可以通过在单个提示中添加 <code>--style raw</code> 来覆盖它。如果 <code>原始模式</code>
+                    是您的默认设置，您需要在设置中切换回 <code>标准模式</code> 以关闭它。</p>
+
+                <h3 id="style-reference">样式参考（Style Reference）</h3>
+
+
+                <h4>您可以在提示中使用图像作为样式参考，以影响您想要Midjourney制作的图像的风格或美学。</h4>
+
+                <p>要在提示中添加样式参考，请使用 --sref 参数和图像存储在线的网址（URL）：<code>--sref URL</code></p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sref-prompt-diagram.png"
+                        alt="Discord消息发送框的图像，显示了使用--sref样式参考的/imagine命令示例：`/imagine prompt 想要想象的内容描述 --sref https://imageURL1.jpg https://imageURL2.jpg`"
+                        data-tomark-pass="" data-lightbox="box"></p>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <ul>
+                            <li>样式参考只适用于包含文本的提示 - 它们不能用于仅图像的提示。</li>
+                            <li>您也可以使用提示文本来强化您的样式参考，对于棘手的风格可能需要这样做。</li>
+                            <li>任何常规图像提示必须放在 <code>--sref</code> 之前</li>
+                            <li>您可以使用多个样式参考：<code>--sref URL1 URL2 URL3</code></li>
+                            <li>您也可以使用 <a
+                                    href="/v1/docs/style-reference#random-style-references"><code>--sref random</code></a>
+                                来为您的图像应用随机样式。</li>
+                            <li><code>--sref</code> 可以与 Midjourney 和 Niji 版本 6 一起使用</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="warningBox">
+                    <div class="title">隐私注意事项</div>
+                    <div class="content">
+                        <ul>
+                            <li>在与 Midjourney 机器人的直接消息中上传图像，以防止其他服务器用户看到图像。</li>
+                            <li>除非您在<a href="/v1/docs/stealth">隐身模式</a>下生成，否则图像提示和参考在 Midjourney 网站上是可见的。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <h3 data-tomark-pass=""
+                    id="see-the-image-prompts-page-for-help-using-image-urls-in-your-prompts-on-discord-or-the-using-image-references-on-web-page-for-help-using-all-kinds-of-image-references-on-midjourneycom">
+                    请参阅<a href="/v1/docs/image-prompts">图像提示</a>页面以获取在 Discord 上的提示中使用图像 URL 的帮助，或参阅<a
+                        href="/v1/docs/using-images">在网页上使用图像参考</a>页面以获取在 midjourney.com 上使用各种图像参考的帮助。</h3>
+
+                <hr>
+
+
+                <h2 id="examples">示例</h2>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <p data-tomark-pass=""><code data-tomark-pass="">参考图像：CatSketch.png</code></p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/ref-image-cat.jpg"
+                            alt="Midjourney生成的紫色墨水圆珠笔素描猫"  data-tomark-pass=""
+                            data-lightbox="box">
+                    </div>
+                </div>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <div data-tomark-pass="">
+                            <p data-tomark-pass=""><code data-tomark-pass="">提示：一只猫</code></p>
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/no-reference.jpg"
+                                alt="使用提示'一只猫'由Midjourney生成的四张猫图像网格，显示了默认生成的插图和摄影风格混合" data-tomark-pass=""
+                                data-lightbox="box">
+                        </div>
+                    </div>
+                    <div data-tomark-pass="">
+                        <div data-tomark-pass="">
+                            <p data-tomark-pass=""><code
+                                    data-tomark-pass="">提示：一只猫 --sref https://url.com/CatSketch.png</code></p>
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sv4-swdefault.jpg"
+                                alt="使用文本提示'一只猫'和--sref参数由Midjourney生成的四张猫图像网格，显示了以墨水素描风格生成的四张图像" data-tomark-pass=""
+                                data-lightbox="box">
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 id="style-weight-parameter">样式权重参数</h2>
+
+                <p>使用样式权重参数 <code>--sw</code> 来设置样式化的强度。<code>--sw</code> 接受 0 到 1000 之间的值。<code>--sw 100</code>
+                    是默认值。</p>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>一只猫 --sref https://url.com/CatSketch.png</code></p>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">`--sw 50`</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sv4-sw50.jpg"
+                            alt="使用文本提示'一只猫'和--sref参数以低样式权重由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">`--sw 100`</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sv4-swdefault.jpg"
+                            alt="使用文本提示'一只猫'和--sref参数以默认样式权重由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">`--sw 800`</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sv4-sw800.jpg"
+                            alt="使用文本提示'一只猫'和--sref参数以高样式权重由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
+                    </div>
+                </div>
+
+                <p>单个样式参考也可以分配不同的权重：<code>--sref URL1::2 URL2::1 URL3::1</code></p>
+
+                <p>有关提示各部分之间相对重要性的更多信息，请参阅<a href="/v1/docs/multi-prompts">多重提示</a>页面。</p>
+
+                <hr>
+
+                <h2 id="style-reference-versions">样式参考版本</h2>
+
+                <p>样式参考功能有四个版本。使用 <code>--sv</code> 参数在它们之间选择。<code>--sv 4</code> 是默认值。</p>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <p><code>--sv 1</code> 原始样式参考算法，更加"氛围化"<br>
+                            <code>--sv 2</code> 样式参考的第二次迭代<br>
+                            <code>--sv 3</code> 更加"氛围化"的 --sv 1 的更新版本<br>
+                            <code>--sv 4</code> --sv 2 的更新版本
+                        </p>
+                    </div>
+                </section>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">`--sv 1`</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sv1-swdefault.jpg"
+                            alt="使用文本提示'一只猫'和--sref参数以--sv 1由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">`--sv 2`</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sv2-swdefault.jpg"
+                            alt="使用文本提示'一只猫'和--sref参数以--sv 2由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">`--sv 3`</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sv3-swdefault.jpg"
+                            alt="使用文本提示'一只猫'和--sref参数以--sv 3由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">`--sv 4`</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sv4-swdefault.jpg"
+                            alt="使用文本提示'一只猫'和--sref参数以--sv 4由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 id="random-style-references">随机样式参考</h2>
+
+                <p>您可以使用 --sref random 从 Midjourney 知道如何生成的抽象范围内随机选择一种样式。</p>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <ul>
+                            <li>对使用 --sref random 的作业进行重新生成 🔄 或创建变体将生成具有与父网格相同随机样式的不同图像。</li>
+                            <li>使用 --sref random 的<a href="/v1/docs/permutations">排列</a>或<a
+                                    href="/v1/docs/repeat"><code>--repeat</code></a>提示中的每个作业将使用不同的随机样式。</li>
+                            <li>在您提交提示后，"random"将被替换为<a
+                                    href="/v1/docs/style-reference#style-reference-seeds">样式参考种子</a>，您可以使用该种子在未来的提示中复制该样式。
+                            </li>
+                            <li><code>--sw</code> 与随机样式参考一起使用，以控制随机样式对结果的影响程度。</li>
+                            <li>您不能将随机样式参考或样式参考种子与其他样式参考或 URL 样式参考组合使用。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <h3 id="examples1">示例：</h3>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">`一只猫 --sref random`</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sref-random6.png"
+                            alt="使用文本提示'一只猫'和--sref random参数应用随机样式由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">`一只猫 --sref random`</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sref-random1.png"
+                            alt="使用文本提示'一只猫'和--sref random参数应用随机样式由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">`一只猫 --sref random`</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sref-random5.png"
+                            alt="使用文本提示'一只猫'和--sref random参数应用随机样式由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">`一只猫 --sref random`</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sref-random4.png"
+                            alt="使用文本提示'一只猫'和--sref random参数应用随机样式由Midjourney生成的四张猫图像网格" data-tomark-pass=""
+                            data-lightbox="box">
+                    </div>
+                </div>
+
+                <hr>
+
+
+                <h2 id="style-reference-seeds">样式参考种子</h2>
+                <p>在您完成的作业中，"random"值将被替换为样式参考种子号码：<code>--sref random</code> ➡️
+                    <code>--sref 762351716</code>。您可以在未来的提示中使用该样式参考种子来生成相同风格的图像。
+                </p>
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">一只可爱的猫 --sref 762351716</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sref-random-seed-cat.png"
+                            alt="使用随机样式参考种子和提示'一只可爱的猫 --sref 762351716'由Midjourney生成的四张卡通可爱的米色猫图像网格，大眼睛坐在森林里仰望天空"
+                            data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">一只可爱的橡皮鸭 --sref 762351716</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sref-random-seed-ducky.png"
+                            alt="使用随机样式参考种子和提示'一只可爱的橡皮鸭 --sref 762351716'由Midjourney生成的四张卡通可爱的黄色橡皮鸭图像网格，在绿色水面的森林池塘中"
+                            data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">一只可爱的猫头鹰 --sref 762351716</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sref-random-seed-owl.png"
+                            alt="使用随机样式参考种子和提示'一只可爱的猫头鹰 --sref 762351716'由Midjourney生成的四张卡通可爱的米色绿色猫头鹰图像网格，大眼睛栖息在树枝上"
+                            data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">一只可爱的乌龟 --sref 762351716</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/sref-random-seed-turtle.png"
+                            alt="使用随机样式参考种子和提示'一只可爱的乌龟 --sref 762351716'由Midjourney生成的四张卡通可爱的乌龟图像网格，米色或绿色的壳和大眼睛，在森林中休息"
+                            data-tomark-pass="" data-lightbox="box">
+                    </div>
+                </div>
+
+                <hr>
+
+                <h3 id="stylize">风格化（Stylize）</h3>
+
+
+                <h4>Midjourney机器人经过训练，可以生成偏好艺术性色彩、构图和形式的图像。<code>--stylize</code> 或 <code>--s</code>
+                    参数影响这种训练应用的强度。低风格化值产生的图像与提示更加匹配，但艺术性较低。高风格化值创建的图像非常具有艺术性，但与提示的关联性较低。</h4>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <p>使用<a href="/models">当前模型</a>时，<code>--stylize</code> 的默认值为100，接受0–1000之间的整数值</p>
+                    </div>
+                </section>
+
+                <hr>
+
+                <h2 id="common-stylize-settings">常见风格化设置</h2>
+
+                <h3 id="influence-of-stylize-on-model-version-6">风格化对模型版本6的影响</h3>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>儿童画的猫 --s 100</code></p>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--stylize 0</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stylize_ChildsCat_0.jpg"
+                            alt="Midjourney风格参数示例。提示'儿童画的猫'，stylize=0的图像" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--stylize 50</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stylize_ChildsCat_50.jpg"
+                            alt="Midjourney风格参数示例。提示'儿童画的猫'，stylize=50的图像" data-tomark-pass="" data-lightbox="box">
+                        相当于 <span class="discordbtn" data-tomark-pass=""><code data-tomark-pass="">🖌️ 低风格</code></span>
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--stylize 100</code>（默认）</h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stylize_ChildsCat_100.jpg"
+                            alt="Midjourney风格参数示例。提示'儿童画的猫'，stylize=100的图像" data-tomark-pass="" data-lightbox="box">
+                        相当于 <span class="discordbtn" data-tomark-pass=""><code data-tomark-pass="">🖌️ 中风格</code></span>
+                    </div>
+                </div>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--stylize 250</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stylize_ChildsCat_250.jpg"
+                            alt="Midjourney风格参数示例。提示'儿童画的猫'，stylize=250的图像" data-tomark-pass="" data-lightbox="box">
+                        相当于 <span class="discordbtn" data-tomark-pass=""><code data-tomark-pass="">🖌️ 高风格</code></span>
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--stylize 500</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stylize_ChildsCat_500.jpg"
+                            alt="Midjourney风格参数示例。提示'儿童画的猫'，stylize=500的图像" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--stylize 750</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stylize_ChildsCat_750.jpg"
+                            alt="Midjourney风格参数示例。提示'儿童画的猫'，stylize=750的图像" data-tomark-pass="" data-lightbox="box">
+                        相当于 <span class="discordbtn" data-tomark-pass=""><code
+                                data-tomark-pass="">🖌️ 极高风格</code></span>
+                    </div>
+                </div>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>无花果的彩色凸版印刷 --s 100</code></p>
+
+                <div class="gridsmall" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <p data-tomark-pass=""><code data-tomark-pass="">--stylize 50</code></p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stylize_Fig50.jpg"
+                            alt="Midjourney风格参数示例。提示'无花果的彩色凸版印刷'，stylize=50的图像" data-tomark-pass="" data-lightbox="box">
+                        相当于 <span class="discordbtn" data-tomark-pass=""><code data-tomark-pass="">🖌️ 低风格</code></span>
+                    </div>
+                    <div data-tomark-pass="">
+                        <p data-tomark-pass=""><code data-tomark-pass="">--stylize 100</code>（默认）</p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stylize_Fig100.jpg"
+                            alt="Midjourney风格参数示例。提示'无花果的彩色凸版印刷'，stylize=100的图像" data-tomark-pass=""
+                            data-lightbox="box"> 相当于 <span class="discordbtn" data-tomark-pass=""><code
+                                data-tomark-pass="">🖌️ 中风格</code></span>
+                    </div>
+                    <div data-tomark-pass="">
+                        <p data-tomark-pass=""><code data-tomark-pass="">--stylize 250</code></p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stylize_Fig250.jpg"
+                            alt="Midjourney风格参数示例。提示'无花果的彩色凸版印刷'，stylize=250的图像" data-tomark-pass=""
+                            data-lightbox="box"> 相当于 <span class="discordbtn" data-tomark-pass=""><code
+                                data-tomark-pass="">🖌️ 高风格</code></span>
+                    </div>
+                    <div data-tomark-pass="">
+                        <p data-tomark-pass=""><code data-tomark-pass="">--stylize 750</code></p>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Stylize_Fig750.jpg"
+                            alt="Midjourney风格参数示例。提示'无花果的彩色凸版印刷'，stylize=750的图像" data-tomark-pass=""
+                            data-lightbox="box"> 相当于 <span class="discordbtn" data-tomark-pass=""><code
+                                data-tomark-pass="">🖌️ 极高风格</code></span>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 id="how-to-use-stylize">如何使用风格化</h2>
+
+                <h3 id="use-the-stylize-parameter">使用风格化参数</h3>
+
+                <p>在Discord上的提示末尾或网站的imagine栏中添加 <code>--stylize &lt;值&gt;</code> 或 <code>--s &lt;值&gt;</code>：</p>
+
+                <div data-tomark-pass="">
+                    <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Parameter_Style.gif"
+                        alt="显示如何使用Midjourney风格参数的动画Gif。" data-tomark-pass="" data-lightbox="box">
+                </div>
+
+                <h3 id="use-the-discord-settings-command">使用Discord设置命令</h3>
+
+                <p>输入 <code>/settings</code> 并从菜单中选择您喜欢的风格化值。</p>
+
+                <div class="buttonrowlarge" data-tomark-pass="">
+                    <span class="discordbtn" data-tomark-pass=""><code data-tomark-pass="">🖌️ 低风格</code></span>
+                    <span class="discordbtn" data-tomark-pass=""><code data-tomark-pass="">🖌️ 中风格</code></span>
+                    <span class="discordbtn" data-tomark-pass=""><code data-tomark-pass="">🖌️ 高风格</code></span>
+                    <span class="discordbtn" data-tomark-pass=""><code data-tomark-pass="">🖌️ 极高风格</code></span>
+                </div>
+
+                <h3 id="website-settings">网站设置</h3>
+
+                <p>您可以使用imagine栏中的设置按钮设置默认风格化：</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-website-settings-stylize.png"
+                        alt="" data-tomark-pass="" data-lightbox="box"></p>
+
+                <p>向左调节滑块以获得较低的值，向右调节以获得较高的值。</p>
+
+                <p>除非您在单个提示中使用 <code>--stylize</code> 或 <code>--s</code> 参数指定不同的值，否则您在此处设置的值将应用于所有提示。</p>
+
+
+                <h3 id="tile">平铺（Tile）</h3>
+
+                <h4><code>--tile</code> 参数生成可用作重复图块的图像，以创建无缝图案，适用于织物、壁纸和纹理。</h4>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <p><code>--tile</code> 适用于<a href="/models">模型版本</a> <code>1</code> <code>2</code>
+                            <code>3</code> <code>test</code> <code>testp</code> <code>5</code> <code>5.1</code>
+                            <code>5.2</code> 和 <code>6</code>。<br>
+                            <code>--tile</code> 只生成单个图块。使用图案制作工具（如这个<a href="//www.pycheung.com/checker/"
+                                target="_blank">无缝图案检查器</a>）来查看图块重复效果。
+                        </p>
+                    </div>
+                </section>
+
+                <hr>
+
+                <h2 id="tile-examples">平铺示例</h2>
+
+                <p><code>prompt</code> <code>粉色和蓝色条纹河石的图案 --tile</code><br>
+                    <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_tile_stripedStones.png"
+                        alt="使用模型版本6和提示'粉色和蓝色条纹河石的重复图案 --tile'创建的图案图像和平铺重复的例子" data-lightbox="box">
+                </p>
+
+                <p><code>prompt</code> <code>五彩水彩秋叶的图案 --tile</code><br>
+                    <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_tile_watercolorLeaves.png"
+                        alt="使用模型版本6和提示'五彩水彩秋叶的图案 --tile'创建的图案图像和平铺重复的例子" data-lightbox="box">
+                </p>
+
+                <hr>
+
+                <h2 id="how-to-use-the-tile-parameter">如何使用平铺参数</h2>
+
+                <p>在提示的末尾添加 <code>--tile</code>。</p>
+
+                <div data-tomark-pass="">
+                    <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Parameter_Tile.gif"
+                        alt="显示如何输入Midjourney平铺参数的动画Gif" data-tomark-pass="" data-lightbox="box">
+                </div>
+                <h3 id="version">版本（Version）</h3>
+
+                <h4>Midjourney定期推出新的模型版本，以提高连贯性、效率、质量和风格。您可以使用 --version 或 --v 参数或使用 /settings
+                    命令并选择您喜欢的模型版本来切换模型版本。不同的模型擅长生成不同类型的图像。</h4>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <ul>
+                            <li><code>--version</code> 接受的值为 1、2、3、4、5、5.0、5.1、5.2、6 和 6.1。</li>
+                            <li><code>--version</code> 可以缩写为 <code>--v</code>。</li>
+                            <li><code>--v 6.1</code> 是最新的且当前默认的模型。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <hr>
+
+                <h2 id="model-version-61">模型版本 6.1</h2>
+
+                <p>版本 6.1 于 2024 年 7 月 30 日发布，成为新的默认模型。它生成的图像更加连贯，具有更精确的细节和纹理，并且生成图像的速度比版本 6 快约 25%。</p>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/poppies-v6-1.png"
+                                alt="Midjourney版本6.1示例图像，提示为'充满活力的加州罂粟'" data-tomark-pass="" data-lightbox="box">
+                            <div class="img-overlay" data-tomark-pass="">提示：充满活力的加州罂粟 --v 6.1</div>
+                        </div>
+                    </div>
+                    <div data-tomark-pass="">
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/collage-v6-1.png"
+                                alt="Midjourney版本6.1示例图像，提示为'高对比度超现实主义拼贴画'" data-tomark-pass="" data-lightbox="box">
+                            <div class="img-overlay" data-tomark-pass="">提示：高对比度超现实主义拼贴画 --v 6.1</div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 id="model-version-6">模型版本 6</h2>
+
+                <p>Midjourney 模型版本 6 改进了对较长输入的提示准确性，提高了连贯性和知识水平，并增强了图像提示和重混能力。</p>
+
+                <p>Midjourney 模型版本 6 于 2023 年 12 月 20 日发布，并在 2024 年 2 月 14 日至 7 月 30 日期间作为默认模型。</p>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_V6_poppies.jpg"
+                                alt="Midjourney版本6示例图像，提示为'充满活力的加州罂粟'" data-tomark-pass="" data-lightbox="box">
+                            <div class="img-overlay" data-tomark-pass="">提示：充满活力的加州罂粟 --v 6</div>
+                        </div>
+                    </div>
+                    <div data-tomark-pass="">
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_V6_HighContrastCollage.jpg"
+                                alt="Midjourney版本6示例图像，提示为'高对比度超现实主义拼贴画'" data-tomark-pass="" data-lightbox="box">
+                            <div class="img-overlay" data-tomark-pass="">提示：高对比度超现实主义拼贴画 --v 6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 id="niji-model-6">Niji 模型 6</h2>
+
+                <p>Niji 模型是 Midjourney 与 <a href="//spellbrush.com/" target="_blank">Spellbrush</a>
+                    的合作成果，专门调教用于生成动漫和插画风格，具有更丰富的动漫、动漫风格和动漫美学知识。它在动态和动作镜头以及以角色为中心的构图方面表现出色。</p>
+
+                <p>要使用此模型，请在提示的末尾添加 <code>--niji 6</code> 参数，或使用 <code>/settings</code> 命令并选择 <span class="discordbtn"
+                        data-tomark-pass=""><code data-tomark-pass="">🌈 Niji 版本 6</code></span>
+                </p>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Niji6_VibrantPoppies.jpg"
+                                alt="Niji 6示例图像，提示为'充满活力的加州罂粟'" data-tomark-pass="" data-lightbox="box">
+                            <div class="img-overlay" data-tomark-pass="">提示：充满活力的加州罂粟 --niji 6</div>
+                        </div>
+                    </div>
+                    <div data-tomark-pass="">
+                        <div class="example-image" data-tomark-pass="">
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_niji6_HighContrastCollage.jpg"
+                                alt="Niji 6示例图像，提示为'高对比度超现实主义拼贴画'" data-tomark-pass="" data-lightbox="box">
+                            <div class="img-overlay" data-tomark-pass="">提示：高对比度超现实主义拼贴画 --niji 6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 id="niji-6-vs-midjourney-version-6">Niji 6 vs. Midjourney 版本 6</h3>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--v 6</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_V6_Poppies.jpg"
+                            alt="Midjourney版本v6示例图像，提示为'充满活力的加州罂粟 --v 6'" data-tomark-pass="" data-lightbox="box">
+                        <code data-tomark-pass="">充满活力的加州罂粟 --v 6</code>
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--niji 6</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Niji6_Poppies.jpg"
+                            alt="niji 6示例图像，提示为'充满活力的加州罂粟 --niji 6'" data-tomark-pass="" data-lightbox="box">
+                        <code data-tomark-pass="">充满活力的加州罂粟 --niji 6</code>
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--v 6</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_V6_FruitSalad.jpg"
+                            alt="Midjourney版本v6示例图像，提示为'水果沙拉树 --v 6'" data-tomark-pass="" data-lightbox="box">
+                        <code data-tomark-pass="">水果沙拉树 --v 6</code>
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--niji 6</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_niji6_FruitSalad.jpg"
+                            alt="niji 6示例图像，提示为'水果沙拉树 --niji 6'" data-tomark-pass="" data-lightbox="box">
+                        <code data-tomark-pass="">水果沙拉树 --v 6 --style raw</code>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 id="how-to-switch-models">如何切换模型</h2>
+
+                <h3 id="use-the-version-parameter">使用版本参数</h3>
+
+                <p>使用 <code>--version</code> 或 <code>--v</code> 参数来更改模型版本。例如，<code>--v 5.2</code> 使用版本 5.2，或
+                    <code>--niji 6</code> 使用 Niji 版本 6。
+                </p>
+
+                <div data-tomark-pass="">
+                    <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Version_V52.gif"
+                        alt="显示如何输入Midjourney版本参数的动画Gif" data-tomark-pass="" data-lightbox="box">
+                </div>
+
+                <h3 id="use-the-discord-settings-command">使用 Discord 设置命令</h3>
+
+                <p>输入 <code>/settings</code> 并从下拉列表中选择您喜欢的版本。</p>
+
+                <div class="buttonrowlarge" data-tomark-pass="">
+                    <span class="discordbtn" data-tomark-pass=""><code data-tomark-pass="">6️⃣ MJ 版本 6.1</code></span>
+                    <span class="discordbtn" data-tomark-pass=""><code data-tomark-pass="">6️⃣ MJ 版本 6</code></span>
+                    <span class="discordbtn" data-tomark-pass=""><code data-tomark-pass="">🌈 Niji 版本 6</code></span>
+                </div>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <p>想了解更多关于 Midjourney 旧模型的信息？查看<a href="/v1/docs/legacy-model-version-parameters">旧版模型版本页面</a>。
+                        </p>
+                    </div>
+                </section>
+
+                <h3 id="website-settings">网站设置</h3>
+
+                <p>您可以使用imagine栏中的设置按钮设置默认版本：</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-website-settings-version.png"
+                        alt="" data-tomark-pass="" data-lightbox="box"></p>
+
+                <p>从下拉菜单中选择您喜欢的版本。除非您在单个提示中使用 <code>--version</code> 或 <code>--v</code> 参数指定不同的值，否则您的图像将使用该版本生成。</p>
+                <h3 id="video">视频（Video）</h3>
+
+                <h4>使用 <code>--video</code> 参数来创建一个短视频，展示您的初始图像网格生成过程。对完成的作业使用信封 ✉️ 表情符号反应，Midjourney
+                    机器人会将视频链接发送到您的<span class="popover__title" data-glossary="Direct Message"
+                        data-glossaryid="f826e751-6db0-464b-a6c6-191ed45fe7fe">私信</span>。</h4>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <p><code>--video</code> 仅适用于图像网格，不适用于放大图像。<br>
+                            <code>--video</code> 适用于<a href="/models">模型版本</a> <code>5.2</code> <code>6</code>
+                            <code>niji 5</code> 和 <code>niji 6</code>。<br>
+                            <code>--video</code> 适用于<a href="/legacy/docs/models">旧版模型版本</a> <code>1</code>
+                            <code>2</code> <code>3</code> <code>5.0</code> <code>5.1</code> <code>test</code> 和
+                            <code>testp</code>。<br>
+                            生成的视频将在创建 30 天后删除。
+                        </p>
+                    </div>
+                </section>
+
+                <hr>
+
+                <h2 id="video-examples">视频示例</h2>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VideoResult.gif"
+                            alt="使用Midjourney视频参数创建的动画Gif" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">充满活力的加州罂粟</p>
+                    </div>
+                    <div data-tomark-pass="">
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VideoResult2.gif"
+                            alt="使用Midjourney视频参数创建的动画Gif" data-tomark-pass="" data-lightbox="box">
+                        <p data-tomark-pass="">蕨类植物的植物学素描</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 id="how-to-get-a-video-link">如何获取视频链接</h2>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>充满活力的加州罂粟 --video</code></p>
+
+                <p data-tomark-pass=""><span class="discordbtn" data-tomark-pass=""><code class="teal"
+                            data-tomark-pass="">1</code></span> 在提示的末尾添加 <code data-tomark-pass="">--video</code>。
+                </p>
+
+                <p data-tomark-pass=""><span class="discordbtn" data-tomark-pass=""><code class="orange"
+                            data-tomark-pass="">2</code></span> 作业完成后，点击添加反应</p>
+
+                <p data-tomark-pass=""><span class="discordbtn" data-tomark-pass=""><code class="green"
+                            data-tomark-pass="">3</code></span> 选择 ✉️ 信封表情符号。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Video_EmojiReact.png"
+                        alt="说明如何在Midjourney中使用信封表情符号反应的图像"  data-lightbox="box"></p>
+
+                <p data-tomark-pass=""><span class="discordbtn" data-tomark-pass=""><code class="orange"
+                            data-tomark-pass="">4</code></span> Midjourney 机器人会将视频链接发送到您的私信。</p>
+
+                <p data-tomark-pass=""><span class="discordbtn" data-tomark-pass=""><code class="teal"
+                            data-tomark-pass="">5</code></span> 点击链接在浏览器中查看您的视频。右键点击或长按以下载视频。</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_VideoLink%281%29.png"
+                        alt="MJ_VideoLink1"  data-lightbox="box"></p>
+
+                <hr>
+
+                <h2 id="how-to-use-the-video-parameter">如何使用视频参数</h2>
+
+                <p>在提示的末尾添加 <code>--video</code>。</p>
+
+                <div data-tomark-pass="">
+                    <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Parameter_Video.gif"
+                        alt="显示如何输入Midjourney视频参数的动画Gif" data-tomark-pass="" data-lightbox="box">
+                </div>
+
+                <div class="glossary-popover-contents">
+                    <div class="popover__content hidden f826e751-6db0-464b-a6c6-191ed45fe7fe">
+                        <p>订阅用户可以在Discord的私信中与Midjourney机器人一对一工作，而不是在公共频道中。在您的私信中创建的图像仍然受内容和审核规则的约束，并将在您的Midjourney网站画廊中可见。
+                        </p>
+                    </div>
+                </div>
+                <h3 id="weird">怪异（Weird）</h3>
+
+                <h4>使用实验性的 <code>--weird</code> 或 <code>--w</code> 参数探索非常规美学。这个参数为您生成的图像引入古怪和离奇的特质，产生独特而意想不到的结果。
+                </h4>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <p><code>--weird</code> 接受的值：0–3000。<br>
+                            默认的 --weird 值是 0。<br>
+                            --weird 是一个高度实验性的功能。什么是怪异可能会随时间而改变<br>
+                            --weird 与<a href="/models">Midjourney 模型版本 5、5.1、5.2、6、niji 5 和 niji 6</a>兼容<br>
+                            --weird 与<a href="/seeds">种子</a>不完全兼容</p>
+                    </div>
+                </section>
+
+                <hr>
+
+                <h2 id="the-influence-of-weird-on-jobs">怪异对作业的影响</h2>
+
+                <p>最佳的 <code>--weird</code> 值取决于提示，需要进行实验。尝试从较小的值开始，比如 250 或
+                    500，然后从那里上下调整。如果您希望生成既具有传统吸引力又怪异的内容，请尝试将较高的 <code>--stylize</code> 值与 <code>--weird</code>
+                    混合使用。尝试从两者相似的值开始。例如 <code>/imagine prompt</code> <code>蓝晒猫 --stylize 250 --weird 250</code>。</p>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>蓝晒猫 --weird 250</code></p>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--weird 0</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Weird_0.jpg"
+                            alt="使用Midjourney怪异参数生成的示例图像，提示：蓝晒猫 --weird 0" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--weird 250</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Weird_250.jpg"
+                            alt="使用Midjourney怪异参数生成的示例图像，提示：蓝晒猫 --weird 250" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--weird 500</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Weird_500.jpg"
+                            alt="使用Midjourney怪异参数生成的示例图像，提示：蓝晒猫 --weird 500" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--weird 1000</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Weird_1000.jpg"
+                            alt="使用Midjourney怪异参数生成的示例图像，提示：蓝晒猫 --weird 1000" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                </div>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>石版画土豆 --weird 250</code></p>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--weird 0</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Weird_Potato_0.jpg"
+                            alt="使用Midjourney怪异参数生成的示例图像，提示：石版画土豆 --weird 0" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--weird 250</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Weird_Potato_250.jpg"
+                            alt="使用Midjourney怪异参数生成的示例图像，提示：石版画土豆 --weird 250" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--weird 500</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Weird_Potato_500.jpg"
+                            alt="使用Midjourney怪异参数生成的示例图像，提示：石版画土豆 --weird 500" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--weird 1000</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Weird_Potato_1000.jpg"
+                            alt="使用Midjourney怪异参数生成的示例图像，提示：石版画土豆 --weird 1000" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                </div>
+
+                <p>提示示例：<code>/imagine prompt</code> <code>发条鸡 --weird 250</code></p>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--weird 0</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Weird_Chicken_0.jpg"
+                            alt="使用Midjourney怪异参数生成的示例图像，提示：发条鸡 --weird 0" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--weird 250</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Weird_Chicken_250.jpg"
+                            alt="使用Midjourney怪异参数生成的示例图像，提示：发条鸡 --weird 250" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--weird 500</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Weird_Chicken_500.jpg"
+                            alt="使用Midjourney怪异参数生成的示例图像，提示：发条鸡 --weird 500" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                    <div data-tomark-pass="">
+                        <h5 data-tomark-pass=""><code data-tomark-pass="">--weird 1000</code></h5>
+                        <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Weird_Chicken_1000.jpg"
+                            alt="使用Midjourney怪异参数生成的示例图像，提示：发条鸡 --weird 1000" data-tomark-pass="" data-lightbox="box">
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 id="whats-the-difference-between-weird-chaos-and-stylize">
+                    <code>--weird</code>、<code>--chaos</code> 和 <code>--stylize</code> 有什么区别？
+                </h2>
+
+                <p><code>--chaos</code> 控制初始网格图像之间的多样性程度。<br>
+                    <code>--stylize</code> 控制 Midjourney 默认美学应用的强度。<br>
+                    <code>--weird</code> 控制图像与以前的 Midjourney 图像相比有多不寻常。
+                </p>
+
+                <hr>
+
+                <h2 id="how-to-use-weird">如何使用怪异参数</h2>
+
+                <h3 id="use-the-weird-parameter">使用怪异参数</h3>
+
+                <p>在 Discord 上的提示末尾或网站的 imagine 栏中添加 <code>--weird &lt;值&gt;</code> 或 <code>--w &lt;值&gt;</code>：
+                </p>
+
+                <div data-tomark-pass="">
+                    <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/WeirdParamter.gif"
+                        alt="显示如何输入 Midjourney 怪异参数的动画 Gif" data-tomark-pass="" data-lightbox="box">
+                </div>
+
+                <h3 id="website-settings">网站设置</h3>
+
+                <p>您可以使用 imagine 栏中的设置按钮设置默认怪异度：</p>
+
+                <p><img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/mj-website-settings-weird.png"
+                        alt="" data-tomark-pass="" data-lightbox="box"></p>
+
+                <p>向左调节滑块以获得较低的值，向右调节以获得较高的值。</p>
+
+                <p>除非您在单个提示中使用 <code>--weird</code> 或 <code>--w</code> 参数指定不同的值，否则您在此处设置的值将应用于所有提示。</p>
+
+                <h3 id="text-generation">文本生成（Text Generation）</h3>
+
+                <h4>在Midjourney版本6中，您可以在提示中使用双引号（<code>"</code>）包围单词或短语，以指定您希望在图像中出现的文本。</h4>
+
+                <section class="infoBox">
+                    <div class="title"></div>
+                    <div class="content">
+                        <ul>
+                            <li>在使用<a
+                                    href="/v1/docs/models">Midjourney版本6</a>时，您可以使用"引号"来指示提示中您希望在图像中显示为文本的部分：<code>一只赛博朋克风格的猫，旁边有一个写着"Midjourney"的霓虹灯招牌</code>。
+                            </li>
+                            <li>单引号/撇号不起作用——Midjourney只认识"双引号中的单词和短语"作为应该出现在结果图像中的文本。</li>
+                            <li>文本生成支持标准拉丁字母（英语）字符。较短的单词和短语更有可能被准确生成。</li>
+                            <li>如果您在生成提示中的确切单词或短语时遇到困难，请尝试使用<a href="/v1/docs/style"><code>--style raw</code></a>或较低的<a
+                                    href="/v1/docs/stylize">风格化</a>值，或尝试使用<a
+                                    href="/v1/docs/vary-region-remix">区域变化</a>来纠正小问题。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <hr>
+
+                <h3 id="examples">示例</h3>
+
+                <div class="grid" data-tomark-pass="">
+                    <div data-tomark-pass="">
+                        <div data-tomark-pass="">
+                            <p data-tomark-pass=""><code
+                                    data-tomark-pass="">/imagine prompt: 一只赛博朋克风格的猫，旁边有一个写着"Midjourney"的霓虹灯招牌</code>
+                            </p>
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/v6-text-cat.png"
+                                alt="使用Midjourney生成的图像，显示一只赛博朋克风格的猫，它的爪子放在一个写着'Midjourney'的霓虹灯招牌上，提示为'一只赛博朋克风格的猫，旁边有一个写着'Midjourney'的霓虹灯招牌'"
+                                data-tomark-pass="" data-lightbox="box">
+                        </div>
+                    </div>
+                    <div data-tomark-pass="">
+                        <div data-tomark-pass="">
+                            <p data-tomark-pass=""><code
+                                    data-tomark-pass="">/imagine prompt: 一幅粉彩水彩风景画，云朵中写着"/imagine"</code></p>
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/v6-text-landscape.png"
+                                alt="一幅水彩风景画，有松树、柔和的云朵，中间用深色风格化字体写着'/imagine'，使用Midjourney生成，提示为'一幅粉彩水彩风景画，云朵中写着'/imagine''"
+                                data-tomark-pass="" data-lightbox="box">
+                        </div>
+                    </div>
+                    <div data-tomark-pass="">
+                        <div data-tomark-pass="">
+                            <p data-tomark-pass=""><code
+                                    data-tomark-pass="">/imagine prompt: 一本手册的卡通画，页面上用大字写着"阅读文档"</code></p>
+                            <img src="//cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/v6-text-docs.png"
+                                alt="一幅卡通画，显示一个人的手拿着一本打开的书，书的两页顶部写着'read the docs'，使用Midjourney生成，提示为'一本手册的卡通画，页面上用大字写着'阅读文档''"
+                                data-tomark-pass="" data-lightbox="box">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>© 2025 编者·李策. 保留所有权利。</p>
+            <p><a href="index.html" style="color: white;">返回首页</a></p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
