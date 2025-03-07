@@ -594,3 +594,38 @@ details[open] summary {
     border-radius: 8px;
     overflow: hidden;
 }
+
+/* 案例输入输出样式 */
+.case-input, .case-output {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.case-input h6, .case-output h6 {
+    color: var(--text-color);
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.case-input pre, .case-output pre {
+    margin: 0;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0;
+}
+
+.case-input code, .case-output code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.case-output {
+    border-color: #ddd;
+}
