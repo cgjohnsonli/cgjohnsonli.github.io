@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>建筑设计概念提案创作 - AI大模型工具使用技巧整理</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>建筑设计概念提案创作</h1>
+            <p class="subtitle">AI大模型工具辅助建筑设计工作流</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="overview" class="content-section">
+            <h2>概述</h2>
+            <p>本案例展示如何利用AI工具完成建筑设计概念提案创作。工作流包含实际案例和示意性的AI辅助制作步骤。在具体工作中需要根据具体需求进行调整和深化才能达到最好的效果。</p>
+        </section>
+
+        <section id="concept-design" class="content-section">
+            <h2>设计流程展示</h2>
+            <div class="showcase">
+                <p class="caption">某城市文化中心建筑设计竞赛方案（包含建筑效果图、空间分析、可持续设计说明）</p>
+            </div>
+
+            <div class="project-brief">
+                <h3>项目背景（虚构）：</h3>
+                <blockquote>
+                    <p>某市发布2025年城市文化中心建筑设计国际竞赛公告。项目位于市中心核心区域，紧邻中央公园和艺术区，占地面积约20000平方米。建筑定位为城市标志性公共文化建筑，主要功能包括4000㎡可变展厅、800座大剧场和300座小剧场、3000㎡图书馆（含数字阅览区和开放阅读区），以及入口大厅、文创商店、咖啡厅等配套设施。设计需重点考虑当地传统建筑元素与现代设计语言的融合，达到LEED铂金级认证标准，并整合智能建筑管理系统。竞赛提交成果包括概念方案、效果图、分析图和技术说明。</p>
+                </blockquote>
+            </div>
+
+            <h3>制作流程：</h3>
+            <ol class="workflow-steps">
+                <li>
+                    <h4>案例研究与分析</h4>
+                    <div class="tool-usage">
+                        <p><strong>使用工具</strong>：秘塔AI搜索</p>
+                        <p><strong>搜索策略</strong>：</p>
+                        <div class="search-results">
+                            <div class="search-group">
+                                <h5>基础案例搜索</h5>
+                                <p><strong>关键词</strong>："文化建筑设计竞赛获奖案例 扎哈 隈研吾 文化中心 详细介绍"</p>
+                                <details>
+                                    <summary>搜索结果（点击展开）</summary>
+                                    <div class="content">
+                                        <div class="result-image">
+                                            <img src="../assets/images/chat_response/designer_workflow_arch_case_analysis.png" alt="基础案例搜索结果">
+                                            <p class="caption">获奖案例分析长图</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <div class="search-group">
+                                <h5>可持续性案例搜索</h5>
+                                <p><strong>关键词</strong>："LEED铂金认证 文化建筑 可持续设计策略 案例分析"</p>
+                                <details>
+                                    <summary>搜索结果（点击展开）</summary>
+                                    <div class="content">
+                                        <div class="result-image">
+                                            <img src="../assets/images/chat_response/designer_workflow_arch_sustainable.png" alt="可持续性案例搜索结果">
+                                            <p class="caption">LEED认证案例分析长图</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <div class="search-group">
+                                <h5>本地文化元素搜索</h5>
+                                <p><strong>关键词</strong>："[城市名]传统建筑特征 现代转译 建筑设计"</p>
+                                <details>
+                                    <summary>搜索结果（点击展开）</summary>
+                                    <div class="content">
+                                        <div class="result-image">
+                                            <img src="../assets/images/chat_response/designer_workflow_arch_local_culture.png" alt="本地文化元素搜索结果">
+                                            <p class="caption">传统建筑元素分析长图</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <h4>概念方案生成</h4>
+                    <div class="tool-usage">
+                        <p><strong>使用工具</strong>：Deepseek</p>
+                        <p><strong>提示词策略</strong>：采用分步骤、结构化的提示方式，并将前述案例分析结果作为参考输入</p>
+                        
+                        <div class="prompt-sequence">
+                            <h5>第一阶段：设计理念生成</h5>
+                            <pre><code>作为一位经验丰富的建筑师，请基于以下项目条件和案例分析结果生成设计理念。我已经上传了三组案例分析结果，包括近期获奖案例、LEED认证案例和本地建筑特征分析，请参考这些内容进行设计：[上传案例分析结果]
+
+1. 项目背景：[项目详细信息]
+2. 设计要求：[具体要求]
+
+请从以下几个方面阐述设计理念：
+1. 场地响应策略
+2. 文化符号提取与转译
+3. 空间序列构思
+4. 可持续设计策略
+5. 创新亮点</code></pre>
+
+                            <details class="ai-response">
+                                <summary>Deepseek回答 - 设计理念（点击展开）</summary>
+                                <div class="content">
+                                    <h3>设计理念："文化绿洲·未来共生"</h3>
+                                    <p>以在地文化传承、生态可持续、智能交互为核心，打造一座兼具历史温度与未来科技感的城市文化地标。</p>
+
+                                    <h4>1. 场地响应策略</h4>
+                                    <h5>自然与城市的过渡</h5>
+                                    <ul>
+                                        <li>建筑形体沿中央公园轴线延伸，采用退台式阶梯设计</li>
+                                        <li>形成"城市客厅"与"公园绿廊"的视觉通廊</li>
+                                        <li>入口大厅采用全玻璃幕墙，模糊室内外界限，将公园景观引入建筑内部</li>
+                                    </ul>
+
+                                    <h5>交通与功能整合</h5>
+                                    <ul>
+                                        <li>地下层：公共交通接驳点（含地铁出口）</li>
+                                        <li>地面层：自行车停放区与电动汽车充电桩</li>
+                                        <li>屋顶层：步行天桥连接艺术区，形成"零碳动线"</li>
+                                    </ul>
+
+                                    <h4>2. 文化符号提取与转译</h4>
+                                    <h5>形译与意译结合</h5>
+                                    <p>提取本地传统建筑中的坡屋顶、院落布局、木构架元素，通过参数化设计转化为现代几何语言：</p>
+                                    <ul>
+                                        <li><strong>屋顶：</strong>以动态折叠金属板重构传统坡屋顶形态，形成光影交错的立面肌理</li>
+                                        <li><strong>院落：</strong>将传统"四合院"转译为三个中庭（展厅、剧场、图书馆），通过玻璃连廊串联，形成"院中有院"的空间层次</li>
+                                        <li><strong>材料：</strong>本土木材与再生混凝土结合，立面嵌入传统纹样的激光镂空铝板，兼顾文化隐喻与节能性能</li>
+                                    </ul>
+
+                                    <h4>3. 空间序列构思</h4>
+                                    <p>起承转合的诗意叙事：</p>
+                                    <ul>
+                                        <li><strong>起：</strong>入口大厅以"文化长卷"为概念，通过弧形坡道引导访客进入，顶部设置LED动态屏投射本土文化影像</li>
+                                        <li><strong>承：</strong>中庭作为核心枢纽，连接展厅、剧场与图书馆，采用悬浮式楼梯与空中廊桥增强空间流动性</li>
+                                        <li><strong>转：</strong>大剧场内部以"折纸"为灵感，通过可变形声学墙面适应不同演出需求</li>
+                                        <li><strong>合：</strong>屋顶花园与中央公园无缝衔接，设置露天剧场和阅读亭，形成"城市文化阳台"</li>
+                                    </ul>
+
+                                    <h4>4. 可持续设计策略</h4>
+                                    <p>LEED铂金级技术集成：</p>
+                                    <ul>
+                                        <li><strong>能源：</strong>屋顶光伏板+立面光伏玻璃提供30%能源，地源热泵系统调节温控</li>
+                                        <li><strong>水循环：</strong>雨水收集系统用于绿化灌溉与冲厕，中水回用率达80%</li>
+                                        <li><strong>材料：</strong>80%混凝土为再生骨料，钢结构可拆卸设计便于未来改造</li>
+                                        <li><strong>室内环境：</strong>CO₂浓度监测与新风联动系统，确保空气质量优于ASHRAE标准</li>
+                                        <li><strong>智能管理：</strong>BIM平台整合能耗、安防、人流数据，AI算法优化设备运行效率</li>
+                                    </ul>
+
+                                    <h4>5. 创新亮点</h4>
+                                    <ul>
+                                        <li><strong>模块化可变展厅：</strong>采用可升降地面与移动隔墙系统，4小时内完成从"艺术展"到"沉浸式戏剧空间"的转换</li>
+                                        <li><strong>文化交互界面：</strong>图书馆数字阅览区设AR互动墙，访客可通过手势"翻阅"本地历史文献</li>
+                                        <li><strong>生态表皮：</strong>立面集成垂直绿化与光伏板，随季节变化调节开合角度，形成"会呼吸的建筑"</li>
+                                    </ul>
+
+                                    <h4>总结</h4>
+                                    <p>本案以"传统基因的科技转译"与"零碳智慧运营"为双核驱动，通过空间叙事、技术赋能、文化共鸣，重塑城市公共文化空间的未来范式。既致敬历史，亦对话未来，成为市民心中的"精神灯塔"与全球可持续建筑的标杆之作。</p>
+                                </div>
+                            </details>
+
+                            <h5>第二阶段：功能分区规划</h5>
+                            <pre><code>基于前述设计理念，请详细规划建筑的功能分区，图片使用mermaid表达：
+
+1. 空间需求：
+   - 展览空间：4000㎡可变展厅
+   - 剧场：800座大剧场，300座小剧场
+   - 图书馆：3000㎡（含数字阅览区）
+   - 配套设施：入口大厅、文创商店、咖啡厅
+
+请提供：
+1. 垂直功能分区策略
+2. 水平功能关系图
+3. 公共空间组织逻辑
+4. 交通流线分析
+5. 设备与后勤空间布局</code></pre>
+
+                            <details class="ai-response">
+                                <summary>Deepseek回答 - 功能分区（点击展开）</summary>
+                                <div class="content">
+                                    <div class="content-section">
+                                        <h3>建筑功能分区与流线分析</h3>
+                                        
+                                        <div class="example">
+                                            <h4>垂直功能分区策略</h4>
+                                            <pre class="mermaid-code"><code>%% 垂直功能分区策略
+graph TD
+    subgraph 地下层B2-B1
+        B2[设备层：能源中心/中水处理/机房]
+        B1[后勤层：装卸区/仓库/员工更衣室]
+    end
+
+    subgraph 地面层L1
+        L1A[入口大厅/文创商店/咖啡厅]
+        L1B[小剧场(300座)/票务中心]
+        L1C[图书馆入口]
+    end
+
+    subgraph 中层L2-L3
+        L2A[可变展厅(2000㎡)]
+        L2B[大剧场(800座)观众厅]
+        L3A[可变展厅(2000㎡)]
+        L3B[大剧场舞台区]
+        L3C[图书馆开放阅读区]
+    end
+
+    subgraph 高层L4-L5
+        L4[图书馆数字阅览区/研究室]
+        L5[行政办公/会议中心]
+    end
+
+    subgraph 屋顶层
+        RT[屋顶花园/露天剧场/光伏矩阵]
+    end
+
+    B1 -->|垂直货梯| L3B
+    L1A -->|主中庭| L2A
+    L3C -->|景观楼梯| RT</code></pre>
+                                        </div>
+
+                                        <div class="example">
+                                            <h4>水平功能关系</h4>
+                                            <pre class="mermaid-code"><code>%% 水平功能关系图
+flowchart LR
+    subgraph 核心筒
+        CT[中庭：文化长卷LED屏/悬浮楼梯]
+    end
+
+    CT -->|东翼| EX[可变展厅]
+    CT -->|西翼| LIB[图书馆]
+    CT -->|北翼| TH[大剧场]
+    CT -->|南翼| EN[入口大厅]
+    
+    EN --> CR[文创商店]
+    EN --> CF[咖啡厅]
+    TH --> ST[小剧场]
+    LIB --> DR[数字阅览区]
+    EX --> MT[模块化隔墙系统]</code></pre>
+                                        </div>
+
+                                        <div class="example">
+                                            <h4>公共空间组织</h4>
+                                            <pre class="mermaid-code"><code>%% 公共空间组织逻辑
+graph TB
+    EN[入口大厅] -->|文化长卷坡道| CT[中央中庭]
+    CT -->|玻璃连廊| EX[展厅中庭]
+    CT -->|空中廊桥| TH[剧场前厅]
+    CT -->|景观楼梯| LIB[图书馆中庭]
+    LIB -->|屋顶连桥| RT[屋顶花园]
+    
+    style CT fill:#f9d5e5,stroke:#333
+    style EX fill:#e3f2fd,stroke:#333
+    style RT fill:#c8e6c9,stroke:#333</code></pre>
+                                        </div>
+
+                                        <div class="example">
+                                            <h4>交通流线分析</h4>
+                                            <pre class="mermaid-code"><code>%% 交通流线分析
+flowchart TD
+    subgraph 公众流线
+        PL[主入口] --> CT[中庭]
+        CT --> TH[剧场] & EX[展厅] & LIB[图书馆]
+        LIB --> RT[屋顶花园]
+        EX --> CF[咖啡厅]
+    end
+
+    subgraph 后勤流线
+        SL[服务入口] --> B1[装卸区]
+        B1 -->|专用电梯| ST[剧场后台] & EX[展厅库房]
+    end
+
+    subgraph 紧急流线
+        EM[疏散楼梯] -->|每50m设置| EX[展厅出口]
+        EM --> TH[剧场出口]
+        EM --> LIB[图书馆出口]
+    end</code></pre>
+                                        </div>
+
+                                        <div class="example">
+                                            <h4>设备与后勤空间布局</h4>
+                                            <pre class="mermaid-code"><code>%% 设备与后勤空间布局
+graph LR
+    subgraph 地下层
+        B2[能源中心] -->|管道井| PV[光伏配电]
+        B2 --> GS[地源热泵井群]
+        B1[中水处理] --> RW[雨水回收池]
+    end
+
+    subgraph 地面层
+        L1[票务后台] --> TC[票务系统机房]
+        L1 --> ST[剧场控制室]
+    end
+
+    subgraph 设备夹层
+        MZ[空调机组] -->|风管| CT[中庭]
+        MZ --> TH[剧场新风系统]
+        EL[智能电井] -->|光纤| BM[BIM管理平台]
+    end
+
+    subgraph 屋顶层
+        RT[光伏矩阵] --> IN[逆变器室]
+        RT --> IG[智能灌溉控制]
+    end</code></pre>
+                                        </div>
+
+                                        <div class="case-study">
+                                            <h4>设计说明</h4>
+                                            <ol>
+                                                <li><strong>垂直分区</strong>：地下层集中设备与后勤，地面层承载高流量公共功能，中层为文化展示核心区，高层保留安静阅读空间，屋顶整合生态与能源系统。</li>
+                                                <li><strong>水平关系</strong>：以中庭为枢纽，形成"十字型"功能辐射布局，确保各区域可达性与视觉连贯性。</li>
+                                                <li><strong>公共空间</strong>：通过"文化长卷-中庭-屋顶花园"三级空间序列，强化场所精神与空间叙事性。</li>
+                                                <li><strong>交通组织</strong>：采用立体分流策略，公众流线与后勤流线完全分离，紧急疏散满足双向逃生要求。</li>
+                                                <li><strong>设备布局</strong>：遵循"就近服务"原则，主要技术用房布置在地下与屋顶层，通过BIM平台实现智能运维。</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <h5>第三阶段：可持续性策略</h5>
+                            <pre><code>针对LEED铂金级认证要求，详细说明建筑的可持续性策略：
+
+1. 能源与大气：
+   - 建筑节能措施
+   - 可再生能源利用
+   - 自然通风策略
+
+2. 水资源利用：
+   - 雨水收集系统
+   - 中水回用方案
+   - 节水器具选择
+
+3. 材料与资源：
+   - 本地材料使用
+   - 可回收材料应用
+   - 废弃物管理
+
+4. 室内环境：
+   - 自然采光优化
+   - 室内空气质量
+   - 声环境控制</code></pre>
+
+                            <details class="ai-response">
+                                <summary>Deepseek回答 - 可持续策略（点击展开）</summary>
+                                <div class="content">
+                                    <h3>可持续性策略详述（LEED铂金级认证标准）</h3>
+                                    <p>通过全方位的可持续设计策略，实现建筑全生命周期的低碳环保运营。</p>
+
+                                    <h4>1. 能源与大气</h4>
+                                    <h5>建筑节能措施</h5>
+                                    <ul>
+                                        <li><strong>超低能耗围护结构：</strong>采用三层中空Low-E玻璃幕墙（U值≤0.3 W/m²·K），外墙保温层厚度≥150mm（导热系数≤0.03 W/m·K），整体节能率较ASHRAE 90.1基准提升45%</li>
+                                        <li><strong>智能能源管理：</strong>通过BIM平台实时监测能耗，AI算法动态调节空调、照明系统；剧场采用辐射地板+置换新风复合温控技术，降低30%空调负荷</li>
+                                    </ul>
+
+                                    <h5>可再生能源利用</h5>
+                                    <ul>
+                                        <li><strong>光伏一体化设计：</strong>屋顶铺设单晶硅光伏板（效率≥22%），立面采用光伏玻璃幕墙（透光率40%），总装机容量520kW，满足建筑30%用电需求</li>
+                                        <li><strong>地源热泵系统：</strong>埋设120口垂直地埋管（深度100m），提供60%采暖与制冷能源，全年能效比（COP）达4.8</li>
+                                    </ul>
+
+                                    <h5>自然通风策略</h5>
+                                    <ul>
+                                        <li><strong>被动式风道设计：</strong>中庭顶部设置可开启天窗，结合立面镂空铝板导风槽，利用热压差形成"烟囱效应"，过渡季自然通风覆盖率≥65%</li>
+                                        <li><strong>智能通风调控：</strong>CO₂传感器联动电动百叶窗，优先使用自然通风，机械通风仅作为备用</li>
+                                    </ul>
+
+                                    <h4>2. 水资源利用</h4>
+                                    <h5>雨水收集系统</h5>
+                                    <ul>
+                                        <li><strong>全场地渗透式设计：</strong>屋顶与硬质铺装区域设置导水沟，雨水经生物滞留池过滤后存入地下蓄水池（容量200m³），用于绿化灌溉与冲厕，年节水率40%</li>
+                                    </ul>
+
+                                    <h5>中水回用方案</h5>
+                                    <ul>
+                                        <li><strong>灰水循环系统：</strong>洗手台、淋浴间废水经MBR膜生物反应器处理，达到《城市污水再生利用城市杂用水水质标准》（GB/T 18920），回用于冲厕与冷却塔补水，回用率85%</li>
+                                    </ul>
+
+                                    <h5>节水器具选择</h5>
+                                    <ul>
+                                        <li><strong>超低流量设备：</strong>选用一级水效认证产品，如感应式水龙头（流量≤4L/min）、双冲马桶（单次冲水量≤3.5L），较基准建筑节水50%</li>
+                                    </ul>
+
+                                    <h4>3. 材料与资源</h4>
+                                    <h5>本地材料使用</h5>
+                                    <ul>
+                                        <li><strong>500km内材料占比：</strong>混凝土骨料（本地采石场）、木材（区域认证林场）等本地材料使用率达75%，减少运输碳排放</li>
+                                    </ul>
+
+                                    <h5>可回收材料应用</h5>
+                                    <ul>
+                                        <li><strong>循环经济材料：</strong>钢结构（100%可回收）、再生混凝土（含30%建筑废料）、再生铝板（含50%废铝），全生命周期碳排放较传统材料降低35%</li>
+                                    </ul>
+
+                                    <h5>废弃物管理</h5>
+                                    <ul>
+                                        <li><strong>施工阶段：</strong>制定零废弃计划，分类回收混凝土、金属、木材废料，废弃物填埋率≤10%</li>
+                                        <li><strong>运营阶段：</strong>设置智能垃圾分类站，厨余垃圾就地堆肥，可回收物联网追溯管理</li>
+                                    </ul>
+
+                                    <h4>4. 室内环境</h4>
+                                    <h5>自然采光优化</h5>
+                                    <ul>
+                                        <li><strong>动态采光设计：</strong>中庭顶部设置棱镜采光天窗，反射率≥90%，结合导光管将自然光引入深层空间，75%功能区域达到采光系数≥2%</li>
+                                        <li><strong>智能遮阳系统：</strong>光伏玻璃幕墙集成电致变色膜，根据日照强度自动调节透光率，减少眩光与热辐射</li>
+                                    </ul>
+
+                                    <h5>室内空气质量</h5>
+                                    <ul>
+                                        <li><strong>源头污染控制：</strong>所有内装材料通过GREENGUARD金级认证（TVOC≤50μg/m³），地毯、涂料等采用零甲醛配方</li>
+                                        <li><strong>主动净化系统：</strong>新风机组配备MERV-14过滤网+UV光催化模块，PM2.5净化效率≥95%，每小时换气2次</li>
+                                    </ul>
+
+                                    <h5>声环境控制</h5>
+                                    <ul>
+                                        <li><strong>剧场声学优化：</strong>采用可变吸声墙面（NRC≥0.85）+弹性浮筑地板（隔声量≥55dB），背景噪声≤NR-25曲线</li>
+                                        <li><strong>图书馆隔音设计：</strong>阅读区与公共走廊间设置双层石膏板墙（STC≥60），地面铺设软木地板（IIC≥60）</li>
+                                    </ul>
+
+                                    <h4>LEED得分亮点</h4>
+                                    <ul>
+                                        <li><strong>能源与大气：</strong>通过节能设计+可再生能源实现能耗降低52%（EAp2优化能耗性能，+18分）</li>
+                                        <li><strong>水资源：</strong>中水回用+雨水管理满足WEc1-3全部要求（+11分）</li>
+                                        <li><strong>材料与资源：</strong>本地材料+循环材料贡献MRc2-5核心得分（+15分）</li>
+                                        <li><strong>室内环境：</strong>采光与空气品质达标EQc1-8（+12分）</li>
+                                    </ul>
+                                    <p><strong>总预估得分：92/110（铂金级认证阈值≥80分）</strong></p>
+                                </div>
+                            </details>
+                        </div>
+                        
+
+                    </div>
+                </li>
+
+                <li>
+                    <h4>建筑效果图生成</h4>
+                    <div class="tool-usage">
+                        <p><strong>使用工具</strong>：Midjourney</p>
+                        <div class="grid">
+                            <div>
+                                <div class="example-image">
+                                    <img src="../assets/images/midjourney/designer_workflow_arch_exterior.png" alt="建筑外观效果图">
+                                    <div class="img-overlay">提示：modern cultural center architecture, inspired by [local cultural elements], architectural style: fluid organic form meets traditional [local] architecture, materials: glass and steel structure with [local material] accents, surroundings: central park and art district context, lighting: dramatic natural and artificial lighting, view: aerial perspective, golden hour, quality: photorealistic architectural visualization, ultra detailed --ar 16:9</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid">
+                            <div>
+                                <div class="example-image">
+                                    <img src="../assets/images/midjourney/designer_workflow_arch_interior.png" alt="建筑室内效果图">
+                                    <div class="img-overlay">提示：interior of modern cultural center, space: grand exhibition hall with flexible layout, features: floating exhibition platforms, interactive digital displays, lighting: natural skylight with artistic light installations, materials: warm wood, exposed concrete, smart glass, atmosphere: dynamic and cultural, people: visitors for scale and atmosphere --ar 16:9</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid">
+                            <div>
+                                <div class="example-image">
+                                    <img src="../assets/images/midjourney/designer_workflow_arch_technical.png" alt="建筑技术分析图">
+                                    <div class="img-overlay">提示：sustainable architecture diagram, cultural center cross section, features: green roof garden, solar panel integration, systems: rainwater collection, natural ventilation, energy: geothermal system, smart building management, style: technical diagram with annotations, quality: architectural presentation style --ar 16:9</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <h4>方案汇报PPT制作</h4>
+                    <div class="tool-usage">
+                        <p><strong>使用工具</strong>：Kimi AI PPT</p>
+                        <p><strong>提示词策略</strong>：结构化的演示文稿规划</p>
+                        
+                        <pre><code>请为城市文化中心建筑设计方案制作一份完整的汇报PPT，具体要求如下：
+
+1. 演示结构：
+   - 封面：项目名称、团队信息、效果图预览
+   - 目录：清晰的章节导航
+   - 项目背景：竞赛要求、场地分析
+   - 设计理念：概念发展过程、文化元素提取
+   - 方案展示：平面、立面、剖面、效果图
+   - 技术创新：可持续性策略、智能化系统
+   - 结语：项目亮点总结
+
+2. 设计风格：
+   - 视觉风格：现代简约，突出建筑特色
+   - 配色方案：使用项目建筑主色调
+   - 版式设计：清晰的层级结构
+   - 图文比例：以图为主，文字精炼
+
+3. 内容要求：
+   - 每页限制文字量：不超过50字
+   - 重要数据可视化处理
+   - 图表配有简要说明
+   - 重点内容动态呈现
+
+4. 辅助说明：
+   - 提供演讲者注释
+   - 标注关键设计点
+   - 添加比例尺参考
+   - 包含技术指标说明</code></pre>
+                        
+                        <details class="ai-response">
+                            <summary>Kimi PPT大纲生成结果（点击展开）</summary>
+                            <div class="response-content">
+                                <h3>城市文化中心建筑设计方案汇报</h3>
+
+                                <h4>封面</h4>
+                                <ul>
+                                    <li><strong>项目名称：</strong>[城市文化中心名称]</li>
+                                    <li><strong>团队信息：</strong>[设计团队名称]</li>
+                                    <li><strong>效果图预览：</strong>展示建筑整体效果图</li>
+                                </ul>
+
+                                <h4>目录</h4>
+                                <ul>
+                                    <li>项目背景</li>
+                                    <li>设计理念</li>
+                                    <li>方案展示</li>
+                                    <li>技术创新</li>
+                                    <li>结语</li>
+                                </ul>
+
+                                <h4>项目背景</h4>
+                                <h5>竞赛要求</h5>
+                                <ul>
+                                    <li>满足多样化功能需求，涵盖展览、表演、教育等</li>
+                                    <li>与城市整体规划相协调，体现地方特色</li>
+                                    <li>注重可持续发展，融入绿色建筑理念</li>
+                                </ul>
+
+                                <h5>场地分析</h5>
+                                <ul>
+                                    <li>地理位置优越，交通便利，周边配套设施完善</li>
+                                    <li>场地周边自然环境优美，临近公园或水系</li>
+                                    <li>地形地貌平坦，利于建筑布局与空间组织</li>
+                                </ul>
+
+                                <h4>设计理念</h4>
+                                <h5>概念发展过程</h5>
+                                <ul>
+                                    <li>从城市文化脉络中汲取灵感，结合现代建筑语汇</li>
+                                    <li>运用数字化设计工具，优化空间形态与功能布局</li>
+                                    <li>通过多轮方案比选，确定最终设计方向</li>
+                                </ul>
+
+                                <h5>文化元素提取</h5>
+                                <ul>
+                                    <li>提取当地传统建筑元素，如屋顶形式、装饰图案等</li>
+                                    <li>融入地方文化符号，体现地域文化特色</li>
+                                    <li>以现代设计手法重新诠释传统文化，使其更具时代感</li>
+                                </ul>
+
+                                <h4>方案展示</h4>
+                                <h5>平面</h5>
+                                <ul>
+                                    <li>各功能区域布局合理，流线清晰，避免相互干扰</li>
+                                    <li>公共空间宽敞明亮，利于举办各类文化活动</li>
+                                    <li>灵活划分空间，满足不同规模活动需求</li>
+                                </ul>
+
+                                <h5>立面</h5>
+                                <ul>
+                                    <li>立面造型简洁大气，富有现代感</li>
+                                    <li>采用虚实结合的设计手法，营造丰富的光影效果</li>
+                                    <li>选用与周边环境相协调的建筑材料与色彩</li>
+                                </ul>
+
+                                <h5>剖面</h5>
+                                <ul>
+                                    <li>合理组织建筑内部空间高度，满足不同功能需求</li>
+                                    <li>确保良好的自然通风与采光条件</li>
+                                    <li>剖面设计体现建筑的层次感与空间序列</li>
+                                </ul>
+
+                                <h5>效果图</h5>
+                                <ul>
+                                    <li>展示建筑整体效果，突出建筑特色与周边环境融合</li>
+                                    <li>局部效果图展示建筑细节，如入口、广场等</li>
+                                    <li>室内效果图呈现内部空间氛围与功能布局</li>
+                                </ul>
+
+                                <h4>技术创新</h4>
+                                <h5>可持续性策略</h5>
+                                <ul>
+                                    <li>采用高效保温隔热材料，降低建筑能耗</li>
+                                    <li>设置太阳能光伏发电系统，提供部分能源</li>
+                                    <li>应用雨水收集与中水回用技术，节约水资源</li>
+                                </ul>
+
+                                <h5>智能化系统</h5>
+                                <ul>
+                                    <li>建立智能安防系统，保障建筑安全</li>
+                                    <li>配置智能照明与空调控制系统，实现节能运行</li>
+                                    <li>利用智能导览系统，提升用户体验</li>
+                                </ul>
+
+                                <h4>结语</h4>
+                                <h5>项目亮点总结</h5>
+                                <ul>
+                                    <li>独特的建筑造型与文化内涵，成为城市新地标</li>
+                                    <li>多功能空间布局满足多样化文化活动需求</li>
+                                    <li>先进的技术应用，体现可持续发展理念</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <div class="output-sample">
+                            <p><a href="../assets/pdfs/aippt/designer_workflow_arch_presentation.pdf" target="_blank">查看原始生成的PPT转PDF文件</a></p>
+                            <iframe src="../assets/pdfs/aippt/designer_workflow_arch_presentation.pdf" width="100%" height="500px"></iframe>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <section id="resources" class="content-section">
+            <h2>推荐工具</h2>
+            <ul>
+                <li><a href="https://www.midjourney.com">Midjourney</a>：建筑效果图生成</li>
+                <li><a href="https://deepseek.com">Deepseek</a>：设计理念和分析生成</li>
+                <li><a href="https://kimi.moonshot.cn">Kimi</a>：方案汇报PPT制作</li>
+                <li><a href="https://metaso.cn">秘塔搜索</a>：案例研究与分析</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 编者·李策. 保留所有权利。</p>
+            <p><a href="../index.html" style="color: white;">返回首页</a></p>
+        </div>
+    </footer>
+</body>
+
+</html> 

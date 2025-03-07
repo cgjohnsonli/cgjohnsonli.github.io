@@ -216,6 +216,8 @@ h3 {
 h4 {
     color: var(--accent-color);
     margin-top: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 p {
@@ -239,7 +241,45 @@ a:hover {
     text-decoration: underline;
 }
 
+/* 添加工作流步骤的特殊样式 */
+.workflow-steps {
+    list-style: none;
+    counter-reset: workflow-counter;
+    padding-left: 0;
+}
 
+.workflow-steps > li {
+    counter-increment: workflow-counter;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.workflow-steps > li h4 {
+    position: relative;
+    padding-left: 2.5rem;
+    margin-top: 0;
+}
+
+.workflow-steps > li h4::before {
+    content: counter(workflow-counter);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.8rem;
+    height: 1.8rem;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
 
 /* ==============================
    7. 特殊组件
@@ -285,6 +325,47 @@ code {
     border-radius: 4px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.9em;
+}
+
+/* 可折叠内容样式 */
+details {
+    background-color: var(--bg-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+details summary {
+    padding: 1rem;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+details summary:hover {
+    background-color: var(--bg-color);
+}
+
+details .content {
+    padding: 1rem;
+    background-color: white;
+}
+
+details[open] summary {
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.search-results details,
+.ai-response details {
+    margin: 1rem 0;
+}
+
+.search-results .content,
+.ai-response .content {
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 /* ==============================
@@ -439,4 +520,77 @@ code {
     .toggle-button.sidebar-open {
         left: calc(50% - 20px); /* 当侧边栏可见时，按钮显示在侧边栏右侧 */
     }
+}
+
+/* Mermaid 代码块样式 */
+.mermaid-code {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    margin: 1rem 0;
+    padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    line-height: 1.5;
+    overflow-x: auto;
+}
+
+.mermaid-code code {
+    background: none;
+    padding: 0;
+    border: none;
+    display: block;
+    white-space: pre;
+}
+
+/* 图片展示样式 */
+.example-image {
+    position: relative;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.example-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.example-image:hover img {
+    transform: scale(1.02);
+}
+
+.img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.example-image:hover .img-overlay {
+    transform: translateY(0);
+}
+
+/* 网格布局调整 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.grid > div {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
 }
