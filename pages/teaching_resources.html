@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教学资源制作 - AI大模型工具使用技巧整理</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <nav class="top-nav">
+        <ul>
+            <li><a href="../index.html">返回首页</a></li>
+            <li><a href="#overview">概述</a></li>
+            <li><a href="#process">对话流程</a></li>
+            <li><a href="#tools">推荐工具</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>教学资源制作</h1>
+            <p class="subtitle">AI辅助教学资源设计与制作工作流</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="overview">
+            <h2>概述</h2>
+            <p>本工作流展示了如何利用AI大模型辅助教学资源的设计与制作。通过实际的对话案例，展示如何使用AI工具进行课件制作、教学视频设计、练习题生成等工作。重点关注如何提高教学资源的质量和趣味性，同时提升资源制作效率。</p>
+            <p><strong>通过AI工具，我们可以更高效地完成教学资源的设计、制作和优化工作，同时确保资源的教学效果和学习体验。</strong></p>
+        </section>
+
+        <section id="process" class="section">
+            <h2>对话流程</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <h3>案例一：课件内容设计</h3>
+                    <div class="case-content">
+                        <div class="case-description">
+                            <h4>场景描述</h4>
+                            <p>为Python课程的"循环语句"主题设计PPT课件，需要包含理论讲解和实践案例。</p>
+                        </div>
+                        <div class="case-input">
+                            <h6>人类输入</h6>
+                            <pre><code>请帮我设计Python循环语句主题的PPT大纲：
+
+要求：
+1. 设计课件结构
+2. 编写关键内容
+3. 设计教学案例
+4. 添加互动环节</code></pre>
+                        </div>
+                        <div class="case-output">
+                            <h6>AI回复</h6>
+                            <pre><code>为您设计的PPT大纲如下：
+
+1. 课件结构（20页）
+
+第1页：封面
+- 标题：Python循环语句
+- 副标题：让程序更智能
+- 课程信息和教师信息
+
+第2页：本节概述
+- 学习目标
+- 内容框架
+- 重点难点
+
+第3-5页：循环的概念
+- 什么是循环？
+- 为什么需要循环？
+- 生活中的循环现象
+- 编程中的循环应用
+
+第6-8页：while循环
+- 语法结构
+- 执行流程
+- 使用场景
+- 代码示例
+
+第9-11页：for循环
+- 语法结构
+- range()函数
+- 遍历序列
+- 代码示例
+
+第12-14页：循环控制
+- break语句
+- continue语句
+- else子句
+- 嵌套循环
+
+第15-17页：实践案例
+- 猜数字游戏
+- 九九乘法表
+- 数据统计分析
+
+第18-19页：练习题
+- 基础练习
+- 提高练习
+- 思考题
+
+第20页：总结回顾
+- 知识要点
+- 常见问题
+- 扩展学习
+
+2. 教学案例设计
+
+案例一：猜数字游戏
+```python
+import random
+number = random.randint(1, 100)
+while True:
+    guess = int(input("猜一个数："))
+    if guess == number:
+        print("猜对了！")
+        break
+    elif guess > number:
+        print("猜大了")
+    else:
+        print("猜小了")
+```
+
+案例二：九九乘法表
+```python
+for i in range(1, 10):
+    for j in range(1, i+1):
+        print(f"{j}×{i}={i*j}\t", end="")
+    print()
+```
+
+3. 互动设计
+
+课前热身：
+- 循环现象识别
+- 简单算法猜测
+- 代码结果预测
+
+课中互动：
+- 代码编写练习
+- 错误分析讨论
+- 案例实现展示
+
+课后练习：
+- 在线编程题
+- 项目实践任务
+- 拓展思考题
+
+4. 设计建议
+
+版式设计：
+- 简洁清晰的布局
+- 适当的动画效果
+- 代码高亮显示
+- 配色专业协调
+
+内容展示：
+- 图文结合
+- 案例驱动
+- 渐进呈现
+- 要点突出
+
+互动设计：
+- 预留讨论时间
+- 设置思考问题
+- 添加练习环节
+- 鼓励学生参与</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-card">
+                    <h3>案例二：练习题生成</h3>
+                    <div class="case-content">
+                        <div class="case-description">
+                            <h4>场景描述</h4>
+                            <p>为Python课程生成不同难度的练习题，包括选择题、填空题和编程题。</p>
+                        </div>
+                        <div class="case-input">
+                            <h6>人类输入</h6>
+                            <pre><code>请为Python循环语句主题生成练习题：
+
+要求：
+1. 不同题型设计
+2. 难度层次划分
+3. 知识点覆盖
+4. 提供参考答案</code></pre>
+                        </div>
+                        <div class="case-output">
+                            <h6>AI回复</h6>
+                            <pre><code>为您生成的练习题如下：
+
+1. 选择题（基础）
+
+Q1: 以下哪个不是Python的循环语句？
+A. for
+B. while
+C. loop
+D. while...else
+答案：C
+解析：Python主要的循环语句是for和while
+
+Q2: 关于break语句，以下说法正确的是：
+A. 只能用于for循环
+B. 可以用于for和while循环
+C. 只能用于while循环
+D. 不能用于循环结构
+答案：B
+解析：break可用于for和while循环，用于提前结束循环
+
+2. 填空题（中等）
+
+Q1: 使用_____函数可以生成一个整数序列。
+答案：range
+解析：range(start, stop, step)可生成数字序列
+
+Q2: while循环中，如果条件始终为True，会形成_____。
+答案：死循环/无限循环
+解析：条件永真会导致循环无法终止
+
+3. 编程题（基础）
+
+Q1: 编写程序计算1到100的偶数和
+```python
+# 参考答案
+sum = 0
+for i in range(2, 101, 2):
+    sum += i
+print(sum)
+```
+
+Q2: 编写程序打印5x5的星号方阵
+```python
+# 参考答案
+for i in range(5):
+    for j in range(5):
+        print("*", end=" ")
+    print()
+```
+
+4. 编程题（进阶）
+
+Q1: 编写程序判断一个数是否为质数
+```python
+# 参考答案
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+num = int(input("输入一个数："))
+if is_prime(num):
+    print("是质数")
+else:
+    print("不是质数")
+```
+
+Q2: 编写程序实现斐波那契数列的前20项
+```python
+# 参考答案
+def fibonacci(n):
+    a, b = 0, 1
+    for i in range(n):
+        print(a, end=" ")
+        a, b = b, a + b
+
+fibonacci(20)
+```
+
+5. 综合应用题（挑战）
+
+Q1: 编写一个简单的ATM程序
+要求：
+- 初始余额1000元
+- 支持查询、存款、取款功能
+- 取款金额不能超过余额
+- 输入q退出程序
+
+```python
+# 参考答案
+balance = 1000
+
+while True:
+    print("\n1-查询 2-存款 3-取款 q-退出")
+    choice = input("请选择：")
+    
+    if choice == 'q':
+        break
+    elif choice == '1':
+        print(f"余额：{balance}元")
+    elif choice == '2':
+        amount = float(input("存款金额："))
+        if amount > 0:
+            balance += amount
+            print("存款成功")
+    elif choice == '3':
+        amount = float(input("取款金额："))
+        if amount > balance:
+            print("余额不足")
+        elif amount > 0:
+            balance -= amount
+            print("取款成功")
+```
+
+评分标准：
+
+基础题（40分）：
+- 代码规范：10分
+- 功能实现：20分
+- 注释说明：10分
+
+进阶题（30分）：
+- 算法效率：10分
+- 代码优化：10分
+- 异常处理：10分
+
+挑战题（30分）：
+- 功能完整：10分
+- 用户体验：10分
+- 代码质量：10分</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-card">
+                    <h3>案例三：教学视频设计</h3>
+                    <div class="case-content">
+                        <div class="case-description">
+                            <h4>场景描述</h4>
+                            <p>设计Python循环语句主题的教学视频脚本，包括内容结构和演示案例。</p>
+                        </div>
+                        <div class="case-input">
+                            <h6>人类输入</h6>
+                            <pre><code>请设计Python循环语句的教学视频脚本：
+
+要求：
+1. 设计视频结构
+2. 编写讲解内容
+3. 设计演示案例
+4. 注意教学节奏</code></pre>
+                        </div>
+                        <div class="case-output">
+                            <h6>AI回复</h6>
+                            <pre><code>教学视频脚本设计（15分钟）：
+
+1. 开场介绍（1分钟）
+
+画面：动画展示循环概念
+旁白：
+"大家好，今天我们来学习Python中的循环语句。
+在编程中，循环是一个非常重要的概念，它能
+帮助我们高效地处理重复性的工作。"
+
+2. 循环概念（2分钟）
+
+画面：生活中的循环例子
+旁白：
+"在生活中，我们经常遇到重复的事情，比如：
+- 每天的作息规律
+- 四季的轮回
+- 跑步时的步伐
+这些都是循环的例子。"
+
+3. while循环（4分钟）
+
+画面：代码编辑器演示
+代码：
+```python
+# 猜数字游戏
+import random
+number = random.randint(1, 100)
+while True:
+    guess = int(input("猜一个数："))
+    if guess == number:
+        print("猜对了！")
+        break
+    elif guess > number:
+        print("猜大了")
+    else:
+        print("猜小了")
+```
+
+讲解要点：
+- while语法结构
+- 条件判断
+- 循环体
+- break使用
+
+4. for循环（4分钟）
+
+画面：代码编辑器演示
+代码：
+```python
+# 九九乘法表
+for i in range(1, 10):
+    for j in range(1, i+1):
+        print(f"{j}×{i}={i*j}\t", end="")
+    print()
+```
+
+讲解要点：
+- for语法结构
+- range()函数
+- 嵌套循环
+- 格式控制
+
+5. 实践案例（3分钟）
+
+画面：实时编程演示
+案例：简单计分板程序
+```python
+scores = []
+while True:
+    score = input("输入分数（q退出）：")
+    if score == 'q':
+        break
+    scores.append(float(score))
+
+print(f"平均分：{sum(scores)/len(scores)}")
+print(f"最高分：{max(scores)}")
+print(f"最低分：{min(scores)}")
+```
+
+6. 总结回顾（1分钟）
+
+画面：知识点导图
+要点回顾：
+- while vs for选择
+- 循环控制语句
+- 常见使用场景
+- 注意事项
+
+制作建议：
+
+1. 视觉效果
+- 使用代码高亮
+- 添加动画演示
+- 关键点标注
+- 清晰的字幕
+
+2. 音频处理
+- 语速适中
+- 重点强调
+- 背景音乐轻柔
+- 音质清晰
+
+3. 节奏控制
+- 概念讲解：较慢
+- 代码演示：适中
+- 案例分析：详细
+- 总结回顾：简洁
+
+4. 互动设计
+- 预留思考时间
+- 设置练习环节
+- 鼓励暂停尝试
+- 提供反馈机会</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" class="section">
+            <h2>推荐工具</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>核心工具</h3>
+                    <ul>
+                        <li>课件制作：PowerPoint + GPT</li>
+                        <li>视频制作：OBS + GPT</li>
+                        <li>练习生成：Python + GPT</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 编者·李策 保留所有权利。</p>
+            <p><a href="../index.html">返回首页</a></p>
+        </div>
+    </footer>
+</body>
+
+</html> 

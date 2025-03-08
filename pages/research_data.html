@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究数据分析与可视化 - AI大模型工具使用技巧整理</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <nav class="top-nav">
+        <ul>
+            <li><a href="../index.html">返回首页</a></li>
+            <li><a href="#overview">概述</a></li>
+            <li><a href="#process">对话流程</a></li>
+            <li><a href="#tools">推荐工具</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>研究数据分析与可视化</h1>
+            <p class="subtitle">AI辅助研究数据处理与可视化工作流</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="overview">
+            <h2>概述</h2>
+            <p>本工作流展示了如何利用AI大模型辅助研究数据的分析与可视化过程。通过实际的对话案例，展示如何使用AI工具进行数据清洗、统计分析、可视化设计等工作。重点关注如何提高数据分析的效率和可视化的表现力。</p>
+            <p><strong>通过AI工具，我们可以更高效地完成数据处理、分析建模、图表设计等工作，同时确保结果的准确性和美观性。</strong></p>
+        </section>
+
+        <section id="process" class="section">
+            <h2>对话流程</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <h3>案例一：数据清洗与预处理</h3>
+                    <div class="case-content">
+                        <div class="case-description">
+                            <h4>场景描述</h4>
+                            <p>将原始数据集的特征说明输入AI，请AI帮助设计数据清洗和预处理方案。</p>
+                        </div>
+                        <div class="case-input">
+                            <h6>人类输入</h6>
+                            <pre><code>我有一个教育评估数据集，包含以下字段：
+- 学生ID
+- 课程成绩（0-100）
+- 学习时长（分钟）
+- 作业完成率（%）
+- 互动次数
+- 评价反馈（文本）
+
+存在的问题：
+1. 部分成绩数据缺失
+2. 学习时长有异常值
+3. 互动次数格式不统一
+4. 评价反馈需要情感分析
+
+请帮我设计数据清洗方案。</code></pre>
+                        </div>
+                        <div class="case-output">
+                            <h6>AI回复</h6>
+                            <pre><code>建议的数据清洗方案如下：
+
+1. 数据完整性处理
+成绩数据缺失：
+- 检查缺失比例
+- 如果<5%，用均值填充
+- 如果>5%，考虑多重插补
+- 记录处理过的数据数量
+
+2. 异常值处理
+学习时长：
+- 计算3σ区间
+- 识别异常值
+- 设置合理阈值（如>24h为异常）
+- 异常值替换或删除
+
+3. 数据标准化
+互动次数：
+- 统一数据格式为整数
+- 处理特殊字符
+- 合并相似类别
+- 创建统一编码
+
+4. 文本处理
+评价反馈：
+- 文本清洗（去除特殊字符）
+- 分词处理
+- 情感极性分析
+- 提取关键词
+
+5. 数据转换
+- 成绩：保留2位小数
+- 时长：转换为小时单位
+- 完成率：确保范围0-100%
+- 互动：标准化计数
+
+6. 质量检查
+- 数据类型一致性
+- 取值范围合理性
+- 统计特征正确性
+- 处理日志记录
+
+建议使用的Python代码框架：
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.impute import SimpleImputer
+from textblob import TextBlob
+
+# 1. 读取数据
+df = pd.read_csv('data.csv')
+
+# 2. 处理缺失值
+imputer = SimpleImputer(strategy='mean')
+df['成绩'] = imputer.fit_transform(df[['成绩']])
+
+# 3. 处理异常值
+def handle_outliers(x):
+    mean = np.mean(x)
+    std = np.std(x)
+    threshold = 3
+    return np.clip(x, mean-threshold*std, 
+                     mean+threshold*std)
+
+df['学习时长'] = handle_outliers(df['学习时长'])
+
+# 4. 标准化互动次数
+df['互动次数'] = pd.to_numeric(
+    df['互动次数'].str.extract('(\d+)')[0]
+)
+
+# 5. 情感分析
+def analyze_sentiment(text):
+    return TextBlob(text).sentiment.polarity
+
+df['情感得分'] = df['评价反馈'].apply(
+    analyze_sentiment
+)
+```
+
+注意事项：
+1. 保留原始数据备份
+2. 记录所有处理步骤
+3. 验证处理结果
+4. 生成处理报告</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-card">
+                    <h3>案例二：统计分析与建模</h3>
+                    <div class="case-content">
+                        <div class="case-description">
+                            <h4>场景描述</h4>
+                            <p>将清洗后的数据特征输入AI，请AI帮助设计统计分析方案和建模策略。</p>
+                        </div>
+                        <div class="case-input">
+                            <h6>人类输入</h6>
+                            <pre><code>清洗后的数据包含：
+- 课程成绩（因变量）
+- 学习时长
+- 作业完成率
+- 互动次数
+- 情感得分
+
+研究目标：
+1. 分析各因素与成绩的关系
+2. 建立成绩预测模型
+3. 评估模型效果
+4. 解释重要特征
+
+请帮我设计分析方案。</code></pre>
+                        </div>
+                        <div class="case-output">
+                            <h6>AI回复</h6>
+                            <pre><code>建议的分析方案如下：
+
+1. 描述性统计
+基本统计量：
+- 均值、标准差
+- 中位数、四分位数
+- 偏度、峰度
+- 变异系数
+
+2. 相关性分析
+方法选择：
+- Pearson相关系数
+- 散点图矩阵
+- 热力图可视化
+- VIF多重共线性检验
+
+3. 回归建模
+模型选择：
+- 多元线性回归
+- 随机森林回归
+- XGBoost回归
+- 模型对比选择
+
+4. 模型评估
+评估指标：
+- R²值
+- RMSE
+- MAE
+- 交叉验证得分
+
+建议的Python代码框架：
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+from xgboost import XGBRegressor
+from sklearn.metrics import r2_score, mean_squared_error
+
+# 1. 描述性统计
+desc_stats = df.describe()
+correlations = df.corr()
+
+# 2. 数据分割
+X = df[['学习时长', '作业完成率', 
+        '互动次数', '情感得分']]
+y = df['成绩']
+X_train, X_test, y_train, y_test = \
+    train_test_split(X, y, test_size=0.2)
+
+# 3. 模型训练
+models = {
+    'Linear': LinearRegression(),
+    'RF': RandomForestRegressor(),
+    'XGB': XGBRegressor()
+}
+
+results = {}
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    results[name] = {
+        'R2': r2_score(y_test, y_pred),
+        'RMSE': np.sqrt(mean_squared_error(
+            y_test, y_pred))
+    }
+
+# 4. 特征重要性
+if best_model == 'RF':
+    importances = model.feature_importances_
+    feat_imp = pd.DataFrame({
+        'feature': X.columns,
+        'importance': importances
+    })
+```
+
+5. 结果解释
+模型发现：
+- 最重要的预测因素
+- 各因素影响程度
+- 预测准确性
+- 模型局限性
+
+6. 建议应用
+实践指导：
+- 重点关注关键因素
+- 合理设置预警阈值
+- 定期更新模型
+- 结合实际调整
+
+注意事项：
+1. 检查数据分布
+2. 处理异常样本
+3. 避免过拟合
+4. 考虑实际意义</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-card">
+                    <h3>案例三：数据可视化设计</h3>
+                    <div class="case-content">
+                        <div class="case-description">
+                            <h4>场景描述</h4>
+                            <p>将分析结果输入AI，请AI帮助设计合适的可视化方案。</p>
+                        </div>
+                        <div class="case-input">
+                            <h6>人类输入</h6>
+                            <pre><code>分析结果包含：
+1. 各变量的描述统计
+2. 相关性分析结果
+3. 回归模型效果
+4. 特征重要性排序
+
+目标：
+1. 选择合适的图表类型
+2. 设计美观的样式
+3. 突出重要发现
+4. 便于读者理解
+
+请推荐可视化方案。</code></pre>
+                        </div>
+                        <div class="case-output">
+                            <h6>AI回复</h6>
+                            <pre><code>建议的可视化方案如下：
+
+1. 描述性统计
+可视化类型：
+- 箱线图：展示分布
+- 小提琴图：显示密度
+- 柱状图：对比均值
+- 核密度图：展示分布
+
+设计建议：
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# 设置风格
+plt.style.use('seaborn')
+sns.set_palette("husl")
+
+# 箱线图
+fig, ax = plt.subplots(figsize=(10, 6))
+sns.boxplot(data=df_melt, x='variable', 
+            y='value', ax=ax)
+plt.xticks(rotation=45)
+plt.title('各变量分布')
+```
+
+2. 相关性分析
+可视化类型：
+- 热力图：相关系数
+- 散点图：两变量关系
+- 配对图：多变量关系
+
+设计建议：
+```python
+# 热力图
+plt.figure(figsize=(8, 6))
+sns.heatmap(correlations, annot=True, 
+            cmap='RdYlBu', center=0)
+plt.title('变量相关性热力图')
+
+# 散点图矩阵
+sns.pairplot(df, diag_kind='kde')
+```
+
+3. 模型效果
+可视化类型：
+- 条形图：模型对比
+- 散点图：预测vs实际
+- 残差图：误差分析
+
+设计建议：
+```python
+# 模型对比
+plt.figure(figsize=(10, 6))
+sns.barplot(x=list(results.keys()),
+            y=[r['R2'] for r in results.values()])
+plt.title('模型R²值对比')
+
+# 预测vs实际
+plt.scatter(y_test, y_pred, alpha=0.5)
+plt.plot([y_test.min(), y_test.max()],
+         [y_test.min(), y_test.max()],
+         'r--', lw=2)
+```
+
+4. 特征重要性
+可视化类型：
+- 水平条形图
+- 树状图
+- 雷达图
+
+设计建议：
+```python
+# 特征重要性
+plt.figure(figsize=(10, 6))
+sns.barplot(x='importance', y='feature',
+            data=feat_imp.sort_values('importance'))
+plt.title('特征重要性排序')
+```
+
+5. 配色方案
+建议：
+- 使用对比色：突出重点
+- 渐变色：表示程度
+- 柔和色：背景元素
+- 确保色盲友好
+
+6. 版面布局
+建议：
+- 统一图表大小
+- 适当留白
+- 清晰的标题
+- 必要的注释
+
+7. 交互设计
+建议：
+- 添加工具提示
+- 支持缩放平移
+- 提供筛选功能
+- 导出高清图片
+
+注意事项：
+1. 确保可读性
+2. 避免过度设计
+3. 保持一致性
+4. 注意色彩搭配</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" class="section">
+            <h2>推荐工具</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>核心工具</h3>
+                    <ul>
+                        <li>数据分析：Python + ChatGPT</li>
+                        <li>统计建模：Sklearn + GPT</li>
+                        <li>可视化：Matplotlib/Seaborn + GPT</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 编者·李策 保留所有权利。</p>
+            <p><a href="../index.html">返回首页</a></p>
+        </div>
+    </footer>
+</body>
+
+</html> 

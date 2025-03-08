@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>论文翻译与润色 - AI大模型工具使用技巧整理</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <nav class="top-nav">
+        <ul>
+            <li><a href="../index.html">返回首页</a></li>
+            <li><a href="#overview">概述</a></li>
+            <li><a href="#process">对话流程</a></li>
+            <li><a href="#tools">推荐工具</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>论文翻译与润色</h1>
+            <p class="subtitle">AI辅助学术论文翻译与语言润色工作流</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="overview">
+            <h2>概述</h2>
+            <p>本工作流展示了如何利用AI大模型辅助学术论文的翻译和语言润色工作。通过实际的对话案例，展示如何使用AI工具进行专业术语翻译、语言表达优化、格式规范检查等工作。重点关注如何在提高翻译效率的同时保证学术语言的准确性和专业性。</p>
+            <p><strong>通过AI工具，我们可以更高效地完成论文翻译、语言润色、格式规范等工作，同时确保学术表达的准确性和专业性。</strong></p>
+        </section>
+
+        <section id="process" class="section">
+            <h2>对话流程</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <h3>案例一：专业术语翻译</h3>
+                    <div class="case-content">
+                        <div class="case-description">
+                            <h4>场景描述</h4>
+                            <p>将一段包含专业术语的英文文本输入AI，请AI帮助进行准确翻译和术语解释。</p>
+                        </div>
+                        <div class="case-input">
+                            <h6>人类输入</h6>
+                            <pre><code>请帮我翻译以下文本，并解释其中的专业术语：
+
+The deep learning model employs a multi-head attention mechanism with layer normalization and residual connections. The model architecture incorporates both transformer encoders and decoders, utilizing positional encoding and masked self-attention for sequence processing.
+
+要求：
+1. 准确翻译
+2. 解释专业术语
+3. 提供常用译法
+4. 注意术语一致性</code></pre>
+                        </div>
+                        <div class="case-output">
+                            <h6>AI回复</h6>
+                            <pre><code>翻译结果：
+该深度学习模型采用了具有层归一化和残差连接的多头注意力机制。模型架构同时包含transformer编码器和解码器，利用位置编码和掩码自注意力机制进行序列处理。
+
+专业术语解释：
+
+1. deep learning model（深度学习模型）
+- 常用译法：深度学习模型、深度神经网络
+- 解释：一种多层神经网络结构，能够自动学习数据特征
+
+2. multi-head attention（多头注意力）
+- 常用译法：多头注意力、多头自注意力
+- 解释：将注意力机制分成多个并行的头，增强模型的表达能力
+
+3. layer normalization（层归一化）
+- 常用译法：层归一化、层标准化
+- 解释：对每一层的输出进行标准化处理，提高训练稳定性
+
+4. residual connections（残差连接）
+- 常用译法：残差连接、跳跃连接
+- 解释：将输入直接加到输出上，缓解深层网络训练困难
+
+5. transformer（transformer）
+- 常用译法：transformer、变换器
+- 解释：一种基于自注意力机制的神经网络架构
+
+6. positional encoding（位置编码）
+- 常用译法：位置编码、位置嵌入
+- 解释：为序列中的每个位置添加位置信息
+
+7. masked self-attention（掩码自注意力）
+- 常用译法：掩码自注意力、遮蔽自注意力
+- 解释：通过掩码限制注意力的计算范围
+
+术语使用建议：
+1. 保持术语翻译一致性
+2. 优先使用领域内通用译法
+3. 首次出现时可附英文原文
+4. 考虑目标读者的理解能力</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-card">
+                    <h3>案例二：语言表达优化</h3>
+                    <div class="case-content">
+                        <div class="case-description">
+                            <h4>场景描述</h4>
+                            <p>将一段中文学术文本输入AI，请AI帮助优化语言表达和学术风格。</p>
+                        </div>
+                        <div class="case-input">
+                            <h6>人类输入</h6>
+                            <pre><code>请帮我优化以下学术文本的表达：
+
+本研究发现深度学习在教育评估中的应用效果很好，准确率提高了很多，而且可以节省老师很多时间。通过实验证明，这个方法比传统方法要好得多，值得推广使用。
+
+要求：
+1. 提高学术性
+2. 增加准确性
+3. 改善逻辑性
+4. 保持客观性</code></pre>
+                        </div>
+                        <div class="case-output">
+                            <h6>AI回复</h6>
+                            <pre><code>优化建议：
+
+原文问题：
+1. 表达过于口语化
+2. 缺乏具体数据支持
+3. 逻辑结构不清晰
+4. 主观评价较多
+
+优化后文本：
+本研究表明，深度学习技术在教育评估领域具有显著的应用价值。实验结果显示，该方法将评估准确率提升了15%（p < 0.01），同时将教师的评估工作时间减少了30%。通过对照实验验证，基于深度学习的评估方法在准确性、效率和可扩展性等方面均显著优于传统手动评估方法，为教育评估的智能化发展提供了可行的技术路径。
+
+改进说明：
+
+1. 学术性提升：
+- 使用规范学术用语
+- 添加统计显著性
+- 强调实验验证
+- 明确研究贡献
+
+2. 准确性增强：
+- 添加具体数据
+- 明确比较维度
+- 规范表述方式
+- 避免绝对表达
+
+3. 逻辑性改善：
+- 清晰的论证结构
+- 因果关系明确
+- 层次关系分明
+- 递进关系合理
+
+4. 客观性保持：
+- 避免主观评价
+- 基于数据论证
+- 保持中立态度
+- 注重事实描述
+
+常见优化技巧：
+
+1. 用语规范化
+- "很好" → "显著"
+- "很多" → "具体百分比"
+- "好得多" → "显著优于"
+
+2. 结构专业化
+- 现象描述
+- 数据支持
+- 对比分析
+- 结论推导
+
+3. 表达学术化
+- 增加专业术语
+- 使用被动语态
+- 强调研究过程
+- 注重逻辑性
+
+4. 论证严谨化
+- 添加数据支持
+- 明确研究方法
+- 强调实验验证
+- 避免过度推广</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-card">
+                    <h3>案例三：格式规范检查</h3>
+                    <div class="case-content">
+                        <div class="case-description">
+                            <h4>场景描述</h4>
+                            <p>将一段学术文本输入AI，请AI帮助检查和规范格式要求。</p>
+                        </div>
+                        <div class="case-input">
+                            <h6>人类输入</h6>
+                            <pre><code>请检查以下文本的格式规范：
+
+基于深度学习的教育评估方法研究
+张三
+清华大学教育研究院
+摘要:本文提出了一种新的教育评估方法。实验表明,该方法效果良好。关键词:深度学习,教育评估,人工智能
+
+要求：
+1. 检查格式问题
+2. 提供修改建议
+3. 参考标准规范
+4. 注意细节要求</code></pre>
+                        </div>
+                        <div class="case-output">
+                            <h6>AI回复</h6>
+                            <pre><code>格式检查结果：
+
+1. 标题格式
+问题：
+- 缺少居中对齐
+- 字号未指定
+- 缺少英文标题
+
+建议修改为：
+基于深度学习的教育评估方法研究
+A Study on Educational Assessment Methods Based on Deep Learning
+（宋体小二，居中，1.5倍行距）
+
+2. 作者信息
+问题：
+- 缺少完整单位信息
+- 缺少联系方式
+- 格式不规范
+
+建议修改为：
+张三1*
+1清华大学教育研究院，北京 100084
+*通讯作者：zhangsan@xxx.edu.cn
+（宋体小四，居中）
+
+3. 摘要格式
+问题：
+- 缺少缩进
+- 标点符号使用错误
+- 结构不完整
+
+建议修改为：
+摘 要：本文提出了一种基于深度学习的教育评估方法。通过对比实验验证，该方法在评估准确率和效率方面均显著优于传统方法。实验结果表明，该方法为教育评估的智能化发展提供了新的技术路径。
+（宋体小四，首行缩进2字符）
+
+4. 关键词格式
+问题：
+- 缺少空格
+- 数量不足
+- 排序不当
+
+建议修改为：
+关键词：教育评估；深度学习；人工智能；智能评估；评估模型
+（宋体小四，首行缩进，分号分隔）
+
+5. 规范建议
+
+页面设置：
+- 页边距：上下2.54cm，左右3.17cm
+- 行距：1.5倍
+- 页码：页脚居中
+
+字体要求：
+- 中文：宋体
+- 英文：Times New Roman
+- 标题：小二号
+- 正文：小四号
+
+标点符号：
+- 中文使用全角
+- 英文使用半角
+- 标点后加空格
+
+6. 其他注意事项
+
+文献引用：
+- 采用顺序编码制
+- 引用号置于句末标点之前
+- 多篇文献引用号间用逗号分隔
+
+图表格式：
+- 图表序号连续编号
+- 图题置于图下方
+- 表题置于表上方
+- 注释信息置于图表下方
+
+参考文献：
+- 按引用顺序编排
+- 遵循GB/T 7714标准
+- 信息要素完整
+- 格式统一规范</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" class="section">
+            <h2>推荐工具</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>核心工具</h3>
+                    <ul>
+                        <li>翻译工具：DeepL + ChatGPT</li>
+                        <li>润色工具：Grammarly + GPT</li>
+                        <li>格式检查：Word + GPT</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 编者·李策 保留所有权利。</p>
+            <p><a href="../index.html">返回首页</a></p>
+        </div>
+    </footer>
+</body>
+
+</html> 
