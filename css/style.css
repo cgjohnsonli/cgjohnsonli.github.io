@@ -119,10 +119,10 @@ footer {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 2px 5px;
     transition: background 0.3s, opacity 0.3s;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .top-nav a:hover {
