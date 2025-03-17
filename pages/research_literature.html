@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文献综述写作 - AI大模型工具使用技巧整理</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../scripts/script.js"></script>
 </head>
 
 <body>
     <nav class="top-nav">
         <ul>
-            <li><a href="../index.html">返回首页</a></li>
+            <li><a href="../index.html">首页</a></li>
             <li><a href="#overview">概述</a></li>
-            <li><a href="#process">对话流程</a></li>
-            <li><a href="#tools">推荐工具</a></li>
+            <li><a href="#process">流程</a></li>
+            <li><a href="#tips">技巧</a></li>
+            <li><a href="#tools">工具</a></li>
         </ul>
     </nav>
 
@@ -36,230 +38,139 @@
             <h2>对话流程</h2>
             <div class="process-grid">
                 <div class="process-card">
-                    <h3>案例一：文献分析与观点提取</h3>
+                    <h3>文献分析与观点提取</h3>
                     <div class="case-content">
                         <div class="case-description">
-                            <h4>场景描述</h4>
-                            <p>将一篇重要文献的内容输入AI，请AI帮助提取关键观点和研究方法。</p>
+                            <p>将搜集到的大量相关文献的内容输入AI，请AI帮助提取关键观点和内容以及适合引用的部分。</p>
                         </div>
                         <div class="case-input">
                             <h6>人类输入</h6>
-                            <pre><code>这是一篇关于深度学习在教育评估中应用的文献，请帮我分析其中的：
-1. 核心观点
-2. 研究方法
-3. 主要发现
-4. 局限性
-
-文献内容：[文献具体内容]</code></pre>
+                            <pre><code>[上传多篇文献PDF] 阅读我上传的文献，参考大纲，按如下格式整理：
+<strong>文章作者</strong>: Brayan Díaz, Miguel Nussbaum
+<strong>文章标题</strong>: Artificial intelligence for teaching and learning in schools: The need for pedagogical intelligence
+<strong>摘要</strong>: 文章探讨了人工智能在K-12教育中的应用，提出尽管AI有助于教学技术的发展，但教育领域缺乏对其教学效果的深入理解。研究强调了"教学智能"的概念，认为AI的应用应结合教育学理论，帮助学生更好地学习，而非简单地提高技术效率。
+<strong>适合引用的部分</strong>: 适合在"生成式AI对学生创造力的影响"或"教学实践中的启示与未来研究方向"部分引用，讨论AI在教学中的应用与挑战。
+</code></pre>
                         </div>
+
                         <div class="case-output">
                             <h6>AI回复</h6>
-                            <pre><code>基于提供的文献内容，我为您进行以下分析：
+                            <button class="toggle-btn">查看回复</button>
+                            <div class="collapsible-content">
+                                <pre><code>1. <strong>文章作者</strong>: Xinli Zhang, Yuchen Chen, Lailin Hu, Yiwei Bao, Yun-Fang Tu, Gwo-Jen Hwang
+<strong>文章标题</strong>: A metaphor-based robot programming approach to facilitating young children's computational thinking and positive learning behaviors
+<strong>摘要</strong>:
+本研究探讨了一种基于隐喻的机器人编程方法（MRP），以促进幼儿计算思维（CT）的发展。研究指出，幼儿通常难以掌握抽象的计算思维概念，而隐喻能够帮助他们将抽象概念转化为具体、熟悉的知识。本研究通过对比实验，发现采用 MRP 方法的幼儿在计算思维发展方面优于采用传统机器人编程（CRP）方法的幼儿。此外，行为分析表明，MRP 方法能够促进幼儿的积极学习行为，使其更好地达成学习目标。本研究为机器人编程教学和幼儿计算思维发展提供了新见解和实践指导。
+<strong>适合引用的部分</strong>:
+"AI技术对创造力培养的影响"部分
+研究表明，教学方式的调整（如使用隐喻）可以提升儿童的计算思维和创造力，这与生成式AI在教育中的应用类似，可以用于探索如何优化AI辅助创造力培养的策略。
+"计算思维与AI教育"部分
+研究强调，个性化学习环境和具体化教学手段（如隐喻、交互式机器人编程）有助于提升学习效果。这为AI在教育中的应用提供了重要的启示，即AI教学工具应结合学习者的认知特点，以增强其学习体验和思维能力。
 
-1. 核心观点
-- 深度学习可以提高教育评估的准确性和个性化程度
-- 自适应评估模型能够动态调整评估难度
-- 多模态数据融合有助于全面评估学习者表现
+2. <strong>文章作者</strong>: Torbjørn Netland, Oliver von Dzengelevski, Katalin Tesch, Daniel Kwasnitschka
+<strong>文章标题</strong>: Comparing Human-made and AI-generated Teaching Videos: An Experimental Study on Learning Effects
+<strong>摘要</strong>:
+本研究探讨了人工制作教学视频与AI生成教学视频在学习效果上的差异。实验涉及447名参与者，他们被随机分配至两种条件（AI生成视频与人工制作视频交替观看）。研究发现，尽管人工制作的视频在学习体验上略有优势，但在学习成果测试上，两组的知识掌握程度相当。研究表明，随着AI技术的进步，AI生成教学视频可能会在未来教育环境中广泛普及。
+<strong>适合引用的部分</strong>:
+"AI在教学中的应用"部分
+研究揭示了AI教学视频的潜力及其局限性，可用于探讨AI辅助教学的有效性，尤其是在个性化学习和MOOC（大规模在线开放课程）环境中的应用。
+"人类教师与AI教学的对比"部分
+适用于讨论AI在教学中是否可以完全取代人类教师，以及如何优化AI教学内容以匹配学习者的认知需求。
 
-2. 研究方法
-- 实验设计：对照实验
-  * 实验组：使用深度学习评估系统
-  * 对照组：传统评估方法
-- 数据收集：
-  * 学习行为数据
-  * 评估结果数据
-  * 问卷调查数据
-- 分析方法：
-  * 定量分析：统计显著性检验
-  * 定性分析：访谈内容分析
+3. <strong>文章作者</strong>: Yee Leng Eow, Wan Zah bte Wan Ali, Rosnaini bt. Mahmud, Roselan Baki
+<strong>文章标题</strong>: Computer games development and appreciative learning approach in enhancing students' creative perception
+<strong>摘要</strong>:
+本研究探讨了计算机游戏开发结合积极学习方法（Appreciative Learning Approach, ALA）对学生创造力感知的影响。研究采用随机对照实验，涉及69名中学生，比较了采用ALA方法（强调积极探索、协作、想象力）与自定进度学习（DIY）方法的效果。结果表明，ALA方法显著提升了学生的创造力感知，学生在自信、主动性和想象力方面表现更佳。研究强调，游戏化学习结合积极反馈有助于创造力培养。
+<strong>适合引用的部分</strong>:
+"AI对创造力的影响"部分
+适用于探讨AI如何通过游戏化学习增强学生创造力，尤其是在个性化学习与虚拟互动环境中AI工具的优化。
+"基于游戏的学习方法"部分
+适用于分析AI如何模拟游戏化学习环境，增强学生的学习体验和创造力发展。
 
-3. 主要发现
-- 评估准确率提升15%
-- 评估时间减少30%
-- 学习者满意度显著提高
-- 教师工作负担明显降低
-
-4. 局限性
-- 样本量较小（100名学生）
-- 实验周期较短（一个学期）
-- 仅限于特定学科
-- 需要较高的计算资源
-
-建议在综述中重点关注：
-1. 评估模型的创新性
-2. 实验设计的严谨性
-3. 研究结果的可推广性
-4. 未来研究方向的启示</code></pre>
+<strong>(后面的文献整理省略，推荐一次不要整理超过10篇文献)</strong>
+</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="process-card">
-                    <h3>案例二：文献对比与归纳</h3>
+                    <h3>文献综述的完善</h3>
                     <div class="case-content">
                         <div class="case-description">
-                            <h4>场景描述</h4>
                             <p>将多篇相关文献的要点输入AI，请AI帮助进行对比分析和观点归纳。</p>
                         </div>
                         <div class="case-input">
                             <h6>人类输入</h6>
-                            <pre><code>我收集了3篇关于AI教育评估的文献，请帮我：
-1. 对比它们的研究方法
-2. 归纳共同发现
-3. 总结不同观点
-4. 分析研究趋势
-
-文献要点：
-文献1：[要点摘录]
-文献2：[要点摘录]
-文献3：[要点摘录]</code></pre>
+                            <pre><code>[上传前一步整理好的文献要点集合文档]按照后续的全文内容与文献集合（上传文件），按照大纲撰写（或完善）引言/文献综述，在插入文献处标记出文献的作者和标题全称，在应当插入文献但文献集合中缺乏相关文献的位置，插入标记，形如（此处应有关于XX的文献），同一篇文献引用不要超过两次。
+</code></pre>
                         </div>
+
                         <div class="case-output">
                             <h6>AI回复</h6>
-                            <pre><code>为您分析三篇文献的异同点：
+                            <button class="toggle-btn">查看回复</button>
+                            <div class="collapsible-content">
+                                <pre><code>二、文献综述与理论框架
+2.1 个性化学习与设计教育
+个性化学习强调通过技术手段根据学生的个体差异调整学习过程，以提高学习效率和效果。人工智能（AI）的出现为教育领域的个性化学习提供了新的契机。AI通过数据驱动的方法精准地了解学生的学习特点，从而提供个性化的教学支持，如智能推荐、自适应反馈和动态学习路径规划<strong>（此处应有关于AI个性化学习理论基础的文献）</strong>。
 
-1. 研究方法对比
-文献1：
-- 定量研究为主
-- 大规模问卷调查
-- 统计分析方法
+设计教育因其任务的开放性和高度创意化，更需要个性化的教学方法（Aidan Rowe, A Necessary Shift in Design Education: From Outputs to Outcomes））。然而传统设计教育关注的更多是成果而非过程，这使得设计教育面临转型，尤其是在与新兴技术和跨学科合作的背景下，亟需个性化、动态化和过程导向的教学方法（Rowe, 2023）。
 
-文献2：
-- 混合研究方法
-- 案例研究
-- 深度访谈
+2.2 AIGC与设计教育的融合
+人工智能生成内容（AIGC）技术，特别是大语言模型如ChatGPT，以及图像生成工具如Midjourney等，近年来在设计教育中展现出强大的潜力（Xiaojiao Chen, Empowering education development through AIGC: A systematic literature review））。ChatGPT能辅助大学生提升创意问题的解决能力，显著提高任务完成质量、自我效能感及创新性（Marek Urban et al., ChatGPT improves creative problem-solving performance in university students: An experimental study））。此外，视觉类的AI工具如Craiyon或DALL-E 2等，帮助学生在设计基础课程中通过交互提示工程，快速生成并优化设计方案（James Hutson & Bryan Robertson, Exploring the Educational Potential of AI Generative Art in 3D Design Fundamentals）。
 
-文献3：
-- 实验研究
-- 对照实验
-- 行为数据分析
+AI技术的优势不仅在于提升创意效率，还在于为学生提供更多探索创意边界的可能性。尤其在多模态创作任务中，AI辅助下的学生往往能够拓展更多的思路（Meilu Liu et al., Investigating students' cognitive processes in generative AI-assisted digital multimodal composing and traditional writing））。但同时也需注意的是，AI生成工具并非完全替代传统创作过程，设计专业知识和创意决策仍不可或缺（Yu-Min Fang, The role of generative AI in industrial design: Enhancing the design process and education）。
 
-2. 共同发现
-- AI评估提高了效率
-- 个性化评估更准确
-- 需要教师参与监督
-- 数据安全很重要
+2.3 AI教育工具的效果评估方法综述
+关于AI工具教育效果的评估方法，目前文献显示主要采用实验与准实验研究设计，以及定性研究的访谈调查方法。
 
-3. 不同观点
-评估模型：
-- 文献1主张纯机器学习
-- 文献2强调人机协同
-- 文献3建议混合模型
+在定量研究方面，Torbjørn Netland等（Comparing Human-made and AI-generated Teaching Videos: An Experimental Study on Learning Effects）采用实验研究方法对比了AI生成内容与传统教学内容的效果，发现尽管学生更喜欢人类制作的视频，但AI生成内容的教学效果与之相比并无明显差异。这提示未来AI工具在教育中的应用有更大的前景，也凸显了通过量化指标评价AI教学工具效果的必要性<strong>（此处应有关于AI教育工具效果评估量化方法的其他相关文献）</strong>。
 
-应用场景：
-- 文献1侧重高等教育
-- 文献2关注K12教育
-- 文献3面向职业教育
+在定性研究方面，Ali Darvishi等（Impact of AI assistance on student agency）采用访谈和主题分析法研究了AI辅助对学生自主性的影响，指出学生虽然获得了个性化的指导与反馈，但倾向于过度依赖AI，缺乏自我调节能力。通过访谈揭示了学生使用AI工具时自主性的下降，这种方法有效揭示了AI工具使用过程中潜在的负面影响（Darvishi et al., 2023）。
 
-4. 研究趋势
-- 从单一向多模态发展
-- 更注重伦理和隐私
-- 强调实践应用价值
-- 跨学科融合增多
+综合来看，目前评估AI工具效果的研究多倾向于混合研究方法，以同时考虑AI工具的学习效果与其对学生个体心理与行为影响的综合评估<strong>（此处应有关于混合研究方法在AI教育研究中应用的相关文献）</strong>。
 
-建议在综述中：
-1. 按时间线展示发展
-2. 对比不同应用场景
-3. 分析技术演进路径
-4. 预测未来研究方向</code></pre>
+2.4 AI辅助教学伦理问题
+AI工具在教育领域广泛应用的同时，也带来了明显的伦理问题，包括真实性、创造力风险与公平性。
+
+在真实性和创造性方面，研究表明学生使用AI工具时，作品原创性的界定存在困难，可能削弱学生在创作过程中专注力与深度参与，进而影响创造力的真实培养（Meilu Liu et al., Investigating students' cognitive processes in generative AI-assisted digital multimodal composing and traditional writing）。此外，ChatGPT等工具虽然提升了创造性问题解决的表现，但学生的自我评估准确性不足，提示在使用AI辅助时需警惕潜在的认知偏差（Marek Urban et al., ChatGPT improves creative problem-solving performance in university students: An experimental study）。
+
+公平性方面，目前AI在教育中普遍面临的一个伦理困境是数据偏见问题，可能在生成教学内容过程中强化社会固有偏见，如性别、种族歧视等<strong>（此处应有关于AI生成内容中数据偏见问题的文献）</strong>。
+
+2.5 研究的理论贡献与创新之处
+现有文献在AI教育工具的应用现状、创造力影响、评估方法与伦理问题等方面已有一定探讨，但仍存在明显的研究空白：
+
+首先，已有研究往往只关注AI工具应用的单一维度，缺乏全面的效果评估和伦理分析的整合<strong>（此处应有相关研究空白分析文献）</strong>。
+
+其次，AI工具在设计教育中的长期效应和学生能动性变化仍需进一步研究，尤其是如何在提升效率和创意的同时，保障学生的自主学习能力（Ali Darvishi et al., Impact of AI assistance on student agency）。
+
+最后，现有AI教育研究缺乏系统的、基于教育学理论的深入分析，即对AI工具的应用缺乏"教学智能"的深刻理解（Brayan Díaz & Miguel Nussbaum, Artificial intelligence for teaching and learning in schools: The need for pedagogical intelligence）。本文将在上述研究空白处做出理论和方法上的双重贡献。
+</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="process-card">
-                    <h3>案例三：综述框架优化</h3>
-                    <div class="case-content">
-                        <div class="case-description">
-                            <h4>场景描述</h4>
-                            <p>在完成文献分析后，请AI帮助优化综述的整体框架和行文逻辑。</p>
-                        </div>
-                        <div class="case-input">
-                            <h6>人类输入</h6>
-                            <pre><code>基于前面的文献分析，我初步整理了综述框架：
-1. 研究背景
-2. 技术发展
-3. 应用现状
-4. 问题与展望
-
-请帮我：
-1. 评估框架合理性
-2. 补充关键内容
-3. 优化行文逻辑
-4. 提供写作建议</code></pre>
-                        </div>
-                        <div class="case-output">
-                            <h6>AI回复</h6>
-                            <pre><code>建议的综述框架修改如下：
-
-1. 引言
-   1.1 研究背景与意义
-   1.2 研究问题界定
-   1.3 综述范围与方法
-
-2. AI教育评估的理论基础
-   2.1 教育评估理论演进
-   2.2 人工智能技术发展
-   2.3 理论融合与创新
-
-3. 技术实现与应用现状
-   3.1 评估模型类型
-       - 机器学习模型
-       - 深度学习模型
-       - 混合评估模型
-   
-   3.2 应用场景分析
-       - 高等教育
-       - K12教育
-       - 职业教育
-   
-   3.3 实施效果评价
-       - 评估准确性
-       - 效率提升
-       - 用户体验
-
-4. 关键问题与挑战
-   4.1 技术层面
-       - 模型精度
-       - 算法解释性
-       - 计算资源
-   
-   4.2 应用层面
-       - 教师适应
-       - 学生接受度
-       - 实施成本
-   
-   4.3 伦理层面
-       - 数据安全
-       - 隐私保护
-       - 公平性
-
-5. 未来发展趋势
-   5.1 技术发展方向
-   5.2 应用拓展空间
-   5.3 研究展望
-
-写作建议：
-1. 结构安排
-   - 从理论到实践
-   - 从现状到未来
-   - 从成果到问题
-
-2. 重点内容
-   - 突出创新点
-   - 强调实践价值
-   - 注意理论支撑
-
-3. 行文技巧
-   - 使用图表展示
-   - 案例说明支撑
-   - 数据佐证论点
-
-4. 注意事项
-   - 保持客观立场
-   - 注意文献时效
-   - 关注最新进展</code></pre>
-                        </div>
-                    </div>
+        <section id="tips" class="section">
+            <h2>小技巧</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>文献管理技巧</h3>
+                    <ul>
+                        <li><strong>建立文献解读档案</strong>：将AI输出的文献简要解读整理到一个单独的文档中，可以在之后撰写或完善文献综述时再上传给AI使用。</li>
+                        <li><strong>分类整理反馈</strong>：按研究主题、方法或年份等维度整理AI的分析结果，便于后续系统性梳理文献脉络。</li>
+                        <li><strong>保存关键段落</strong>：在AI分析文献时，将其识别的重要引用和关键论述单独保存，方便后续写作引用。</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <h3>互动策略</h3>
+                    <ul>
+                        <li><strong>分批次处理</strong>：将大量文献分成小批次让AI分析，每批次围绕特定主题或问题，可获得更深入的分析结果。</li>
+                        <li><strong>迭代优化</strong>：先让AI做初步分析，根据结果提出更具体的问题，逐步深化对文献的理解。</li>
+                        <li><strong>交叉验证</strong>：可以用不同的AI模型分析同一文献，对比其解读结果，确保分析的准确性。</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -272,7 +183,6 @@
                     <ul>
                         <li>文献分析：ChatGPT / Claude / DeepSeek</li>
                         <li>文献管理：Zotero + GPT</li>
-                        <li>写作辅助：Grammarly + GPT</li>
                     </ul>
                 </div>
             </div>

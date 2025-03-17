@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>研究数据分析与可视化 - AI大模型工具使用技巧整理</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../scripts/script.js"></script>
 </head>
 
 <body>
     <nav class="top-nav">
         <ul>
-            <li><a href="../index.html">返回首页</a></li>
+            <li><a href="../index.html">首页</a></li>
             <li><a href="#overview">概述</a></li>
-            <li><a href="#process">对话流程</a></li>
-            <li><a href="#tools">推荐工具</a></li>
+            <li><a href="#process">流程</a></li>
+            <li><a href="#tips">技巧</a></li>
+            <li><a href="#tools">工具</a></li>
         </ul>
     </nav>
 
@@ -36,10 +38,9 @@
             <h2>对话流程</h2>
             <div class="process-grid">
                 <div class="process-card">
-                    <h3>案例一：数据清洗与预处理</h3>
+                    <h3>数据清洗与预处理</h3>
                     <div class="case-content">
                         <div class="case-description">
-                            <h4>场景描述</h4>
                             <p>将原始数据集的特征说明输入AI，请AI帮助设计数据清洗和预处理方案。</p>
                         </div>
                         <div class="case-input">
@@ -62,7 +63,9 @@
                         </div>
                         <div class="case-output">
                             <h6>AI回复</h6>
-                            <pre><code>建议的数据清洗方案如下：
+                            <button class="toggle-btn">查看回复</button>
+                            <div class="collapsible-content">
+                                <pre><code>建议的数据清洗方案如下：
 
 1. 数据完整性处理
 成绩数据缺失：
@@ -148,15 +151,15 @@ df['情感得分'] = df['评价反馈'].apply(
 2. 记录所有处理步骤
 3. 验证处理结果
 4. 生成处理报告</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="process-card">
-                    <h3>案例二：统计分析与建模</h3>
+                    <h3>统计分析与建模</h3>
                     <div class="case-content">
                         <div class="case-description">
-                            <h4>场景描述</h4>
                             <p>将清洗后的数据特征输入AI，请AI帮助设计统计分析方案和建模策略。</p>
                         </div>
                         <div class="case-input">
@@ -178,7 +181,9 @@ df['情感得分'] = df['评价反馈'].apply(
                         </div>
                         <div class="case-output">
                             <h6>AI回复</h6>
-                            <pre><code>建议的分析方案如下：
+                            <button class="toggle-btn">查看回复</button>
+                            <div class="collapsible-content">
+                                <pre><code>建议的分析方案如下：
 
 1. 描述性统计
 基本统计量：
@@ -275,15 +280,15 @@ if best_model == 'RF':
 2. 处理异常样本
 3. 避免过拟合
 4. 考虑实际意义</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="process-card">
-                    <h3>案例三：数据可视化设计</h3>
+                    <h3>数据可视化设计</h3>
                     <div class="case-content">
                         <div class="case-description">
-                            <h4>场景描述</h4>
                             <p>将分析结果输入AI，请AI帮助设计合适的可视化方案。</p>
                         </div>
                         <div class="case-input">
@@ -304,7 +309,9 @@ if best_model == 'RF':
                         </div>
                         <div class="case-output">
                             <h6>AI回复</h6>
-                            <pre><code>建议的可视化方案如下：
+                            <button class="toggle-btn">查看回复</button>
+                            <div class="collapsible-content">
+                                <pre><code>建议的可视化方案如下：
 
 1. 描述性统计
 可视化类型：
@@ -410,8 +417,32 @@ plt.title('特征重要性排序')
 2. 避免过度设计
 3. 保持一致性
 4. 注意色彩搭配</code></pre>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tips" class="section">
+            <h2>小技巧</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>对话技巧</h3>
+                    <ul>
+                        <li><strong>提供数据样例</strong>：上传少量真实数据样例，帮助AI更好理解数据结构和特点。</li>
+                        <li><strong>分步骤处理</strong>：将复杂的数据分析任务分解为多个步骤，逐步完成。</li>
+                        <li><strong>及时验证</strong>：对AI提供的代码和建议及时进行验证，确保结果准确。</li>
+                        <li><strong>明确需求</strong>：清晰说明分析目标和可视化要求，获得更精准的建议。</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <h3>提示词技巧</h3>
+                    <ul>
+                        <li><strong>数据描述</strong>：详细描述数据的结构、类型和特征，帮助AI提供更准确的建议。</li>
+                        <li><strong>多轮优化</strong>：对分析结果进行多轮改进，逐步提升质量。</li>
+                        <li><strong>要求示例</strong>：请求AI提供代码示例和具体实现方案。</li>
+                    </ul>
                 </div>
             </div>
         </section>

@@ -6,40 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>论文翻译与润色 - AI大模型工具使用技巧整理</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../scripts/script.js"></script>
 </head>
 
 <body>
     <nav class="top-nav">
         <ul>
-            <li><a href="../index.html">返回首页</a></li>
+            <li><a href="../index.html">首页</a></li>
             <li><a href="#overview">概述</a></li>
-            <li><a href="#process">对话流程</a></li>
-            <li><a href="#tools">推荐工具</a></li>
+            <li><a href="#process">流程</a></li>
+            <li><a href="#tips">技巧</a></li>
+            <li><a href="#tools">工具</a></li>
         </ul>
     </nav>
 
     <header>
         <div class="container">
             <h1>论文翻译与润色</h1>
-            <p class="subtitle">AI辅助学术论文翻译与语言润色工作流</p>
+            <p class="subtitle">AI辅助学术论文翻译与语言润色</p>
         </div>
     </header>
 
     <main class="container">
         <section id="overview">
             <h2>概述</h2>
-            <p>本工作流展示了如何利用AI大模型辅助学术论文的翻译和语言润色工作。通过实际的对话案例，展示如何使用AI工具进行专业术语翻译、语言表达优化、格式规范检查等工作。重点关注如何在提高翻译效率的同时保证学术语言的准确性和专业性。</p>
-            <p><strong>通过AI工具，我们可以更高效地完成论文翻译、语言润色、格式规范等工作，同时确保学术表达的准确性和专业性。</strong></p>
+            <p>本节展示了如何利用AI大模型辅助学术论文的翻译和语言润色工作。通过实际的对话案例，展示如何使用AI工具进行专业术语翻译、语言表达优化等工作。重点关注如何在提高翻译效率的同时保证学术语言的准确性和专业性。但请注意，目前使用AI工具作为科研文章的主要撰写工具在科研伦理上仍有争议，强烈建议读者仅将AI生成的内容作为主要参考内容而非最终结果</p>
+            <p><strong>通过AI工具，我们可以更高效地完成论文翻译、语言润色等工作，同时确保学术表达的准确性和专业性。</strong></p>
         </section>
 
         <section id="process" class="section">
             <h2>对话流程</h2>
             <div class="process-grid">
                 <div class="process-card">
-                    <h3>案例一：专业术语翻译</h3>
+                    <h3>专业术语翻译</h3>
                     <div class="case-content">
                         <div class="case-description">
-                            <h4>场景描述</h4>
                             <p>将一段包含专业术语的英文文本输入AI，请AI帮助进行准确翻译和术语解释。</p>
                         </div>
                         <div class="case-input">
@@ -56,7 +57,9 @@ The deep learning model employs a multi-head attention mechanism with layer norm
                         </div>
                         <div class="case-output">
                             <h6>AI回复</h6>
-                            <pre><code>翻译结果：
+                            <button class="toggle-btn">查看回复</button>
+                            <div class="collapsible-content">
+                                <pre><code>翻译结果：
 该深度学习模型采用了具有层归一化和残差连接的多头注意力机制。模型架构同时包含transformer编码器和解码器，利用位置编码和掩码自注意力机制进行序列处理。
 
 专业术语解释：
@@ -94,15 +97,15 @@ The deep learning model employs a multi-head attention mechanism with layer norm
 2. 优先使用领域内通用译法
 3. 首次出现时可附英文原文
 4. 考虑目标读者的理解能力</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="process-card">
-                    <h3>案例二：语言表达优化</h3>
+                    <h3>语言表达优化</h3>
                     <div class="case-content">
                         <div class="case-description">
-                            <h4>场景描述</h4>
                             <p>将一段中文学术文本输入AI，请AI帮助优化语言表达和学术风格。</p>
                         </div>
                         <div class="case-input">
@@ -119,7 +122,9 @@ The deep learning model employs a multi-head attention mechanism with layer norm
                         </div>
                         <div class="case-output">
                             <h6>AI回复</h6>
-                            <pre><code>优化建议：
+                            <button class="toggle-btn">查看回复</button>
+                            <div class="collapsible-content">
+                                <pre><code>优化建议：
 
 原文问题：
 1. 表达过于口语化
@@ -180,117 +185,32 @@ The deep learning model employs a multi-head attention mechanism with layer norm
 - 明确研究方法
 - 强调实验验证
 - 避免过度推广</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="process-card">
-                    <h3>案例三：格式规范检查</h3>
-                    <div class="case-content">
-                        <div class="case-description">
-                            <h4>场景描述</h4>
-                            <p>将一段学术文本输入AI，请AI帮助检查和规范格式要求。</p>
-                        </div>
-                        <div class="case-input">
-                            <h6>人类输入</h6>
-                            <pre><code>请检查以下文本的格式规范：
-
-基于深度学习的教育评估方法研究
-张三
-清华大学教育研究院
-摘要:本文提出了一种新的教育评估方法。实验表明,该方法效果良好。关键词:深度学习,教育评估,人工智能
-
-要求：
-1. 检查格式问题
-2. 提供修改建议
-3. 参考标准规范
-4. 注意细节要求</code></pre>
-                        </div>
-                        <div class="case-output">
-                            <h6>AI回复</h6>
-                            <pre><code>格式检查结果：
-
-1. 标题格式
-问题：
-- 缺少居中对齐
-- 字号未指定
-- 缺少英文标题
-
-建议修改为：
-基于深度学习的教育评估方法研究
-A Study on Educational Assessment Methods Based on Deep Learning
-（宋体小二，居中，1.5倍行距）
-
-2. 作者信息
-问题：
-- 缺少完整单位信息
-- 缺少联系方式
-- 格式不规范
-
-建议修改为：
-张三1*
-1清华大学教育研究院，北京 100084
-*通讯作者：zhangsan@xxx.edu.cn
-（宋体小四，居中）
-
-3. 摘要格式
-问题：
-- 缺少缩进
-- 标点符号使用错误
-- 结构不完整
-
-建议修改为：
-摘 要：本文提出了一种基于深度学习的教育评估方法。通过对比实验验证，该方法在评估准确率和效率方面均显著优于传统方法。实验结果表明，该方法为教育评估的智能化发展提供了新的技术路径。
-（宋体小四，首行缩进2字符）
-
-4. 关键词格式
-问题：
-- 缺少空格
-- 数量不足
-- 排序不当
-
-建议修改为：
-关键词：教育评估；深度学习；人工智能；智能评估；评估模型
-（宋体小四，首行缩进，分号分隔）
-
-5. 规范建议
-
-页面设置：
-- 页边距：上下2.54cm，左右3.17cm
-- 行距：1.5倍
-- 页码：页脚居中
-
-字体要求：
-- 中文：宋体
-- 英文：Times New Roman
-- 标题：小二号
-- 正文：小四号
-
-标点符号：
-- 中文使用全角
-- 英文使用半角
-- 标点后加空格
-
-6. 其他注意事项
-
-文献引用：
-- 采用顺序编码制
-- 引用号置于句末标点之前
-- 多篇文献引用号间用逗号分隔
-
-图表格式：
-- 图表序号连续编号
-- 图题置于图下方
-- 表题置于表上方
-- 注释信息置于图表下方
-
-参考文献：
-- 按引用顺序编排
-- 遵循GB/T 7714标准
-- 信息要素完整
-- 格式统一规范</code></pre>
-                        </div>
-                    </div>
+        <section id="tips" class="section">
+            <h2>小技巧</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>对话技巧</h3>
+                    <ul>
+                        <li><strong>提供参考案例</strong>：每一步都可以上传使用者自己找到的较好案例，供AI参考和模仿。</li>
+                        <li><strong>分步骤引导</strong>：将复杂的翻译任务分解为多个小步骤，逐步与AI讨论和完善。</li>
+                        <li><strong>及时反馈调整</strong>：如果翻译或润色结果不理想，及时指出并提供修正建议。</li>
+                        <li><strong>明确格式要求</strong>：在输入问题时明确说明需要的输出格式，可以获得更规范的回答。</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <h3>提示词技巧</h3>
+                    <ul>
+                        <li><strong>术语表维护</strong>：建立并维护专业术语对照表，确保翻译一致性。</li>
+                        <li><strong>多轮优化</strong>：对AI的翻译进行多轮改进，每次聚焦于特定方面。</li>
+                        <li><strong>上下文提供</strong>：为AI提供足够的上下文信息，提高翻译准确性。</li>
+                    </ul>
                 </div>
             </div>
         </section>
