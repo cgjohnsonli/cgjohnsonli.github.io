@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // 侧边栏切换功能
     const toggleButton = document.getElementById('toggle-sidebar');
     const sidebar = document.querySelector('.sidebar');
 
@@ -9,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // 回复展开/收起功能
     document.querySelectorAll('.toggle-btn').forEach(button => {
         button.addEventListener('click', function() {
             const content = this.nextElementSibling;

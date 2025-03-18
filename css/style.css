@@ -211,12 +211,13 @@ h2 {
 h3 {
     color: var(--primary-color);
     margin-top: 0.5rem;
+    font-size: 1.3rem;
 }
 
 h4 {
     color: var(--accent-color);
     margin-top: 1.5rem;
-    font-size: 1.3rem;
+    font-size: 1.0rem;
     font-weight: 600;
 }
 

@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runway快速上手指南 - AI大模型工具使用技巧整理</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../scripts/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Runway快速上手指南</h1>
+            <p class="subtitle">Runway官方入门指南节选翻译</p>
+            <p class="subtitle">大部分文内链接指向为runway官网对应内容，除非该部分已被节选翻译</p>
+        </div>
+    </header>
+
+    <main class="content-wrapper container">
+        <button id="toggle-sidebar" class="toggle-button">☰ 目录</button>
+        <aside class="sidebar">
+            <h3><a href="../index.html">回到首页</a></h3>
+            <ul>
+                <li>
+                    <a href="#getting-started">1. 开始使用</a>
+                    <ul>
+                        <li><a href="#what-is-runway">什么是Runway？</a></li>
+                        <li><a href="#creating-account">创建Runway账号</a></li>
+                        <li><a href="#learning-dashboard">了解Runway控制面板</a></li>
+                        <li><a href="#getting-started-gen-video">开始使用生成式视频</a></li>
+                        <li><a href="#runway-resources">Runway资源</a></li>
+                        <li><a href="#usage-rights">使用权限</a></li>
+                        <li><a href="#security-privacy">了解Runway的安全和隐私标准</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#prompting">2. 提示词编写</a>
+                    <ul>
+                        <li><a href="#frames-prompting">帧提示词编写指南</a></li>
+                        <li><a href="#prompt-languages">支持哪些语言的提示词？</a></li>
+                        <li><a href="#how-to-prompt">如何在Runway中编写提示词</a></li>
+                        <li><a href="#gen3-prompting">Gen-3 Alpha提示词编写指南</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#filmmaking">3. 视频制作</a>
+                    <ul>
+                        <li><a href="#longer-videos">如何创建更长的视频和电影</a></li>
+                        <li><a href="#exporting">导出你的作品</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#collaborating">4. 协作功能</a>
+                    <ul>
+                        <li><a href="#workspaces">工作区介绍</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="main-content">
+            <section id="getting-started" class="content-section">
+                <h2>1. 开始使用</h2>
+                
+                <div class="step-item">
+                    <h3 id="what-is-runway">什么是Runway？</h3>
+                    <p><strong>Runway</strong> 是一家应用AI研究公司，致力于塑造艺术、娱乐和人类创造力的下一个时代。我们构建的人工智能系统开创了创意的新纪元，最好的故事尚未被讲述。</p>
+                    
+                    <p>我们最受欢迎的工具是 <a href="https://runwayml.com/research/introducing-gen-3-alpha" target="_blank">Gen-3 Alpha</a> 上的生成式视频功能，这是一个全能型的文本/图像/视频到视频的模型。同时，我们提供 <a href="https://runwayml.com/product" target="_blank">完整的内部创意套件</a>，让你能够创作任何你能想象的内容。</p>
+                    
+                    <p>你可以在 <a href="https://runwayml.com/research" target="_blank">Runway Research</a> 了解更多关于我们的研究部门，在 <a href="https://runwayml.com/studios" target="_blank">Runway Studios</a> 了解我们的创意部门。</p>
+
+                    <h4>探索我们的产品</h4>
+                    <p>访问我们的 <a href="https://runwayml.com/product" target="_blank">产品页面</a> 查看最受欢迎工具的高级概览和示例。</p>
+                    
+                    <p>如需更详细的学习资料，请访问我们的 <a href="https://help.runwayml.com/" target="_blank">帮助中心</a> 或 <a href="https://academy.runwayml.com/" target="_blank">Runway学院</a>，那里有每个产品的详细指南、提示词示例等：</p>
+                    
+                    <ul>
+                        <li>
+                            <a href="https://help.runwayml.com/hc/en-us/sections/30265301423635-Gen-3-Alpha" target="_blank">Gen-3 Alpha</a>
+                            <ul>
+                                <li><a href="https://help.runwayml.com/hc/en-us/articles/30266515017875-Creating-with-Text-Image-to-Video-on-Gen-3-Alpha-and-Turbo" target="_blank">文本/图像到视频</a></li>
+                                <li><a href="https://help.runwayml.com/hc/en-us/articles/33350169138323-Creating-with-Video-to-Video-on-Gen-3-Alpha-and-Turbo" target="_blank">视频到视频</a></li>
+                                <li><a href="https://help.runwayml.com/hc/en-us/articles/33927968552339-Creating-with-Act-One-on-Gen-3-Alpha" target="_blank">Act-One</a></li>
+                                <li><a href="https://help.runwayml.com/hc/en-us/articles/30586818553107-Gen-3-Alpha-Prompting-Guide" target="_blank">提示词编写指南</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="step-item">
+                    <h3 id="creating-account">创建Runway账号</h3>
+                    <p>要创建Runway账号，请访问<a href="https://app.runwayml.com/signup" target="_blank">注册页面</a>。</p>
+
+                    <h4>使用邮箱地址注册</h4>
+                    <ol>
+                        <li>输入你想要注册账号的<strong>邮箱地址</strong>。</li>
+                        <li>选择一个<strong>用户名</strong>。请注意，你选择的用户名<strong>之后无法更改</strong>，且<strong>不能使用任何特殊字符</strong>，请谨慎选择！</li>
+                        <li>设置一个至少6个字符的<strong>密码</strong>。如果你选择的密码强度不够，需要添加额外的数字、字符和符号来增强密码强度。</li>
+                        <li>通过重新输入来<strong>确认</strong>你选择的密码。</li>
+                        <li>在下一个界面，输入你的<strong>名字</strong>和<strong>姓氏</strong>。请注意，你在这里输入的内容将<strong>显示在所有发票上</strong>（如果你选择升级账号或购买额外积分），且<strong>无法更改</strong>，请谨慎填写。</li>
+                        <li>提交信息后，你输入的邮箱将收到一个<strong>验证码</strong>。你有一个小时的时间从邮件中获取验证码，并在<strong>下一个界面输入</strong>。</li>
+                    </ol>
+
+                    <h4>使用Google账号注册</h4>
+                    <ol>
+                        <li>选择<strong>使用Google注册</strong>。</li>
+                        <li>在弹出的窗口中，<strong>选择你想要关联的Google账号</strong>。</li>
+                        <li>系统将<strong>自动</strong>使用你的Google账号关联的邮箱创建账号。你的用户名和账号名称将直接从你的Google账号名称和邮箱地址中获取。</li>
+                    </ol>
+
+                    <h4>使用Apple账号注册</h4>
+                    <ol>
+                        <li>选择<strong>使用Apple注册</strong>。</li>
+                        <li>在弹出的窗口中，登录你的<strong>Apple ID</strong>。</li>
+                        <li>系统将<strong>自动</strong>使用你的Apple ID关联的邮箱创建账号。你的用户名和账号名称将直接从你的Apple ID名称和邮箱地址中获取。</li>
+                    </ol>
+                </div>
+
+                <div class="step-item">
+                    <h3 id="learning-dashboard">了解Runway控制面板</h3>
+                    <p><span style="color: #666666;">简介</span></p>
+                    <p>一旦你<a href="https://help.runwayml.com/hc/en-us/articles/24297557468563-Creating-a-Runway-Account" target="_blank">创建了账号</a>，<a href="https://app.runwayml.com" target="_blank">控制面板</a>就会成为你的主基地，让你能够快速访问Runway的整个创意套件、资源存储等功能。</p>
+
+                    <h4>主页</h4>
+                    <p>主页是你账号的登录页面，你可以在这里访问所有Runway最受欢迎的工具。你可以在这里导航到你选择的工具，或者使用屏幕顶部的搜索栏直接搜索。</p>
+                    <p>此外，任何工具都可以通过使用星形图标（⭐）固定在主页上，方便快速访问。</p>
+                    <p>继续向下滚动，你可以看到精选的教程和Discover and Remix提交的可重用提示词。</p>
+
+                    <h4>工作区和账号导航</h4>
+                    <p>使用左上角的用户图标管理工作区相关设置。</p>
+                    <p>使用右上角的用户图标管理你的个人账号相关详情。</p>
+
+                    <h4>Runway Watch</h4>
+                    <p>Runway Watch上的所有视频都是<a href="https://help.runwayml.com/hc/en-us/articles/21778637276179-How-can-I-share-my-Runway-made-work-with-the-team-or-have-it-featured-to-the-community" target="_blank">完全由Runway创作者制作和提交的</a> — 如果你需要灵感或创意启发，可以进入Runway Watch预览不同的内容频道。</p>
+
+                    <h4>资源库</h4>
+                    <p>资源库是你访问、组织、分享和管理生成内容、自定义元素、视频编辑器项目等的地方。</p>
+
+                    <h5>资源</h5>
+                    <p>资源标签页包含你生成和上传到Runway的所有内容。虽然大多数生成的内容会自动分类，但你也可以根据自己的喜好对内容进行分类和创建文件夹。</p>
+
+                    <h5>工作区资源</h5>
+                    <p>这里可以找到与工作区共享的所有资源。</p>
+
+                    <h5>收藏资源</h5>
+                    <p>通过点击心形图标（❤）收藏的资源可以在这里找到。我们建议收藏你喜欢的生成资源，以便轻松找到它们。</p>
+
+                    <h5>视频编辑器项目</h5>
+                    <p>Runway的视频编辑器项目允许你组合多个视频片段来创建、编辑和导出合成视频项目。在这个空间里，你可以创建和访问你的视频编辑器项目。</p>
+
+                    <h5>共享项目</h5>
+                    <p>这里可以找到工作区外的用户与你共享的所有视频编辑器项目。</p>
+
+                    <h4>团队空间（仅企业版）</h4>
+                    <p>使用<a href="https://help.runwayml.com/hc/en-us/articles/22468766908435-What-is-a-teamspace" target="_blank">团队空间</a>来访问、移动和共享与企业账号中特定团队相关的项目和资源。</p>
+
+                    <h4>工具</h4>
+                    <p>快速访问我们最受欢迎的工具：</p>
+                    <ul>
+                        <li>
+                            <strong>生成式会话</strong> — 开始新的<a href="https://help.runwayml.com/hc/en-us/articles/33545310653203-Generating-with-Sessions" target="_blank">会话</a>，使用最新的生成式视频工具，如<a href="https://help.runwayml.com/hc/en-us/articles/30266515017875" target="_blank">文本/图像到视频</a>、<a href="https://help.runwayml.com/hc/en-us/articles/33350169138323" target="_blank">视频到视频</a>、<a href="https://help.runwayml.com/hc/en-us/articles/33927968552339" target="_blank">Act-One</a>、<a href="https://help.runwayml.com/hc/en-us/articles/34926355398675" target="_blank">视频扩展</a>等。
+                        </li>
+                        <li>
+                            <strong>生成式音频</strong> — 使用<a href="https://help.runwayml.com/hc/en-us/articles/31941427186323" target="_blank">唇形同步</a>、<a href="https://help.runwayml.com/hc/en-us/articles/23859696734611" target="_blank">文本转语音</a>和<a href="https://help.runwayml.com/hc/en-us/articles/24388386190099" target="_blank">语音转语音</a>等工具进行创作。
+                        </li>
+                        <li>
+                            <strong>文本生成图像</strong> — 使用文本提示词创建图像。
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="step-item">
+                    <h3 id="getting-started-gen-video">开始使用生成式视频</h3>
+                    <h4>简介</h4>
+                    <p>欢迎使用Runway！Runway是一家研究组织，致力于为创意新时代构建生成式AI工具。我们旨在通过尖端的生成式视频产品和工具，让内容创作的未来变得简单、可控且人人可及。</p>
+                    <p>本快速指南将带你了解如何使用Runway创建你的第一个生成式视频。如需更全面的概览，请查看我们的完整<a href="https://help.runwayml.com/hc/en-us/sections/30265301423635-Gen-3-Alpha" target="_blank">生成式视频</a>内容库。</p>
+
+                    <h4>第1步 – 访问Runway</h4>
+                    <p>为了获得最佳体验，请使用<strong>Chrome</strong>浏览器访问 <a href="https://app.runwayml.com/" target="_blank">https://app.runwayml.com/</a>。</p>
+
+                    <h4>第2步 – 创建会话</h4>
+                    <p>登录后，点击<strong>开始会话</strong>开始生成。<a href="https://help.runwayml.com/hc/en-us/articles/33545310653203-Generating-with-Sessions" target="_blank">会话</a>是Runway中的一种组织结构，可以帮助你在生成过程中保持输出的组织性。</p>
+
+                    <h4>第3步 – 编写提示词和生成</h4>
+                    <p>我们最受欢迎的两个模型是Gen-3 Alpha和Turbo，它们在提示词编写和<a href="https://help.runwayml.com/hc/en-us/articles/15124877443219-How-do-credits-work#h_01HQRX6CQMWSEKPS3QE06JJRGF" target="_blank">定价</a>方面有所不同：</p>
+                    <ul>
+                        <li><strong>Gen-3 Alpha</strong>模型支持文本到视频和图像到视频的转换</li>
+                        <li><strong>Turbo</strong>模型<strong>不支持</strong>文本到视频，<strong>需要输入图像</strong></li>
+                    </ul>
+                    <p>你可以根据需要，使用左下角的模型切换器在模型之间切换：</p>
+                    <p><img src="https://help.runwayml.com/hc/article_attachments/37425232827539" width="487" height="283" alt="模型切换器"></p>
+                    <p>上传图像（如果需要）并在文本框中编写提示词。查看我们的<a href="https://help.runwayml.com/hc/en-us/articles/30586818553107-Gen-3-Alpha-Prompting-Guide" target="_blank">Gen-3 Alpha提示词编写指南</a>获取全面的提示词编写概览。</p>
+                    <p>纯文本提示词（没有输入图像）应该详细描述场景、主体和运动等信息。</p>
+                    <p>图像+文本提示词应该专注于描述所需的运动。你<strong>不需要</strong>描述图像的内容。</p>
+                    <p>点击紫色的<strong>生成</strong>按钮开始处理视频。当你继续生成时，你的生成结果会在会话右侧可滚动显示。</p>
+
+                    <h4>第4步 – 迭代输出</h4>
+                    <p>点击已完成生成结果下的<strong>操作</strong>按钮，查看在Runway中继续处理输出的更多选项：</p>
+                    <p><img src="https://help.runwayml.com/hc/article_attachments/37425232831763" width="488" height="286" alt="操作选项"></p>
+                    <p>你可以了解以下每个操作的详细信息：</p>
+                    <ul>
+                        <li><a href="https://help.runwayml.com/hc/en-us/articles/30266515017875-Creating-with-Text-Image-to-Video-on-Gen-3-Alpha-and-Turbo#h_01J863T0YP0QDQS34P80K70P1Z" target="_blank">扩展</a></li>
+                        <li><a href="https://help.runwayml.com/hc/en-us/articles/31941427186323-Creating-with-Lip-Sync" target="_blank">唇形同步</a></li>
+                        <li><a href="https://help.runwayml.com/hc/en-us/articles/33350169138323-Creating-with-Video-to-Video-on-Gen-3-Alpha-and-Turbo" target="_blank">视频到视频</a></li>
+                        <li><a href="https://help.runwayml.com/hc/en-us/articles/30266515017875-Creating-with-Text-Image-to-Video-on-Gen-3-Alpha-and-Turbo#h_01J9BZHB7736WD92B2VFYQW4DP" target="_blank">编辑视频</a></li>
+                        <li><a href="https://help.runwayml.com/hc/en-us/articles/34926355398675-Creating-with-Expand-Video-on-Gen-3-Alpha-Turbo" target="_blank">视频扩展</a></li>
+                        <li><a href="https://help.runwayml.com/hc/en-us/articles/30266515017875-Creating-with-Text-Image-to-Video-on-Gen-3-Alpha-and-Turbo#h_01J9BZHB7736WD92B2VFYQW4DP" target="_blank">升级到4K</a></li>
+                    </ul>
+                </div>
+
+                <div class="step-item">
+                    <h3 id="runway-resources">Runway资源</h3>
+                    <p>欢迎使用Runway！以下是我们主要资源的全面指南：</p>
+
+                    <h4><strong>获取支持</strong></h4>
+                    <ul>
+                        <li>
+                            <strong><a href="https://status.runwayml.com/" target="_blank">Runway状态页面</a>：</strong> 查看实时平台性能和正在进行的任何事件
+                        </li>
+                        <li>
+                            <a href="https://help.runwayml.com/hc/en-us" target="_blank"><strong>帮助中心：</strong></a> 查找常见问题答案和详细的平台教程
+                        </li>
+                        <li>
+                            <a href="https://discord.com/channels/948250142350376990/1153388061493829713" target="_blank"><strong>官方Discord社区：</strong></a> 与其他创作者交流，从我们的社区版主那里获得帮助。每周五加入我们的直播，获取创意灵感
+                        </li>
+                    </ul>
+
+                    <h4><strong>保持更新</strong></h4>
+                    <ul>
+                        <li>
+                            <strong><a href="https://runwayml.com/" target="_blank">Runway网站：</strong></a> 获取所有Runway相关信息的权威来源
+                        </li>
+                        <li>
+                            <strong><a href="https://runwayml.com/changelog" target="_blank">Runway更新日志：</strong></a> 追踪新功能和改进，了解平台的持续发展
+                        </li>
+                    </ul>
+
+                    <h4><strong>学习与成长</strong></h4>
+                    <ul>
+                        <li>
+                            <strong><a href="https://academy.runwayml.com/" target="_blank">Runway学院：</strong></a> 通过我们精心策划的视频教程和实践指南掌握平台
+                        </li>
+                        <li>
+                            <strong><a href="https://runwayml.com/product/use-cases" target="_blank">用例库：</strong></a> 学习使用Runway创建生产就绪资源的流行方法
+                        </li>
+                    </ul>
+
+                    <h4><strong>管理你的账号</strong></h4>
+                    <ul>
+                        <li>
+                            <strong><a href="https://runwayml.com/pricing" target="_blank">定价页面</a>：</strong> 选择最适合你创意需求的订阅方案
+                        </li>
+                    </ul>
+
+                    <h4><strong>与Runway连接和合作</strong></h4>
+                    <ul>
+                        <li>
+                            <strong><a href="https://runwayml.com/meetups" target="_blank">Runway见面会：</strong></a> 通过我们的全球见面会网络与当地的Runway创作者交流
+                        </li>
+                        <li>
+                            <strong><a href="https://runwayml.com/studios" target="_blank">Runway工作室：</strong></a> 参与我们的AI电影节（Gen:48）和其他支持创作者的计划
+                        </li>
+                        <li>
+                            <strong><a href="https://cpp.runwayml.com/" target="_blank">创意合作伙伴计划：</strong></a> 申请加入我们精选的艺术家和创作者群体，获得新工具和模型的早期访问权限
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="step-item">
+                    <h3 id="usage-rights">使用权限</h3>
+                    <p>作为Runway的用户（无论是免费版、标准版、专业版还是无限版），在你与Runway之间，你保留对你上传和在Runway上生成的内容的所有权和所有权利。你使用Runway创建的内容可以自由使用，我们不会施加任何非商业性限制。</p>
+
+                    <h4>常见问题</h4>
+                    <p><strong>我对使用Runway生成的内容拥有商业使用权吗？</strong></p>
+                    <p>是的，你使用Runway创建的内容可以自由使用，我们不会施加任何非商业性限制。在你与Runway之间，你保留对你上传和在Runway上生成的内容的所有权和所有权利。</p>
+                    <p>这包括但不限于以下盈利（或非盈利）用途：YouTube上传、其他短视频上传（如Instagram Reels、抖音）、社交媒体帖子、电影节参赛作品、产品广告，以及任何其他可能需要商业使用权的场景。</p>
+
+                    <p><strong>在重新发布或使用Runway制作的内容时，我需要标注Runway吗？</strong></p>
+                    <p>当用户喜欢他们的创作结果时，我们总是很乐意收到他们的致谢。但是，在你使用Runway制作的作品中，并没有必须标注我们的正式规定！</p>
+                    <p>用户可以在各种商业和非商业平台上重新分享他们的创作时提及或标记我们，这样其他Runway社区成员就能看到。在你的项目中提及Runway也让我们有机会在我们的社交媒体上展示你的作品。</p>
+                </div>
+
+                <div class="step-item">
+                    <h3 id="security-privacy">了解Runway的安全和隐私标准</h3>
+                    <p>作为一个基于云的浏览器服务，我们非常重视数据安全。<a href="https://runwayml.com/data-security/" target="_blank">Runway完全符合SOC 2标准</a>。</p>
+
+                    <p>如果你使用个人的标准版、专业版或无限版计划为你的客户编辑视频，我们的SOC 2合规性保证所有上传的媒体内容不会被未经授权的团队成员和/或第三方访问或提取。</p>
+
+                    <p>对于企业版计划的用户，这种合规性仍然适用，但任何额外请求、讨论或修改的基于计划的安全细节（特别是涉及在Runway平台上为这些客户处理的媒体）都会在你的原始企业合同中具体说明。</p>
+
+                    <p>上传到Runway的所有资源默认设置为"私密"，只有当你主动更改资源隐私设置时才能被分享。资源旁边的锁定图标表示它尚未被分享，而地球图标表示它已被设置为"公开"（仅可通过链接分享）。</p>
+
+                    <p>更多信息可以在我们的<a href="https://runwayml.com/privacy-policy/" target="_blank">隐私政策</a>中查看。</p>
+                </div>
+            </section>
+
+            <section id="prompting" class="content-section">
+                <h2>2. 提示词编写</h2>
+                
+                <div class="step-item">
+                    <h3 id="frames-prompting">帧提示词编写指南</h3>
+                    <p><strong><span style="color: #666666;">Frames功能目前仅对无限版和企业版用户开放。</span></strong></p>
+                    <p><strong><span style="color: #666666;">如果你还没有这个功能，很快就能获得。在此期间，你可以搜索"Text to Image"来使用我们的传统文本转图像功能。</span></strong></p>
+
+                    <h4><span style="color: #666666;">简介</span></h4>
+                    <p>Frames是我们最先进的图像生成基础模型，提供前所未有的风格控制和视觉保真度。</p>
+                    <p>本指南涵盖了最佳实践、示例提示词结构和关键词集合，帮助你更好地使用Frames进行创作。</p>
+
+                    <h3><span style="color: #434343;">文章要点</span></h3>
+                    <ul>
+                        <li>简单的提示词也能产生不错的效果，但更复杂的提示词能提供更好的风格控制</li>
+                        <li>使用完整的自然语言句子可以更好地控制各个元素</li>
+                        <li>避免使用否定提示词（如"天空中没有云"），以获得最佳的提示词遵循效果</li>
+                    </ul>
+
+                    <h3><span style="color: #434343;">相关链接</span></h3>
+                    <ul>
+                        <li><a href="https://help.runwayml.com/hc/en-us/articles/37053594806419">使用Frames创作</a> - 关于访问和使用Frames以及可用设置的详细指南</li>
+                    </ul>
+
+                    <h3>提示词基础</h3>
+                    <p>Frames的提示词设计支持多种结构、关键词和风格。你可以通过Frames提示以下元素：</p>
+                    <ul>
+                        <li>主体</li>
+                        <li>场景</li>
+                        <li>构图</li>
+                        <li>光线</li>
+                        <li>颜色</li>
+                        <li>风格</li>
+                        <li>焦点</li>
+                        <li>角度</li>
+                        <li>文字</li>
+                        <li>氛围</li>
+                    </ul>
+
+                    <p>详细的提示词可以对输出图像中的不同元素进行精细控制，但简单的提示词也能产生令人惊叹的视觉效果。</p>
+                    <p>在大多数情况下，提示词不需要遵循特定的结构就能获得高质量的输出，但我们建议使用完整的句子来更好地控制某些元素，并在需要更多变化时添加额外的关键词。</p>
+
+                    <div>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <colgroup> <col> <col> <col> </colgroup>
+                    <tbody>
+                    <tr>
+                        <td style="width: 9.85714%;">简单 (Simple)</td>
+                        <td style="width: 55%;">一位优雅的女性，身着飘逸的薄纱面纱，背景是类似天空的蓝色。<br><br>elegant portrait of a woman draped in a flowing sheer tulle veil against a blue background that resembles a sky.</td>
+                        <td style="width: 35%;"><img src="https://help.runwayml.com/hc/article_attachments/37067220591123" width="1920" height="1088"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 9.85714%;">详细 (Detailed)</td>
+                        <td style="width: 55%;">一位优雅的女性，身着薄纱面纱，背景是类似天空的蓝色。特写镜头，空灵的暖橙色光线，柔和发光焦点。自然的面部表情。橙色调的薄纱面纱覆盖在她的头部，多层次的薄纱在脸部周围流动，呈现出无重量的巴洛克绘画风格。流动的布料占据了大部分场景，在环境中戏剧性地旋转。发光的橙色光线创造出梦幻的氛围。柔和的粉彩和鲜艳的调色板混合。丰富的紫色和蓝色，温暖的粉橙色肤色。前卫。优雅的艺术性，精致而简约。一个混乱而优雅的场景。戏剧性的无重量流动布料。发光、凝胶光线、空灵。电光霓虹桃色点缀。<br><br>elegant portrait of a woman draped in a sheer tulle veil against a blue background that resembles a sky. Close-up, ethereal warm orange lighting, soft glowing focus. natural face. The orange-toned tulle veil is draped over her head and flows around her face with multiple flowing layers in a weightless, extravagant baroque painting style. The flowing fabric takes up most of the scene, dramatically swirling throughout the environment. Glowing orange lighting creates a dreamy atmosphere. blend of pastel and vibrant color palettes. rich purples and blues, warm pinkish orange skin tone. avant-garde. elegant artistry, elaborate yet minimalist. a chaotic yet elegant scene. dramatic weightless flowing fabric. glowing, gel lighting, ethereal. electric neon peach accents.</td>
+                        <td style="width: 35%;"><img src="https://help.runwayml.com/hc/article_attachments/37067220594835" width="1920" height="1088"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+
+                    <h2>提示词最佳实践</h2>
+                    <h3><span style="color: #434343;">提示词应该具有描述性，而不是对话性或命令式</span></h3>
+                    <p>虽然外部LLM在自然对话方面表现出色，但Runway的模型是为视觉细节而设计的。在提示词中添加对话性的内容不会为结果带来价值，在某些情况下甚至可能对结果产生负面影响。</p>
+                    <pre>❌ 你能帮我生成一张短脖子的长颈鹿图片吗？</pre>
+                    <pre>✅ 一张短脖子长颈鹿的电影感照片。</pre>
+
+                    <h3><span style="color: #434343;">提示词应使用正面表述</span></h3>
+                    <p>Frames不支持否定提示词，即描述图像中不应该出现什么的提示词。使用否定提示词可能会导致相反的结果。</p>
+                    <pre>❌ 一个没有头发的男人</pre>
+                    <pre>✅ 一个秃顶的男人</pre>
+
+                    <h2>提示词关键词</h2>
+                    <p>本节提供了在使用Frames时可以用于参考的不同关键词集合。这些集合包括光线、相机风格和角度等细节。</p>
+                    <p>为了获得最佳效果，我们建议根据你想象的图像来修改这些示例。</p>
+
+                    <h2>美学风格 (Aesthetic Styles)</h2>
+                    <div>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <colgroup> <col> <col> <col> <col> </colgroup>
+                    <tbody>
+                    <tr>
+                        <td><strong>风格 (Style)</strong></td>
+                        <td><strong>关键词集合 (Keyword collection)</strong></td>
+                        <td><strong>示例提示词 (Example prompt)</strong></td>
+                        <td><strong>示例输出 (Example output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>故障艺术 (Glitchcore)</td>
+                        <td>故障艺术、故障核、颗粒纹理、数据损坏、像素融化、色差、CRT静态效果。低对比度的故障照片自然地与视觉异常混合。(Glitch art, glitchcore, grain texture, datamosh, melting pixels, chromatic aberration, CRT static accents. The low-contrast glitched photograph is naturally blended with visual anomalies.)</td>
+                        <td>抽象的故障电影摄影，一位穿着前卫服装的女性，带有层叠的流动布料。故障艺术、故障核、颗粒纹理、数据损坏、像素融化、色差、CRT静态效果。低对比度的故障照片自然地与视觉异常混合。(abstract, glitchy cinematic photography of a woman wearing an avant garde outfit with cascading layers of flowing fabric. Glitch art, glitchcore, grain texture, datamosh, melting pixels, chromatic aberration, CRT static accents. The low-contrast glitched photograph is naturally blended with visual anomalies.)</td>
+                        <td><img src="https://help.runwayml.com/hc/article_attachments/37067220597011" width="1920" height="1088"></td>
+                    </tr>
+                    <tr>
+                        <td>梦幻 (Dreamy)</td>
+                        <td>梦幻感、柔焦、光晕、星形镜头光晕、细颗粒、高斯模糊、空灵光效、运动模糊 (Dreamlike, soft focus, light leaks, star lens flare at 5% on all light sources, fine grain, soft gaussian blur, ethereal glow, motion blur)</td>
+                        <td>1990年代梦幻摄影，一位被蓬松迷宫墙包围的男子。迷宫墙完全由云朵构成。梦幻感、柔焦、光晕、星形镜头光晕、细颗粒、高斯模糊、空灵光效、运动模糊 (1990s dreamy photography of a man surrounded by fluffy maze walls. the maze walls are made entirely of clouds. Dreamlike, soft focus, light leaks, star lens flare at 5% on all light sources, fine grain, soft gaussian blur, ethereal glow, motion blur)</td>
+                        <td><img src="https://help.runwayml.com/hc/article_attachments/37067207449235" width="1360" height="768"></td>
+                    </tr>
+                    <tr>
+                        <td>现代 (Modern)</td>
+                        <td>锐利、简洁、极简主义 (Sharp, clean, minimalistic)</td>
+                        <td>照片写实。一只黑色手，长着蓝色指甲，从侧面托着脸。人物是秃头，但在脸部和头部周围有一些短发，深色皮肤，背景是简约、简单的深蓝色，35mm。锐利、简洁、极简主义。(photorealistic. a black hand with long blue nails holding the face from the side. The person is bald but has some short hair around their face and head with dark skin, with a minimal, simple, dark blue background, 35mm. sharp, clean, minimalistic.)</td>
+                        <td><img src="https://help.runwayml.com/hc/article_attachments/37148062120211" alt="Frames 948781626, photorealistic two.png"></td>
+                    </tr>
+                    <tr>
+                        <td>恐怖 (Horror)</td>
+                        <td>高对比度、去饱和度、不稳定运动、暗色调、恐怖美学 (High contrast, desaturated, unstable movement, dark color palette, horror aesthetic)</td>
+                        <td>夜间电影摄影，一位表情恐惧的女性。她手持一支小蜡烛，柔和地照亮她的脸。在她身后可以看到一个可怕的身影，几乎看不见，与黑色背景融为一体。高对比度、去饱和度、不稳定运动、暗色调、恐怖美学 (cinematic photography at night of a woman with a fearful expression. she holds a small candle that gently illuminates her face. a terrifying figure can be seen behind her, barely visible and blending in with the dark black background. High contrast, desaturated, unstable movement, dark color palette, horror aesthetic)</td>
+                        <td><img src="https://help.runwayml.com/hc/article_attachments/37067207453971" width="1360" height="768"></td>
+                    </tr>
+                    <tr>
+                        <td>低保真 (Lo-Fi)</td>
+                        <td>手绘面板、80年代日本杂志艺术风格、柔和色调、柔和的调色板、柔和颗粒、怀旧美学、动画风格 (Hand drawn panel, lo-fi 1980s japanese magazine art style, muted tones, pastel color palette, soft grain, nostalgic aesthetic, animated)</td>
+                        <td>一部关于一位女性在宇宙飞船中阅读书籍的旧日本动漫的手绘面板。低保真80年代日本杂志艺术风格、柔和色调、柔和的调色板、柔和颗粒、怀旧美学、动画风格 (a hand drawn panel from an old japanese anime about a woman reading a book in a spaceship. Lo-fi 1980s japanese magazine art style, muted tones, pastel color palette, soft grain, nostalgic aesthetic, animated)</td>
+                        <td><strong><img src="https://help.runwayml.com/hc/article_attachments/37067220608659" width="1920" height="1088"></strong></td>
+                    </tr>
+                    <tr>
+                        <td>蒸汽波 (Vaporwave)</td>
+                        <td>蒸汽波。饱和的粉色、紫色和蓝色。复古美学。发光霓虹元素。90年代设计元素 (vaporwave. saturated pink, purple, and blues. Retro aesthetics. Glowing neon elements. 90s design elements)</td>
+                        <td>蒸汽波。赛博空间中的大理石面孔。饱和的粉色、紫色和蓝色。复古美学。发光霓虹元素。90年代设计元素 (vaporwave. a marble face in cyberspace. saturated pink, purple, and blues. Retro aesthetics. Glowing neon elements. 90s design elements)</td>
+                        <td><img src="https://help.runwayml.com/hc/article_attachments/37148062122003" alt="Frames 3081845420, vaporwave a marble.png"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+
+                    <h2>艺术风格 (Art Styles)</h2>
+                    <div>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <colgroup> <col> <col> <col> </colgroup>
+                    <tbody>
+                    <tr>
+                        <td style="width: 12.4286%;"><strong>风格 (Style)</strong></td>
+                        <td style="width: 24.9286%;"><strong>关键词集合 (Keyword collection)</strong></td>
+                        <td style="width: 34.9285%;"><strong>示例提示词 (Example prompt)</strong></td>
+                        <td style="width: 27.5714%;"><strong>示例输出 (Example output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12.4286%;">拼贴 (Collage)</td>
+                        <td style="width: 24.9286%;">拼贴风格、混合媒体方法、印刷纸剪贴、撕纸边缘 (collage style, mixed media approach, printed paper cutouts, torn paper edges)</td>
+                        <td style="width: 34.9285%;">
+                        <p>混合媒体拼贴，以热带雨林为背景，具有深沉、忧郁的绿色调色板。一个完全由鲜艳、有质感的红橙色颜料制成的人形站在画面中央。手绘的粉红色涂鸦突出轮廓。混合媒体装饰由胶带、拼贴风格杂志剪贴和撕纸边缘组成 (mixed media collage featuring realistic scenery with a solid color block subject. in a tropical rainforest with a deep, moody green color palette. a human figure made entirely of vibrant, textured red-orange paint stands in the center of the frame. hand-drawn hot pink scribbles accentuate the silhouette. mixed media accents made of duct tape, collage style magazine cutouts with torn paper edges)</p>
+                        </td>
+                        <td style="width: 27.5714%;"><img src="https://runway-task-artifacts.s3.amazonaws.com/24370222-d9ae-445e-894d-35c035380310.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12.4286%;">柔和巴洛克 (Pastel baroque)</td>
+                        <td style="width: 24.9286%;">优雅的巴洛克艺术作品。优雅的艺术性，柔和的冷色调与温暖的柔和色调。平滑的油画效果，精细的阴影混合。花卉图案。精致。混乱而优雅的场景 (elegant baroque artwork. elegant artistry, muted cool pastel color palette with pops of pastel warmth. smooth oil painting with finely blended shading. floral motifs. elaborate. a chaotic yet elegant scene)</td>
+                        <td style="width: 34.9285%;">一位女性手持生日蛋糕的优雅巴洛克艺术作品。优雅的艺术性，柔和的冷色调与温暖的柔和色调。平滑的油画效果，精细的阴影混合。手绘花卉图案。精致。混乱而优雅的场景 (elegant baroque artwork of a woman holding a birthday cake. elegant artistry, muted cool pastel color palette with pops of pastel warmth. smooth oil painting with finely blended shading. painted floral motifs. elaborate. a chaotic yet elegant scene)</td>
+                        <td style="width: 27.5714%;"><img src="https://help.runwayml.com/hc/article_attachments/37148062126099" alt="Frames 702463471, elegant baroque artw.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12.4286%;">插画 (Illustration)</td>
+                        <td style="width: 24.9286%;">故事书插画、粗线条、清晰的粗体形状、手绘质感、精确的墨水线条 (Storybook illustration, thick lines, clean bold shapes, hand-drawn quality, precise ink-like lines)</td>
+                        <td style="width: 34.9285%;">一只青蛙在睡莲叶上野餐的故事书插画，粗线条、清晰的粗体形状、手绘质感、精确的墨水线条 (Storybook illustration of a frog having a picnic on a lily pad, thick lines, clean bold shapes, hand-drawn quality, precise ink-like lines)</td>
+                        <td style="width: 27.5714%;"><img src="https://help.runwayml.com/hc/article_attachments/37148070563475" alt="Frames 1388507752, Storybook illustrati.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12.4286%;">动漫 (Anime)</td>
+                        <td style="width: 24.9286%;">动漫风格插画。略微模糊的背景。平面阴影 (anime-style illustration. slightly blurry background. flat shading)</td>
+                        <td style="width: 34.9285%;">一位紫色头发的女战士的动漫风格插画。柔和的调色板。夸张的特征。略微模糊的背景。日本艺术作品中常见的平面阴影风格。(anime-style illustration of a warrior woman with purple hair. muted color palette. exaggerated features. slightly blurry background. flat shading style common in japanese artwork.)</td>
+                        <td style="width: 27.5714%;"><img src="https://help.runwayml.com/hc/article_attachments/37148062135187" alt="Frames 156348287, anime-style illustra.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 12.4286%;">像素 (Pixel)</td>
+                        <td style="width: 24.9286%;">像素艺术。怀旧游戏风格的像素场景。(pixel art. pixelated scene reminiscent of a nostalgic video game.)</td>
+                        <td style="width: 34.9285%;">两个人在夜晚的篝火旁休息的像素艺术，背景是广阔的废墟。怀旧游戏风格的像素场景。(pixel art of two people resting near a campfire at night in vast ruins. pixelated scene reminiscent of a nostalgic video game.)</td>
+                        <td style="width: 27.5714%;"><img src="https://help.runwayml.com/hc/article_attachments/37148070572563" alt="Frames 3309817012, pixel art of a two p.png"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+
+                    <h2>构图风格 (Composition Styles)</h2>
+                    <div>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <colgroup> <col> <col> <col> </colgroup>
+                    <tbody>
+                    <tr>
+                        <td style="width: 8.99997%;"><strong>风格 (Style)</strong></td>
+                        <td style="width: 23.5716%;"><strong>关键词集合 (Keyword collection)</strong></td>
+                        <td style="width: 37.4285%;"><strong>示例提示词 (Example prompt)</strong></td>
+                        <td style="width: 29.8572%;"><strong>示例输出 (Example output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 8.99997%;">居中主体 (Centered subject)</td>
+                        <td style="width: 23.5716%;">[主体]在画面中央。( [subject] in center frame.)</td>
+                        <td style="width: 37.4285%;">一位宇航员的电影感肖像，位于画面中央。头盔反射中可见深邃的太空。阴影，上方有暗淡的光线。浅景深 (cinematic portrait of an astronaut in center frame. deep space visible in helmet reflection. shadows, lit by dim light from above. shallow depth of field)</td>
+                        <td style="width: 29.8572%;"><img src="https://help.runwayml.com/hc/article_attachments/37148070574611" alt="Frames 4087007949, cinematic portrait o.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 8.99997%;">三分构图 (Rule of thirds)</td>
+                        <td style="width: 23.5716%;">电影感静止画面。三分构图法。(cinematic still. rule of thirds composition.)</td>
+                        <td style="width: 37.4285%;">一个巨大的大理石手雕像从海浪中升起，伸向岩石悬崖的电影感静止画面。部分被遮挡。三分构图法。忧郁的调色板。(cinematic still of a giant marble hand statue rising from beneath ocean waves and reaching towards rocky cliffs. partially obscured. rule of thirds composition. moody color palette.)</td>
+                        <td style="width: 29.8572%;"><img src="https://help.runwayml.com/hc/article_attachments/37148070579731" alt="Frames 1150052288, cinematic still of a.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 8.99997%;">对称 (Symmetrical)</td>
+                        <td style="width: 23.5716%;">柔和的对称。对称构图。(gentle symmetry. symmetrical composition.)</td>
+                        <td style="width: 37.4285%;">一位女性在公交站等待的电影感静止画面。动态运动模糊传达出模糊的彩色车辆经过。异想天开的柔和调色板。柔和的对称。对称构图。(cinematic still of a woman waiting at a bus stop. dynamic motion blur conveys colorful vehicles passing in a blur. whimsical muted color palette. gentle symmetry. symmetrical composition.)</td>
+                        <td style="width: 29.8572%;"><img src="https://help.runwayml.com/hc/article_attachments/37148062148627" alt="Frames 2850671234, cinematic still of a.png"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+
+                    <h2>相机和胶片风格 (Camera & Film Styles)</h2>
+                    <div>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <colgroup> <col> <col> <col> </colgroup>
+                    <tbody>
+                    <tr>
+                        <td style="width: 15.1429%;"><strong>风格 (Style)</strong></td>
+                        <td style="width: 21.7143%;"><strong>关键词集合 (Keyword collection)</strong></td>
+                        <td style="width: 35.4286%;"><strong>示例提示词 (Example prompt)</strong></td>
+                        <td style="width: 27.5715%;"><strong>示例输出 (Example output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.1429%;">一次性相机 (Disposable film)</td>
+                        <td style="width: 21.7143%;">夜间拍摄的经典一次性相机闪光摄影。一次性相机的特性和品质，胶片效果，暗角和轻微过度曝光。整体柔和色彩 (Classic disposable flash photography taken at night. Characteristics and qualities of a disposable flash camera, on film, vignette and slight overexposure. Overall muted color)</td>
+                        <td style="width: 35.4286%;">夜间拍摄的经典一次性相机闪光摄影，一位男子在滑板公园滑板。一次性相机的特性和品质，胶片效果，暗角和轻微过度曝光。整体柔和色彩 (Classic disposable flash photography taken at night of a man on a skateboard at a skate park. Characteristics and qualities of a disposable flash camera, on film, vignette and slight overexposure. Overall muted color)</td>
+                        <td style="width: 27.5715%;"><img src="https://help.runwayml.com/hc/article_attachments/37148070587283" alt="Frames 1510151069, Classic disposable f.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.1429%;">损坏胶片 (Damaged film)</td>
+                        <td style="width: 21.7143%;">颗粒纹理、轻微过度曝光、柔和色彩、可见胶片划痕、损坏的胶片、光晕、自然、永恒、柔焦、宝丽来美学特征、历史磨损。(Grainy texture, slightly overexposed, muted colors, visible film scratches, damaged film, light leaks, spontaneous, timeless, soft focus, characteristic Polaroid aesthetic, historical wear and tear.)</td>
+                        <td style="width: 35.4286%;">一张极度损坏的胶片摄影，拍摄一只正在吃干草的长角牛。颗粒纹理、轻微过度曝光的胶片、柔和色彩、可见的胶片划痕和水渍、光晕传达出永恒美学中的自然场景。历史磨损。化学污渍、烧痕、乳剂退化图案 (extremely damaged film photography of a longhorn steer eating hay. The grainy texture, slightly overexposed film, muted colors, visible film scratches and water damage, and light leaks convey a candid scene in a timeless aesthetic. historical wear and tear. Chemical stains, burn marks, emulsion deterioration patterns)</td>
+                        <td style="width: 27.5715%;"><img src="https://help.runwayml.com/hc/article_attachments/37153288697875" alt="Frames extremely damaged film photography of a longhorn steer with hay hanging out of its mouth The grainy texture, slightly overexposed film, muted colors, visible film scratches, damaged film, light leaks convey a candid scene in a ti (1).png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.1429%;">重颗粒胶片 (Heavy grain film)</td>
+                        <td style="width: 21.7143%;">重胶片颗粒、可见噪点、可见灰尘颗粒 (Heavy film grain, visible noise, visible dust particles)</td>
+                        <td style="width: 35.4286%;">一张黑白鱼眼镜头照片，带有重胶片颗粒，拍摄一位男子直视相机。鱼眼镜头扭曲了主体和背景。可见灰尘颗粒。可见噪点。(black and white fisheye lens photo with heavy film grain captures a man peering directly into the camera. the fisheye lens distorts the subject and background. visible dust particles. visible noise.)</td>
+                        <td style="width: 27.5715%;"><img src="https://help.runwayml.com/hc/article_attachments/37153279782675" alt="Frames black and white fisheye lens photo with heavy film grain captures a man peering directly into the camera the fisheye lens distorts the subject and background visible dust particles visible noise a-1, 903093531.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.1429%;">VHS</td>
+                        <td style="width: 21.7143%;">VHS拍摄。VHS伪影、跟踪线、磨损的胶片纹理、模拟色彩溢出、颗粒质感 (Shot on VHS. VHS artifacts, tracking lines, worn film texture, analog color bleeding, grainy quality)</td>
+                        <td style="width: 35.4286%;">VHS拍摄的两个人物在黑暗房间中的剪影，有一个明亮的窗户。窗户的光线在两个主体身后形成鲜明的对比。美学包括极其明显的VHS胶片伪影、跟踪线、磨损的胶片纹理、模拟色彩溢出、颗粒质感 (VHS footage of the silhouettes of two characters in a dark room with a bright window. the window light creates a stark contrast behind the two subjects. Aesthetic includes extremely noticeable VHS film artifacts, tracking lines, worn film texture, analog color bleeding, grainy quality)</td>
+                        <td style="width: 27.5715%;"><img src="https://help.runwayml.com/hc/article_attachments/37153279788179" alt="Frames 1160706495, VHS footage of the s.png"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+
+                    <h2>一般风格 (General Styles)</h2>
+                    <div>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <colgroup> <col> <col> <col> </colgroup>
+                    <tbody>
+                    <tr>
+                        <td style="width: 15.0001%;"><strong>风格 (Style)</strong></td>
+                        <td style="width: 21.857%;"><strong>关键词集合 (Keyword collection)</strong></td>
+                        <td style="width: 35.643%;"><strong>示例提示词 (Example prompt)</strong></td>
+                        <td style="width: 27.3572%;"><strong>示例输出 (Example output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.0001%;">电影感 (Cinematic)</td>
+                        <td style="width: 21.857%;">电影感照片、电影剧照、戏剧性、变形镜头、35mm、专业构图 (Cinematic photograph, movie still, theatrical, anamorphic lens, 35mm, professional composition)</td>
+                        <td style="width: 35.643%;">一位沉思的精灵女性在古老废墟中阅读书籍的电影感照片。书籍的页面发出微弱的蓝光。中特写肖像，浅景深聚焦于女王。柔和的电影感调色板，带有轻微胶片颗粒。艺术指导，专业构图。电影剧照。戏剧性、变形镜头、35mm (cinematic photograph of a contemplative elven woman reading a book in ancient ruins. the pages of the book emit a faint blue glow. medium close-up portrait with a shallow depth of field to focus on the queen. muted cinematic color palette with slight film grain. art directed, professional composition. movie still. theatrical, anamorphic lens, 35mm)</td>
+                        <td style="width: 27.3572%;"><img src="https://help.runwayml.com/hc/article_attachments/37153288703891" alt="Frames cinematic photograph of a contemplative elven woman reading a book in ancient ruins the pages of the book emit a faint blue glow medium close-up portrait with a shallow depth of field to focus on the queen muted cinematic color pal a.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.0001%;">人像摄影 (Portrait photography)</td>
+                        <td style="width: 21.857%;">人像、漫射光、编辑人像、时尚人像 (Portrait, diffused lighting, editorial portrait, fashion portrait)</td>
+                        <td style="width: 35.643%;">一位戴着星形太阳镜和领结的西伯利亚猫的人像摄影。猫的嘴巴张开，好像在喵喵叫。漫射光均匀地照亮主体，同时与纯蓝色背景形成鲜明对比。(portrait photography of a siberian cat wearing star-shaped sunglasses and a bowtie. The cat's mouth is open, as if meowing. The diffused lighting evenly illuminates the subject while creating a sharp contrast with the solid blue background.)</td>
+                        <td style="width: 27.3572%;"><img src="https://help.runwayml.com/hc/article_attachments/37153279792787" alt="Frames Portrait photography of a siberian cat wearing star-shaped sunglasses and a bowtie The cat's mouth is open, as if meowing The diffused lighting evenly illuminates the subject while creating a sharp contrast with the solid blue backgr.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.0001%;">产品摄影 (Product photography)</td>
+                        <td style="width: 21.857%;">产品摄影。极简主义、简洁、明亮光线 (product photography. minimalist, clean, bright lighting)</td>
+                        <td style="width: 35.643%;">一瓶独特香水瓶的现代产品摄影。极简主义、简洁。鼠尾草绿色调色板。精心安排的花卉和木质元素。明亮光线突出香水瓶。(modern product photography of perfume in a unique bottle. minimalist, clean. sage green color palette. thoughtfully arranged floral and wood elements. bright lighting accentuates the perfume bottle.)</td>
+                        <td style="width: 27.3572%;"><img src="https://help.runwayml.com/hc/article_attachments/37148062154003" alt="Frames 364571629, modern product photo.png"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+
+                    <h2>主体姿势 (Subject poses)</h2>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <tbody>
+                    <tr>
+                        <td style="width: 13.3571%;"><strong>风格 (Style)</strong></td>
+                        <td style="width: 19%;"><strong>关键词集合 (Keyword collection)</strong></td>
+                        <td style="width: 31.1429%;"><strong>示例提示词 (Example prompt)</strong></td>
+                        <td style="width: 24%;"><strong>示例输出 (Example output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 13.3571%;">放松 (Relaxed)</td>
+                        <td style="width: 19%;">放松的姿势、优雅 (relaxed pose, elegant)</td>
+                        <td style="width: 31.1429%;">一位完全被薄透明塑料包裹的人的电影感摄影。在闪亮的透明塑料下可以看到自然色彩的彩色花朵。人物以放松的姿势坐着，完全被皱褶的白色塑料覆盖。柔和的自然暖光。塑料包裹着人物和野花。黑色背景。超现实。空灵 (cinematic photography of a person encased completely in thin translucent plastic. colorful flowers in natural colors can be seen wrapped underneath the shiny translucent plastic. the figure sits in a relaxed pose, completely covered in the wrinkled white plastic. soft natural warm lighting. the plastic is wrapped around the figure and wildflowers. black background. surreal. ethereal)</td>
+                        <td style="width: 24%;"><img src="https://runway-task-artifacts.s3.amazonaws.com/c11631df-73ea-447e-a53b-20123685c597.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 13.3571%;">运动 (In motion)</td>
+                        <td style="width: 19%;">自然运动模糊强调主体相对于静止环境的运动。(natural motion blur emphasizes the subject's movement against the still environment.)</td>
+                        <td style="width: 31.1429%;">一位在平静花田中的舞者。自然运动模糊强调主体相对于静止环境的运动。主体部分被遮挡，创造神秘的叙事。背景清晰 (dancer in a calm field of flowers. natural motion blur emphasizes the subject's movement against the still environment. Subject appears partially obscured, creating mysterious narrative. background in focus)</td>
+                        <td style="width: 24%;"><img src="https://help.runwayml.com/hc/article_attachments/37148070593171" alt="Frames 3621353669, dancer in a calm fie.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 13.3571%;">超现实解剖 (Surreal anatomy)</td>
+                        <td style="width: 19%;">[主体]以不可能的方式弯曲和扭曲。变形、扭曲、挤压、极度变形和夸张。超现实解剖。电影感、前卫 (the [subject] curves and bends impossibly. distorted, warped, squished, and extremely deformed and exaggerated. surreal anatomy. cinematic, avant garde)</td>
+                        <td style="width: 31.1429%;">这位男子以不可能的方式弯曲和扭曲。变形、扭曲、挤压、极度变形和夸张。超现实解剖。电影感、前卫。纯白色背景 (the man curves and bends impossibly. distorted, warped, squished, and extremely deformed and exaggerated. surreal anatomy. cinematic, avant garde. solid white background)</td>
+                        <td style="width: 24%;"><img src="https://help.runwayml.com/hc/article_attachments/37148062162067" alt="Frames the man curves and bends impossibly distorted, warped, squished, and extremely deformed and exaggerated surreal anatomy cinematic, avant garde, solid white background 4228685253.png"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+
+                    <h2>文字风格 (Text Styles)</h2>
+                    <div>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <colgroup> <col> <col> <col> </colgroup>
+                    <tbody>
+                    <tr>
+                        <td style="width: 15.2857%;"><strong>风格 (Style)</strong></td>
+                        <td style="width: 21.8571%;"><strong>关键词集合 (Keyword collection)</strong></td>
+                        <td style="width: 35.4999%;"><strong>示例提示词 (Example prompt)</strong></td>
+                        <td style="width: 27.2143%;"><strong>示例输出 (Example output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.2857%;">剧院招牌 (Theater marquee)</td>
+                        <td style="width: 21.8571%;">带有大型招牌的剧院，醒目地拼写[文字] (theater with a large marquee sign that boldly spells [word])</td>
+                        <td style="width: 35.4999%;">一个带有大型霓虹招牌的电影感静止画面，招牌上写着RUNWAY。招牌醒目地拼写FRAMES。对称 (cinematic still of a theater with a large neon sign that reads RUNWAY. the marquee boldly spells the word FRAMES. symmetrical)</td>
+                        <td style="width: 27.2143%;"><img src="https://help.runwayml.com/hc/article_attachments/37148070603411" alt="Frames 3880145144, cinematic still of a.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.2857%;">霓虹招牌 (Neon sign)</td>
+                        <td style="width: 21.8571%;">拼写[文字]的霓虹招牌 (neon sign that spells [word])</td>
+                        <td style="width: 35.4999%;">1950年代的一家得来速餐厅的霓虹招牌，写着RUNWAY和Frames，带有大箭头和星星 (1950s neon sign for a drive-thru that spells RUNWAY and Frames with a large arrow and stars)</td>
+                        <td style="width: 27.2143%;"><img src="https://help.runwayml.com/hc/article_attachments/37148062166675" alt="Frames 482959662, 1950s neon sign for.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.2857%;">气球 (Balloon)</td>
+                        <td style="width: 21.8571%;">用气球组成的[文字] (balloons forming the word [word])</td>
+                        <td style="width: 35.4999%;">用气球组成的RUNWAY漂浮在城市上空。(balloons forming the word RUNWAY float in the sky above a city.)</td>
+                        <td style="width: 27.2143%;"><img src="https://help.runwayml.com/hc/article_attachments/37148062170003" alt="Frames 1250360728, balloons forming the.png"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+
+                    <h2>纹理风格 (Texture Styles)</h2>
+                    <div>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <colgroup> <col> <col> <col> </colgroup>
+                    <tbody>
+                    <tr>
+                        <td style="width: 15.5714%;"><strong>风格 (Style)</strong></td>
+                        <td style="width: 21.5714%;"><strong>关键词集合 (Keyword collection)</strong></td>
+                        <td style="width: 35.7858%;"><strong>示例提示词 (Example prompt)</strong></td>
+                        <td style="width: 26.7857%;"><strong>示例输出 (Example output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.5714%;">扫描 (Scanner)</td>
+                        <td style="width: 21.5714%;">黑白扫描图像。复古复印扫描拉伸效果。颗粒纹理。粗糙。(black and white scanned image. vintage photocopy scan stretch effect. grain texture. gritty.)</td>
+                        <td style="width: 35.7858%;">一朵花的扭曲黑白扫描图像。复古复印扫描拉伸效果。颗粒纹理。粗糙。(distorted black and white scanned image of a flower. vintage photocopy scan stretch effect. grain texture. gritty.)</td>
+                        <td style="width: 26.7857%;"><img src="https://help.runwayml.com/hc/article_attachments/37148070628115" alt="Frames 1293740159, distorted black and.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.5714%;">静态全息图 (Static hologram)</td>
+                        <td style="width: 21.5714%;">[主体]形状的静态全息图、CRT静态、柔和自然光晕 (static hologram in the shape of [subject], crt static, soft natural glow)</td>
+                        <td style="width: 35.7858%;">电影感、空灵神秘。一个完全由发光和故障的CRT静态组成的角色的专业动作镜头。动态和富有表现力的舞蹈姿势，捕捉到动作的瞬间。在Portra胶片上拍摄的忧郁和黑暗的电影感场景。夜晚。广阔田野中的超现实动作场景。(cinematic, ethereal mysterious. professional action shot of character made entirely of glowing and glitching CRT static. dynamic and expressive dance pose caught mid-motion. moody and dark cinematic scene captured on portra film. night time. a surreal action scene in a vast field.)</td>
+                        <td style="width: 26.7857%;"><img src="https://help.runwayml.com/hc/article_attachments/37153279794451" alt="Frames 338562784, cinematic, ethereal (2).png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.5714%;">铬金属 (Chrome)</td>
+                        <td style="width: 21.5714%;">液态铬。反光、闪亮、彩虹光泽 (liquid chrome. reflective, shiny, iridescent sheen)</td>
+                        <td style="width: 35.7858%;">面对一座完全包裹在液态铬中的经典华丽建筑。闪亮、反光的建筑与周围的白色石质建筑形成鲜明对比。带有柔和彩虹光泽的液态铬 (facing a classic ornate building fully encased in liquid chrome. the shiny, reflective building starkly contrasts the white stone building around it. liquid chrome with a soft iridescent sheen)</td>
+                        <td style="width: 26.7857%;"><img src="https://help.runwayml.com/hc/article_attachments/37148062184083" alt="Frames 3387950960, a classic ornate bui.png"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15.5714%;">皮纳塔 (Piñata)</td>
+                        <td style="width: 21.5714%;">[主体]皮纳塔。彩色薄纸。(piñata [subject]. thin tissue paper in assorted colors.)</td>
+                        <td style="width: 35.7858%;">电话线上的皮纳塔鸟。彩色薄纸。(piñata bird on a telephone wire. thin tissue paper in assorted colors.)</td>
+                        <td style="width: 26.7857%;"><img src="https://help.runwayml.com/hc/article_attachments/37153288715027" alt="Frames piñata bird on a telephone wire thin tissue paper in assorted colors a-1, 2971305907.png"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <h3 id="prompt-languages">支持哪些语言的提示词？</h3>
+                    <p>虽然Runway的开发团队主要使用英语，但我们的模型接受并鼓励使用其他语言的提示词进行实验。然而，<strong>并非所有语言的提示词都能达到相同的效果</strong>。如果你在使用任何语言的提示词时遇到问题，请<a href="https://help.runwayml.com/hc/en-us/articles/20821762056723-How-to-submit-a-support-request" target="_blank" rel="noopener noreferrer">联系我们的支持团队</a>，提供任何评论、关注或反馈，这样我们可以学习和改进。</p>
+                    <p>此外，虽然你可以输入不同语言的提示词并获得生成结果，但我们<strong>目前还没有本地化的界面</strong>。</p>
+                </div>
+
+                <div class="step-item">
+                    <h3 id="how-to-prompt">如何在Runway中编写提示词</h3>
+                    <p>本文概述了在Runway中使用提示词时需要考虑的一般概念。如需更详细的概览和示例，请查看我们的<a href="https://help.runwayml.com/hc/en-us/articles/30586818553107-Gen-3-Alpha-Prompting-Guide">Gen-3 Alpha提示词编写指南</a>。</p>
+                    <p>&nbsp;</p>
+                    <h4>1. Runway的提示词<strong>不是对话式的</strong></h4>
+                    <p>你遇到的其他生成式或AI中心服务（最常见的是大语言模型，即LLM）可能会鼓励你使用对话式的方式来编写提示词以达到你想要的效果：</p>
+                    <p class="wysiwyg-indent1"><em><strong>X</strong> "你能帮我制作一个狗跳跃的视频吗？"<br><br>Can you make me a video of a dog jumping?</em></p>
+                    <p class="wysiwyg-indent1"><em><strong>X</strong> "请给我展示一个关于两个朋友的故事。"<br><br>Please show me a story about two friends.</em></p>
+                    <p>对于Runway的提示词，这些对话式的添加会分散模型的注意力，阻止它创建你想要看到的内容。相反，要坚持<strong>描述视觉内容</strong>。</p>
+                    <p>&nbsp;</p>
+                    <h4>2. Runway的提示词<strong>不是基于命令的</strong></h4>
+                    <p>与Runway提示词不是对话式的一样，我们的生成式模型也不是设计用来遵循命令的。以下是一些示例：</p>
+                    <p class="wysiwyg-indent1"><strong>X&nbsp;</strong><em>"在这个田野场景中添加一只狗。"<br><br>Add a dog to this clip of a field.</em></p>
+                    <p class="wysiwyg-indent1"><strong>X </strong><em>"让蜡烛熄灭。"<br><br>Make the candle go out.</em></p>
+                    <p>虽然看起来你是在提供指示，但我们的模型是在寻找（并从中渲染）<strong>视觉描述</strong>（相机在看什么？），而不是命令。</p>
+                    <p>&nbsp;</p>
+                    <h4>3. Runway的提示词<strong>一次只适用于一个视觉项目</strong></h4>
+                    <p>目前，输入整个剧本或一系列镜头<em>不会</em>输出完整的多镜头电影或视频。相反，一个提示词等于（创建）一个镜头（如果你使用文本转图像，则是一个图像）。</p>
+                    <p>&nbsp;</p>
+                    <h4>4. Runway的提示词可以<strong>非常技术化</strong></h4>
+                    <p>如果你是电影爱好者，有制作经验，在电影片场待过，或者能够快速上网搜索了解不同电影术语的含义（包括但不限于技术照明术语、特定相机规格和镜头类型/效果），尝试使用技术性电影术语可以为你带来出色的结果。例如，这是一个在文本转图像中经常能创造出强烈的电影感照片写实效果的提示词：</p>
+                    <p class="wysiwyg-indent1"><em>"[主体]锐利对焦，极其细节，照片写实，原始素材，8K高分辨率，原始自然电影，16mm，Portra 400胶片调色，超写实，电影感，次表面散射，光线追踪，体积光"<br><br>[SUBJECT] sharp focus, extremely detailed, photorealistic, RAW footage, 8k high resolution, RAW candid cinema, 16mm, color graded Portra 400 film, ultra realistic, cinematic film, subsurface scattering, ray tracing, volumetric lighting</em></p>
+                    <p>&nbsp;</p>
+                    <h4>5. Runway生成式<strong>视频</strong>提示词<strong>目前还不理解否定提示词</strong></h4>
+                    <p>否定提示词是生成式AI模型中常见的提示词，用户提供他们<em>不希望</em>在结果中出现的描述性特征。以下是一些否定提示词的示例：</p>
+                    <p class="wysiwyg-indent1"><strong>X</strong> <em>"构图不好。"<br><br>Bad composition.</em></p>
+                    <p class="wysiwyg-indent1"><strong>X</strong> <em>"失焦。"<br><br>Out of focus.</em></p>
+                    <p class="wysiwyg-indent1"><strong>X</strong> <em>"光线不好。"<br><br>Poorly lit.</em></p>
+                    <p>除了文本转图像有一个单独的否定提示词输入框外，我们的生成式视频模型目前还不理解否定提示词，所以请不要包含它们。</p>
+                    <p>&nbsp;</p>
+                    <h4>6. Runway的提示词<strong>最好描述"相机"正在捕捉的内容</strong></h4>
+                    <p>要生成任何你能想象的内容（以及更多），学习<strong>从视觉上描述一个镜头</strong>是掌握Runway提示词的最佳方式。</p>
+                </div>
+
+                <div class="step-item">
+                    <h3 id="gen3-prompting">Gen-3 Alpha提示词编写指南</h3>
+                    <p>Gen-3 Alpha 具有无限的潜力，可以将你的艺术愿景转化为现实，适用于<a href="https://runwayml.com/product/use-cases">各种用例</a>。创建一个能够准确传达场景的提示词是生成符合你概念的视频的关键。</p>
+                    <p>本文涵盖了不同的示例结构、关键词和提示词编写技巧，帮助你开始使用 Gen-3 Alpha。这些只是示例 – 在将你的想法变为现实时，不要害怕尝试。</p>
+                    <p>&nbsp;</p>
+                    <h3>文章要点</h3>
+                    <ul>
+                        <li>在文本提示词中避免使用否定表述，如 <code>相机不移动</code> (the camera doesn't move)</li>
+                        <li>使用简单直接的提示词来描述所需的<strong>运动</strong>，特别是在使用输入图像时</li>
+                        <li>在文本提示词中<strong>不需要</strong>描述你的输入图像内容</li>
+                    </ul>
+                    <h3>相关链接</h3>
+                    <ul>
+                        <li><a href="https://help.runwayml.com/hc/en-us/articles/30266515017875-Creating-with-Text-Image-to-Video-on-Gen-3-Alpha-and-Turbo">使用文本/图像创建视频</a></li>
+                    </ul>
+                    <p>&nbsp;</p>
+                    <h3>提示词基础</h3>
+                    <h3>所有提示词都应该是直接且易于理解的，而不是概念性的</h3>
+                    <p>在编写提示词时，可以想象你正在向一个不熟悉你之前作品和偏好的新合作者描述场景。这个新合作者将负责拍摄你描述的场景，所以要确保重要元素都清晰传达。</p>
+                    <p>当简单的描述就能有效传达场景时，避免使用过于概念性的语言和表述。</p>
+                    <pre>❌ 一个男人入侵主系统 (a man hacking into the mainframe)</pre>
+                    <pre>✅ 一个男人在键盘上快速打字 (a man vigorously typing on the keyboard)</pre>
+                    <p>&nbsp;</p>
+                    <h3>提示词应该是描述性的，而不是对话式或命令式的</h3>
+                    <p>虽然外部大语言模型擅长自然对话，但 Runway 的模型是为视觉细节而设计的。在提示词中添加对话性内容不会为结果带来价值，在某些情况下甚至可能产生负面影响。</p>
+                    <pre>❌ 你能帮我制作一个关于两个朋友吃生日蛋糕的视频吗？(can you please make me a video about two friends eating a birthday cake?)</pre>
+                    <pre>✅ 两个朋友吃生日蛋糕 (two friends eat birthday cake)</pre>
+                    <p>使用命令式提示词可能会产生类似的负面影响，因为它可能没有包含足够的细节来创建所需的场景：</p>
+                    <pre>❌ 在图像中添加一只狗 (add a dog to the image)</pre>
+                    <pre>✅ 一只狗从画面外欢快地跑过田野 (a dog playfully runs across the field from out of frame)</pre>
+                    <p>&nbsp;</p>
+                    <h3>提示词应该使用正面表述</h3>
+                    <p>生成式视频模型不支持否定提示词，即描述<em>不应该</em>发生什么的提示词。包含否定提示词可能会导致相反的结果。</p>
+                    <pre>❌ 相机不移动。没有运动。天空中没有云 (the camera doesn't move. no movement. no clouds in the sky)</pre>
+                    <pre>✅ 静态相机。相机保持静止。晴朗的蓝天 (static camera. the camera remains still. a clear blue sky)</pre>
+                    <p>&nbsp;</p>
+                    <h2>纯文本提示词</h2>
+                    <p>当纯文本提示词遵循清晰的结构，将场景、主体和相机运动的细节分成不同部分时，效果最好。</p>
+                    <p>在熟悉 Gen-3 Alpha 时，使用以下结构应该能帮助你获得一致的结果：</p>
+                    <pre>[相机运动]：[场景描述]。[额外细节] ([camera movement]: [establishing scene]. [additional details])</pre>
+                    <p>使用这个结构，描述一个女人站在热带雨林中的提示词可能是这样的：</p>
+                    <pre>低角度静态镜头：相机向上仰拍一位身着全橙色服装的女性，她站在色彩缤纷的热带雨林中。戏剧性的天空阴沉灰暗。(Low angle static shot: The camera is angled up at a woman wearing all orange as she stands in a tropical rainforest with colorful flora. The dramatic sky is overcast and gray.)</pre>
+                    <p>在提示词的不同部分重复或强化关键想法可以帮助提高输出的遵循度。例如，你可以强调场景是<strong>快速飞行穿过</strong>的<strong>超速</strong>镜头。</p>
+                    <p>尽量让你的提示词专注于场景中<em>应该</em>出现的内容。例如，你应该提示<strong>晴朗的天空</strong>而不是<strong>没有云朵的天空</strong>。</p>
+                    <p>&nbsp;</p>
+                    <h2>图像+文本提示词</h2>
+                    <p>使用输入图像时，使用<strong>简单</strong>和<strong>直接</strong>的文本提示词来描述你想要的<strong>运动</strong>。你<strong>不需要</strong>描述图像的内容。</p>
+                    <p>例如，如果你使用的输入图像包含一个角色，可以尝试以下提示词：</p>
+                    <pre>主体愉快地摆姿势，双手做出和平手势。(Subject cheerfully poses, her hands forming a peace sign.)</pre>
+                    <p>使用与输入图像显著不同的文本提示词可能会导致意外的结果。请记住，复杂的场景转换可能需要多次迭代才能获得所需的输出。</p>
+                    <p>&nbsp;</p>
+                    <h2>示例提示词</h2>
+                    <h3>无缝转场</h3>
+                    <p>连续超速第一人称视角镜头：相机无缝地穿过冰川峡谷，进入梦幻的云景。(Continuous hyperspeed FPV footage: The camera seamlessly flies through a glacial canyon to a dreamy cloudscape.)</p>
+                    <p>&nbsp;</p>
+                    <h3>相机运动</h3>
+                    <p>夜晚发光的海洋，水下有生物发光生物。相机从发光水母的微距特写开始，然后扩大展示整个海洋在星空下闪烁着各种发光颜色。相机运动：从水母的微距镜头开始，然后缓慢后退并向上展示发光的海洋。(A glowing ocean at night time with bioluminescent creatures under water. The camera starts with a macro close-up of a glowing jellyfish and then expands to reveal the entire ocean lit up with various glowing colors under a starry sky. Camera Movement: Begin with a macro shot of the jellyfish, then gently pull back and up to showcase the glowing ocean.)</p>
+                    <p>&nbsp;</p>
+                    <h3>文字标题卡片</h3>
+                    <p>带有动态运动的标题画面。场景从一面涂满彩色颜料的墙开始。突然，黑色颜料倾倒在墙上形成"Runway"字样。滴落的颜料细节丰富，质地清晰，居中，出色的电影感灯光。(A title screen with dynamic movement. The scene starts at a colorful paint-covered wall. Suddenly, black paint pours on the wall to form the word "Runway". The dripping paint is detailed and textured, centered, superb cinematic lighting.)</p>
+                    <p>&nbsp;</p>
+                    <h3>提示词关键词</h3>
+                    <p>关键词可以帮助你在输出中实现特定的风格。确保关键词与你的整体提示词保持一致，这样它们在你的输出中会更加明显。</p>
+                    <p>例如，在广角镜头中，相机并没有近距离聚焦在面部，所以包含关于皮肤纹理的关键词不会有帮助。相反，广角镜头可能会受益于关于环境的额外细节。</p>
+                    <p>在保持这种一致性的同时，以下是你可以在编写提示词时尝试的不同关键词。</p>
+                    <p>&nbsp;</p>
+                    <h2>相机风格</h2>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <tbody>
+                    <tr>
+                        <td style="width: 50%;"><strong>关键词 (Keyword)</strong></td>
+                        <td style="width: 50%;"><strong>输出 (Output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">低角度 (Low angle)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858367873043" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">高角度 (High angle)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858367874195" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">俯拍 (Overhead)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858337963027" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">第一人称视角 (FPV)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858337963795" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">手持 (Hand held)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858337965587" width="422" height="254"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">广角 (Wide angle)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858367878547" width="422" height="254"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">特写 (Close up)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858367880339" width="422" height="254"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">微距摄影 (Macro cinematography)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858337968787" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">过肩镜头 (Over the shoulder)</td>
+                        <td style="width: 50%;"><img src="https://lh7-us.googleusercontent.com/docsz/AD_4nXfneolQiSBAC_6C6Gyy0n1vFVJQvJllODF7kN2x1ZqckEUeX-Po-BQdQXbvQXgwJ_fS3eWynIN1EGn61Rw-8H4H4V8wkvWbLPNHfBnt00qHTmwD7O4T-p853COg0D1l2AF_8FPuEJcFrWpV0aqYJCIN6zc?key=rgGgSZfBNbssGr_ElqRs1A" width="640" height="384"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">跟踪镜头 (Tracking)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858367881747" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">全景镜头 (Establishing wide)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858337971475" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">50mm镜头 (50mm lens)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858337972115" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">斯诺里镜头 (SnorriCam)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858367891091" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">写实纪录片 (Realistic documentary)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858337978771" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">摄像机 (Camcorder)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858455121427" width="422" height="254"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <p>&nbsp;</p>
+                    <h2>灯光风格</h2>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <tbody>
+                    <tr>
+                        <td style="width: 50%;"><strong>关键词 (Keyword)</strong></td>
+                        <td style="width: 50%;"><strong>输出 (Output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">漫射光 (Diffused lighting)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858441964051" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">剪影 (Silhouette)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858441978131" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">镜头光晕 (Lens flare)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858441979411" width="422" height="254"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">背光 (Back lit)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858455132179" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">侧光 (Side lit)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858441982739" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">[颜色]凝胶光 ([color] gel lighting)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858441984531" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">威尼斯光效 (Venetian lighting)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858441987347" width="426" height="256"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <p>&nbsp;</p>
+                    <h2>运动速度</h2>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <tbody>
+                    <tr>
+                        <td style="width: 50%;"><strong>关键词 (Keyword)</strong></td>
+                        <td style="width: 50%;"><strong>输出 (Output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">动态运动 (Dynamic motion)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858441987859" width="422" height="254"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">慢动作 (Slow motion)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858441989139" width="540" height="304"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">快动作 (Fast motion)</td>
+                        <td style="width: 50%;"><img src="https://lh7-us.googleusercontent.com/docsz/AD_4nXdzi-1EinVt3jiErIVfTgvI-kUSQ3zEq9a1yGRldySmETgQQ9N_6ERZXeZmbHGOgD7rNPgKzRtH9GiK5CnGgi7S1PnPwCRQ26YJLSywT95qHMtDOk_2ZtoIa7GNWcGnlyCB_0OuG7k1T2LMdlWuzZ3acFs?key=rgGgSZfBNbssGr_ElqRs1A" width="640" height="384"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">延时摄影 (Timelapse)</td>
+                        <td style="width: 50%;"><img src="https://lh7-us.googleusercontent.com/docsz/AD_4nXeEaot8FxiDAfcIESsvNVqa__Rwjcp9-7-StXXflsKUHzM1doIQUnow7CfWgPT79EPlnulhQJFXotRsUn9-yv_X8BGbFkd0A8VaSZ-Kk5Bh9LN8tKD-4d_gIRWtVKHG1K2VzAJzj3AftONnPpaH3XgdlTkb?key=rgGgSZfBNbssGr_ElqRs1A" width="640" height="384"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <p>&nbsp;</p>
+                    <h2>运动类型</h2>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <tbody>
+                    <tr>
+                        <td style="width: 50%;"><strong>关键词 (Keyword)</strong></td>
+                        <td style="width: 50%;"><strong>输出 (Output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">生长 (Grows)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858455141779" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">出现 (Emerges)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858455142803" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">爆炸 (Explodes)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858455143571" width="540" height="304"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">上升 (Ascends)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858441999123" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">波动 (Undulates)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858441999891" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">扭曲 (Warps)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858455145491" width="540" height="304"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">变形 (Transforms)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858455146259" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">涟漪 (Ripples)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858455147155" width="425" height="239"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">破碎 (Shatters)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858455148563" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">展开 (Unfolds)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858442004755" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">漩涡 (Vortex)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858635846675" width="540" height="304"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <p>&nbsp;</p>
+                    <h2>风格和美学</h2>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <tbody>
+                    <tr>
+                        <td style="width: 50%;"><strong>关键词 (Keyword)</strong></td>
+                        <td style="width: 50%;"><strong>输出 (Output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">忧郁 (Moody)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858635846931" width="540" height="304"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">电影感 (Cinematic)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858615644819" width="422" height="254"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">彩虹色 (Iridescent)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858635848083" width="540" height="304"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">家用录像带风格 (Home video VHS)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858635848979" width="540" height="304"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">故障艺术 (Glitchcore)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858635849363" width="600" height="338"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <p>&nbsp;</p>
+                    <h2>文字风格</h2>
+                    <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                    <tbody>
+                    <tr>
+                        <td style="width: 50%;"><strong>关键词 (Keyword)</strong></td>
+                        <td style="width: 50%;"><strong>输出 (Output)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">粗体 (Bold)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858615646611" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">涂鸦 (Graffiti)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858615646995" width="540" height="304"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">霓虹 (Neon)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858615647251" width="540" height="304"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">大学风格 (Varsity)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858635857555" width="426" height="256"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">刺绣 (Embroidery)</td>
+                        <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/30858639067027" width="540" height="304"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <p>&nbsp;</p>
+                    <h2>括号占位符</h2>
+                    <p>为了创建易于重用的自定义预设，你也可以将提示词的一部分放在括号中，以便一键替换文本。例如：</p>
+                    <pre>相机无缝地穿过[主体位置] (The camera seamlessly flies through a [subject location])</pre>
+                    <p>当保存为预设时，这允许你一键替换括号区域并在重用时开始输入你的文本。</p>
+                </div>
+            </section>
+
+            <section id="filmmaking" class="content-section">
+                <h2>3. 视频制作</h2>
+                
+                <div class="step-item">
+                    <h3 id="longer-videos">如何创建更长的视频和电影</h3>
+                    <p>在Runway中，每个生成的片段基础长度为4秒。就像传统电影制作一样，这些生成的片段可以作为<em>镜头</em>组合成<em>场景</em>。</p>
+                    
+                    <h3 id="storytelling-basics">电影叙事基础</h3>
+                    <p>无论你是否已经想好了要制作什么内容，视频作为一种媒介都提供了无限可能。要开始创作，你可以：</p>
+                    <ul>
+                        <li><strong>获取灵感：</strong>在<a href="https://app.runwayml.com/watch">Runway Watch</a>上查看其他创作者的作品，了解可能实现的效果。</li>
+                        <li><strong>尝试文本到图像和视频生成预览：</strong>使用Runway的其他工具来实验视觉风格。统一的视觉风格对于让你的电影感觉连贯很重要，即使是由单独的片段组成。</li>
+                    </ul>
+
+                    <h3 id="creating-clips">创建你的片段</h3>
+                    <p>一旦你确定了要制作的内容，就可以开始生成了。</p>
+                    <ul>
+                        <li><strong>使用视频生成模型转换现有片段：</strong>如果你有使用相机（甚至是手机）拍摄的片段，可以将它们导入到生成式视频会话中使用AI进行转换。</li>
+                        <li><strong>使用图像到视频从文本或图像创建新片段：</strong>我们的视频生成模型可以使用任何文本提示或（某些模型）图像输入来创建完整的渲染片段。关于保持一致性的技巧，请查看<a href="https://academy.runwayml.com/gen2/composing-scenes-with-photos">场景构图</a>和<a href="https://academy.runwayml.com/gen2/generating-scenes">场景生成</a>。</li>
+                        <li><strong>尝试使用种子值保持视觉一致性：</strong>种子值决定了任何给定片段的"外观"。查看<a href="https://help.runwayml.com/hc/en-us/articles/18301037133075-Using-seed-numbers">使用种子数</a>了解更多关于使用种子的信息。</li>
+                    </ul>
+
+                    <h3 id="editing">编辑</h3>
+                    <p>如果你刚开始接触视频编辑，Runway提供了一个内置的视频编辑器程序，可以通过主仪表板点击<strong>视频编辑器项目</strong>标签访问。</p>
+                    <ul>
+                        <li><strong>创建你的第一个项目：</strong>点击紫色的<strong>新项目</strong>按钮打开时间线。</li>
+                        <li><strong>将片段拖放到时间线上：</strong>从左侧资源面板（或任何嵌套文件夹）拖动片段添加到你的项目中。</li>
+                        <li><strong>添加声音：</strong>使用<a href="https://help.runwayml.com/hc/en-us/articles/23859696734611-Text-to-Speech">文本转语音</a>为你的项目添加语音或旁白。其他音频片段也可以添加到项目的时间线上 — 尝试从你喜欢的音频提供商添加音效或环境音！</li>
+                    </ul>
+                </div>
+
+                <div class="step-item">
+                    <h3 id="exporting">导出你的作品</h3>
+                    <p>在Runway中，无论你如何制作片段和视频，导出都很简单。</p>
+
+                    <h4 id="exporting-asset">导出资源</h4>
+                    <ul>
+                        <li>从仪表板进入你的<strong>资源页面</strong></li>
+                        <li>导航到你想要下载的资源</li>
+                        <li>点击资源列表右侧的<strong>三个点 (...)</strong></li>
+                        <li>从出现的下拉菜单中选择<strong>下载</strong></li>
+                    </ul>
+                    <p>要了解如何同时批量下载多个资源，请<a href="https://help.runwayml.com/hc/en-us/articles/18406706187283-Batch-downloading-exports-assets">查看这篇文章</a>。</p>
+
+                    <h4 id="exporting-project">导出视频编辑器项目</h4>
+                    <ul>
+                        <li>从仪表板进入你的<strong>视频编辑器项目</strong>页面</li>
+                        <li>点击<strong>任意项目</strong>打开它</li>
+                        <li>点击右上角的紫色<strong>导出</strong>按钮</li>
+                        <li>导出后，按照上面"导出资源"中的步骤将其下载到你的设备上</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="collaborating" class="content-section">
+                <h2>4. 协作功能</h2>
+                
+                <div class="step-item">
+                    <h3 id="workspaces">工作区介绍</h3>
+                    <p>工作区是Runway体验的共享实例，旨在增强多个用户之间的实时协作和项目开发。继续阅读以了解如何设置、管理和最大化工作区用于你的创意项目。</p>
+
+                    <h4 id="creating-workspace">创建工作区</h4>
+                    <p>创建新工作区：</p>
+                    <ol>
+                        <li>点击Runway仪表板右上角的<strong>工作区切换器</strong>。</li>
+                        <li>选择紫色的<strong>"创建新工作区"</strong>按钮。</li>
+                    </ol>
+                    <p>你的主账户也可以作为工作区使用，允许你根据需要添加额外的编辑者。</p>
+
+                    <h4 id="adding-editors">向工作区添加编辑者</h4>
+                    <ul>
+                        <li><strong>标准计划</strong>用户可以在工作区中添加<strong>最多5个额外编辑者</strong>。</li>
+                        <li><strong>专业版和无限版计划</strong>用户可以将这个数字扩展到<strong>最多10个额外编辑者</strong>。</li>
+                    </ul>
+                    <p>订阅费用按<strong>每个用户</strong>收费。有关详细的价格信息，请参考<a href="https://help.runwayml.com/hc/en-us/articles/21664961171475-Which-plan-is-right-for-me" target="_blank" rel="noopener noreferrer">哪个计划适合我？</a>中的"你想在工作区中添加多少用户/编辑者？"小节。</p>
+
+                    <h4 id="workspace-credits">工作区积分和资源</h4>
+                    <p>工作区的所有成员<strong>共享一个积分池</strong>。每个成员的生成不会影响其他成员的生成速度，确保每个人都能持续快速地访问视频生成等工具。已完成的生成<strong>保存在创建者的私人资源中</strong>，但<strong>可以轻松移动到工作区的共享资源中</strong>，使所有成员都能无缝访问。成员还可以在视频编辑器项目上进行协作，使用Runway的基于云的编辑软件实时共同创建更长的项目。</p>
+
+                    <h4 id="workspace-settings">管理工作区设置</h4>
+                    <p>访问和编辑工作区设置：</p>
+                    <ol>
+                        <li>点击Runway仪表板右上角的<strong>工作区切换器</strong>。</li>
+                        <li>从下拉菜单中选择<strong>"工作区设置"</strong>。</li>
+                    </ol>
+                    <p>查看<a href="https://help.runwayml.com/hc/en-us/articles/10282588336915-Workspace-Settings">工作区设置</a>获取管理工作区的完整指南。</p>
+
+                    <h4 id="workspace-membership">工作区成员资格和访问级别</h4>
+                    <p>每个工作区成员的访问级别由工作区管理员决定。有关成员等级及其相关访问权限的详细信息，请查看<a href="https://help.runwayml.com/hc/en-us/articles/10312703076371-Workspace-Members-Roles">工作区成员和角色</a>。</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 编者·李策 保留所有权利。</p>
+        </div>
+    </footer>
+</body>
+</html> 
