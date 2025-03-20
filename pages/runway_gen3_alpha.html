@@ -5,105 +5,1433 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gen-3 Alpha 使用指南</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../scripts/script.js"></script>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Gen-3 Alpha 使用指南</h1>
+            <h1>Gen3_alpha使用指南（runway主力模型）</h1>
+            <p class="subtitle">Gen3_alpha官方指南节选翻译</p>
+            <p class="subtitle">大部分文内链接指向为runway官网对应内容，除非该部分已被节选翻译</p>
         </header>
 
-        <main>
-            <section id="gen3-alpha" class="content-section">
-                <h2>Gen-3 Alpha 功能指南</h2>
-                
-                <div class="step-item">
-                    <h3 id="camera-control">使用Gen-3 Alpha Turbo的相机控制功能</h3>
-                    <p>学习如何使用相机控制功能：</p>
-                    <ul>
-                        <li>相机参数设置</li>
-                        <li>视角控制</li>
-                        <li>运动轨迹</li>
-                        <li>效果优化</li>
-                    </ul>
-                </div>
+        <main class="content-wrapper container">
+            <button id="toggle-sidebar" class="toggle-button">☰ 目录</button>
+            <aside class="sidebar">
+                <h3><a href="../index.html">回到首页</a></h3>
+                <ul>
+                    <li>
+                        <a href="#camera-control">相机控制功能</a>
+                        <ul>
+                            <li><a href="#accessing-control">访问相机控制</a></li>
+                            <li><a href="#control-directions">相机控制方向</a></li>
+                            <li><a href="#control-values">相机控制值</a></li>
+                            <li><a href="#input-interaction">与输入图像的交互</a></li>
+                            <li><a href="#camera-text-prompts">文本提示</a></li>
+                            <li><a href="#static-camera">静态相机</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#expand-video">视频扩展功能</a>
+                        <ul>
+                            <li><a href="#expand-step1">步骤1 - 选择扩展视频</a></li>
+                            <li><a href="#expand-step2">步骤2 - 配置扩展视频提示</a></li>                  
+                            <li><a href="#expand-step3">步骤3 - 生成和迭代</a></li>
+                            <li><a href="#multiple-expand">多次扩展视频</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#keyframes">关键帧功能</a>
+                        <ul>
+                            <li><a href="#keyframes-step1">步骤1 - 选择输入关键帧</a></li>
+                            <li><a href="#keyframes-step2">步骤2 - 编写提示</a></li>
+                            <li><a href="#keyframes-step3">步骤3 - 生成视频</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#act-one">Act-One功能</a>
+                        <ul>
+                            <li><a href="#act-one-best-practices">最佳实践</a></li>
+                            <li><a href="#act-one-step1">步骤1 - 上传驱动表演</a></li>
+                            <li><a href="#act-one-step2">步骤2 - 选择角色参考输入</a></li>
+                            <li><a href="#act-one-step3">步骤3 - 配置运动强度</a></li>
+                            <li><a href="#act-one-step4">步骤4 - 生成Act-One视频</a></li>
+                            <li><a href="#act-one-troubleshooting">重复迭代和故障排除</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#sessions">会话生成</a>
+                        <ul>
+                            <li><a href="#new-session">开始新会话</a></li>
+                            <li><a href="#return-session">返回之前的会话</a></li>
+                            <li><a href="#rename-session">重命名现有会话</a></li>
+                            <li><a href="#delete-session">删除会话</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#video-to-video">视频转换</a>
+                        <ul>
+                            <li><a href="#video-to-video-step1">步骤1 - 选择输入视频</a></li>
+                            <li><a href="#video-to-video-step2">步骤2 - 编写提示</a></li>
+                            <li><a href="#video-to-video-step3">步骤3 - 配置设置</a></li>
+                            <li><a href="#video-to-video-step4">步骤4 - 生成视频</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#text-image-to-video">文本/图像到视频</a>
+                        <ul>
+                            <li><a href="#text-image-to-video-step1">步骤1 - 编写提示</a></li>
+                            <li><a href="#text-image-to-video-step2">步骤2 - 配置设置</a></li>
+                            <li><a href="#text-image-to-video-step3">步骤3 - 生成视频</a></li>
+                            <li><a href="#text-image-to-video-step4">步骤4 - 延长视频</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#gen3-faqs">Gen-3 Alpha常见问题（FAQs）</a>
+                    </li>
+                </ul>
+            </aside>
+            
+            <div class="main-content">
+                <section id="camera-control" class="content-section">
+                    <h2>相机控制功能</h2>
+                    <div class="step-item">
+                        <p><span style="color: #666666;">简介</span></p>
+                        <p><strong>Gen-3 Alpha Turbo</strong>（Gen-3 Alpha系列中的一个高效模型）以更低的成本提供更快的生成速度。Turbo模型在<a href="https://runwayml.com/pricing">所有计划等级</a>中都可用。</p>
+                        <p><strong>相机控制</strong>（Camera Control）功能允许你在使用Gen-3 Alpha Turbo模型的输入图像时指定相机移动方向和强度。</p>
+                        <p>我们建议将相机控制与文本提示结合使用，以获得最佳效果。</p>
+                        <p>本文概述了可用的各种相机控制选项、文本提示建议、高级相机控制配置，并提供了大量参考示例。</p>
 
-                <div class="step-item">
-                    <h3 id="expand-video">使用Gen-3 Alpha Turbo的视频扩展功能</h3>
-                    <p>视频扩展功能使用指南：</p>
-                    <ul>
-                        <li>扩展方式选择</li>
-                        <li>参数调整</li>
-                        <li>效果预览</li>
-                        <li>质量控制</li>
-                    </ul>
-                </div>
+                        <h3 id="spec-info">规格信息</h3>
+                        <div>
+                            <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>规格</strong>（Spec）</td>
+                                        <td style="text-align: center;" colspan="2"><strong>Gen-3 Alpha Turbo</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>成本（Cost）</td>
+                                        <td style="text-align: center;" colspan="2">每秒5积分</td>
+                                    </tr>
+                                    <tr>
+                                        <td>无限计划的探索模式（Explore Mode）</td>
+                                        <td style="text-align: center;" colspan="2">支持</td>
+                                    </tr>
+                                    <tr>
+                                        <td>平台可用性（Platform availability）</td>
+                                        <td style="text-align: center;" colspan="2">网页端</td>
+                                    </tr>
+                                    <tr>
+                                        <td>基本提示输入（Base prompt inputs）</td>
+                                        <td style="text-align: center;" colspan="2">图像（必需）<br>文本（推荐）</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                <div class="step-item">
-                    <h3 id="keyframes">使用Gen-3的关键帧功能</h3>
-                    <p>关键帧功能使用指南：</p>
-                    <ul>
-                        <li>关键帧设置</li>
-                        <li>动画控制</li>
-                        <li>过渡效果</li>
-                        <li>优化建议</li>
-                    </ul>
-                </div>
+                        <h3 id="accessing-control">访问相机控制</h3>
+                        <p>首先导航到<strong>生成会话</strong>（Generative Session）。</p>
+                        <p>相机控制目前在Gen-3 Alpha <strong>Turbo</strong>模型上可用，请从左下角下拉菜单中选择此模型。</p>
+                        <p>然后，从左侧工具栏选择<strong>相机</strong>（Camera）：</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/36117924158483" alt="CameraControlNew.png" width="106" height="40"></p>
+                        <p>这将带你进入相机控制提示窗口，在这里你可以上传图像、编写文本提示并配置控制值。</p>
 
-                <div class="step-item">
-                    <h3 id="act-one">使用Gen-3 Alpha和Turbo的Act-One功能</h3>
-                    <p>Act-One功能使用指南：</p>
-                    <ul>
-                        <li>功能概述</li>
-                        <li>操作步骤</li>
-                        <li>效果控制</li>
-                        <li>应用场景</li>
-                    </ul>
-                </div>
+                        <h3 id="control-directions">相机控制方向</h3>
+                        <p>相机控制有六个移动方向选项，以及一个<a href="#static-camera"><strong>静态相机</strong>（Static Camera）复选框用于防止相机移动</a>：</p>
+                        <div>
+                            <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>方向</strong></td>
+                                        <td><strong>描述</strong></td>
+                                        <td><strong>文本提示示例</strong></td>
+                                        <td><strong>输出示例</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>水平（Horizontal）</td>
+                                        <td>相机沿X轴移动</td>
+                                        <td>camera glides right</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109651603" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>垂直（Vertical）</td>
+                                        <td>相机沿Y轴移动</td>
+                                        <td>camera slightly glides up</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109660435" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>平移（Pan）</td>
+                                        <td>相机从固定点水平转动</td>
+                                        <td>camera pans to position directly in front of the woman</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939079146003" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>倾斜（Tilt）</td>
+                                        <td>相机从固定点垂直倾斜</td>
+                                        <td>camera tilts to an upwards angle</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109665683" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>缩放（Zoom）</td>
+                                        <td>相机靠近或远离焦点</td>
+                                        <td>camera zooms out</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939079154451" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>旋转（Roll）</td>
+                                        <td>相机从固定点旋转</td>
+                                        <td>camera rotates to the right while maintaining focus on the subject</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939079156627" width="640" height="384"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                <div class="step-item">
-                    <h3 id="sessions">使用会话生成</h3>
-                    <p>会话生成功能使用指南：</p>
-                    <ul>
-                        <li>会话管理</li>
-                        <li>参数设置</li>
-                        <li>结果优化</li>
-                        <li>使用技巧</li>
-                    </ul>
-                </div>
+                        <p>多个相机控制可以组合使用以实现更复杂的相机运动。配对类似的控制，如<strong>平移</strong>（Pan）与<strong>水平</strong>（Horizontal）控制或<strong>倾斜</strong>（Tilt）与<strong>垂直</strong>（Vertical），可以进一步改善效果。</p>
 
-                <div class="step-item">
-                    <h3 id="video-to-video">使用Gen-3 Alpha和Turbo的视频到视频转换</h3>
-                    <p>视频转换功能使用指南：</p>
-                    <ul>
-                        <li>转换方式</li>
-                        <li>参数设置</li>
-                        <li>效果控制</li>
-                        <li>质量控制</li>
-                    </ul>
-                </div>
+                        <h3 id="control-values">相机控制值</h3>
+                        <p>每个设置的值代表<strong>相机运动的速度和强度</strong>。</p>
+                        <p>每个相机控制的默认值为<strong>0</strong>，表示该控制类型未激活。如果没有激活值，相机控制完全不会被引用。</p>
+                        <p>例如，如果你在提示中输入"<em>zoom out</em>"但不使用相机控制，这些<strong>0</strong>值不会覆盖你的文本提示。此外，将所有值设置为<strong>0</strong>不会产生静态相机运动的输出。</p>
+                        <p>值离<strong>0</strong>越远，输出中的相机运动就越多。</p>
+                        <p>设置水平值为<strong>10</strong>会提供最强烈的向右移动，而<strong>-10</strong>则表示最强烈的向左移动。</p>
 
-                <div class="step-item">
-                    <h3 id="text-image-video">使用Gen-3 Alpha和Turbo的文本/图像到视频转换</h3>
-                    <p>文本和图像转换功能使用指南：</p>
-                    <ul>
-                        <li>转换流程</li>
-                        <li>参数设置</li>
-                        <li>效果优化</li>
-                        <li>常见问题</li>
-                    </ul>
-                </div>
+                        <div>
+                            <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>值</strong></td>
+                                        <td><strong>相机速度</strong></td>
+                                        <td><strong>示例值</strong></td>
+                                        <td><strong>示例提示</strong></td>
+                                        <td><strong>输出</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>0.1-1</td>
+                                        <td>最小（Minimal）</td>
+                                        <td>Zoom: 0.1</td>
+                                        <td>camera slightly zooms. natural motion.</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109679635" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2-3</td>
+                                        <td>微妙（Subtle）</td>
+                                        <td>Zoom: 2.0</td>
+                                        <td>camera slightly zooms. clouds and grass flow in the wind.</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109685779" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4-6</td>
+                                        <td>中等（Moderate）</td>
+                                        <td>Zoom: 5.0</td>
+                                        <td>camera zooms. clouds and grass flow in the wind.</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109691795" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>7-10</td>
+                                        <td>强烈（Intense）</td>
+                                        <td>Zoom: 10.0</td>
+                                        <td>camera soars at hyperspeed as it zooms into the monument.</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109695763" width="640" height="384"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                <div class="step-item">
-                    <h3 id="gen3-faqs">Gen-3 Alpha常见问题</h3>
-                    <p>常见问题解答：</p>
-                    <ul>
-                        <li>功能限制</li>
-                        <li>性能问题</li>
-                        <li>使用技巧</li>
-                        <li>故障排除</li>
-                    </ul>
-                </div>
-            </section>
+                        <h3 id="input-interaction">与输入图像的交互</h3>
+                        <p>相机控制值并不是固定的，它们会根据主体与相机的距离而变化。这意味着对于以主体为焦点的图像的某个数值，不会为完全不同的场景或以环境为焦点的输入图像提供相同风格的结果。</p>
+                        <p>下表展示了在三种不同类型的输入图像上使用相同的相机运动值，以说明相同的值如何在不同输入类型中表现：</p>
+
+                        <div>
+                            <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>方向</strong></td>
+                                        <td><strong>值</strong></td>
+                                        <td><strong>文本提示</strong></td>
+                                        <td><strong>人像</strong></td>
+                                        <td><strong>中景</strong></td>
+                                        <td><strong>环境</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>水平（Horizontal）</td>
+                                        <td>-5.0</td>
+                                        <td>camera glides to the left</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109698451" width="640" height="384"></td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109700243" width="640" height="384"></td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939079178259" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>垂直（Vertical）</td>
+                                        <td>-4.0</td>
+                                        <td>camera glides down</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34960446305683" width="640" height="384"></td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34962269977107" width="640" height="384"></td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34960446310291" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>平移（Pan）</td>
+                                        <td>-2.0</td>
+                                        <td>camera pans</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109704979" width="640" height="384"></td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34960446314131" width="640" height="384"></td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34960446316819" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>倾斜（Tilt）</td>
+                                        <td>2.0</td>
+                                        <td>camera tilts upwards</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109708435" width="640" height="384"></td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939079185043" width="640" height="384"></td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939079189395" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>缩放（Zoom）</td>
+                                        <td>-5.0</td>
+                                        <td>camera zooms out</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939079193747" width="640" height="384"></td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939079196947" width="640" height="384"></td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109729555" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>旋转（Roll）</td>
+                                        <td>10</td>
+                                        <td>camera rotates to the right</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939079204755" width="640" height="384"></td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939079208851" width="640" height="384"></td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34960446318995" width="640" height="384"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 id="camera-text-prompts">相机控制与文本提示</h3>
+                        <p>虽然不是必需的，但将相机控制与文本提示结合使用会大大提高可控性和对你设想的运动的整体遵循度，特别是在使用较高的相机控制值时。</p>
+                        <p>例如，一个强烈的缩放出镜头可能会受益于描述片段结尾所需场景的文本提示。如果不提供这些细节，模型将尽其所能填充剩余场景，这可能导致不太理想的结果。</p>
+                        <p>你的文本提示也可以用来指示角色和场景运动。</p>
+
+                        <p>下表包含了一个没有提示、一个结束场景描述和一个主体运动提示的示例：</p>
+                        <div>
+                            <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>方向，值</strong></td>
+                                        <td><strong>文本提示</strong></td>
+                                        <td><strong>输出</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>缩放（Zoom）: -10</td>
+                                        <td>（无）</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939109737491" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>缩放（Zoom）: -10</td>
+                                        <td>相机缩放出去。主体站在一片空地上，四周环绕着高大成熟的仙人掌。<br>（原文：the camera zooms out. the subject stands in a clearing surrounded by a tall population of matured cacti.）</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939079215507" width="640" height="384"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>缩放（Zoom）: -10</td>
+                                        <td>相机缩放出去，同时主体开始向相机跑来。<br>（原文：the camera zooms out as the subject begins running towards the camera.）</td>
+                                        <td><img src="https://help.runwayml.com/hc/article_attachments/34939079218707" width="640" height="384"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 id="static-camera">静态相机</h3>
+                        <p><strong>静态相机</strong>（Static Camera）复选框将帮助减少输出视频中的相机运动。这个设置在使用写实和电影风格的输入图像时会产生最一致的结果，但不要害怕尝试不同类型的输入。</p>
+                        <p>使用此设置时，建议包含文本提示来引导主体和场景运动：</p>
+
+                        <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 50%;"><strong>文本提示</strong></td>
+                                    <td style="width: 50%;"><strong>输出</strong></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">无</td>
+                                    <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/36115605156883" width="640" height="384"></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">女子动态地前后摆动。她轻轻踢出双腿，向相机方向摆动，然后又远离相机。动态运动。<br>（原文：the woman dynamically swings back and forth. she gently kicks out her legs and swings towards and away from the camera. dynamic motion.）</td>
+                                    <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/36115609673363" width="640" height="384"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="expand-video" class="content-section">
+                    <h2>视频扩展功能（Expand Video）</h2>
+                    <div class="step-item">
+                        <p><span style="color: #666666;">简介（Introduction）</span></p>
+                        <p><strong>视频扩展</strong>（Expand Video）功能可以重新构想和重新构建现有视频到不同的格式。</p>
+                        <p>使用传统裁剪方式调整素材尺寸通常会导致重要细节被删除。视频扩展功能不是删除细节，而是在输入视频的边缘之外添加内容，以生成新的格式。</p>
+                        <p>本文将概述使用视频扩展功能的步骤、不同的提示方法等内容。</p>
+
+                        <h3 id="expand-spec-info">规格信息（Spec Information）</h3>
+                        <div>
+                            <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>规格（Spec）</strong></td>
+                                        <td><strong>Gen-3 Alpha Turbo</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>成本（Cost）</td>
+                                        <td>
+                                            5秒或更短：25积分<br>
+                                            超过5秒：50积分
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>最大时长（Maximum duration）</td>
+                                        <td>10秒</td>
+                                    </tr>
+                                    <tr>
+                                        <td>最小输入尺寸（Minimum input dimensions）</td>
+                                        <td>620x620</td>
+                                    </tr>
+                                    <tr>
+                                        <td>最大输入大小（Maximum input size）</td>
+                                        <td>64mb</td>
+                                    </tr>
+                                    <tr>
+                                        <td>无限计划的探索模式（Explore Mode on Unlimited Plans）</td>
+                                        <td>支持（Yes）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>平台可用性（Platform availability）</td>
+                                        <td>网页端（Web）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>输出分辨率（Output resolutions）</td>
+                                        <td>1280x768<br>768x1280</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>文章要点（Article Highlights）</h4>
+                        <ul>
+                            <li>竖向视频将生成横向输出，横向视频将生成竖向输出，方形视频则允许你选择输出尺寸。</li>
+                            <li>视频扩展功能在大多数情况下无需提示即可良好工作。如需更多控制，可以添加文本或图像提示。</li>
+                            <li>使用视频第一帧的扩展图像作为引导图像可获得最佳效果。</li>
+                            <li>使用不完全匹配的扩展图像可能会导致短暂的视觉跳跃。</li>
+                            <li>你可以通过点击<strong>重用设置</strong>（Reuse settings）<img src="https://help.runwayml.com/hc/article_attachments/35596983964947" width="52" height="26">旁的下拉菜单，然后在之前扩展的输出上选择<strong>视频扩展</strong>（Expand Video）<img src="https://help.runwayml.com/hc/article_attachments/35596983966611" width="24" height="24">来多次扩展视频。</li>
+                        </ul>
+
+                        <h4>输入视频的最佳实践（Best Practices for Input Videos）</h4>
+                        <ul>
+                            <li>接近传统宽高比</li>
+                            <li>宽度和高度最小为620像素</li>
+                            <li>主体（如果有）接近画面中心</li>
+                            <li>无图形或文字</li>
+                            <li>配合文本提示或匹配的引导图像使用</li>
+                        </ul>
+
+                        <h3 id="expand-step1">步骤1 - 选择扩展视频</h3>
+                        <p>首先导航到Runway仪表板中的<strong>生成会话</strong>（Generative Session），从左侧工具栏选择<strong>视频扩展</strong>（Expand Video）。</p>
+                        <p>接下来，选择要扩展的视频。你可以直接从<strong>素材库</strong>（Assets）中选择现有视频，或通过拖放上传新视频。</p>
+
+                        <p>视频扩展功能将根据你选择的输入视频尺寸，将视频重新构建为横向或竖向格式：</p>
+                        <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 50%;"><strong>输入视频（Input Video）</strong></td>
+                                    <td style="width: 50%;"><strong>输出宽高比（Output Aspect Ratio）</strong></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">横向（Landscape）</td>
+                                    <td style="width: 50%;">768x1280（竖向）</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">竖向（Vertical）</td>
+                                    <td style="width: 50%;">1280x768（横向）</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">方形（Square）</td>
+                                    <td style="width: 50%;">768x1280或1280x720</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>总之，选择<strong>宽度大于高度</strong>的输入视频将创建<strong>竖向输出</strong>，而<strong>高度大于宽度</strong>的输入视频将创建<strong>横向输出</strong>。使用方形输入视频时，你可以在竖向或横向输出之间选择。</p>
+                        <p>输入视频的宽度和高度必须至少为620像素。</p>
+                        <p>任一方向远小于传统宽高比的视频将不被接受。例如，620x1280的视频比传统9:16（720x1280）竖向视频窄100像素，选择时会出现错误。</p>
+                        <p>选择视频后，你会看到边界框预览，显示生成后将获得的更新尺寸。</p>
+                        <p>使用方形输入视频时，可以通过尺寸选择按钮选择所需的输出尺寸：</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/35684414015123" width="251" height="46"></p>
+
+                        <h3 id="expand-step2">步骤2 - 配置视频扩展提示</h3>
+                        <p>视频扩展功能在大多数情况下无需提示即可良好工作，但包含提示将使你对输出有更多控制。</p>
+
+                        <h4>使用文本提示（Using a Text Prompt）</h4>
+                        <p>在编写视频扩展提示时，主要关注描述你想在<strong>扩展区域</strong>（expanded areas）看到的内容。</p>
+                        <p>虽然输入视频会自动引导大部分场景细节，但你可以简要提及它以确保视觉一致性。但是，避免详细描述现有视频内容，因为这可能导致意外结果。</p>
+
+                        <h4>使用引导图像（Using a Guidance Image）</h4>
+                        <p>你还可以通过选择添加第一帧<img src="https://help.runwayml.com/hc/article_attachments/35596955367827" width="22" height="22">图标或将图像拖放到画布来添加引导图像。</p>
+                        <p>使用<strong>输入视频第一帧的扩展图像</strong>在使用引导图像时将提供最佳结果。使用输入图像来引导生成时，不需要包含文本提示。</p>
+                        <p>如果使用的图像与视频第一帧不完全匹配或对齐，可能会在输出视频开始播放时造成短暂的视觉跳跃。如果出现这种情况，请确保图像与视频正确对齐，或改用文本提示。或者，你也可以从视频中裁剪掉第一帧。</p>
+
+                        <p>以下是同一输入视频使用不同提示方法的示例：</p>
+                        <div>
+                            <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 39.7143%;"><strong>输入视频（Input video）</strong></td>
+                                        <td style="width: 19.8573%;"><strong>文本提示（Text prompt）</strong></td>
+                                        <td style="width: 20.4285%;"><strong>引导图像（Guidance Image）</strong></td>
+                                        <td style="width: 19.8571%;"><strong>输出（Output）</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 39.7143%;" rowspan="3"><img src="https://help.runwayml.com/hc/article_attachments/35596983966995" width="454" height="256"></td>
+                                        <td style="width: 19.8573%;">无（None）</td>
+                                        <td style="width: 20.4285%;">无（None）</td>
+                                        <td style="width: 19.8571%;"><img src="https://help.runwayml.com/hc/article_attachments/35596955354387" width="147" height="244"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 19.8573%;">前景有熔岩的洞穴中（In a cave with lava in the foreground）</td>
+                                        <td style="width: 20.4285%;">无（None）</td>
+                                        <td style="width: 19.8571%;"><img src="https://help.runwayml.com/hc/article_attachments/35596983968787" width="145" height="242"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 19.8573%;">无（None）</td>
+                                        <td style="width: 20.4285%;"><img src="https://help.runwayml.com/hc/article_attachments/35596955361427" width="146" height="242"></td>
+                                        <td style="width: 19.8571%;"><img src="https://help.runwayml.com/hc/article_attachments/35596983970579" width="145" height="242"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 id="expand-step3">步骤3 - 生成和迭代</h3>
+                        <p>在开始生成之前，你可以将鼠标悬停在<strong>时长</strong>（Duration）图标上查看预估的积分成本。</p>
+                        <p>确认积分成本后，点击<strong>生成</strong>（Generate）开始处理视频扩展生成。</p>
+                        <p>你可以在<a href="https://help.runwayml.com/hc/en-us/articles/33545310653203-Generating-with-Sessions">会话</a>中滚动浏览继续生成的内容。你还可以在<strong>素材库</strong>（Assets）中访问已完成的视频，它们默认会保存在<strong>生成视频</strong>（Generative Video）文件夹中。</p>
+
+                        <h3 id="multiple-expand">多次扩展视频</h3>
+                        <p>你可以通过点击<strong>重用设置</strong>（Reuse settings）<img src="https://help.runwayml.com/hc/article_attachments/35596983964947" width="52" height="26">旁的下拉菜单，然后在之前扩展的输出上选择<strong>视频扩展</strong>（Expand Video）<img src="https://help.runwayml.com/hc/article_attachments/35596983966611" width="24" height="24">来多次扩展视频。</p>
+                    </div>
+                </section>
+
+                <section id="keyframes" class="content-section">
+                    <h2>关键帧功能（Keyframes）</h2>
+                    <div class="step-item">
+                        <p><span style="color: #666666;">简介（Introduction）</span></p>
+                        <p><strong>Gen-3 Alpha</strong>是即将推出的一系列模型中的第一个，与之前几代模型相比，在保真度、一致性、运动性和速度方面都有所提升。</p>
+                        <p><strong>Gen-3 Alpha Turbo</strong>是Gen-3 Alpha系列中一个更快速、更高效的模型，以更低的成本提供更快的生成速度。Turbo模型在<a href="https://runwayml.com/pricing">所有计划等级</a>中都可用。</p>
+                        <p><strong>关键帧</strong>（Keyframes）功能允许你配置起始、中间和/或结束帧，以在Gen-3 Alpha中创建它们之间的平滑过渡。在Gen-3 Alpha Turbo中，你可以输入第一帧和最后一帧。</p>
+                        <p>本文将概述如何在Gen-3中使用关键帧、提示技巧、可用设置等内容。</p>
+
+                        <h3 id="keyframes-spec-info">规格信息（Spec Information）</h3>
+                        <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 34.8571%;"><strong>规格（Spec）</strong></td>
+                                    <td style="width: 34.5714%;"><strong>Gen-3 Alpha</strong></td>
+                                    <td style="width: 34.5714%;"><strong>Gen-3 Alpha Turbo</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>成本（Cost）</td>
+                                    <td>每秒10积分</td>
+                                    <td>每秒5积分</td>
+                                </tr>
+                                <tr>
+                                    <td>支持的时长（Supported durations）</td>
+                                    <td>5秒<br>10秒</td>
+                                    <td>5秒<br>10秒</td>
+                                </tr>
+                                <tr>
+                                    <td>无限计划的探索模式（Explore Mode on Unlimited Plans）</td>
+                                    <td>支持（Yes）</td>
+                                    <td>支持（Yes）</td>
+                                </tr>
+                                <tr>
+                                    <td>平台可用性（Platform availability）</td>
+                                    <td>网页端/移动端（Web/Mobile）</td>
+                                    <td>网页端/移动端（Web/Mobile）</td>
+                                </tr>
+                                <tr>
+                                    <td>最大图像大小（Maximum image size）</td>
+                                    <td>64mb</td>
+                                    <td>64mb</td>
+                                </tr>
+                                <tr>
+                                    <td>最大关键帧输入（Maximum Keyframe input）</td>
+                                    <td>1张图像（第一帧<strong>或</strong>最后一帧）</td>
+                                    <td>3张图像（第一帧、中间帧和最后一帧）</td>
+                                </tr>
+                                <tr>
+                                    <td>输出分辨率（Output resolution）</td>
+                                    <td>1280x768</td>
+                                    <td>1280x768<br>768x1280</td>
+                                </tr>
+                                <tr>
+                                    <td>帧率（Frame rate）</td>
+                                    <td>24fps</td>
+                                    <td>24fps</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 id="keyframes-step1">步骤1 - 选择输入关键帧</h3>
+                        <p>首先导航到<a href="https://app.runwayml.com/">仪表板</a>中的<strong>生成会话</strong>（Generative Session）。</p>
+                        <p>在这里，确保从左下角下拉菜单中选择了<strong>Gen-3 Alpha</strong>或<strong>Gen-3 Alpha Turbo</strong>模型。</p>
+                        <p>拖放新图像或从<strong>素材库</strong>（Assets）中选择现有图像来配置你的<strong>第一帧</strong>（First）关键帧。选择图像将打开关键帧编辑器：</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/36592759030419" alt="Screenshot 2024-12-19 at 9.55.29 AM.png"></p>
+                        <p>如果你使用的是Turbo，点击空的关键帧位置添加更多图像。你也可以在这里拖放图像来上传。</p>
+                        <p>你可以将光标悬停在每个输入上，显示移动或删除关键帧的控件：</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/36592800893203" alt="Screenshot 2024-12-19 at 9.58.42 AM.png"></p>
+                        <p>在选择关键帧图像时，请记住，获得所需过渡效果的能力将高度依赖于你的输入图像的复杂性：</p>
+                        <ul>
+                            <li>共享相似主体、场景和风格的图像将提供更一致、自然和平滑的结果。</li>
+                            <li>在主体、场景或风格上差异很大的图像可能会创造出更具实验性或意想不到的结果。</li>
+                        </ul>
+                        <p>上传完图像后，你就可以开始编写提示了。</p>
+
+                        <h3 id="keyframes-step2">步骤2 - 编写提示</h3>
+                        <p>我们<strong>强烈</strong>建议在生成之前包含文本提示。</p>
+                        <p>你可以在没有提示的情况下开始关键帧生成，但包含一个清晰描述所需运动风格的提示将提供更多可控性，并为你的生成设定成功基础。</p>
+                        <p>尽量让你的提示集中在从第一帧到最后一帧所需的运动上。</p>
+                        <p>以下是Gen-3 Alpha Turbo中第一帧和最后一帧的一些示例，以及使用的提示和相应的输出：</p>
+                        <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 16.6428%;"><strong>第一帧（First frame）</strong></td>
+                                    <td style="width: 16.6429%;"><strong>中间帧（Middle frame）</strong></td>
+                                    <td style="width: 16.7143%;"><strong>最后一帧（Last frame）</strong></td>
+                                    <td style="width: 25%;"><strong>提示（Prompt）</strong></td>
+                                    <td style="width: 25%;"><strong>结果（Result）</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/34243264187027" alt="KeyframeBlobEx1.jpg"></td>
+                                    <td>&nbsp;</td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/34243245012499" alt="KeyframeBlobEx2.jpg"></td>
+                                    <td>独立的液体滴动态碰撞并融合在一起，形成单个胶状生物。动态流体，有弹性，反应性运动。生物四处张望。融化的液体。对运动有反应的流体。<br>（原文：individual blobs of liquid dynamically collide and fuse together to form a single goo creature. dynamic fluid, bouncy, reactive motion. the creature looks around. melting liquid. motion-reactive fluid）</td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/34170748682771" alt="KeyframeEx1.gif"></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/34199834051859" alt="Cloth.png"></td>
+                                    <td>&nbsp;</td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/34199844967955" alt="Jellyfish.png"></td>
+                                    <td>房间内漂浮的布料制成的水母<br>（原文：A jellyfish made of cloth floating inside a room）</td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/34199834055571" alt="KeyframeEx3.gif"></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/36699958965651" alt="kf1.png"></td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/36699931553043" alt="kf2.png"></td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/36699931557139" alt="kf3.png"></td>
+                                    <td>主体跳芭蕾舞。他们完全由闪烁和故障的电视雪花噪点构成。<br>（原文：subject dances ballet. they are made entirely of glitching and flickering tv static.）</td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/36592800895123" alt="Gen-3 Alpha Turbo 2545180308, subject dances balle, image-prompt, M 5.mp4 (1).gif"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 id="keyframes-step3">步骤3 - 生成视频</h3>
+                        <p>上传关键帧并编写提示后，你就可以开始生成视频了。</p>
+                        <p>从<strong>生成</strong>（Generate）按钮旁的下拉菜单中选择所需的时长。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/34170748689427" width="74" height="42"></p>
+                        <p>在选择时长时，再次考虑两帧之间的差异程度可能会有帮助。</p>
+                        <p>更复杂的过渡，例如<strong>最后一帧</strong>（Last）与<strong>第一帧</strong>（First）完全不同的情况，可能会从较长的<strong>10秒</strong>时长中受益。这将为生成提供更多时间来平滑地在两个输入之间过渡。</p>
+                        <p>相反，为完全不同的关键帧选择<strong>5秒</strong>时长可能会导致更突兀的变化。</p>
+                        <p>对你选择的设置感到满意后，点击<strong>生成</strong>（Generate）按钮。</p>
+                        <p>你可以在<a href="https://help.runwayml.com/hc/en-us/articles/33545310653203-Generating-with-Sessions">会话</a>中滚动浏览继续生成的内容。你还可以在<strong>素材库</strong>（Assets）中访问已完成的视频，它们默认会保存在<strong>生成视频</strong>（Generative Video）文件夹中。</p>
+                    </div>
+                </section>
+
+                <section id="act-one" class="content-section">
+                    <h2>Act-One功能（Act-One）</h2>
+                    <div class="step-item">
+                        <p><span style="color: #666666;">简介（Introduction）</span></p>
+                        <p><strong>Gen-3 Alpha</strong>是即将推出的一系列模型中的第一个，与之前几代模型相比，在保真度、一致性、运动性和速度方面都有所提升。</p>
+                        <p><strong>Act-One</strong>功能允许你通过上传驱动表演视频（driving performance）来为角色参考图像或视频注入生命力，精确地影响表情、嘴部运动等。</p>
+                        <p>在本文中，<em>驱动表演</em>（driving performance）指的是将影响图像或视频的视频。<em>角色图像/视频</em>（character image/video）指的是将被驱动表演驱动的输入内容。</p>
+                        <p>本文将概述如何在Gen-3 Alpha中使用Act-One功能、输入的最佳实践、可用设置等内容。</p>
+
+                        <h3 id="spec-info">规格信息</h3>
+                        <div>
+                            <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 40.5715%;"><strong>规格（Spec）</strong></td>
+                                        <td style="width: 30.2858%;"><strong>Gen-3 Alpha</strong></td>
+                                        <td style="width: 28.9999%;"><strong>Gen-3 Alpha Turbo</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40.5715%;">成本（Cost）</td>
+                                        <td style="width: 30.2858%;">每秒10积分，最低50积分</td>
+                                        <td style="width: 28.9999%;">每秒5积分，最低25积分</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40.5715%;">最大输出时长（Maximum output duration）</td>
+                                        <td class="wysiwyg-text-align-center" style="width: 59.2857%;" colspan="2">30秒</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40.5715%;">无限计划的探索模式（Explore Mode on Unlimited Plans）</td>
+                                        <td class="wysiwyg-text-align-center" style="width: 59.2857%;" colspan="2">支持（Yes）</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40.5715%;">平台可用性（Platform availability）</td>
+                                        <td class="wysiwyg-text-align-center" style="width: 59.2857%;" colspan="2">网页端、iOS应用（Web, iOS app）</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40.5715%;">基本提示输入（Base prompt inputs）</td>
+                                        <td class="wysiwyg-text-align-center" style="width: 59.2857%;" colspan="2">视频（Video）<br>图像（Image）</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40.5715%;">输出分辨率（Output resolutions）</td>
+                                        <td class="wysiwyg-text-align-center" style="width: 59.2857%;" colspan="2">1280x768<br>768x1280</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40.5715%;">帧率（Frame Rate）</td>
+                                        <td class="wysiwyg-text-align-center" style="width: 59.2857%;" colspan="2">24fps</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>最佳实践</h3>
+                        <p>在开始之前，请查看这些最佳实践，以确保你的输入选择能为生成设定成功的基础。大多数输出问题都可以通过使用符合这些建议的输入来解决。</p>
+
+                        <h4>驱动表演（Driving Performance）</h4>
+                        <ul>
+                            <li>光线充足，面部特征清晰（Well-lit with defined facial features）</li>
+                            <li>单个面孔，从肩部以上进行取景（Single face framed from around the shoulders and up）</li>
+                            <li>面向相机方向（Forward-facing in the direction of the camera）</li>
+                            <li>整个视频中面部都在画面内（Face is in frame for the entire video）
+                                <ul>
+                                    <li>确保面部不会移入移出画面（Ensure the face doesn't move in and out of the frame）</li>
+                                </ul>
+                            </li>
+                            <li>清晰的嘴部运动和表情（Clear mouth movement and expressions）
+                                <ul>
+                                    <li>某些表情，如伸舌头，不受支持（Certain expressions, such as sticking out a tongue, are not supported）</li>
+                                </ul>
+                            </li>
+                            <li>最小化身体和头部运动（使用角色图像时）（Minimal body and head movement (when using a character image)）</li>
+                            <li>画面中没有面部遮挡（No face occlusions in frame）</li>
+                            <li>没有中断镜头的剪切（No cuts that interrupt the shot）</li>
+                            <li>遵循我们的<a href="https://help.runwayml.com/hc/en-us/articles/21745792516371-Why-is-my-input-getting-content-moderated-and-what-types-of-content-are-blocked">信任与安全标准</a>（Trust & Safety standards）</li>
+                        </ul>
+
+                        <h4>角色图像（Character Images）</h4>
+                        <ul>
+                            <li>光线充足，面部特征清晰（Well-lit with defined facial features）</li>
+                            <li>单个面孔，从肩部以上进行取景（A single face framed from around the shoulders and up）</li>
+                            <li>面向相机方向（Forward-facing in the direction of the camera）</li>
+                            <li>遵循我们的<a href="https://help.runwayml.com/hc/en-us/articles/21745792516371-Why-is-my-input-getting-content-moderated-and-what-types-of-content-are-blocked">信任与安全标准</a>（Trust & Safety standards）</li>
+                        </ul>
+
+                        <h4>角色视频（Character Videos）</h4>
+                        <ul>
+                            <li>整个视频中面部都在画面内（Face is in frame for the entire video）</li>
+                            <li>没有中断镜头的剪切（No cuts that interrupt the shot）</li>
+                            <li>光线充足，面部特征清晰（Well-lit with defined facial features）</li>
+                            <li>单个面孔，从肩部以上进行取景（A single-face framed from around the shoulders and up）</li>
+                            <li>面向相机方向（Forward-facing in the direction of the camera）</li>
+                            <li>遵循我们的<a href="https://help.runwayml.com/hc/en-us/articles/21745792516371-Why-is-my-input-getting-content-moderated-and-what-types-of-content-are-blocked">信任与安全标准</a>（Trust & Safety standards）</li>
+                        </ul>
+
+                        <h3 id="act-one-step1">步骤1 - 上传驱动表演</h3>
+                        <p>首先导航到<strong>生成会话</strong>（Generative Session）中的<a href="https://app.runwayml.com/">仪表板</a>。</p>
+                        <p>在这里，确保从左下角下拉菜单中选择了<strong>Gen-3 Alpha</strong>或<strong>Turbo</strong>模型。你会在左侧工具栏找到<strong>Act-One</strong>图标：</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/34619259953811" width="132" height="46"></p>
+                        <p>在Act-One窗口的上半部分，拖放新视频或从<strong>素材库</strong>（Assets）中选择现有视频来添加你的驱动表演。</p>
+                        <p>或者，你也可以直接在网页应用中录制驱动视频。</p>
+                        <p>如果这是你第一次在Runway上录制视频，点击<strong>开始录制</strong>（Start recording）按钮。你的浏览器会请求访问摄像头和麦克风的权限。在Chrome浏览器上，选择<strong>允许</strong>（Allow）来授予权限：</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/35336772052627" width="319" height="185"></p>
+                        <p>权限获得批准后，你可以通过选择<strong>开始录制</strong>（Start recording）按钮开始录制。</p>
+                        <p>将你的脸部居中放在圆圈中，然后选择红色录制按钮开始三秒倒计时，之后开始录制。</p>
+                        <p>你可以点击<strong>停止</strong>（stop）按钮结束录制，或者使用空格键。查看你的视频，选择<strong>删除</strong>（Delete）重新开始，或者如果你对录制满意，选择<strong>使用此视频</strong>（Use this）。在Runway中录制的引导视频将保存到你的素材文件夹中。</p>
+
+                        <h4>驱动表演注意事项（Driving Performance Reminders）</h4>
+                        <p>你的驱动表演应始终面向正前方，即使你计划上传的角色参考处于不同角度。</p>
+                        <p>如果你计划之后选择角色图像，应该尽量减少身体和头部运动。使用角色视频时，驱动表演中可以支持更多的头部运动。</p>
+                        <p>在允许你生成之前，系统会对你的驱动表演进行初步的人脸检测。</p>
+                        <p>以下是驱动表演及其输出的示例：</p>
+                        <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 50%;"><strong>驱动表演（Driving performance）</strong></td>
+                                    <td style="width: 50%;"><strong>输出（Output）</strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="wysiwyg-text-align-center" style="width: 50%;" colspan="2"><img src="https://help.runwayml.com/hc/article_attachments/34768307333267" alt="jamie_driving.gif" width="400"></td>
+                                </tr>
+                                <tr>
+                                    <td class="wysiwyg-text-align-center" style="width: 50%;" colspan="2"><img src="https://help.runwayml.com/hc/article_attachments/34768279135763" alt="dion_driving.gif" width="400"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>上传完驱动表演后，你就可以选择你的角色参考了。</p>
+
+                        <h3 id="act-one-step2">步骤2 - 选择角色参考输入</h3>
+                        <p>Act-One同时支持角色参考图像和视频。</p>
+                        <p>在Act-One窗口的下半部分选择角色参考输入。从现有预设中选择，或切换到<strong>自定义</strong>（Custom）标签上传你自己的内容。</p>
+
+                        <h4>角色参考图像（Character Reference Image）</h4>
+                        <p>当驱动表演中的头部和身体运动最小化时，角色参考图像将提供最一致的结果。</p>
+                        <p>如果使用预设图像，你可以使用分辨率切换器在横向和纵向预设之间切换：</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/35336772055443" width="75" height="40"></p>
+                        <p>或者，在使用自定义输入时，你可以在选择图像<em>之后</em>选择这些分辨率中的任何一个。</p>
+
+                        <h4>角色参考视频（Character Reference Videos）</h4>
+                        <p>角色参考视频支持驱动表演中更多的运动和灵活性。你可以使用外部录制的素材，或者使用包含主体的<a href="https://help.runwayml.com/hc/en-us/articles/30266515017875-Creating-with-Text-Image-to-Video-on-Gen-3-Alpha-and-Turbo">文本/图像到视频</a>生成内容。</p>
+                        <p>当使用时长超过角色视频的驱动表演时，角色视频将被反转（称为<em>回旋镖</em>效果）以适应驱动表演的长度。</p>
+                        <p>如果你想在较长的驱动表演视频中避免回旋镖效果，我们建议在处理Act-One视频之前先<a href="https://help.runwayml.com/hc/en-us/articles/30266515017875-Creating-with-Text-Image-to-Video-on-Gen-3-Alpha-and-Turbo#h_01J863T0YP0QDQS34P80K70P1Z">扩展生成内容</a>。</p>
+
+                        <h4>示例角色参考输入（Example Character Reference Inputs）</h4>
+                        <p>Act-One可以支持多种输入类型，但遵循我们最佳实践的输入与更具实验性的输入相比，将提供更一致的结果。</p>
+                        <p>下面的图表更详细地概述了我们的建议。标注为✅的变体在大多数情况下都能很好地工作，⚠️可能有时会工作或提供意外结果，而❌在大多数情况下可能不会提供理想结果。</p>
+                        <p>这个图表的目的不是阻止实验，而是作为那些需要每次生成都令人满意的人的参考资源。如果你想探索Act-One的极限，不要害怕尝试这些建议之外的内容。</p>
+
+                        <div>
+                            <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 20.7143%;"><strong>类别（Category）</strong></td>
+                                        <td style="width: 31.1427%;"><strong>变体（Variation）</strong></td>
+                                        <td style="width: 37.4286%;"><strong>示例（Example）</strong></td>
+                                        <td style="width: 10.4286%;"><strong>支持（Support）</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 20.7143%;" rowspan="2">角色类型（Character type）</td>
+                                        <td style="width: 31.1427%;">人类（Human）</td>
+                                        <td style="width: 37.4286%; text-align: center;"><img src="https://help.runwayml.com/hc/article_attachments/34619259956243" width="200"></td>
+                                        <td style="text-align: center; width: 10.4286%;">✅</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 31.1427%;">非人类（Non-human）</td>
+                                        <td style="width: 37.4286%; text-align: center;"><img src="https://help.runwayml.com/hc/article_attachments/34619228967315" width="200"></td>
+                                        <td style="text-align: center; width: 10.4286%;">❌</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 20.7143%;" rowspan="2">角色角度（Character angle）</td>
+                                        <td style="width: 31.1427%;">正面/前视图（Forward-facing/Front view）</td>
+                                        <td style="width: 37.4286%; text-align: center;"><img src="https://help.runwayml.com/hc/article_attachments/34619228977811" width="200"></td>
+                                        <td style="text-align: center; width: 10.4286%;">✅</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 31.1427%;">侧面视图（Profile view）</td>
+                                        <td style="width: 37.4286%; text-align: center;"><img src="https://help.runwayml.com/hc/article_attachments/34619259985811" width="200"></td>
+                                        <td style="text-align: center; width: 10.4286%;">❌</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 20.7143%;" rowspan="3">角色距离（Character distance）</td>
+                                        <td style="width: 31.1427%;">肩部以上（Shoulders and up）</td>
+                                        <td style="width: 37.4286%; text-align: center;"><img src="https://help.runwayml.com/hc/article_attachments/34619228988307" width="200"></td>
+                                        <td style="text-align: center; width: 10.4286%;">✅</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 31.1427%;">躯干以上（Torso and up）</td>
+                                        <td style="width: 37.4286%; text-align: center;"><img src="https://help.runwayml.com/hc/article_attachments/34619259992979" width="200"></td>
+                                        <td style="text-align: center; width: 10.4286%;">✅</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 31.1427%;">全身（Full body）</td>
+                                        <td style="width: 37.4286%; text-align: center;"><img src="https://help.runwayml.com/hc/article_attachments/34619229010707" width="200"></td>
+                                        <td style="text-align: center; width: 10.4286%;">⚠️</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 20.7143%;" rowspan="2">角色轮廓（Character silhouette）</td>
+                                        <td style="width: 31.1427%;">中等复杂度（Intermediate）</td>
+                                        <td style="width: 37.4286%; text-align: center;"><img src="https://help.runwayml.com/hc/article_attachments/34619259999635" width="200"></td>
+                                        <td style="text-align: center; width: 10.4286%;">✅</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 31.1427%;">复杂（Complex）</td>
+                                        <td style="width: 37.4286%; text-align: center;"><img src="https://help.runwayml.com/hc/article_attachments/34619260003219" width="200"></td>
+                                        <td style="text-align: center; width: 10.4286%;">⚠️</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 id="act-one-step3">步骤3 - 配置运动强度</h3>
+                        <p>你可以在生成之前配置运动强度值来获得对输出的额外控制。<br>点击<strong>设置</strong>（Settings）图标来配置这个值：</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/35336772059411" alt="Settings.png"></p>
+                        <p>运动强度默认值为<strong>3</strong>。该值可以在1到5之间配置，较低的值会产生更稳定的效果，较高的值会输出更具表现力的运动。</p>
+                        <p>以下是同一输入在不同值下的示例：</p>
+                        <div>
+                            <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>运动强度值（Motion Intensity value）</strong></td>
+                                        <td><strong>输出（Output）</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="wysiwyg-text-align-center"><img src="https://help.runwayml.com/hc/article_attachments/35336747959827" width="200"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td class="wysiwyg-text-align-center"><img src="https://help.runwayml.com/hc/article_attachments/35336772062995" width="200"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td class="wysiwyg-text-align-center"><img src="https://help.runwayml.com/hc/article_attachments/35336747964947" width="200"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 id="act-one-step4">步骤4 - 生成Act-One视频</h3>
+                        <p>你可以将鼠标悬停在时长模块上查看生成前的预估积分成本。</p>
+                        <p>确认你对所选输入和积分成本满意后，点击<strong>生成</strong>（Generate）按钮。</p>
+                        <p>你的视频将开始在当前<a href="https://help.runwayml.com/hc/en-us/articles/33545310653203-Generating-with-Sessions">会话</a>中处理，每个视频完成后都可以查看。</p>
+
+                        <h4>了解Act-One定价（Understanding Act-One Pricing）</h4>
+                        <p>Act-One每秒收取10积分，<strong>最低5秒</strong>。这意味着5秒以下的驱动表演视频将收取50积分。</p>
+                        <p>超过5秒最低限制后，每增加一秒收取10积分，部分秒数会计入并向上取整到最接近的小数。例如，5.6秒的驱动表演将收取56积分。</p>
+
+                        <h3 id="act-one-troubleshooting">重复迭代和故障排除</h3>
+                        <p>大多数问题或错误都与你的驱动表演或角色参考输入有关，可以通过确保输入遵循推荐的最佳实践来解决。</p>
+                        <p>以下是Act-One错误列表及其故障排除方法：</p>
+                        <div>
+                            <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>错误（Error）</strong></td>
+                                        <td><strong>故障排除（Troubleshooting）</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>无法在你的视频中检测到人脸。<br>（Unable to detect a human face in your video.）</td>
+                                        <td>确保驱动表演光线充足，面部未被遮挡且居中在画面中。</td>
+                                    </tr>
+                                    <tr>
+                                        <td>无法在你的图像中检测到人脸。<br>（Unable to detect a human face in your image.）</td>
+                                        <td>确保角色图像遵循最佳实践。</td>
+                                    </tr>
+                                    <tr>
+                                        <td>在视频中检测人脸时发生错误。请稍后重试。<br>（An error occurred while detecting a human face in your video. Please try again later.）</td>
+                                        <td>确保驱动表演中身体和背景运动最小化。</td>
+                                    </tr>
+                                    <tr>
+                                        <td>我们检测到你的视频中运动过多。<br>（We detected too much movement from your video.）</td>
+                                        <td>确保驱动表演中身体和背景运动最小化。</td>
+                                    </tr>
+                                    <tr>
+                                        <td>我们检测到你的视频中有不可用的音频。<br>（We detected unusable audio from your video.）</td>
+                                        <td>确保你的驱动表演的音频符合我们的<a href="https://help.runwayml.com/hc/en-us/articles/21745792516371-Why-is-my-input-getting-content-moderated-and-what-types-of-content-are-blocked">信任与安全标准</a>。</td>
+                                    </tr>
+                                    <tr>
+                                        <td>此内容被我们的审核政策标记。<br>（This content was flagged by our moderation policy.）</td>
+                                        <td>确保角色输入符合我们的<a href="https://help.runwayml.com/hc/en-us/articles/21745792516371-Why-is-my-input-getting-content-moderated-and-what-types-of-content-are-blocked">信任与安全标准</a>。</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p>在某些情况下，你可能在生成之前没有遇到错误，但在输出中出现问题。这些边缘情况通常可以通过遵循最佳实践或重新运行生成来解决：</p>
+                        <div>
+                            <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>问题（Issue）</strong></td>
+                                        <td><strong>故障排除（Troubleshooting）</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>面部检测不当<br>（Face improperly detected）</td>
+                                        <td>使用遵循最佳实践的角色输入。</td>
+                                    </tr>
+                                    <tr>
+                                        <td>间歇性伪影<br>（Intermittent artifacts）</td>
+                                        <td>重新运行生成。</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="sessions" class="content-section">
+                    <h2>会话生成</h2>
+                    <div class="step-item">
+                        <h3 id="session-management">简介（Introduction）</h3>
+                        <p>在使用生成视频工具时，在完善输入和输出的过程中，很容易产生许多相似镜头的变体。<em>会话</em>（Sessions）可以帮助你在生成视频工具中组织创建的视频。</p>
+                        <p>当<strong>对特定风格、场景或镜头进行迭代</strong>时，会话特别有用，因为它们允许你将这些相关的输出组合在一起，简化比较和完善工作的过程。</p>
+                        <p>你可以随时通过选择<em>会话列表</em>（session list）图标来查看你的会话：</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/33545301838867" width="39" height="42"></p>
+                        <p>列表按最后一次用于开始生成的时间顺序显示会话。最近使用的会话将位于列表顶部。</p>
+
+                        <h3 id="new-session">开始新会话</h3>
+                        <p>每次打开<strong>生成会话</strong>（Generative Session）工具并提交生成时，都会创建一个新会话。会话将自动命名为类似于会话中第一次生成使用的文本提示的名称，但你也可以在生成之前指定会话名称。</p>
+                        <p>如果你当前在现有会话中，想要开始新会话，请打开会话列表图标并点击<strong>+ 新建</strong>（+ New）。</p>
+
+                        <h3 id="return-session">返回之前的会话</h3>
+                        <p>你可以通过使用会话列表切换到所需的会话来访问之前的会话和生成内容。</p>
+                        <p>在之前的会话中开始新的生成将使其移动到会话列表的顶部。</p>
+
+                        <h3 id="rename-session">重命名现有会话（Renaming an existing session）</h3>
+                        <p>可以重命名现有会话以进行进一步组织。按照以下步骤重命名会话：</p>
+                        <ul>
+                            <li>展开会话列表</li>
+                            <li>点击要重命名的会话旁边的省略号<strong>(...)</strong></li>
+                            <li>点击<strong>重命名</strong>（Rename）</li>
+                            <li>输入会话的所需名称</li>
+                            <li>点击<strong>重命名</strong>（Rename）完成</li>
+                        </ul>
+
+                        <h3 id="delete-session">删除会话（Deleting a session）</h3>
+                        <p>你可以随时删除会话。删除会话<strong>不会删除</strong>其中的素材，这意味着你仍然可以通过<strong>素材库</strong>（Assets）文件夹访问任何生成内容。</p>
+                        <p>按照以下步骤删除会话：</p>
+                        <ul>
+                            <li>展开会话列表</li>
+                            <li>点击要删除的会话旁边的省略号<strong>(...)</strong></li>
+                            <li>点击<strong>删除会话</strong>（Delete session）</li>
+                            <li>在确认弹窗中确认或取消删除</li>
+                        </ul>
+                        <p>请注意，会话一旦删除就<strong>无法恢复</strong>。</p>
+                    </div>
+                </section>
+
+                <section id="video-to-video" class="content-section">
+                    <h2>视频到视频转换</h2>
+                    <div class="step-item">
+                        <h3 id="conversion-methods">简介</h3>
+                        <p><strong>视频到视频转换</strong>（Video to Video）功能允许你通过使用文本提示或输入图像作为第一帧来改变视频的风格。</p>
+                        <p>本文将概述如何在Gen-3 Alpha和Turbo模型上使用视频到视频转换功能、可用设置等内容。</p>
+
+                        <h3>规格信息</h3>
+                        <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <th style="width: 25%;">规格（Spec）</th>
+                                    <th style="width: 25%;">Gen-3 Alpha</th>
+                                    <th style="width: 25%;">Gen-3 Alpha Turbo</th>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">成本（Cost）</td>
+                                    <td style="width: 25%;">每秒10积分，向上取整到5秒增量</td>
+                                    <td style="width: 25%;">每秒5积分，向上取整到5秒增量</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">支持的时长（Supported durations）</td>
+                                    <td style="width: 25%; text-align: center;" colspan="2">最长20秒</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">无限计划的探索模式（Explore Mode on Unlimited Plans）</td>
+                                    <td style="width: 25%; text-align: center;" colspan="2">支持（Yes）</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">平台可用性（Platform availability）</td>
+                                    <td style="width: 25%; text-align: center;" colspan="2">网页端（Web）</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">支持的视频输入（Supported video inputs）</td>
+                                    <td style="width: 25%; text-align: center;" colspan="2">
+                                        <a href="https://help.runwayml.com/hc/en-us/articles/4402453019795-Supported-video-file-types">查看支持的文件类型</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">输出分辨率（Output resolutions）</td>
+                                    <td style="width: 25%; text-align: center;">1280x768</td>
+                                    <td style="width: 25%; text-align: center;">1280x768<br>768x1280</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">最大输入大小（Maximum input size）</td>
+                                    <td style="width: 25%; text-align: center;" colspan="2">64mb</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 id="video-to-video-step1">步骤1 - 选择输入视频</h3>
+                        <p>首先导航到<a href="https://app.runwayml.com/">仪表板</a>中的<strong>生成会话</strong>（Generative Session）。</p>
+                        <p>在这里，确保从左下角下拉菜单中选择了<strong>Gen-3 Alpha</strong>或<strong>Gen-3 Alpha Turbo</strong>模型。</p>
+                        <p>从你的素材中选择支持的视频文件，或拖放视频进行上传。</p>
+                        <p>如果你的输入视频不是支持的分辨率，系统会提示你进行裁剪。</p>
+
+                        <h4>积分说明（Credit notes）</h4>
+                        <p>选择视频时，请注意<strong>积分按秒收取，但会向上取整到最接近的5秒增量</strong>。以下是基于视频长度和所选模型的一些积分成本示例：</p>
+                            <ul>
+                            <li>4秒的Gen-3 Alpha Turbo：25积分</li>
+                            <li>5秒的Gen-3 Alpha Turbo：25积分</li>
+                            <li>12.6秒的Gen-3 Alpha：150积分</li>
+                            <li>15秒的Gen-3 Alpha：150积分</li>
+                        </ul>
+                        <p>我们建议选择5秒增量的视频以优化积分使用。超过20秒的视频将自动裁剪为输入的前20秒。</p>
+
+                        <h3 id="video-to-video-step2">步骤2 - 编写提示</h3>
+                        <p>视频到视频转换功能可以通过强有力的文本提示或风格化的输入图像显著改变输入的风格。</p>
+
+                        <h4>文本提示（Text Prompts）</h4>
+                        <p>在大多数情况下，专注于所需<strong>风格</strong>的描述性提示将提供最佳结果。</p>
+                        <p>本教程使用带有绿幕遮罩的示例，但你可以使用任何类型的视频输入。</p>
+
+                        <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 33.3333%;"><strong>输入（Input）</strong></td>
+                                    <td style="width: 33.3333%;"><strong>提示（Prompt）</strong></td>
+                                    <td style="width: 33.3333%;"><strong>输出（Output）</strong></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 33.3333%;"><img src="https://help.runwayml.com/hc/article_attachments/33381781704723"></td>
+                                    <td style="width: 33.3333%;">3D半色调CMYK风格。半色调打印点。漫画书。以青蓝色、黄色、品红紫色和黑色圆点层叠的鲜艳色彩。</td>
+                                    <td style="width: 33.3333%;"><img src="https://help.runwayml.com/hc/article_attachments/33381781706003"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p><strong>提示：</strong>尝试使用<strong>自定义预设</strong>（Custom Preset）<img src="https://help.runwayml.com/hc/article_attachments/33384790412435" width="30" height="30">来加载精选的示例提示。请确保将紫色占位文本替换为你想包含的任何自定义内容。</p>
+                        <p>简单的提示通常效果不错，但详细的提示更有效，会产生更接近你设想概念的结果。</p>
+
+                        <h4>图像提示（Image prompt）</h4>
+                        <p>或者，你可以上传图像来应用风格。重新风格化的第一帧是以你想要的艺术风格重新构想的视频开场帧。为获得最佳效果：</p>
+                        <ul>
+                            <li>保持与原始第一帧相同的构图</li>
+                            <li>清晰展示你想要的风格（卡通、绘画、素描等）</li>
+                            <li>使用视频的实际第一帧作为参考</li>
+                        </ul>
+
+                        <p>输入图像将作为视频的第一帧，因此使用与输入视频第一帧匹配的风格化图像将提供最高水平的一致性和控制：</p>
+
+                        <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 24.8096%;"><strong>输入（Input）</strong></td>
+                                    <td style="width: 25.2381%;"><strong>视频第一帧（Input video first frame）</strong></td>
+                                    <td style="width: 24.9047%;"><strong>重新风格化的第一帧（Restyled first frame）</strong></td>
+                                    <td style="width: 25.0476%;"><strong>输出（Output）</strong></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 24.8096%;"><img src="https://help.runwayml.com/hc/article_attachments/39050029069715" alt="bike.gif"></td>
+                                    <td style="width: 25.2381%;"><img src="https://help.runwayml.com/hc/article_attachments/39050029071891" alt="Comp 1 (0;00;00;00)_1.png"></td>
+                                    <td style="width: 24.9047%;"><img src="https://help.runwayml.com/hc/article_attachments/39050029073555" alt="notiansans_A_woodcut_illustration_of_a_man_with_round_glasses_5011f75d-26f9-4a5d-aefe-8d0eba6734b3_2.png"></td>
+                                    <td style="width: 25.0476%;"><img src="https://help.runwayml.com/hc/article_attachments/39050029076499" alt="bike_v2v.gif"></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 24.8096%;"><img src="https://help.runwayml.com/hc/article_attachments/39050029077395" alt="2.gif"></td>
+                                    <td style="width: 25.2381%;"><img src="https://help.runwayml.com/hc/article_attachments/39050040886291" alt="1.jpg"></td>
+                                    <td style="width: 24.9047%;"><img src="https://help.runwayml.com/hc/article_attachments/39050040887315" alt="3.jpg"></td>
+                                    <td style="width: 25.0476%;"><img src="https://help.runwayml.com/hc/article_attachments/39050040887955" alt="4.gif"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>使用与第一帧不匹配的输入图像可能会在输出视频开始播放时造成短暂的视觉跳跃。如果出现这种情况，请确保图像与视频正确对齐，或改用文本提示。或者，你也可以从视频中裁剪掉第一帧。</p>
+                        <p>如果使用不匹配第一帧的输入图像，尝试增加<a href="#h_01J7PCGEPE3NT0Z5HWXVR928QJ">结构转换值</a>以获得更大的灵活性，让运动从视频应用到图像。</p>
+
+                        <h3 id="video-to-video-step3">步骤3 - 配置设置</h3>
+                        <p>视频到视频转换功能有额外的设置<img src="https://help.runwayml.com/hc/article_attachments/34076015045651" width="30">，你应该在开始生成之前查看这些设置。</p>
+
+                        <h4>结构转换（Structure transformation）</h4>
+                        <p>此设置控制输入和输出之间的结构一致性。较低的值将产生保持原始视频结构的输出。较高的值将产生更抽象的输出。</p>
+
+                        <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 50%;"><strong>结构转换值（Structure transformation value）</strong></td>
+                                    <td style="width: 50%;"><strong>输出（Output）</strong></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">0</td>
+                                    <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/33381797152531" width="642" height="386"></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">5</td>
+                                    <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/33381797156115" width="642" height="386"></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">10</td>
+                                    <td style="width: 50%;"><img src="https://help.runwayml.com/hc/article_attachments/33381781719571" width="642" height="386"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>固定种子（Fixed seed）</h4>
+                        <p>使用固定种子将允许你创建相似的生成内容。默认情况下此选项未选中，以给你提供各种各样的结果。</p>
+                        <p>如果你想获得具有相似风格和运动的生成内容，可以复制并粘贴之前输出的种子。粘贴种子将自动选中该复选框。</p>
+
+                        <h4>宽高比（Aspect ratio）</h4>
+                        <p>在Turbo模型上，你可以在横向和纵向宽高比之间选择。</p>
+
+                        <h3 id="video-to-video-step4">步骤4 - 生成视频</h3>
+                        <p>编写文本提示并配置设置后，你就可以开始生成视频了。</p>
+                        <p>如果输入视频为20秒或更短，最终结果将匹配输入视频的长度。对于超过20秒的视频，只会使用前20秒。</p>
+                        <p>你可以在<a href="https://help.runwayml.com/hc/en-us/articles/33545310653203-Generating-with-Sessions">会话</a>中滚动浏览继续生成的内容。你还可以在<strong>素材库</strong>（Assets）中访问已完成的视频，它们默认会保存在<strong>生成视频</strong>（Generative Video）文件夹中。</p>
+                    </div>
+                </section>
+
+                <section id="text-image-to-video" class="content-section">
+                    <h2>文本/图像到视频转换（Text/Image to Video）</h2>
+                    <div class="step-item">
+                        <h3><span style="color: #666666;">简介（Introduction）</span></h3>
+                        <p><strong>Gen-3 Alpha</strong>是即将推出的一系列模型中的第一个，与之前几代模型相比，在保真度（fidelity）、一致性（consistency）、运动性（motion）和速度（speed）方面都有所提升。Gen-3 Alpha目前仅向标准计划（Standard plan）或更高等级的用户开放。</p>
+                        <p><strong>Gen-3 Alpha Turbo</strong>是Gen-3 Alpha系列中一个更快速的模型，可以以更低的成本生成内容。Turbo模型在<a href="https://runwayml.com/pricing">所有计划等级</a>中都可用，但需要输入图像。</p>
+                        <p>本文将概述使用Gen-3 Alpha创建视频的步骤、可用设置等内容。</p>
+
+                        <h4>文章要点（Article Highlights）</h4>
+                        <ul>
+                            <li>Turbo模型需要输入图像，因此如果只需要文本提示，请选择Gen-3 Alpha模型</li>
+                            <li>在Gen-3 Alpha模型上使用文本到视频功能时，使用高度描述性的提示</li>
+                            <li>使用输入图像时，重点描述所需的运动</li>
+                            <li>单次生成可以延长最多三次</li>
+                        </ul>
+
+                        <h4>相关链接（Related Links）</h4>
+                        <ul>
+                            <li><a href="https://help.runwayml.com/hc/en-us/articles/30586818553107-Gen-3-Alpha-Prompting-Guide">Gen-3 Alpha提示指南</a></li>
+                            <li><a href="https://academy.runwayml.com/gen3-alpha/getting-started-with-gen3-alpha">入门：Gen-3 Alpha</a></li>
+                        </ul>
+
+                        <h3><span style="color: #434343;">规格信息（Spec Information）</span></h3>
+                        <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <th style="width: 25%;">规格（Spec）</th>
+                                    <th style="width: 25%;">Gen-3 Alpha</th>
+                                    <th style="width: 25%;">Gen-3 Alpha Turbo</th>
+                                </tr>
+                                <tr>
+                                    <td>成本（Cost）</td>
+                                    <td>每秒10积分（10 credits per second）</td>
+                                    <td>每秒5积分（5 credits per second）</td>
+                                </tr>
+                                <tr>
+                                    <td>支持的时长（Supported durations）</td>
+                                    <td style="text-align: center;" colspan="2">5秒（5 seconds）<br>10秒（10 seconds）</td>
+                                </tr>
+                                <tr>
+                                    <td>无限计划的探索模式（Explore Mode on Unlimited Plans）</td>
+                                    <td style="text-align: center;" colspan="2">支持（Yes）</td>
+                                </tr>
+                                <tr>
+                                    <td>平台可用性（Platform availability）</td>
+                                    <td style="text-align: center;" colspan="2">网页端、iOS（Web, iOS）</td>
+                                </tr>
+                                <tr>
+                                    <td>基本提示输入（Base prompt inputs）</td>
+                                    <td style="text-align: center;">文本（Text）<br>图像（Image）</td>
+                                    <td style="text-align: center;">文本（Text）<br>图像（必需）（Image Required）</td>
+                                </tr>
+                                <tr>
+                                    <td>文本字符限制（Text character limit）</td>
+                                    <td style="text-align: center;" colspan="2">1000字符（1000 characters）</td>
+                                </tr>
+                                <tr>
+                                    <td>输出分辨率（Output resolutions）</td>
+                                    <td style="text-align: center;">1280x768</td>
+                                    <td style="text-align: center;">1280x768<br>768x1280</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://help.runwayml.com/hc/en-us/articles/34170748696595-Creating-with-Keyframes-on-Gen-3-Alpha-Turbo">关键帧</a>支持（Keyframes support）</td>
+                                    <td style="text-align: center;">第一帧<strong>或</strong>最后一帧（First <strong>or</strong> last frame）</td>
+                                    <td style="text-align: center;">第一帧、中间帧和最后一帧（First, middle, and last）</td>
+                                </tr>
+                                <tr>
+                                    <td>视频延长增量（Video Extension increments）</td>
+                                    <td style="text-align: center;">5或10秒（5 or 10 seconds）</td>
+                                    <td style="text-align: center;">8秒（8 seconds）</td>
+                                </tr>
+                                <tr>
+                                    <td>最大延长长度（Maximum extended length）</td>
+                                    <td style="text-align: center;">40秒（40 seconds）</td>
+                                    <td style="text-align: center;">34秒（34 seconds）</td>
+                                </tr>
+                                <tr>
+                                    <td>帧率（Frame Rate）</td>
+                                    <td style="text-align: center;" colspan="2">24fps</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 id="text-image-to-video-step1">步骤1 - 编写提示</h3>
+                        <p>首先导航到<strong>生成会话</strong>（Generative Session）中的<a href="https://app.runwayml.com/">仪表板</a>。</p>
+                        <p>在这里，确保从左下角下拉菜单中选择了<strong>Gen-3 Alpha</strong>或<strong>Gen-3 Alpha Turbo</strong>模型。</p>
+                        <p>要使用文本到视频功能，请确保选择<strong>Gen-3 Alpha</strong>模型。Turbo模型需要输入图像。</p>
+
+                        <h4><span style="color: #434343;">文本提示（Text Prompts）</span></h4>
+                        <p>Gen-3 Alpha可以创建具有复杂场景变化、广泛电影选择和详细艺术指导的高度详细视频。描述性但清晰的提示是生成优秀视频的关键。</p>
+                        <p>添加描述性文本提示，传达摄像机角度、主体、场景、风格和运动，以生成你的视频。查看我们的<a href="https://help.runwayml.com/hc/en-us/articles/30586818553107-Gen-3-Alpha-Prompting-Guide">Gen-3 Alpha提示指南</a>获取更多想法和提示示例。</p>
+
+                        <p>以下是仅文本提示示例及其相应输出：</p>
+                        <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 50%;"><strong>提示（Prompt）</strong></td>
+                                    <td style="width: 50%;"><strong>输出（Output）</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>电影反派脸部的戏剧性特写，当他扬起眉毛时，灯光变化，在他脸上投射出诡异的红光。邪恶反派巢穴，1980年代间谍电影，电影感，35毫米胶片，动态运动。<br><br>（A dramatic zoom in on the face of movie villain as he raises an eye brow and the lights shift, casting an eerie red glow across him. Evil villain lair, 1980s spy movie, cinematic, 35mm film, dynamic movement.）</td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/30585877840659" alt="villian.gif"></td>
+                                </tr>
+                                <tr>
+                                    <td>科幻动作追逐场景，第一人称视角超速飞行穿过多个场景。穿越小行星带，穿过浓密云层，穿过复杂的荒凉景观系统。动态运动，动态模糊，延时摄影，30倍速，电影感，柔和的色彩调色板。<br><br>（A sci-fi-like action chase scene, FPV hyper-speed fly through multiple locations. Racing through asteroid fields, through a dense clouds, through a complex system of desolate landscapes. Dynamic motion, dynamic blur, timelapse, 30x speed, cinematic, muted color palette.）</td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/30585877845395" alt="Biome Switch 2.gif"></td>
+                                </tr>
+                                <tr>
+                                    <td>动态运动，30倍速。摄像机跟随一个半透明的白色塑料购物袋，上面印有醒目的红色字母"THANK YOU"，在沙漠的风中有机地飞舞。略微不透明的袋子在风中起伏，保持着醒目的红色"THANK YOU"文字印刷。<br><br>（Dynamic motion, 30x speed. Camera follows a translucent white plastic grocery bag with bold red letters printed on it that read "THANK YOU" as it flies organically in the wind of a desert. the slightly opaque bag undulates in the wind, maintaining the bold red "THANK YOU" text printed on it.）</td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/30593248769171" alt="plasticbag.gif"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>图像和文本提示（Image and Text Prompts）</h4>
+                        <p>输入图像在Gen-3 Alpha中是可选的，但在<strong>Gen-3 Alpha Turbo中是必需的</strong>。输入图像默认将作为视频的第一帧。</p>
+                        <p>如果你的输入图像不是支持的分辨率，系统会提示你进行裁剪。</p>
+                        <p>包含简单的文本提示来引导视频的输出。不要描述图像中的内容，而是<strong>重点描述</strong>你想要在输出中看到的摄像机、角色和场景的<strong>运动</strong>。</p>
+                        <p>描述输入图像的完整内容可能会导致意外结果。</p>
+
+                        <p>以下是输入图像、专注于运动的文本提示及其相应输出的示例：</p>
+                        <table style="border-collapse: collapse; width: 100%;" border="1" cellpadding="5">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 33.3333%;"><strong>输入图像（Input image）</strong></td>
+                                    <td style="width: 33.3333%;"><strong>提示（Prompt）</strong></td>
+                                    <td style="width: 33.3333%;"><strong>输出（Output）</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/37363680847763" alt="bubblegumstretchface.png"></td>
+                                    <td>戴手套的手拉伸由泡泡糖材质制成的脸<br><br>（the gloved hands pull to stretch the face made of a bubblegum material）</td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/37088887791379" alt="Gen-3 Alpha 970068599"></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/37363709595795" alt="seaanenomes.png"></td>
+                                    <td>海葵在水中自然摇摆和流动。摄像机保持静止。<br><br>（the sea anemones sway and flow naturally in the water. the camera remains still.）</td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/37088910963219" alt="Gen-3 Alpha 1081709814"></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/37363680852243" alt="knightincathedral.png"></td>
+                                    <td>主体僵硬地行走，他的动作被沉重的盔甲所阻碍。动态运动。摄像机缩小以保持构图，同时他走近。<br><br>（subject stiffly walks, his movement hindered by the heavy armor. dynamic motion. camera zooms out to retain framing as he moves closer.）</td>
+                                    <td><img src="https://help.runwayml.com/hc/article_attachments/37088910963987" alt="Gen-3 Alpha Turbo 2300194801"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 id="text-image-to-video-step2">步骤2 - 配置设置</h3>
+                        <p>Gen-3 Alpha有一些额外的设置，你应该在开始生成之前查看这些设置。</p>
+
+                        <h4>关键帧（Keyframes）</h4>
+                        <p>在Gen-3 Alpha中，你可以选择让输入图像作为第一帧<strong>或</strong>最后一帧，而在Turbo上，你可以同时配置第一帧、中间帧<strong>和</strong>最后一帧。请参阅<a href="https://help.runwayml.com/hc/en-us/articles/34170748696595-Creating-with-Keyframes">使用关键帧创作</a>获取有关使用此功能的更多信息。</p>
+
+                        <h4>摄像机控制（Camera Control）</h4>
+                        <p>使用摄像机控制来选择场景穿越的方向和强度，为每个镜头增加更多意图。请参阅<a href="https://help.runwayml.com/hc/en-us/articles/34926468947347-Creating-with-Camera-Control-on-Gen-3-Alpha-Turbo">使用摄像机控制创作</a>获取有关使用这些设置的更多信息。</p>
+                        <p>你可以通过点击左下角的<strong>设置</strong>图标<img src="https://help.runwayml.com/hc/article_attachments/34779216798099" alt="Settings.png">配置以下内容：</p>
+
+                        <h4>固定种子（Fixed seed）</h4>
+                        <p>使用固定种子将允许你创建相似的生成内容。默认情况下此选项未选中，以给你提供各种各样的结果。</p>
+                        <p>如果你想获得具有相似风格和运动的生成内容，可以复制并粘贴之前输出的种子。粘贴种子将自动选中该复选框。</p>
+
+                        <h4>宽高比（Aspect ratio）</h4>
+                        <p>在Turbo模型上，你可以在1280x768和768x1280宽高比之间选择。更改此设置可能会提示你裁剪当前选择的任何输入图像。</p>
+
+                        <h3 id="text-image-to-video-step3">步骤3 - 生成视频</h3>
+                        <p>编写文本提示并配置设置后，你就可以开始生成视频了。</p>
+                        <p>你可以通过<strong>生成</strong>按钮旁的时长下拉菜单为输出选择<strong>5秒或10秒时长</strong>。生成视频默认为10秒生成。</p>
+                        <p>你可以在<a href="https://help.runwayml.com/hc/en-us/articles/33545310653203-Generating-with-Sessions">会话</a>中滚动浏览继续生成的内容。你还可以在<strong>素材库</strong>（Assets）中访问已完成的视频，它们默认会保存在<strong>生成视频</strong>（Generative Video）文件夹中。</p>
+                        <p>生成完成后，你会在视频右上角看到一些额外的选项。</p>
+                        <p>点击箭头将允许你重用用于生成视频的设置：</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/37235055250707" alt="Screenshot 2025-01-09 at 4.56.42 PM.png"></p>
+                        <p>你还会在视频下方看到一个<strong>操作</strong>（Actions）按钮：</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/37235055255443" alt="Screenshot 2025-01-09 at 4.55.55 PM.png" width="127" height="57"></p>
+                        <p>点击此按钮将展开更多选项以继续处理此视频：</p>
+
+                        <h4>延长（Extend）</h4>
+                        <p>使用此选项通过处理另一个生成来延长视频的时长。在本文的<a href="#h_01J863T0YP0QDQS34P80K70P1Z">步骤4</a>中了解更多信息。</p>
+
+                        <h4>口型同步（Lip Sync）</h4>
+                        <p>使用此选项将输出用于<a href="https://help.runwayml.com/hc/en-us/articles/31941427186323-Creating-with-Lip-Sync">口型同步</a>。</p>
+
+                        <h4>视频到视频（Video to Video）</h4>
+                        <p>选择此选项在<a href="https://help.runwayml.com/hc/en-us/articles/33350169138323-Creating-with-Video-to-Video-on-Gen-3-Alpha-and-Turbo">视频到视频</a>中处理生成内容。</p>
+
+                        <h4>编辑视频（Edit Video）</h4>
+                        <p>点击此按钮将允许你编辑生成视频的时长、速度和手持摄像机抖动效果，以及反转视频。调整设置后，点击<strong>渲染</strong>（Render）处理视频。</p>
+
+                        <h4>修剪（Trim）</h4>
+                        <p>要修剪视频，将生成片段下方时间轴的任一端向内拖动。拖动时你会看到片段的新时长自动更新。</p>
+
+                        <h4>重新定时（Retime）</h4>
+                        <p>要重新定时视频，移动<strong>播放速度</strong>（Playback speed）滑块。向左移动滑块将减慢片段速度；向右移动将加快速度。默认设置为100%，即片段的原始速度。</p>
+
+                        <h4>手持抖动（Handheld shake）</h4>
+                        <p>使用此选项为视频添加手持摄像机抖动效果。<strong>抖动强度</strong>（Shake strength）将决定抖动的强度，而<strong>抖动速度</strong>（Shake speed）将决定抖动的快慢。</p>
+
+                        <h4>反转（Reverse）</h4>
+                        <p>要反转视频，打开<strong>反转</strong>（Reverse）按钮。</p>
+
+                        <h4>扩展视频（Expand Video）</h4>
+                        <p>通过处理另一个生成将视频重新构图为不同的宽高比。在<a href="https://help.runwayml.com/hc/en-us/articles/34926355398675-Creating-with-Expand-Video-on-Gen-3-Alpha-Turbo">使用扩展视频创作</a>中了解更多信息。</p>
+
+                        <h4>提升视频质量（Upscale Video）</h4>
+                        <p>选择<strong>提升至4K</strong>（Upscale to 4k）以更高分辨率重新生成片段。</p>
+                        <p>请注意，一旦视频被提升至4K，重用设置<img src="https://help.runwayml.com/hc/article_attachments/37235055250707" alt="Screenshot 2025-01-09 at 4.56.42 PM.png" width="31" height="31">将不再可用。</p>
+
+                        <h4>下载选项（Download options）</h4>
+                        <p>你可以通过点击生成片段右上角的下载按钮直接从会话中下载生成内容。在这里，你可以选择将片段下载为<strong>MP4</strong>或<strong>GIF</strong>格式。</p>
+
+                        <h3 id="text-image-to-video-step4">步骤4 - 延长视频</h3>
+                        <p>完成的Gen-3 Alpha和Turbo生成内容可以延长<strong>最多三次</strong>以创建更长的视频。Gen-3 Alpha视频可以延长到最长40秒，而Turbo生成内容可以延长到最长34秒（如果原始视频为10秒）。</p>
+                        <p>要延长视频，在会话中的输出下方点击<strong>使用</strong>（Use）按钮并选择<strong>延长</strong>（Extend）。或者，你也可以通过<strong>素材库</strong>（Assets）打开现有生成内容并点击<strong>延长视频</strong>（Extend video）来延长现有生成内容。</p>
+                        <p>你要延长的视频的最后一帧将自动填充为输入。</p>
+                        <p>添加新的文本提示来指示延长部分应该发生什么。延长类似于图像到视频生成，所以尽量让提示集中在摄像机、角色和场景运动上。</p>
+                        <p>在Gen-3 Alpha中生成之前，你可以在5秒或10秒延长之间选择。Turbo模型提供8秒延长。请注意，延长成本将与用于生成原始视频的模型定价相同。延长之前无法更改模型。</p>
+                        <p>点击<strong>延长</strong>（Extend）开始延长。如果你对延长的输出满意，你可以最多再重复这些步骤两次以创建长视频。</p>
+                    </div>
+                </section>
+
+                <section id="gen3-faqs" class="content-section">
+                    <h2>Gen-3 Alpha常见问题</h2>
+                    <div class="step-item">
+                        <h3>Gen-3 Alpha与Gen-2文本/图像到视频有什么不同？（How is Gen-3 Alpha different from Gen-2 Text/Image to Video?）</h3>
+                        <p>与Gen-2相比，Gen-3 Alpha在保真度（fidelity）、一致性（consistency）、运动性（motion）和速度（speed）方面都有所提升。它在提示理解（prompt understanding）方面有显著改进，能够在超真实（hyper-real）输出中实现更直观和有效的生成。</p>
+                        <p>查看我们的<a href="https://runwayml.com/blog/introducing-gen-3-alpha/">官方博客公告</a>了解更多关于Gen-3 Alpha的详细信息。</p>
+
+                        <h3>在哪里可以学习如何使用Gen-3 Alpha？（Where can I learn how to use Gen-3 Alpha?）</h3>
+                        <p>对于文本学习材料，请查看我们的<a href="https://help.runwayml.com/hc/en-us/sections/30265301423635-Gen-3-Alpha">Gen-3 Alpha帮助中心内容</a>：</p>
+                        <ul>
+                            <li><a href="https://help.runwayml.com/hc/en-us/articles/30266515017875-Creating-with-Gen-3-Alpha">使用Gen-3 Alpha创作</a></li>
+                            <li><a href="https://help.runwayml.com/hc/en-us/articles/30586818553107-Gen-3-Alpha-Prompting-Guide">Gen-3 Alpha提示指南</a></li>
+                        </ul>
+                        <p>对于视频学习材料，请查看Runway学院的Gen-3 Alpha内容：</p>
+                        <ul>
+                            <li><a href="https://academy.runwayml.com/gen3-alpha/getting-started-with-gen3-alpha">Gen-3 Alpha入门</a></li>
+                            <li><a href="https://academy.runwayml.com/gen3-alpha/using-image-to-video-in-gen3-alpha">Gen-3 Alpha图像到视频</a></li>
+                        </ul>
+                        <p>要进一步学习，可以考虑加入我们的<a href="https://discord.gg/tUp5Gbd7rk">Runway Discord社区</a>。</p>
+
+                        <h3>使用Gen-3 Alpha和Gen-3 Alpha Turbo生成内容需要多少成本？（How much does it cost to generate in Gen-3 Alpha and Gen-3 Alpha Turbo?）</h3>
+                        <p>使用Gen-3 Alpha生成内容的成本为<strong>每秒10积分</strong>（10 credits per second）。目前可以导出5秒和10秒时长的视频，成本如下：</p>
+                        <ul>
+                            <li>5秒：50积分</li>
+                            <li>10秒：100积分</li>
+                        </ul>
+                        <p>使用Gen-3 Alpha Turbo生成内容的成本为<strong>每秒5积分</strong>（5 credits per second）：</p>
+                        <ul>
+                            <li>5秒：25积分</li>
+                            <li>10秒：50积分</li>
+                        </ul>
+                        <p>此外，无限计划（Unlimited Plans）用户可以在<strong>探索模式</strong>（Explore Mode）中使用这两个模型进行无限生成。阅读更多关于我们的<a href="https://help.runwayml.com/hc/en-us/articles/18053095835795-Unlimited-plan-details">无限计划详情</a>。</p>
+                        <p>要了解每个工具的积分成本详情，请查看<a href="https://help.runwayml.com/hc/en-us/articles/15124877443219-How-do-credits-work">积分如何工作？</a></p>
+
+                        <h3>什么时候应该使用Gen-3 Alpha而不是Gen-3 Alpha Turbo？（When should I use Gen-3 Alpha over Gen-3 Alpha Turbo?）</h3>
+                        <p>两个模型都能提供出色的结果和保真度（fidelity），因此在两者之间的选择将是你需要做出的创意决定。</p>
+                        <p>Gen-3 Alpha Turbo非常适合快速迭代以探索可能性。因此，我们推荐的工作流程是在Gen-3 Alpha Turbo中完成大多数项目。只有在使用Turbo无法获得理想结果时，你才可能需要使用Gen-3 Alpha。</p>
+
+                        <h3>Gen-3 Alpha生成内容的最大长度是多少？（What is the maximum length of Gen-3 Alpha generations?）</h3>
+                        <p>Gen-3 Alpha视频的最大长度为<strong>10秒</strong>。要获得更长的片段，可以在生成时间线中点击已完成视频下方的<strong>延长</strong>（Extend）按钮，每次可以增加5秒，总计最长可达40秒。</p>
+
+                        <h3>无限计划用户可以使用Gen-3 Alpha进行无限生成吗？（Can I make unlimited Gen-3 Alpha generations on the Unlimited Plan?）</h3>
+                        <p>是的！升级到<a href="https://help.runwayml.com/hc/en-us/articles/18053095835795-Unlimited-plan-details">无限计划</a>后解锁的<strong>探索模式</strong>（Explore Mode）可以在使用Gen-3 Alpha时<strong>开启</strong>。这允许以放松的速率进行无限生成，而无需使用积分。</p>
+
+                        <h3>需要什么等级的计划才能尝试Gen-3 Alpha？（What plan tier do I need to try Gen-3 Alpha?）</h3>
+                        <p>Gen-3 Alpha仅向<strong>标准计划或更高等级</strong>（Standard Plan or higher）的用户开放，而Gen-3 Alpha Turbo向所有用户开放。</p>
+                        <p><strong>视频</strong>输入（Video Inputs）在Gen-3 Alpha和Gen-3 Alpha Turbo中都仅向付费计划用户开放。</p>
+
+                        <h3>Gen-3 Alpha是否可在移动设备上使用？（Is Gen-3 Alpha available on mobile devices?）</h3>
+                        <p>是的，你可以通过iOS应用或移动网页浏览器使用Gen-3 Alpha进行生成。</p>
+
+                        <h3>Gen-3 Alpha是否提供API？（Is there an API available for Gen-3 Alpha?）</h3>
+                        <p>是的，请访问<a href="https://www.runwayml.com/api">https://www.runwayml.com/api</a>获取相关信息。</p>
+
+                        <h3>我可以提升Gen-3 Alpha生成内容的质量吗？（Can I Upscale Gen-3 Alpha generations?）</h3>
+                        <p>在初始生成完成后，可以在生成会话（Generative Session）中点击生成内容下方的<strong>操作</strong>（Actions）按钮，然后选择<strong>提升至4K</strong>（Upscale to 4k）来提升质量。</p>
+                    </div>
+                </section>
+            </div>
         </main>
     </div>
 </body>

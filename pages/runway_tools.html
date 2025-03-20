@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runway生成式工具集</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../scripts/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Runway生成式工具集</h1>
+            <p class="subtitle">官方Generative Tools节选翻译</p>
+        </header>
+
+        <main class="content-wrapper container">
+            <button id="toggle-sidebar" class="toggle-button">☰ 目录</button>
+            <aside class="sidebar">
+                <h3><a href="../index.html">回到首页</a></h3>
+                <ul>
+                    <li><a href="#extract-depth">提取深度</a></li>
+                    <li><a href="#super-slow-motion">超级慢动作</a></li>
+                    <li><a href="#inpainting">图像修复</a></li>
+                    <li><a href="#remove-background">移除背景</a></li>
+                    <li><a href="#motion-tracking">动作追踪</a></li>
+                    <li><a href="#subtitles">字幕生成</a></li>
+                    <li><a href="#clean-audio">音频清理</a></li>
+                    <li><a href="#beat-snapping">节拍对齐</a></li>
+                    <li><a href="#image-prompt-tips">图像提示技巧</a></li>
+                </ul>
+            </aside>
+            
+            <div class="main-content">
+                <section id="extract-depth" class="content-section">
+                    <h2>提取深度 (Extract Depth)</h2>
+                    <div class="step-item">
+                        <h3 id="extract-depth-intro">功能介绍</h3>
+                        <p>创建视频片段的深度图 (depth map) 通常需要使用多种工具，有时甚至需要逐帧进行复杂的调整。我们的提取深度工具可以通过一个简单的过程，自动为您生成视频片段的深度图！</p>
+                        <p>要开始使用，请在<strong>主界面左侧仪表板边栏</strong> (main left dashboard sidebar) 中选择<strong>编辑视频</strong> (Edit videos)，然后选择<strong>提取深度</strong> (Extract Depth)。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19660658798611" alt="提取深度工具位置"></p>
+
+                        <h3 id="extract-depth-usage">使用方法</h3>
+                        <h4>1. 导入视频片段 (Import video clip)</h4>
+                        <p>首先，您需要<strong>上传视频片段</strong>。您可以直接从计算机将视频<em>拖放</em>到 Runway 中，或者如果已经上传过，可以在编辑器左侧的<strong>资源</strong> (Assets) 部分中查找。</p>
+                        <p>💡 关于我们支持的视频格式信息，请<a href="https://help.runwayml.com/hc/en-us/articles/4402453019795" target="_self">参考这里</a>。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19660667513619" alt="导入视频演示"></p>
+
+                        <h4>2. 处理 (Process)</h4>
+                        <p>将视频片段上传到工具后，只需点击<strong>处理</strong> (Process) 即可生成深度图。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19660674510995" alt="处理过程演示"></p>
+
+                        <h4>3. 预览 (Preview)</h4>
+                        <p>几秒钟内，深度图预览就会出现在屏幕上。点击播放图标可以查看整个视频中深度图的变化。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19660658805139" alt="预览效果演示"></p>
+
+                        <h4>4. 与原始视频对比 (Compare to original)</h4>
+                        <p>要确保工具捕捉到了所有必要的深度特征，可以点击<strong>切换到原始视频</strong> (Toggle to original) 回到您上传的初始片段。要再次查看深度图，只需点击<strong>切换到处理结果</strong> (Toggle to processed)。</p>
+                        <p>💡 如果效果不够理想，可以尝试增加片段的<em>对比度</em> (contrast)，然后重新上传。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19660667518355" alt="对比效果演示"></p>
+
+                        <h4>5. 导出 (Export)</h4>
+                        <p>对深度图满意后，选择<strong>导出</strong> (Export) 来处理并保存最终的视频片段！</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19660629010707" alt="导出过程演示"></p>
+                    </div>
+                </section>
+
+                <section id="super-slow-motion" class="content-section">
+                    <h2>超级慢动作 (Super-Slow Motion)</h2>
+                    <div class="step-item">
+                        <h3 id="slow-motion-intro">功能介绍</h3>
+                        <p><iframe src="//www.youtube-nocookie.com/embed/MhCjZ4YQHIg" width="560" height="315" frameborder="0" allowfullscreen=""></iframe></p>
+                        <h4>在传统和数字电影制作中，慢动作效果需要为视频片段添加<em>更多帧</em>。如果在没有添加更多帧的情况下直接降低视频速度，您流畅连续的视频片段就会变得不连贯。<br>我们的<strong>超级慢动作</strong> (Super-Slow Motion) 工具利用 AI 的力量为您的视频生成和添加新的帧，从而在任何您选择的视频上创造更清晰、更流畅的慢动作效果。</h4>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19190068533011" alt="慢动作效果演示"></p>
+
+                        <h3 id="slow-motion-usage">使用方法</h3>
+                        <h4>1. 导入视频片段 (Import video clip)</h4>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19190036742803" alt="滑板视频示例" width="559" height="305"></p>
+                        <p>首先，您需要<strong>上传视频片段</strong>。您可以直接从计算机将视频拖放到 Runway 中，或者如果已经上传过，可以在拖放框下方的<strong>资源</strong> (Assets) 部分中查找。<br>关于我们支持的视频格式信息，请<a href="https://help.runwayml.com/hc/en-us/articles/4402453019795" target="_blank" rel="noopener noreferrer">参考这里</a>。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19190044680339" alt="上传视频演示"></p>
+
+                        <h4>2. 调整速度 (Adjust speed)</h4>
+                        <p>视频上传后，使用<strong>速度</strong> (Speed) 调节滑块来降低速度至您想要的效果。点击<strong>处理</strong> (Process) 来查看新的慢动作速度效果。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19190028448019" alt="速度调节演示"></p>
+                        <p>视频处理完成后，您可以点击播放按钮以您选择的速度查看新的慢动作版本。<br>如果想要与原始输入进行对比，只需点击<strong>切换到原始视频</strong> (Toggle to original)。<br>对当前速度不满意？只需再次调整速度滑块到您想要的效果，然后再次点击<strong>处理</strong> (Process)。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19190156482963" alt="效果对比演示"></p>
+                        <p>此工具<strong>不消耗积分</strong>，因此您可以随意调整速度滑块，直到达到满意的效果。</p>
+
+                        <h4>3. 导出 (Export)</h4>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19190036751251" alt="导出设置演示"></p>
+                        <p>当您达到理想的速度效果后，点击<strong>导出</strong> (Export) 查看视频格式和分辨率选项，确认设置后再次点击<strong>导出</strong> (Export)。您还可以在这里选择是否导出音频，以及更改文件名。</p>
+                        <p>享受您流畅的慢动作效果吧！💫</p>
+
+                        <h3 id="slow-motion-tips">常见问题</h3>
+                        <p><strong>问：</strong>超级慢动作支持导出哪些分辨率？</p>
+                        <p><strong>答：</strong>您可以将超级慢动作创作导出为 <strong>SD、720p 或 1080p</strong> 分辨率。遗憾的是，任何输入到超级慢动作工具的 4k 视频最高将被降采样至 1080p。通过将格式选项从 MP4 更改为 <strong>ProRes</strong>，这些分辨率都可以导出为 ProRes 格式。</p>
+                    </div>
+                </section>
+
+                <section id="inpainting" class="content-section">
+                    <h2>图像修复 (Inpainting)</h2>
+                    <div class="step-item">
+                        <h3 id="inpainting-intro">功能介绍</h3>
+                        <p>图像修复 (Inpainting) 是一个革命性的视频工具，可以自动移除视频片段中的不需要的物体。传统上，这种专业处理需要花费数小时或数天才能完成。借助人工智能的帮助，这项技术现在变得更加容易使用、更加实惠，并且比以往任何时候都更容易应用到您的项目中。</p>
+                        <p>要找到这个工具，请在<strong>主界面左侧仪表板边栏</strong> (main left dashboard sidebar) 中选择<strong>编辑视频</strong> (Edit videos)，然后选择<strong>图像修复</strong> (Inpainting)。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19155651386771" alt="图像修复工具位置" width="304" height="304"></p>
+
+                        <h3 id="inpainting-usage">使用方法</h3>
+                        <h4>1. 导入视频片段 (Import video clip)</h4>
+                        <p>首先，您需要<strong>上传视频片段</strong>。您可以直接从计算机将视频<em>拖放</em>到 Runway 中，或者如果已经上传过，可以在编辑器左侧的<strong>资源</strong> (Assets) 部分中查找。<br>💡 关于我们支持的视频格式信息，请<a href="https://help.runwayml.com/hc/en-us/articles/4402453019795" target="_self">参考这里</a>。</p>
+                        <p><strong>选择合适的视频片段将直接影响您的处理效果</strong>。一些使用<a href="https://help.runwayml.com/hc/en-us/articles/4412269871379" target="_self">绿幕</a> (Green Screen) 的指导原则在这里同样适用：不建议使用低质量的视频，或者主体频繁进出画面的视频。此外，我们建议确保您要修复的主体不要占据画面的大部分；图像修复需要一些背景上下文才能正常工作！</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19155643729683" alt="示例视频"><img src="https://help.runwayml.com/hc/article_attachments/19155627017747" alt="修复效果"></p>
+
+                        <h4>2. 修复处理 (Inpaint)</h4>
+                        <p>现在开始修复！首先<em>用画笔涂抹要消除的主体</em>来<strong>创建蒙版</strong> (create a mask)。您可以在右侧的<strong>控制面板</strong> (Controls) 中调整画笔大小。画出边界没关系，但尽量靠近主体轮廓进行选择，以获得最准确的选区。<br>💡 图像修复目前会将蒙版选区扩张 10 像素 — 简单来说，这会使您的选择更加宽容。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19155651390739" alt="修复过程演示"></p>
+                        <p>对蒙版满意后，点击<strong>预览</strong> (Preview) 并播放整个片段，查找可能不完美的区域。根据需要创建更多关键帧，同时利用右侧的<strong>模式</strong> (Mode) 下拉菜单，确保您的蒙版正确。我们建议按时间顺序进行这项工作，仅在需要时进行。</p>
+
+                        <h4>3. 导出 (Export)</h4>
+                        <p>当您对整个片段都满意时，有几个选项。您可以选择直接从工具导出片段，或继续在时间线上编辑、应用效果等。</p>
+                        <p><strong>要导出片段</strong>，请在编辑器屏幕右上角选择<strong>导出修复</strong> (Export Inpaint)。将出现一个包含可自定义导出选项的菜单。从此菜单中选择<strong>导出修复</strong>后，您的片段将开始导出到<strong>资源</strong> (Assets)。<br>💡 如果您开启了电子邮件通知，导出完成后您也会收到一封邮件。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19155634746771" alt="导出选项" width="237" height="338"></p>
+                        <p>如果您想<strong>在项目中继续编辑</strong>修复后的视频，选择<strong>完成修复</strong> (Done Inpainting) 打开我们的完整功能编辑器。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19155664483603" alt="编辑器界面"></p>
+                        <p>如果您想<strong>返回编辑已修复的片段</strong>，只需打开您的项目，从时间线<strong>选择片段</strong>（它会被高亮显示），然后导航到右侧的<strong>片段</strong> (Clip) 部分的 <strong>AI 魔法工具</strong> (AI Magic Tools)。在这里，您可以看到已应用的工具，以及用于进行任何编辑的<strong>编辑修复</strong> (Edit Inpainting) 按钮。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19155651398163" alt="编辑修复选项" width="357" height="229"></p>
+                        <p>享受您清理后的视频片段吧！</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19155634762259" alt="最终效果"></p>
+
+                        <h3 id="inpainting-tips">使用技巧</h3>
+                        <h4>图像修复最佳实践</h4>
+                        <p>没有获得您想要的效果，或者只是想在投入时间之前确保您的输入能提供足够好的输出片段？就像任何其他创意工具一样，了解工具的优势可以大大提高您使用图像修复的效果。</p>
+                        <p>视频片段中的某些<strong>"极端"情况</strong>可能会在预览和/或导出中造成<strong>伪影</strong> (artifacting)。这些伪影类似于<strong>数字失真</strong> (digital distortions)（例如条纹或污迹），是由于在输入视频几乎没有提供数据的情况下，模型需要从无到有创造自己的视觉效果而导致的。一些这样的情况包括：</p>
+                        <ol>
+                            <li><strong>相机或拍摄主体产生的极端运动</strong>。运动和相机移动是可以的，但任何一种特征的极端表现（如非常抖动的手持录制）都可能导致伪影出现。</li>
+                            <li><strong>极端的景深效果</strong>，例如试图在一次修复会话中同时处理画面中完全模糊的部分和前景中完全清晰的内容。</li>
+                            <li><strong>试图在物体遮挡人物部分时恢复整个肢体或身体部位</strong>。虽然模型会在移除遮挡物体后尝试恢复该人物的其余身体部分，但目前还没有任何生成式 AI 模型能够完全理解和重新生成准确的解剖物理特征。</li>
+                            <li><strong>修复区域快速且不规则地进出画面</strong>。虽然您可以通过重复遮罩来尝试规避这个问题，但在修复区域/主体不断进出画面的情况下（例如复杂的团队运动比赛镜头，多个运动员在画面中来回穿梭），模型需要进行大量的猜测工作。</li>
+                            <li><strong>修复区域、物品或主体暂时覆盖整个画面</strong>。遗憾的是，在某物或某人遮挡整个画面期间，图像修复无法重新生成整个场景、环境或镜头。</li>
+                            <li><strong>极低的对比度或照明</strong>也会导致模型难以正确放置修复边界，无论您添加多少额外的关键帧都无法解决。</li>
+                        </ol>
+                        <p>要改善您的处理效果，请尝试以下最佳实践：</p>
+                        <ol>
+                            <li>尽可能保持修复区域/主体<strong>在画面中</strong>。</li>
+                            <li>选择具有<strong>流畅、计划好的动作</strong>的视频片段，而不是不稳定的素材。</li>
+                            <li>使用具有<strong>适当对比度</strong>和<strong>足够照明</strong>的视频片段，使您的眼睛能够轻松确定物体边界。</li>
+                            <li>尽量在需要<strong>覆盖</strong>某物的情况下使用图像修复（例如，用视频片段中已有的纹理隐藏，如砖墙、混凝土地板或衣物织物），而不是需要<strong>想象</strong>的情况（例如，需要添加肢体或其他特征）。</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section id="remove-background" class="content-section">
+                    <h2>移除背景 (Remove Background)</h2>
+                    <div class="step-item">
+                        <h3 id="remove-bg-intro">功能介绍</h3>
+                        <p><strong>移除背景</strong> (Remove Background) 是我们项目内置绿幕工具的全新独立版本，可以让您从视频片段中剪切出物体、人物或任何您想要的元素。<br>大多数后期制作的绿幕选项需要通过手动突出显示物体边界来进行繁琐的逐帧编辑。使用 Runway，您只需点击几下就可以创建专业的蒙版并从视频中剪切物体。<br><br>一旦您从视频中突出显示了对象，您就可以替换背景、在其后显示文本，甚至有选择地对该区域应用视觉效果。以下是开始使用的步骤！</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19112532611987" alt="移除背景工具演示" width="309" height="310"></p>
+
+                        <h3 id="remove-bg-usage">使用方法</h3>
+                        <h4>1. 导入视频片段 (Import video clip)</h4>
+                        <p>从仪表板导航到<strong>编辑视频</strong> (Edit Videos)，然后到<strong>移除背景</strong> (Remove Background)。</p>
+                        <p>首先，您需要<strong>上传视频片段</strong>。您可以直接从计算机将视频拖放到 Runway 中，或者如果已经上传过，可以在左侧的<strong>资源</strong> (Assets) 部分中查找。关于我们支持的视频格式信息，请<a href="https://help.runwayml.com/hc/en-us/articles/4402453019795-Video-Files" target="_self">参考这里</a>。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19112539458963" alt="添加视频演示"></p>
+                        <p>💡 为了在最短的时间内获得最佳效果，我们建议使用具有<strong>清晰定义的主体，以及静止或平滑的相机运动</strong>的视频片段。不建议使用背景杂乱或定义不清的视频、低质量视频，或主体频繁进出画面的视频。</p>
+                        <p><strong>请记住，原始视频的质量将直接影响处理结果的质量。</strong></p>
+
+                        <h4>2. 创建蒙版 (Create Mask)</h4>
+                        <p>导入视频片段后，是时候创建蒙版来确定哪些<em>不是</em>您要移除的背景的一部分。首先，点击视频片段中您想要选择的区域 — 我们建议先点击主体的中心区域。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19112509206291" alt="关键帧创建演示"></p>
+                        <p>如果还有更多区域需要包含，继续点击主体的不同区域，直到蒙版令人满意。</p>
+                        <p>相反，使用<strong>控制</strong> (Controls) 侧边栏中的<strong>排除</strong> (Exclude) 来取消选择区域。这些操作可以通过键盘上的 1 和 2 键轻松切换。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19112532621331" alt="关键帧编辑演示"></p>
+                        <p>您刚刚创建了第一个<strong>关键帧</strong> (keyframe)！这将作为视频片段其余部分的参考点。</p>
+                        <p>当蒙版看起来不错时，请务必点击<strong>预览</strong> (Preview) 并播放整个片段，查找可能遗漏的区域。根据需要创建更多关键帧。我们建议按时间顺序进行这项工作，仅在需要时进行。</p>
+                        <p>如果您的视频片段更复杂并需要微调，从<strong>控制</strong> (Controls) 侧边栏选择<strong>画笔</strong> (Brush) 工具来手动涂抹详细区域。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19112539464851" alt="画笔工具选项" width="375" height="173"></p>
+                        <p>放大后这样做最容易，可以使用我们简单的缩放快捷键：+ 和 -。这些修改将传播到视频片段的后续帧中。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19112509214483" alt="画笔使用演示"></p>
+                        <p>在<strong>视图</strong> (View) 下的侧边栏中还有一些在此过程中可能有用的其他工具。在这里，您可以控制是否在<strong>叠加</strong> (Overlay)、<strong>预览</strong> (Preview) 或<strong>Alpha 通道</strong> (Alpha Channel) 模式下查看。在<strong>叠加</strong>视图中使用<strong>透明度</strong> (Transparency) 开关通常可以更容易地看到蒙版调整。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19112548064787" alt="透明度调整演示"></p>
+
+                        <h4>3. 导出 (Export)</h4>
+                        <p>当您对整个片段都满意时，有几个选项。您可以选择直接从这里导出片段，或继续通过将片段添加到时间线、应用效果等方式进行编辑。</p>
+                        <p><strong>要导出片段</strong>，请在屏幕右上角选择<strong>导出蒙版</strong> (Export Mask)。将出现一个包含可自定义导出选项的菜单。在这里，您可以将<strong>背景颜色</strong> (Background Color) 更改为任何您选择的颜色，选择 MP4 和 ProRes 等<strong>格式</strong> (Format) 选项，以及其他选项。从此菜单中选择<strong>导出蒙版</strong>后，您的片段将开始导出到<strong>资源</strong> (Assets)。如果您开启了电子邮件通知，导出完成后您也会收到一封邮件。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19112539470867" alt="导出选项演示"></p>
+                        <p>💡<strong>要导出带透明度的视频</strong>，将<strong>格式</strong>切换为 <strong>ProRes</strong>。要导出 Alpha 遮罩，请在<strong>背景颜色</strong>下勾选<strong>导出遮罩</strong> (Export Matte) 复选框。您还可以通过点击预定义颜色选项旁边的加号图标来选择自定义背景颜色。</p>
+                        <p>如果您想继续编辑新创建的蒙版视频，选择<strong>完成蒙版</strong> (Done Masking) 打开我们的完整功能编辑器。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/19112509230099" alt="完成蒙版选项" width="449" height="60"></p>
+                        <p>从这里开始，可能性是无限的！在蒙版后添加新背景、调整亮度和对比度、应用独特的效果等等。</p>
+
+                        <h3 id="remove-bg-tips">使用技巧</h3>
+                        <ul>
+                            <li>选择主体清晰、背景简单的视频可以获得最佳效果</li>
+                            <li>使用画笔工具进行精细调整时，建议先放大视图</li>
+                            <li>定期预览整个视频，确保蒙版在整个过程中都正确跟踪</li>
+                            <li>对于复杂的场景，可以使用多个关键帧来确保准确性</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="motion-tracking" class="content-section">
+                    <h2>动作追踪 (Motion Tracking)</h2>
+                    <div class="step-item">
+                        <h3 id="tracking-intro">功能介绍</h3>
+                        <p><iframe src="//www.youtube-nocookie.com/embed/_HMuT2rvARU" width="560" height="315" frameborder="0" allowfullscreen=""></iframe></p>
+
+                        <h3 id="tracking-usage">使用方法</h3>
+                        <p>首先，您需要<strong>上传视频片段</strong>。您可以直接从计算机将视频拖放到 Runway 中，或者如果已经上传过，可以在编辑器左侧的<strong>资源</strong> (Assets) 部分中查找。关于我们支持的视频格式信息，请<a href="https://help.runwayml.com/hc/en-us/articles/4402453019795" target="_blank" rel="noopener noreferrer">参考这里</a>。</p>
+
+                        <p>将视频上传并放置在编辑器时间线后，点击一次视频以确保选中它，然后在编辑器屏幕右侧的 <strong>AI 魔法工具</strong> (AI Magic Tools) 部分下选择<strong>动作追踪</strong> (Motion Tracking)。</p>
+
+                        <p>打开动作追踪编辑器后，只需点击一次您想要追踪的主体或位置。会出现一个红色目标点，方便您进行操作。</p>
+
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/9888807252243" alt="动作追踪目标点示例"></p>
+
+                        <p>选择<strong>预览</strong> (Preview) 播放片段，并在需要调整追踪的区域暂停。只需再次点击您的主体即可添加另一个关键帧。当您对片段满意时，选择<strong>完成追踪</strong> (Done Tracking) 返回主编辑器。</p>
+
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/9888868112019" alt="完成追踪示例"></p>
+
+                        <p>完成追踪后，是时候添加新的图层或效果来利用追踪功能了。在上面的示例中，我们添加了一个文本图层，然后可以在右侧边栏的<strong>关联图层</strong> (Linked Layers) 下选择该图层。选择您想要关联到追踪图层的图层，它就会神奇地附加上去！</p>
+
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/9890951849747" alt="动作追踪演示"></p>
+
+                        <p>如果您想从这里调整动作追踪编辑，您随时可以通过右侧边栏选择<strong>编辑追踪</strong> (Edit Tracking) 返回。这将带您回到独立的动作追踪编辑页面。</p>
+
+                        <h3 id="tracking-tips">使用技巧</h3>
+                        <ul>
+                            <li>选择对比度清晰的追踪点，以确保更准确的追踪效果</li>
+                            <li>对于复杂的运动轨迹，建议添加多个关键帧</li>
+                            <li>使用预览功能检查追踪效果，确保整个过程的流畅性</li>
+                            <li>可以随时返回编辑追踪点，优化追踪效果</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="subtitles" class="content-section">
+                    <h2>字幕生成 (Subtitles)</h2>
+                    <div class="step-item">
+                        <p>要使用 Runway 的字幕功能，只需将视频片段拖放到时间线上，并确保选中它。然后，导航到右侧面板并选择<strong>字幕</strong> (Subtitles)。（注意，除非您的视频包含可检测的音频，否则这个<strong>字幕</strong>选项不会出现。）</p>
+
+                        <p>目前，Runway 提供英语（美国、英国和澳大利亚方言）和西班牙语（西班牙、墨西哥）的字幕选项。从下拉菜单中选择其中一个选项，然后点击<strong>开始</strong> (Start)。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/6025577121811" alt="字幕生成步骤1"></p>
+
+                        <p>根据视频片段的长度和复杂程度，这个过程可能需要几秒到几分钟不等。离开此屏幕不会中断处理过程，但请确保保持浏览器和互联网连接。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/6025575018003" alt="字幕生成演示"></p>
+
+                        <p>字幕将自动生成并适当地按时间间隔排列。这通常非常准确，但如果您想调整时间或文本，可以使用右侧面板中的字段进行调整。</p>
+
+                        <p>要调整字幕样式，请查找<strong>字幕属性</strong> (Subtitles Properties)。在这里，您可以调整字体、字重、大小、填充颜色、背景颜色，或选择预设样式。</p>
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/6026121381523" alt="字幕属性设置"></p>
+
+                        <p>要隐藏字幕，点击<strong>字幕属性</strong>旁边的眼睛图标</p>
+
+                        <p>要删除字幕，点击<strong>字幕属性</strong>旁边的垃圾桶图标</p>
+
+                        <p>使用<strong>字幕属性</strong>旁边的三点菜单图标可以将字幕导出为 SRT 文件</p>
+                    </div>
+                </section>
+
+                <section id="clean-audio" class="content-section">
+                    <h2>音频清理 (Clean Audio)</h2>
+                    <div class="step-item">
+                        <p>使用<strong>音频清理</strong> (Clean Audio) 魔法工具可以帮助您快速去除视频中不需要的背景噪音。</p>
+
+                        <p>要使用 Runway 的音频清理功能，首先从您的资源中将视频片段拖放到时间线上。确保选中所需的视频片段，然后在右侧边栏的<strong>音频</strong> (Audio) 部分下点击<strong>音频清理</strong> (Clean Audio) 旁边的复选框。</p>
+
+                        <p><img src="https://help.runwayml.com/hc/article_attachments/6326613508499" alt="音频清理界面"></p>
+
+                        <p>音频清理将开始处理您的视频片段的音频，进度将以百分比显示。处理时间将取决于音频的长度和复杂程度。</p>
+
+                        <p>只需使用复选框即可打开和关闭音频清理功能。</p>
+
+                        <p>建议在处理前保存原始音频，以便比较效果</p>
+
+                        <p>对于较长的视频，可能需要更长的处理时间</p>
+
+                        <p>如果清理效果不理想，可以尝试多次应用该功能</p>
+                    </div>
+                </section>
+
+                <section id="beat-snapping" class="content-section">
+                    <h2>节拍对齐 (Beat Snapping)</h2>
+                    <div class="step-item">
+                        <p><iframe src="https://www.youtube-nocookie.com/embed/k5RCiP_VaeU" width="560" height="315" frameborder="0" allowfullscreen=""></iframe></p>
+                    </div>
+                </section>
+
+                <section id="image-prompt-tips" class="content-section">
+                    <h2>图像提示技巧 (Image Prompt Tips)</h2>
+                    <div class="step-item">
+                        <h3 id="prompt-basics">基础知识</h3>
+                        <h4>文本生成图像 (Text to Image)</h4>
+                        <ul>
+                            <li>简单的提示词通常会得到更好的结果</li>
+                            <li>尝试在提示词末尾添加 <code>in the style of</code> (风格为) 并跟上几个风格形容词
+                                <ul>
+                                    <li>例如：<code>a palm tree in the style of 2D hand drawn cartoon</code> (一棵棕榈树，风格为2D手绘卡通)</li>
+                                </ul>
+                            </li>
+                            <li>要获得与提示词更加匹配的结果，打开高级设置并增加<strong>提示词权重</strong> (prompt weight)</li>
+                            <li>在高级设置中选择<strong>风格修饰符</strong> (style modifiers)，以不同方式改变提示词的风格</li>
+                            <li>注意提示词的顺序。靠近提示词开头的词比靠近结尾的词权重更大</li>
+                        </ul>
+
+                        <h4>图像生成图像 (Image to Image)</h4>
+                        <ul>
+                            <li>要获得输入图像的不同变体，可以通过添加风格修饰符或不同的描述性词语来重新描述您的输入，从而改变外观和感觉</li>
+                            <li>要获得保留输入图像结构但完全不同的图像，尽量不要在提示词中使用任何输入图像的描述词</li>
+                        </ul>
+
+                        <h4>无限图像 (Infinite Image)</h4>
+                        <ul>
+                            <li>确保框架与图像的一部分重叠，以实现无缝混合效果；重叠越多，效果越平滑</li>
+                            <li>使用框架内的<strong>橡皮擦工具</strong> (eraser tool) 来修复和重新生成图像的部分区域</li>
+                        </ul>
+                    </div>
+                </section>
+                
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>© 2025 编者·李策 保留所有权利。</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html> 
