@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>像素贪吃蛇 - AI代码辅助示例</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="celebration-container"></div>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>像素贪吃蛇</h1>
+            <div class="game-info">
+                <div class="score-container">
+                    <span>得分: </span>
+                    <span id="score">0</span>
+                </div>
+                <div class="high-score-container">
+                    <span>最高分: </span>
+                    <span id="high-score">0</span>
+                </div>
+                <div class="level-container">
+                    <span>等级: </span>
+                    <span id="level">1</span>
+                </div>
+            </div>
+        </div>
+        <div id="game-area"></div>
+        <div class="controls">
+            <button id="start-button">开始游戏</button>
+            <div class="control-info">
+                <p>使用 WASD 或方向键控制蛇的移动</p>
+                <p>按空格键暂停游戏</p>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 
