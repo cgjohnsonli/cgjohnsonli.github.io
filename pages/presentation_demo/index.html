@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI工具演示 - 演讲展示</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- 导航栏 -->
+        <nav class="nav-bar">
+            <div class="nav-content">
+                <div class="nav-logo">AI工具演示</div>
+                <div class="nav-menu">
+                    <button class="nav-btn active" data-slide="1">概述</button>
+                    <button class="nav-btn" data-slide="2">功能展示</button>
+                    <button class="nav-btn" data-slide="3">技术架构</button>
+                    <button class="nav-btn" data-slide="4">应用场景</button>
+                    <button class="nav-btn" data-slide="5">总结</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 幻灯片容器 -->
+        <div class="slides-container">
+            <!-- 幻灯片 1: 概述 -->
+            <div class="slide active" id="slide-1">
+                <div class="slide-content">
+                    <h1 class="slide-title">AI工具演示</h1>
+                    <p class="slide-subtitle">探索人工智能的无限可能</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">AI工具</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">应用场景</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">在线服务</div>
+                        </div>
+                    </div>
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary">开始体验</button>
+                        <button class="btn btn-secondary">了解更多</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片 2: 功能展示 -->
+            <div class="slide" id="slide-2">
+                <div class="slide-content">
+                    <h2 class="slide-title">核心功能</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🤖</div>
+                            <h3>智能对话</h3>
+                            <p>基于大语言模型的自然语言交互</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎨</div>
+                            <h3>图像生成</h3>
+                            <p>AI驱动的创意图像创作工具</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📝</div>
+                            <h3>文档处理</h3>
+                            <p>智能文档分析和内容生成</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔍</div>
+                            <h3>数据分析</h3>
+                            <p>深度数据挖掘和可视化</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片 3: 技术架构 -->
+            <div class="slide" id="slide-3">
+                <div class="slide-content">
+                    <h2 class="slide-title">技术架构</h2>
+                    <div class="architecture-diagram">
+                        <div class="arch-layer">
+                            <h3>应用层</h3>
+                            <div class="arch-components">
+                                <div class="arch-component">Web界面</div>
+                                <div class="arch-component">移动端</div>
+                                <div class="arch-component">API接口</div>
+                            </div>
+                        </div>
+                        <div class="arch-layer">
+                            <h3>服务层</h3>
+                            <div class="arch-components">
+                                <div class="arch-component">AI服务</div>
+                                <div class="arch-component">数据处理</div>
+                                <div class="arch-component">用户管理</div>
+                            </div>
+                        </div>
+                        <div class="arch-layer">
+                            <h3>基础设施</h3>
+                            <div class="arch-components">
+                                <div class="arch-component">云计算</div>
+                                <div class="arch-component">数据库</div>
+                                <div class="arch-component">安全防护</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片 4: 应用场景 -->
+            <div class="slide" id="slide-4">
+                <div class="slide-content">
+                    <h2 class="slide-title">应用场景</h2>
+                    <div class="scenarios-container">
+                        <div class="scenario-item">
+                            <div class="scenario-icon">🏢</div>
+                            <h3>企业办公</h3>
+                            <p>提升工作效率，自动化重复任务</p>
+                        </div>
+                        <div class="scenario-item">
+                            <div class="scenario-icon">🎓</div>
+                            <h3>教育培训</h3>
+                            <p>个性化学习，智能辅导系统</p>
+                        </div>
+                        <div class="scenario-item">
+                            <div class="scenario-icon">🏥</div>
+                            <h3>医疗健康</h3>
+                            <p>辅助诊断，健康数据分析</p>
+                        </div>
+                        <div class="scenario-item">
+                            <div class="scenario-icon">🎮</div>
+                            <h3>娱乐创意</h3>
+                            <p>内容创作，游戏开发辅助</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片 5: 总结 -->
+            <div class="slide" id="slide-5">
+                <div class="slide-content">
+                    <h2 class="slide-title">总结与展望</h2>
+                    <div class="summary-content">
+                        <div class="summary-points">
+                            <div class="summary-point">
+                                <h3>🎯 核心价值</h3>
+                                <p>提升效率，降低成本，创造价值</p>
+                            </div>
+                            <div class="summary-point">
+                                <h3>🚀 发展前景</h3>
+                                <p>持续创新，技术突破，应用扩展</p>
+                            </div>
+                            <div class="summary-point">
+                                <h3>🤝 合作机会</h3>
+                                <p>开放平台，生态共建，共赢未来</p>
+                            </div>
+                        </div>
+                        <div class="contact-info">
+                            <h3>联系我们</h3>
+                            <p>📧 contact@ai-demo.com</p>
+                            <p>📱 +86 138-0000-0000</p>
+                            <p>🌐 www.ai-demo.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 控制按钮 -->
+        <div class="slide-controls">
+            <button class="control-btn" id="prev-btn">←</button>
+            <div class="slide-indicators">
+                <span class="indicator active" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+                <span class="indicator" data-slide="3"></span>
+                <span class="indicator" data-slide="4"></span>
+                <span class="indicator" data-slide="5"></span>
+            </div>
+            <button class="control-btn" id="next-btn">→</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
