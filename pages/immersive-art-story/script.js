@@ -1249,19 +1249,6 @@ function addExtraInteractions() {
         }
     });
 
-    // 为链接添加平滑滚动
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-
     // 添加鼠标悬停效果
     document.querySelectorAll('.story-text').forEach(text => {
         text.addEventListener('mouseenter', () => {
