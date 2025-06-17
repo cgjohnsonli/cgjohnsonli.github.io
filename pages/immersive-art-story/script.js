@@ -26,7 +26,7 @@ class ImmersiveStory {
     }
 
     bindEvents() {
-        // 滚动事件
+        // 滚动事件 - 只保留进度条更新
         window.addEventListener('scroll', () => {
             if (!this.isScrolling) {
                 this.isScrolling = true;
@@ -38,24 +38,6 @@ class ImmersiveStory {
                     this.isScrolling = false;
                 }, 100);
             }
-        }, { passive: true });
-
-        // 键盘导航
-        document.addEventListener('keydown', (e) => {
-            this.handleKeyboard(e);
-        });
-
-        // 触摸事件（移动端）
-        let startY = 0;
-        let endY = 0;
-
-        document.addEventListener('touchstart', (e) => {
-            startY = e.touches[0].clientY;
-        }, { passive: true });
-
-        document.addEventListener('touchend', (e) => {
-            endY = e.changedTouches[0].clientY;
-            this.handleTouch(startY, endY);
         }, { passive: true });
 
         // 窗口大小改变
@@ -97,75 +79,11 @@ class ImmersiveStory {
     }
 
     onSectionChange(sectionIndex) {
-        // 触发章节变化事件
+        // 触发章节变化事件 - 仅用于内部状态管理，不进行自动滚动
         const event = new CustomEvent('sectionChange', {
             detail: { sectionIndex, section: this.sections[sectionIndex] }
         });
         document.dispatchEvent(event);
-        
-        // 更新URL锚点（可选）
-        const sectionId = this.sections[sectionIndex].id;
-        if (sectionId && history.pushState) {
-            history.pushState(null, null, `#${sectionId}`);
-        }
-    }
-
-    handleKeyboard(e) {
-        switch(e.key) {
-            case 'ArrowDown':
-            case 'PageDown':
-                e.preventDefault();
-                this.scrollToNextSection();
-                break;
-            case 'ArrowUp':
-            case 'PageUp':
-                e.preventDefault();
-                this.scrollToPrevSection();
-                break;
-            case 'Home':
-                e.preventDefault();
-                this.scrollToSection(0);
-                break;
-            case 'End':
-                e.preventDefault();
-                this.scrollToSection(this.sections.length - 1);
-                break;
-        }
-    }
-
-    handleTouch(startY, endY) {
-        const threshold = 50;
-        const diff = startY - endY;
-        
-        if (Math.abs(diff) > threshold) {
-            if (diff > 0) {
-                this.scrollToNextSection();
-            } else {
-                this.scrollToPrevSection();
-            }
-        }
-    }
-
-    scrollToNextSection() {
-        const nextIndex = Math.min(this.currentSection + 1, this.sections.length - 1);
-        this.scrollToSection(nextIndex);
-    }
-
-    scrollToPrevSection() {
-        const prevIndex = Math.max(this.currentSection - 1, 0);
-        this.scrollToSection(prevIndex);
-    }
-
-    scrollToSection(index) {
-        if (index >= 0 && index < this.sections.length) {
-            const targetSection = this.sections[index];
-            const targetTop = targetSection.offsetTop;
-            
-            window.scrollTo({
-                top: targetTop,
-                behavior: 'smooth'
-            });
-        }
     }
 
     observeVisibility() {
@@ -201,35 +119,35 @@ class ImmersiveStory {
                         this.animateStoryReturnSection(entry.target);
                     }
                     
-                    // 特殊处理future section的诗性分句动画
+                    // 特殊处理future section的段落动画
                     if (entry.target.id === 'future') {
                         this.animateFutureSection(entry.target);
                     }
                     
-                    // 特殊处理reality section的批判性觉醒动画
+                    // 特殊处理reality section的段落动画
                     if (entry.target.id === 'reality') {
                         this.animateRealitySection(entry.target);
                     }
                     
-                    // 特殊处理humanity section的人文关怀动画
+                    // 特殊处理humanity section的段落动画
                     if (entry.target.id === 'humanity') {
                         this.animateHumanitySection(entry.target);
                     }
                     
-                    // 特殊处理about section的作者信息动画
+                    // 特殊处理about section的动画
                     if (entry.target.id === 'about') {
                         this.animateAboutSection(entry.target);
                     }
                     
-                    // 特殊处理结语section的动画
+                    // 特殊处理ending section的动画
                     if (entry.target.classList.contains('about-ending-section')) {
                         this.animateEndingSection(entry.target);
                     }
                 }
             });
         }, {
-            threshold: 0.3,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -10% 0px'
         });
 
         // 观察所有章节
