@@ -722,18 +722,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // 比如更新导航状态、触发特定动画等
     });
 
-    // 平滑滚动到锚点（仅桌面端自动滚动，移动端不自动滚动）
-    function isMobileDevice() {
-        return /Mobi|Android|iPhone|iPad|iPod|Mobile|Tablet|Phone/i.test(navigator.userAgent) || (window.innerWidth <= 900 && 'ontouchstart' in window);
-    }
-    if (window.location.hash && !isMobileDevice()) {
-        const targetSection = document.querySelector(window.location.hash);
-        if (targetSection) {
-            setTimeout(() => {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-        }
-    }
 
     // 添加一些额外的交互效果
     addExtraInteractions();
